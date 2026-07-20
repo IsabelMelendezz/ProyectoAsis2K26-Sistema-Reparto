@@ -8,6 +8,7 @@ Lourdes Isabel Melendez Pineda 9959-23-1379
 Cristian David Sipac Ispache 9959-23-1567
 
 Victor Omar Gomez Carrascosa 9959-23-10733
+Byron Alexander Chiquito Paredes 0901-23-3747
 
 
 
