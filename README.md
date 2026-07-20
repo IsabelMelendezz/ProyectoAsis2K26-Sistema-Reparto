@@ -3,3 +3,4 @@ Repositorio del proyecto grupal de un sistema de reparto funcional desarrollado 
 
 Equipo conformado por:
 Carlos David Calderón Ramirez 9959-23-848
+Lourdes Isabel Melendez Pineda 9959-23-1379
