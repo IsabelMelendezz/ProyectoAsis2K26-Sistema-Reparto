@@ -53,3 +53,53 @@ dkms.conf
 
 # debug information files
 *.dwo
+# Visual Studio
+.vs/
+.vscode/
+
+# Build
+bin/
+obj/
+
+# Rider
+.idea/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Logs
+*.log
+
+# Packages
+packages/
+
+# NuGet
+*.nupkg
+
+# Database
+*.mdf
+*.ldf
+
+# Publish
+publish/
+
+# Temporary files
+*.tmp
+*.cache
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Visual Studio Installer
+*.vsix
+
+# Test Results
+TestResults/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
