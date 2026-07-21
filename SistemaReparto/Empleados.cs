@@ -10,24 +10,24 @@ using System.Windows.Forms;
 
 namespace SistemaReparto
 {
-    public partial class Rutas : Form
+    public partial class Empleados : Form
     {
-        public Rutas()
+        public Empleados()
         {
             InitializeComponent();
         }
 
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
         {
 
         }

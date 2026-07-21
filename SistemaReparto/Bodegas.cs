@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace SistemaReparto
 {
-    public partial class Rutas : Form
+    public partial class Bodegas : Form
     {
-        public Rutas()
+        public Bodegas()
         {
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
@@ -27,7 +27,12 @@ namespace SistemaReparto
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

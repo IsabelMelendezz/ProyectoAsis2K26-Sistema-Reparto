@@ -48,7 +48,7 @@ namespace SistemaReparto
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            OpenFormInPanel(new Bodegas());
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -83,7 +83,7 @@ namespace SistemaReparto
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            OpenFormInPanel(new Transportes());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace SistemaReparto
 
         private void btnRepartidores_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new Repartidores());
+            OpenFormInPanel(new Empleados());
         }
 
         private void btnSucursales_Click(object sender, EventArgs e)
