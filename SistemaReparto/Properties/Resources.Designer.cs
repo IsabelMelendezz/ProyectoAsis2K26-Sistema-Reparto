@@ -203,6 +203,26 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap norteklogo {
+            get {
+                object obj = ResourceManager.GetObject("norteklogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap norteklogo1 {
+            get {
+                object obj = ResourceManager.GetObject("norteklogo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap norton_Letras_logo {
             get {
                 object obj = ResourceManager.GetObject("norton Letras logo", resourceCulture);

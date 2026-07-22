@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
-            pictureBox3 = new PictureBox();
             txtApellidos = new TextBox();
             txtcontraseña = new TextBox();
             txtnombres = new TextBox();
@@ -40,33 +38,15 @@
             txttelefono = new TextBox();
             pictureBox2 = new PictureBox();
             pnl_Registro = new Panel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             pnl_Registro.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackgroundImage = Properties.Resources.fondo_2;
-            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(630, 652);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.azul;
-            pictureBox3.Location = new Point(12, 21);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(214, 61);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 10;
-            pictureBox3.TabStop = false;
             // 
             // txtApellidos
             // 
@@ -122,7 +102,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(57, 36);
+            label1.Location = new Point(64, 36);
             label1.Name = "label1";
             label1.Size = new Size(219, 28);
             label1.TabIndex = 0;
@@ -186,11 +166,42 @@
             pnl_Registro.Controls.Add(txtcontrav);
             pnl_Registro.Controls.Add(txtemail);
             pnl_Registro.Controls.Add(txttelefono);
-            pnl_Registro.Location = new Point(161, 98);
+            pnl_Registro.Location = new Point(224, 120);
             pnl_Registro.Name = "pnl_Registro";
             pnl_Registro.Size = new Size(358, 526);
             pnl_Registro.TabIndex = 8;
             pnl_Registro.Paint += pnl_Registro_Paint;
+            // 
+            // panel1
+            // 
+            panel1.BackgroundImage = Properties.Resources.fondo_2;
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(pnl_Registro);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(768, 752);
+            panel1.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            panel2.AutoSize = true;
+            panel2.BackColor = Color.Transparent;
+            panel2.BackgroundImage = Properties.Resources.norton_Letras_logo;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(32, 40);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(211, 75);
+            panel2.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.norteklogo;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(208, 72);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
             // Registros
             // 
@@ -198,10 +209,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = SystemColors.Menu;
-            ClientSize = new Size(630, 652);
-            Controls.Add(pnl_Registro);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(771, 762);
+            Controls.Add(panel1);
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -210,18 +219,17 @@
             Text = "Form1";
             Load += Registros_Load;
             Resize += Registros_Resize;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             pnl_Registro.ResumeLayout(false);
             pnl_Registro.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox3;
         private TextBox txtApellidos;
         private TextBox txtcontraseña;
         private TextBox txtnombres;
@@ -232,5 +240,8 @@
         private TextBox txttelefono;
         private PictureBox pictureBox2;
         private Panel pnl_Registro;
+        private Panel panel1;
+        private Panel panel2;
+        private PictureBox pictureBox1;
     }
 }

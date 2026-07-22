@@ -52,5 +52,15 @@ namespace SistemaReparto
         {
             pnl_Registro.Region = new Region(GetRoundedRect(pnl_Registro.ClientRectangle, 20));
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
