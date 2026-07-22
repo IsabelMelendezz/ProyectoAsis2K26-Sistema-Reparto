@@ -41,18 +41,20 @@
             panel4 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
-            label1 = new Label();
-            label2 = new Label();
+            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             panelcontrol = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Indigo;
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImage = Properties.Resources.barra_menu;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
             panel1.CausesValidation = false;
             panel1.Controls.Add(btnSucursales);
             panel1.Controls.Add(btnPilotos);
@@ -82,7 +84,7 @@
             btnSucursales.ForeColor = Color.White;
             btnSucursales.Image = Properties.Resources.bodega__1_;
             btnSucursales.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSucursales.Location = new Point(24, 644);
+            btnSucursales.Location = new Point(24, 624);
             btnSucursales.Name = "btnSucursales";
             btnSucursales.RightToLeft = RightToLeft.No;
             btnSucursales.Size = new Size(188, 65);
@@ -102,7 +104,7 @@
             btnPilotos.ForeColor = Color.White;
             btnPilotos.Image = Properties.Resources.pilotos__1_;
             btnPilotos.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPilotos.Location = new Point(24, 579);
+            btnPilotos.Location = new Point(24, 559);
             btnPilotos.Name = "btnPilotos";
             btnPilotos.RightToLeft = RightToLeft.No;
             btnPilotos.Size = new Size(188, 65);
@@ -121,7 +123,7 @@
             btnRepartidores.ForeColor = Color.White;
             btnRepartidores.Image = Properties.Resources.repartidores__3_;
             btnRepartidores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRepartidores.Location = new Point(24, 514);
+            btnRepartidores.Location = new Point(24, 494);
             btnRepartidores.Name = "btnRepartidores";
             btnRepartidores.RightToLeft = RightToLeft.No;
             btnRepartidores.Size = new Size(188, 65);
@@ -142,7 +144,7 @@
             btnTransportes.ForeColor = Color.White;
             btnTransportes.Image = Properties.Resources.descarga__1_;
             btnTransportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTransportes.Location = new Point(24, 449);
+            btnTransportes.Location = new Point(24, 429);
             btnTransportes.Name = "btnTransportes";
             btnTransportes.Size = new Size(188, 65);
             btnTransportes.TabIndex = 9;
@@ -162,7 +164,7 @@
             btnReportes.ForeColor = Color.White;
             btnReportes.Image = Properties.Resources.reportes__1_;
             btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReportes.Location = new Point(24, 384);
+            btnReportes.Location = new Point(24, 364);
             btnReportes.Name = "btnReportes";
             btnReportes.RightToLeft = RightToLeft.No;
             btnReportes.Size = new Size(188, 65);
@@ -182,7 +184,7 @@
             btnBodegas.ForeColor = Color.White;
             btnBodegas.Image = Properties.Resources.bodegas__1_;
             btnBodegas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBodegas.Location = new Point(24, 319);
+            btnBodegas.Location = new Point(24, 299);
             btnBodegas.Name = "btnBodegas";
             btnBodegas.RightToLeft = RightToLeft.No;
             btnBodegas.Size = new Size(188, 65);
@@ -202,7 +204,7 @@
             btnPaquetes.ForeColor = Color.White;
             btnPaquetes.Image = Properties.Resources.paquetes_1_;
             btnPaquetes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPaquetes.Location = new Point(24, 254);
+            btnPaquetes.Location = new Point(24, 234);
             btnPaquetes.Name = "btnPaquetes";
             btnPaquetes.RightToLeft = RightToLeft.No;
             btnPaquetes.Size = new Size(188, 65);
@@ -222,7 +224,7 @@
             btnRutas.ForeColor = Color.White;
             btnRutas.Image = Properties.Resources.Ubicacion;
             btnRutas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRutas.Location = new Point(24, 189);
+            btnRutas.Location = new Point(24, 169);
             btnRutas.Name = "btnRutas";
             btnRutas.RightToLeft = RightToLeft.No;
             btnRutas.Size = new Size(188, 65);
@@ -242,7 +244,7 @@
             btnUsuarios.ForeColor = Color.White;
             btnUsuarios.Image = Properties.Resources.agregar_usuario__3_;
             btnUsuarios.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUsuarios.Location = new Point(24, 124);
+            btnUsuarios.Location = new Point(24, 104);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.RightToLeft = RightToLeft.No;
             btnUsuarios.Size = new Size(188, 65);
@@ -255,69 +257,49 @@
             // panel4
             // 
             panel4.Dock = DockStyle.Right;
-            panel4.Location = new Point(212, 124);
+            panel4.Location = new Point(212, 104);
             panel4.Name = "panel4";
-            panel4.Size = new Size(24, 1001);
+            panel4.Size = new Size(24, 1021);
             panel4.TabIndex = 2;
             // 
             // panel3
             // 
             panel3.Dock = DockStyle.Left;
-            panel3.Location = new Point(0, 124);
+            panel3.Location = new Point(0, 104);
             panel3.Name = "panel3";
-            panel3.Size = new Size(24, 1001);
+            panel3.Size = new Size(24, 1021);
             panel3.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.AutoScroll = true;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(label2);
+            panel2.Controls.Add(pictureBox2);
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(236, 124);
+            panel2.Size = new Size(236, 104);
             panel2.TabIndex = 0;
             panel2.Paint += panel2_Paint;
             // 
-            // label1
+            // pictureBox2
             // 
-            label1.AutoEllipsis = true;
-            label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(56, 76);
-            label1.Name = "label1";
-            label1.Size = new Size(176, 23);
-            label1.TabIndex = 1;
-            label1.Text = "Sistema de paqueteria";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.UseCompatibleTextRendering = true;
-            label1.Click += label1_Click;
-            // 
-            // label2
-            // 
-            label2.AutoEllipsis = true;
-            label2.AutoSize = true;
-            label2.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(88, 48);
-            label2.Name = "label2";
-            label2.Size = new Size(121, 34);
-            label2.TabIndex = 2;
-            label2.Text = "UI DESING";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.UseCompatibleTextRendering = true;
-            label2.Click += label2_Click;
+            pictureBox2.Image = Properties.Resources.norton_Letras_logo1;
+            pictureBox2.Location = new Point(104, 16);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(120, 80);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            pictureBox2.WaitOnLoad = true;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.logo_envios_2;
-            pictureBox1.Location = new Point(12, 3);
+            pictureBox1.Image = Properties.Resources.patito1;
+            pictureBox1.Location = new Point(0, 8);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(73, 74);
+            pictureBox1.Size = new Size(96, 88);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -347,7 +329,7 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -359,8 +341,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
@@ -373,6 +353,7 @@
         private System.Windows.Forms.Button btnRepartidores;
         private System.Windows.Forms.Button btnTransportes;
         private System.Windows.Forms.Panel panelcontrol;
+        private PictureBox pictureBox2;
     }
 }
 

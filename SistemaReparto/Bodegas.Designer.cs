@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bodegas));
             panel3 = new Panel();
             textBox4 = new TextBox();
             label8 = new Label();
@@ -51,15 +50,11 @@
             panel2 = new Panel();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label4 = new Label();
-            pictureBox2 = new PictureBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel3
@@ -230,11 +225,11 @@
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.BackColor = Color.Indigo;
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImage = Properties.Resources.barra_menu_horizontal;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(pictureBox2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
@@ -247,7 +242,6 @@
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel2.AutoSize = true;
-            panel2.Controls.Add(label2);
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(896, 29);
             panel2.Margin = new Padding(2);
@@ -261,12 +255,12 @@
             label2.Anchor = AnchorStyles.Left;
             label2.AutoEllipsis = true;
             label2.AutoSize = true;
-            label2.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Century Gothic", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(-9, 28);
+            label2.Location = new Point(32, 40);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(138, 42);
+            label2.Size = new Size(176, 53);
             label2.TabIndex = 6;
             label2.Text = "Bodegas";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -282,47 +276,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoEllipsis = true;
-            label1.AutoSize = true;
-            label1.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(51, 78);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(141, 19);
-            label1.TabIndex = 4;
-            label1.Text = "Sistema de paqueteria";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.UseCompatibleTextRendering = true;
-            // 
-            // label4
-            // 
-            label4.AutoEllipsis = true;
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(79, 53);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(97, 28);
-            label4.TabIndex = 5;
-            label4.Text = "UI DESING";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            label4.UseCompatibleTextRendering = true;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(9, 29);
-            pictureBox2.Margin = new Padding(2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(64, 69);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 3;
-            pictureBox2.TabStop = false;
             // 
             // Bodegas
             // 
@@ -341,9 +294,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
 
         }
@@ -361,9 +312,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label8;
@@ -375,5 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private PictureBox pictureBox2;
     }
 }

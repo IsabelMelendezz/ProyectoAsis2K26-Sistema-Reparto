@@ -73,6 +73,26 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barra_menu {
+            get {
+                object obj = ResourceManager.GetObject("barra menu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap barra_menu_horizontal {
+            get {
+                object obj = ResourceManager.GetObject("barra menu horizontal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bodega {
             get {
                 object obj = ResourceManager.GetObject("bodega", resourceCulture);
@@ -153,6 +173,26 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap norton_Letras_logo {
+            get {
+                object obj = ResourceManager.GetObject("norton Letras logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap norton_Letras_logo1 {
+            get {
+                object obj = ResourceManager.GetObject("norton Letras logo1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paquetes {
             get {
                 object obj = ResourceManager.GetObject("paquetes", resourceCulture);
@@ -176,6 +216,16 @@ namespace SistemaReparto.Properties {
         internal static System.Drawing.Bitmap patito {
             get {
                 object obj = ResourceManager.GetObject("patito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap patito1 {
+            get {
+                object obj = ResourceManager.GetObject("patito1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -118,20 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="reportes (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\reportes (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="norton Letras logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\norton Letras logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="patito1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\patito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="patito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\patito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paquetes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\paquetes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="norton Letras logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\norton Letras logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bodega" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bodega.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="marca-de-ubicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\marca-de-ubicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="repartidores" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\repartidores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bodegas (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bodegas (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +166,8 @@
   <data name="bodega (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bodega (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="repartidores" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\repartidores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="marca-de-ubicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\marca-de-ubicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pilotos (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\pilotos (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,10 +178,16 @@
   <data name="descarga (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\descarga (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reportes (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\reportes (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paquetes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\paquetes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\barra menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bodegas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bodegas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barra menu horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\barra menu horizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
