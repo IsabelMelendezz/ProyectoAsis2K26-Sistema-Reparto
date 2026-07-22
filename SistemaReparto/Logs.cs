@@ -39,7 +39,7 @@ using System.Drawing.Drawing2D;
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            panel1.Region = new Region(GetRoundedRect(panel1.ClientRectangle, 20));
+            pnl_log.Region = new Region(GetRoundedRect(pnl_log.ClientRectangle, 20));
         }
 
         private void pictureLog3_Click(object sender, EventArgs e)

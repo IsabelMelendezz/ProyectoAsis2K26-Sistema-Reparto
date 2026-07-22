@@ -35,12 +35,12 @@
             lbl_no_Cuenta = new Label();
             pictureLog1 = new PictureBox();
             lbl_Inicio = new Label();
-            panel1 = new Panel();
+            pnl_log = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureLog1).BeginInit();
-            panel1.SuspendLayout();
+            pnl_log.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -118,23 +118,23 @@
             lbl_Inicio.TabIndex = 8;
             lbl_Inicio.Text = "INICIAR SESIÓN";
             // 
-            // panel1
+            // pnl_log
             // 
-            panel1.BackColor = SystemColors.ButtonFace;
-            panel1.Controls.Add(txt_Contra_Log);
-            panel1.Controls.Add(txt_Usu_Log);
-            panel1.Controls.Add(lbl_no_Cuenta);
-            panel1.Controls.Add(btn_Log);
-            panel1.Controls.Add(pictureLog1);
-            panel1.Controls.Add(lbl_Inicio);
-            panel1.Controls.Add(btn_Registrar_Log);
-            panel1.Controls.Add(panel2);
-            panel1.Controls.Add(panel3);
-            panel1.Location = new Point(525, 133);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(351, 400);
-            panel1.TabIndex = 11;
-            panel1.Paint += panel1_Paint;
+            pnl_log.BackColor = SystemColors.ButtonFace;
+            pnl_log.Controls.Add(txt_Contra_Log);
+            pnl_log.Controls.Add(txt_Usu_Log);
+            pnl_log.Controls.Add(lbl_no_Cuenta);
+            pnl_log.Controls.Add(btn_Log);
+            pnl_log.Controls.Add(pictureLog1);
+            pnl_log.Controls.Add(lbl_Inicio);
+            pnl_log.Controls.Add(btn_Registrar_Log);
+            pnl_log.Controls.Add(panel2);
+            pnl_log.Controls.Add(panel3);
+            pnl_log.Location = new Point(525, 133);
+            pnl_log.Name = "pnl_log";
+            pnl_log.Size = new Size(351, 400);
+            pnl_log.TabIndex = 11;
+            pnl_log.Paint += panel1_Paint;
             // 
             // panel2
             // 
@@ -169,7 +169,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(898, 599);
-            Controls.Add(panel1);
+            Controls.Add(pnl_log);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -177,8 +177,8 @@
             Text = "Form1";
             Load += Logs_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLog1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnl_log.ResumeLayout(false);
+            pnl_log.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
@@ -192,7 +192,7 @@
         private Label lbl_no_Cuenta;
         private PictureBox pictureLog1;
         private Label lbl_Inicio;
-        private Panel panel1;
+        private Panel pnl_log;
         private PictureBox pictureBox1;
         private Panel panel2;
         private Panel panel3;
