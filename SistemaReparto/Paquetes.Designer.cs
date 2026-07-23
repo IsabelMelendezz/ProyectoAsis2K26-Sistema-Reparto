@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
             label2 = new Label();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             comboBox1 = new ComboBox();
             cbo_Fragil_Paquete = new ComboBox();
@@ -81,19 +81,6 @@
             panel1.Size = new Size(1067, 176);
             panel1.TabIndex = 2;
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.AutoSize = true;
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(659, 39);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.MaximumSize = new Size(1500, 139);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(327, 134);
-            panel2.TabIndex = 3;
-            // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Left;
@@ -110,6 +97,19 @@
             label2.TextAlign = ContentAlignment.MiddleCenter;
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel2.AutoSize = true;
+            panel2.BackColor = Color.Transparent;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(659, 39);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.MaximumSize = new Size(1500, 139);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(327, 134);
+            panel2.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -157,10 +157,10 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(13, 232);
+            textBox2.Location = new Point(28, 233);
             textBox2.Name = "textBox2";
             textBox2.PlaceholderText = "⚖️ Peso (Kg)";
-            textBox2.Size = new Size(173, 27);
+            textBox2.Size = new Size(175, 27);
             textBox2.TabIndex = 8;
             // 
             // label3
@@ -326,7 +326,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(11, 314);
+            textBox4.Location = new Point(28, 315);
             textBox4.Name = "textBox4";
             textBox4.PlaceholderText = "↕️ Alto";
             textBox4.Size = new Size(175, 27);

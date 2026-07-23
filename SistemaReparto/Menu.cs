@@ -37,7 +37,7 @@ namespace SistemaReparto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new Registros());
+            OpenFormInPanel(new Usuarios());
         }
 
 
