@@ -173,6 +173,66 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Btn_Actualizar {
+            get {
+                object obj = ResourceManager.GetObject("Btn_Actualizar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Btn_Editar {
+            get {
+                object obj = ResourceManager.GetObject("Btn_Editar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Btn_ELiminar {
+            get {
+                object obj = ResourceManager.GetObject("Btn_ELiminar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Btn_guardar {
+            get {
+                object obj = ResourceManager.GetObject("Btn_guardar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Btn_Limpiar {
+            get {
+                object obj = ResourceManager.GetObject("Btn_Limpiar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Btn_Nuevo {
+            get {
+                object obj = ResourceManager.GetObject("Btn_Nuevo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap descarga__1_ {
             get {
                 object obj = ResourceManager.GetObject("descarga (1)", resourceCulture);
@@ -206,6 +266,16 @@ namespace SistemaReparto.Properties {
         public static System.Drawing.Bitmap fondo_inicio {
             get {
                 object obj = ResourceManager.GetObject("fondo_inicio", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Icon_Acciones {
+            get {
+                object obj = ResourceManager.GetObject("Icon_Acciones", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +436,16 @@ namespace SistemaReparto.Properties {
         public static System.Drawing.Bitmap Repa_ico {
             get {
                 object obj = ResourceManager.GetObject("Repa_ico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Repa_ico1 {
+            get {
+                object obj = ResourceManager.GetObject("Repa_ico1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
