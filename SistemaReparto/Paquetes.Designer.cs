@@ -238,6 +238,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID_Paquete, Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9 });
             dataGridView1.Location = new Point(13, 489);
@@ -251,70 +252,60 @@
             ID_Paquete.HeaderText = "ID_Paquete";
             ID_Paquete.MinimumWidth = 6;
             ID_Paquete.Name = "ID_Paquete";
-            ID_Paquete.Width = 125;
             // 
             // Column1
             // 
             Column1.HeaderText = "ID_Pedido";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // Column2
             // 
             Column2.HeaderText = "Codigo_Rastreo";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 125;
             // 
             // Column3
             // 
             Column3.HeaderText = "Peso";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 125;
             // 
             // Column4
             // 
             Column4.HeaderText = "Alto";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 125;
             // 
             // Column5
             // 
             Column5.HeaderText = "Ancho";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
-            Column5.Width = 125;
             // 
             // Column6
             // 
             Column6.HeaderText = "Largo";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
-            Column6.Width = 125;
             // 
             // Column7
             // 
             Column7.HeaderText = "Descripcion";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
-            Column7.Width = 125;
             // 
             // Column8
             // 
             Column8.HeaderText = "Fragil";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
-            Column8.Width = 125;
             // 
             // Column9
             // 
             Column9.HeaderText = "Valor_Declarado";
             Column9.MinimumWidth = 6;
             Column9.Name = "Column9";
-            Column9.Width = 125;
             // 
             // textBox1
             // 

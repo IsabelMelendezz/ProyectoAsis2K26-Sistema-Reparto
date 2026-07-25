@@ -53,21 +53,24 @@
             Column6 = new DataGridViewTextBoxColumn();
             Column8 = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
-            panel2 = new Panel();
             label2 = new Label();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            Lbl_Enca_Trans = new Label();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel3.AutoScroll = true;
-            panel3.BackColor = Color.SlateBlue;
+            panel3.BackColor = Color.Lavender;
             panel3.Controls.Add(comboBox2);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(comboBox1);
@@ -226,7 +229,8 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeight = 34;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column7, Column2, Column3, Column4, Column5, Column6, Column8 });
             dataGridView1.Location = new Point(117, 394);
             dataGridView1.Margin = new Padding(4, 5, 4, 5);
@@ -240,56 +244,48 @@
             Column1.HeaderText = "id_vehiculo";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // Column7
             // 
             Column7.HeaderText = "placa";
             Column7.MinimumWidth = 6;
             Column7.Name = "Column7";
-            Column7.Width = 150;
             // 
             // Column2
             // 
             Column2.HeaderText = "marca";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 125;
             // 
             // Column3
             // 
             Column3.HeaderText = "modelo";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 125;
             // 
             // Column4
             // 
             Column4.HeaderText = "año";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 125;
             // 
             // Column5
             // 
             Column5.HeaderText = "capacidad";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
-            Column5.Width = 150;
             // 
             // Column6
             // 
             Column6.HeaderText = "tipo_vehiuclo";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
-            Column6.Width = 125;
             // 
             // Column8
             // 
             Column8.HeaderText = "estado_vehiculo";
             Column8.MinimumWidth = 6;
             Column8.Name = "Column8";
-            Column8.Width = 125;
             // 
             // panel1
             // 
@@ -297,6 +293,8 @@
             panel1.BackColor = Color.Indigo;
             panel1.BackgroundImage = Properties.Resources.barra_menu_horizontal;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(Lbl_Enca_Trans);
+            panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Top;
@@ -304,6 +302,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1420, 177);
             panel1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left;
+            label2.AutoEllipsis = true;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(189, 37);
+            label2.Name = "label2";
+            label2.Size = new Size(216, 52);
+            label2.TabIndex = 6;
+            label2.Text = "Transportes";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            label2.UseCompatibleTextRendering = true;
             // 
             // panel2
             // 
@@ -317,31 +331,38 @@
             panel2.Size = new Size(368, 135);
             panel2.TabIndex = 3;
             // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Left;
-            label2.AutoEllipsis = true;
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(44, 66);
-            label2.Name = "label2";
-            label2.Size = new Size(216, 52);
-            label2.TabIndex = 6;
-            label2.Text = "Transportes";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            label2.UseCompatibleTextRendering = true;
-            // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.bodega;
+            pictureBox1.Image = Properties.Resources.patito;
             pictureBox1.Location = new Point(235, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(116, 120);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.Trans_ico;
+            pictureBox2.Location = new Point(39, 22);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(144, 132);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // Lbl_Enca_Trans
+            // 
+            Lbl_Enca_Trans.AutoSize = true;
+            Lbl_Enca_Trans.BackColor = Color.Transparent;
+            Lbl_Enca_Trans.Font = new Font("Segoe UI", 12F, FontStyle.Italic);
+            Lbl_Enca_Trans.ForeColor = SystemColors.ButtonHighlight;
+            Lbl_Enca_Trans.Location = new Point(189, 98);
+            Lbl_Enca_Trans.Name = "Lbl_Enca_Trans";
+            Lbl_Enca_Trans.Size = new Size(367, 28);
+            Lbl_Enca_Trans.TabIndex = 8;
+            Lbl_Enca_Trans.Text = "Gestiona la flota de vehículos de reparto.";
             // 
             // Transportes
             // 
@@ -360,6 +381,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
 
         }
@@ -394,5 +416,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private PictureBox pictureBox2;
+        private Label Lbl_Enca_Trans;
     }
 }

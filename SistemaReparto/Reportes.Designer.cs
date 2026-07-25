@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            panel2 = new Panel();
             label2 = new Label();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             label3 = new Label();
             label5 = new Label();
@@ -67,19 +67,6 @@
             panel1.Size = new Size(1067, 176);
             panel1.TabIndex = 2;
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.AutoSize = true;
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(627, 39);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.MaximumSize = new Size(1500, 139);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(338, 134);
-            panel2.TabIndex = 3;
-            // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Left;
@@ -96,6 +83,19 @@
             label2.TextAlign = ContentAlignment.MiddleCenter;
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel2.AutoSize = true;
+            panel2.BackColor = Color.Transparent;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(627, 39);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.MaximumSize = new Size(1500, 139);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(338, 134);
+            panel2.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -160,6 +160,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID_Pedido, Column1, Column2, Column3, Column4, Column5, Column6 });
             dataGridView1.Location = new Point(34, 382);
@@ -173,49 +174,42 @@
             ID_Pedido.HeaderText = "ID_Pedido";
             ID_Pedido.MinimumWidth = 6;
             ID_Pedido.Name = "ID_Pedido";
-            ID_Pedido.Width = 125;
             // 
             // Column1
             // 
             Column1.HeaderText = "Repartidor";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 125;
             // 
             // Column2
             // 
             Column2.HeaderText = "Fecha";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 125;
             // 
             // Column3
             // 
             Column3.HeaderText = "Destino";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 125;
             // 
             // Column4
             // 
             Column4.HeaderText = "ID_Paquete";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 125;
             // 
             // Column5
             // 
             Column5.HeaderText = "Estado";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
-            Column5.Width = 125;
             // 
             // Column6
             // 
             Column6.HeaderText = "Feedback";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
-            Column6.Width = 125;
             // 
             // Reportes
             // 

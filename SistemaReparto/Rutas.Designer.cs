@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rutas));
             panel1 = new Panel();
-            panel2 = new Panel();
             label2 = new Label();
+            panel2 = new Panel();
             pictureBox1 = new PictureBox();
             dataGridView1 = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
@@ -70,18 +70,6 @@
             panel1.Size = new Size(1420, 177);
             panel1.TabIndex = 2;
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.AutoSize = true;
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(1023, 38);
-            panel2.MaximumSize = new Size(1500, 138);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(294, 134);
-            panel2.TabIndex = 3;
-            // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Left;
@@ -99,6 +87,18 @@
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
             // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panel2.AutoSize = true;
+            panel2.BackColor = Color.Transparent;
+            panel2.Controls.Add(pictureBox1);
+            panel2.Location = new Point(1023, 38);
+            panel2.MaximumSize = new Size(1500, 138);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(294, 134);
+            panel2.TabIndex = 3;
+            // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
@@ -111,7 +111,8 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.ColumnHeadersHeight = 34;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
             dataGridView1.Location = new Point(85, 382);
             dataGridView1.Margin = new Padding(4, 5, 4, 5);
@@ -126,42 +127,36 @@
             Column1.HeaderText = "Origen";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
-            Column1.Width = 150;
             // 
             // Column2
             // 
             Column2.HeaderText = "Destino";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
-            Column2.Width = 150;
             // 
             // Column3
             // 
             Column3.HeaderText = "Distancia Estimada";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
-            Column3.Width = 150;
             // 
             // Column4
             // 
             Column4.HeaderText = "Tiempo Estimado";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
-            Column4.Width = 150;
             // 
             // Column5
             // 
             Column5.HeaderText = "Piloto";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
-            Column5.Width = 150;
             // 
             // Column6
             // 
             Column6.HeaderText = "Vehiculo Asignado";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
-            Column6.Width = 150;
             // 
             // comboBox1
             // 
