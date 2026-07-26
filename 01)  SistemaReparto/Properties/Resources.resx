@@ -124,6 +124,9 @@
   <data name="Repo_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Repo_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Usu_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Usu_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paq_Inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\paq_Inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -157,23 +160,23 @@
   <data name="Btn_Actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Btn_Actualizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="paquetes(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\paquetes(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bodega" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bodega.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Trans_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Trans_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="marca-de-ubicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\marca-de-ubicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="norton Letras logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\norton Letras logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="barra menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\barra menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Sucu_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Sucu_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reportes (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\reportes (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Btn_Editar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Btn_Editar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,14 +184,14 @@
   <data name="norteklogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\norteklogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Usu_ico1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Usu_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Btn_Nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Btn_Nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reportes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\reportes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\fondo 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bodegas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\bodegas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -198,6 +201,9 @@
   </data>
   <data name="fondo_inicio" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\fondo_inicio.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_Acciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Icon_Acciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="patito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\patito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -210,9 +216,6 @@
   </data>
   <data name="repartidores" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\repartidores.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paquetes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\paquetes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="repartidores (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\repartidores (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,8 +238,8 @@
   <data name="agregar-usuario (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\agregar-usuario (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Usu_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Usu_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="barra menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\barra menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Btn_Limpiar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Btn_Limpiar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -247,17 +250,17 @@
   <data name="norton Letras logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\norton Letras logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paquetes(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\paquetes(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reportes (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\reportes (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="marca-de-ubicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\marca-de-ubicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Usu_ico1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Usu_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Repa_ico1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\Repa_ico.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fondo 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\fondo 2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="paquetes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\paquetes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="barra menu horizontal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\barra menu horizontal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -271,7 +274,7 @@
   <data name="logo envios 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagenes\logo envios 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon_Acciones" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagenes\Icon_Acciones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Arg_Transporte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagenes\Arg_Transporte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
