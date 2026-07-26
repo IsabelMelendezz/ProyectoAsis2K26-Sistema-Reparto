@@ -29,39 +29,28 @@
         private void InitializeComponent()
         {
             panel3 = new Panel();
-            dateTimePicker2 = new DateTimePicker();
-            label13 = new Label();
-            dataGridView1 = new DataGridView();
-            Id_Empleado = new DataGridViewTextBoxColumn();
-            Tipo_Empleado = new DataGridViewTextBoxColumn();
-            Estado = new DataGridViewTextBoxColumn();
-            Nombres = new DataGridViewTextBoxColumn();
-            Apellidos = new DataGridViewTextBoxColumn();
-            DPI = new DataGridViewTextBoxColumn();
-            NIT = new DataGridViewTextBoxColumn();
-            Correo = new DataGridViewTextBoxColumn();
-            Direccion = new DataGridViewTextBoxColumn();
-            Fecha_nacimiento = new DataGridViewTextBoxColumn();
-            Fecha_contratacion = new DataGridViewTextBoxColumn();
+            btnProbarConexion_Click = new Button();
+            Tabla_Empleados = new DataGridView();
             panel4 = new Panel();
+            Correo_Empleado = new TextBox();
+            Contratacion_Empleado = new DateTimePicker();
             pictureBox4 = new PictureBox();
+            label13 = new Label();
             label1 = new Label();
-            dateTimePicker3 = new DateTimePicker();
-            comboBox3 = new ComboBox();
-            comboBox4 = new ComboBox();
+            Nacimiento_Empleado = new DateTimePicker();
+            Tipo_Empleado1 = new ComboBox();
+            Estado_Empleado = new ComboBox();
             label14 = new Label();
-            textBox4 = new TextBox();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            Nit_Empleado = new TextBox();
             label12 = new Label();
-            textBox1 = new TextBox();
+            Nombre_Empleado = new TextBox();
             label11 = new Label();
-            textBox3 = new TextBox();
+            Direccion_Empleado = new TextBox();
             label10 = new Label();
             label9 = new Label();
             label8 = new Label();
-            textBox6 = new TextBox();
-            textBox2 = new TextBox();
+            Dpi_Empleado = new TextBox();
+            Apellidos_Empleado = new TextBox();
             label5 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -69,19 +58,20 @@
             panel5 = new Panel();
             pictureBox3 = new PictureBox();
             label4 = new Label();
-            button3 = new Button();
-            button6 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            button1 = new Button();
-            button5 = new Button();
+            Btn_Limpiar_Emp = new Button();
+            Btn_Nuevo_Emp = new Button();
+            Btn_Editar_Emp = new Button();
+            Btn_Eliminar_Emp = new Button();
+            Btn_Guardar_Emp = new Button();
+            Btn_Actualizar_Emp = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label15 = new Label();
             pictureBox2 = new PictureBox();
             label2 = new Label();
+            Telefono_Empleado = new TextBox();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Tabla_Empleados).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel5.SuspendLayout();
@@ -95,286 +85,219 @@
             // 
             panel3.AutoScroll = true;
             panel3.BackColor = Color.Lavender;
-            panel3.Controls.Add(dateTimePicker2);
-            panel3.Controls.Add(label13);
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(btnProbarConexion_Click);
+            panel3.Controls.Add(Tabla_Empleados);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(panel5);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 177);
-            panel3.Margin = new Padding(5, 5, 5, 5);
+            panel3.Location = new Point(0, 133);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1370, 572);
+            panel3.Size = new Size(1199, 429);
             panel3.TabIndex = 12;
             // 
-            // dateTimePicker2
+            // btnProbarConexion_Click
             // 
-            dateTimePicker2.Location = new Point(1048, 56);
-            dateTimePicker2.Margin = new Padding(5, 5, 5, 5);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(273, 27);
-            dateTimePicker2.TabIndex = 29;
+            btnProbarConexion_Click.AccessibleRole = AccessibleRole.Clock;
+            btnProbarConexion_Click.Location = new Point(818, 58);
+            btnProbarConexion_Click.Name = "btnProbarConexion_Click";
+            btnProbarConexion_Click.Size = new Size(75, 23);
+            btnProbarConexion_Click.TabIndex = 41;
+            btnProbarConexion_Click.Text = "button1";
+            btnProbarConexion_Click.UseVisualStyleBackColor = true;
+            btnProbarConexion_Click.Click += btnProbarConexion_Click_Click;
+            // 
+            // Tabla_Empleados
+            // 
+            Tabla_Empleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Tabla_Empleados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Tabla_Empleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Tabla_Empleados.Location = new Point(12, 300);
+            Tabla_Empleados.Margin = new Padding(4);
+            Tabla_Empleados.Name = "Tabla_Empleados";
+            Tabla_Empleados.RowHeadersWidth = 51;
+            Tabla_Empleados.Size = new Size(1130, 116);
+            Tabla_Empleados.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.AliceBlue;
+            panel4.Controls.Add(Telefono_Empleado);
+            panel4.Controls.Add(Correo_Empleado);
+            panel4.Controls.Add(Contratacion_Empleado);
+            panel4.Controls.Add(pictureBox4);
+            panel4.Controls.Add(label13);
+            panel4.Controls.Add(label1);
+            panel4.Controls.Add(Nacimiento_Empleado);
+            panel4.Controls.Add(Tipo_Empleado1);
+            panel4.Controls.Add(Estado_Empleado);
+            panel4.Controls.Add(label14);
+            panel4.Controls.Add(Nit_Empleado);
+            panel4.Controls.Add(label12);
+            panel4.Controls.Add(Nombre_Empleado);
+            panel4.Controls.Add(label11);
+            panel4.Controls.Add(Direccion_Empleado);
+            panel4.Controls.Add(label10);
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(label8);
+            panel4.Controls.Add(Dpi_Empleado);
+            panel4.Controls.Add(Apellidos_Empleado);
+            panel4.Controls.Add(label5);
+            panel4.Controls.Add(label7);
+            panel4.Controls.Add(label6);
+            panel4.Controls.Add(label3);
+            panel4.Location = new Point(12, 20);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(747, 262);
+            panel4.TabIndex = 33;
+            // 
+            // Correo_Empleado
+            // 
+            Correo_Empleado.Location = new Point(505, 121);
+            Correo_Empleado.Name = "Correo_Empleado";
+            Correo_Empleado.Size = new Size(229, 23);
+            Correo_Empleado.TabIndex = 43;
+            // 
+            // Contratacion_Empleado
+            // 
+            Contratacion_Empleado.Location = new Point(314, 229);
+            Contratacion_Empleado.Margin = new Padding(4);
+            Contratacion_Empleado.Name = "Contratacion_Empleado";
+            Contratacion_Empleado.Size = new Size(239, 23);
+            Contratacion_Empleado.TabIndex = 29;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.agregar_usuario__3_;
+            pictureBox4.Location = new Point(231, 16);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(30, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 42;
+            pictureBox4.TabStop = false;
             // 
             // label13
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(888, 63);
-            label13.Margin = new Padding(5, 0, 5, 0);
+            label13.Location = new Point(183, 234);
+            label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(155, 18);
+            label13.Size = new Size(123, 16);
             label13.TabIndex = 27;
             label13.Text = "Fecha Contratacion";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id_Empleado, Tipo_Empleado, Estado, Nombres, Apellidos, DPI, NIT, Correo, Direccion, Fecha_nacimiento, Fecha_contratacion });
-            dataGridView1.Location = new Point(15, 385);
-            dataGridView1.Margin = new Padding(5, 5, 5, 5);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1291, 155);
-            dataGridView1.TabIndex = 3;
-            // 
-            // Id_Empleado
-            // 
-            Id_Empleado.HeaderText = "Id_Empleado";
-            Id_Empleado.MinimumWidth = 6;
-            Id_Empleado.Name = "Id_Empleado";
-            // 
-            // Tipo_Empleado
-            // 
-            Tipo_Empleado.HeaderText = "Tipo_Empleado";
-            Tipo_Empleado.MinimumWidth = 10;
-            Tipo_Empleado.Name = "Tipo_Empleado";
-            // 
-            // Estado
-            // 
-            Estado.HeaderText = "Estado";
-            Estado.MinimumWidth = 6;
-            Estado.Name = "Estado";
-            // 
-            // Nombres
-            // 
-            Nombres.HeaderText = "Nombres";
-            Nombres.MinimumWidth = 6;
-            Nombres.Name = "Nombres";
-            // 
-            // Apellidos
-            // 
-            Apellidos.HeaderText = "Apellidos";
-            Apellidos.MinimumWidth = 6;
-            Apellidos.Name = "Apellidos";
-            // 
-            // DPI
-            // 
-            DPI.HeaderText = "DPI";
-            DPI.MinimumWidth = 6;
-            DPI.Name = "DPI";
-            // 
-            // NIT
-            // 
-            NIT.HeaderText = "NIT";
-            NIT.MinimumWidth = 6;
-            NIT.Name = "NIT";
-            // 
-            // Correo
-            // 
-            Correo.HeaderText = "Correo";
-            Correo.MinimumWidth = 6;
-            Correo.Name = "Correo";
-            // 
-            // Direccion
-            // 
-            Direccion.HeaderText = "Direccion";
-            Direccion.MinimumWidth = 6;
-            Direccion.Name = "Direccion";
-            // 
-            // Fecha_nacimiento
-            // 
-            Fecha_nacimiento.HeaderText = "Fecha_nacimiento";
-            Fecha_nacimiento.MinimumWidth = 6;
-            Fecha_nacimiento.Name = "Fecha_nacimiento";
-            // 
-            // Fecha_contratacion
-            // 
-            Fecha_contratacion.HeaderText = "Fecha_contratacion";
-            Fecha_contratacion.MinimumWidth = 6;
-            Fecha_contratacion.Name = "Fecha_contratacion";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.AliceBlue;
-            panel4.Controls.Add(pictureBox4);
-            panel4.Controls.Add(label1);
-            panel4.Controls.Add(dateTimePicker3);
-            panel4.Controls.Add(comboBox3);
-            panel4.Controls.Add(comboBox4);
-            panel4.Controls.Add(label14);
-            panel4.Controls.Add(textBox4);
-            panel4.Controls.Add(comboBox1);
-            panel4.Controls.Add(comboBox2);
-            panel4.Controls.Add(label12);
-            panel4.Controls.Add(textBox1);
-            panel4.Controls.Add(label11);
-            panel4.Controls.Add(textBox3);
-            panel4.Controls.Add(label10);
-            panel4.Controls.Add(label9);
-            panel4.Controls.Add(label8);
-            panel4.Controls.Add(textBox6);
-            panel4.Controls.Add(textBox2);
-            panel4.Controls.Add(label5);
-            panel4.Controls.Add(label7);
-            panel4.Controls.Add(label6);
-            panel4.Controls.Add(label3);
-            panel4.Location = new Point(14, 27);
-            panel4.Margin = new Padding(3, 4, 3, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(854, 324);
-            panel4.TabIndex = 33;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.agregar_usuario__3_;
-            pictureBox4.Location = new Point(264, 21);
-            pictureBox4.Margin = new Padding(3, 4, 3, 4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(34, 36);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 42;
-            pictureBox4.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(305, 24);
+            label1.Location = new Point(267, 18);
             label1.Name = "label1";
-            label1.Size = new Size(317, 32);
+            label1.Size = new Size(247, 25);
             label1.TabIndex = 34;
             label1.Text = "Información del Empleado";
             // 
-            // dateTimePicker3
+            // Nacimiento_Empleado
             // 
-            dateTimePicker3.Location = new Point(574, 253);
-            dateTimePicker3.Margin = new Padding(5, 5, 5, 5);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(265, 27);
-            dateTimePicker3.TabIndex = 33;
+            Nacimiento_Empleado.Location = new Point(502, 190);
+            Nacimiento_Empleado.Margin = new Padding(4);
+            Nacimiento_Empleado.Name = "Nacimiento_Empleado";
+            Nacimiento_Empleado.Size = new Size(232, 23);
+            Nacimiento_Empleado.TabIndex = 33;
             // 
-            // comboBox3
+            // Tipo_Empleado1
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(146, 88);
-            comboBox3.Margin = new Padding(5, 5, 5, 5);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(255, 28);
-            comboBox3.TabIndex = 30;
+            Tipo_Empleado1.DropDownStyle = ComboBoxStyle.DropDownList;
+            Tipo_Empleado1.FormattingEnabled = true;
+            Tipo_Empleado1.Location = new Point(128, 66);
+            Tipo_Empleado1.Margin = new Padding(4);
+            Tipo_Empleado1.Name = "Tipo_Empleado1";
+            Tipo_Empleado1.Size = new Size(224, 23);
+            Tipo_Empleado1.TabIndex = 30;
             // 
-            // comboBox4
+            // Estado_Empleado
             // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "Activo", "Inactivo", "Vacaciones", "Suspendido ", "Licencia Vencida" });
-            comboBox4.Location = new Point(146, 253);
-            comboBox4.Margin = new Padding(5, 5, 5, 5);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(255, 28);
-            comboBox4.TabIndex = 32;
+            Estado_Empleado.DropDownStyle = ComboBoxStyle.DropDownList;
+            Estado_Empleado.FormattingEnabled = true;
+            Estado_Empleado.Location = new Point(128, 190);
+            Estado_Empleado.Margin = new Padding(4);
+            Estado_Empleado.Name = "Estado_Empleado";
+            Estado_Empleado.Size = new Size(224, 23);
+            Estado_Empleado.TabIndex = 32;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label14.Location = new Point(14, 253);
-            label14.Margin = new Padding(5, 0, 5, 0);
+            label14.Location = new Point(12, 190);
+            label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(136, 18);
+            label14.Size = new Size(108, 16);
             label14.TabIndex = 31;
             label14.Text = "Estado Empleado";
             label14.Click += label14_Click;
             // 
-            // textBox4
+            // Nit_Empleado
             // 
-            textBox4.Location = new Point(574, 72);
-            textBox4.Margin = new Padding(5, 5, 5, 5);
-            textBox4.Name = "textBox4";
-            textBox4.PlaceholderText = "📇 NIT";
-            textBox4.Size = new Size(265, 27);
-            textBox4.TabIndex = 16;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(574, 120);
-            comboBox1.Margin = new Padding(5, 5, 5, 5);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(265, 28);
-            comboBox1.TabIndex = 19;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(574, 161);
-            comboBox2.Margin = new Padding(5, 5, 5, 5);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(265, 28);
-            comboBox2.TabIndex = 21;
+            Nit_Empleado.Location = new Point(502, 54);
+            Nit_Empleado.Margin = new Padding(4);
+            Nit_Empleado.Name = "Nit_Empleado";
+            Nit_Empleado.PlaceholderText = "📇 NIT";
+            Nit_Empleado.Size = new Size(232, 23);
+            Nit_Empleado.TabIndex = 16;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(430, 253);
-            label12.Margin = new Padding(5, 0, 5, 0);
+            label12.Location = new Point(376, 190);
+            label12.Margin = new Padding(4, 0, 4, 0);
             label12.Name = "label12";
-            label12.Size = new Size(144, 18);
+            label12.Size = new Size(115, 16);
             label12.TabIndex = 25;
             label12.Text = "Fecha Nacimiento";
             label12.Click += label12_Click;
             // 
-            // textBox1
+            // Nombre_Empleado
             // 
-            textBox1.Location = new Point(146, 129);
-            textBox1.Margin = new Padding(5, 5, 5, 5);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "🙋 Nombres";
-            textBox1.Size = new Size(255, 27);
-            textBox1.TabIndex = 12;
+            Nombre_Empleado.Location = new Point(128, 97);
+            Nombre_Empleado.Margin = new Padding(4);
+            Nombre_Empleado.Name = "Nombre_Empleado";
+            Nombre_Empleado.PlaceholderText = "🙋 Nombres";
+            Nombre_Empleado.Size = new Size(224, 23);
+            Nombre_Empleado.TabIndex = 12;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.BackColor = Color.AliceBlue;
             label11.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(430, 209);
-            label11.Margin = new Padding(5, 0, 5, 0);
+            label11.Location = new Point(376, 157);
+            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(81, 18);
+            label11.Size = new Size(64, 16);
             label11.TabIndex = 22;
             label11.Text = "Direccion";
             // 
-            // textBox3
+            // Direccion_Empleado
             // 
-            textBox3.Location = new Point(574, 200);
-            textBox3.Margin = new Padding(5, 5, 5, 5);
-            textBox3.Name = "textBox3";
-            textBox3.PlaceholderText = "📍 Direccion ";
-            textBox3.Size = new Size(265, 27);
-            textBox3.TabIndex = 14;
+            Direccion_Empleado.Location = new Point(502, 150);
+            Direccion_Empleado.Margin = new Padding(4);
+            Direccion_Empleado.Name = "Direccion_Empleado";
+            Direccion_Empleado.PlaceholderText = "📍 Direccion ";
+            Direccion_Empleado.Size = new Size(232, 23);
+            Direccion_Empleado.TabIndex = 14;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.BackColor = Color.AliceBlue;
             label10.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(430, 171);
-            label10.Margin = new Padding(5, 0, 5, 0);
+            label10.Location = new Point(376, 128);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(60, 18);
+            label10.Size = new Size(48, 16);
             label10.TabIndex = 20;
             label10.Text = "Correo";
             // 
@@ -383,10 +306,10 @@
             label9.AutoSize = true;
             label9.BackColor = Color.AliceBlue;
             label9.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(430, 129);
-            label9.Margin = new Padding(5, 0, 5, 0);
+            label9.Location = new Point(376, 97);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(71, 18);
+            label9.Size = new Size(58, 16);
             label9.TabIndex = 18;
             label9.Text = "Telefono";
             // 
@@ -395,40 +318,40 @@
             label8.AutoSize = true;
             label8.BackColor = Color.AliceBlue;
             label8.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(430, 81);
-            label8.Margin = new Padding(5, 0, 5, 0);
+            label8.Location = new Point(376, 61);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(29, 18);
+            label8.Size = new Size(26, 16);
             label8.TabIndex = 15;
             label8.Text = "NIT";
             // 
-            // textBox6
+            // Dpi_Empleado
             // 
-            textBox6.Location = new Point(146, 212);
-            textBox6.Margin = new Padding(5, 5, 5, 5);
-            textBox6.Name = "textBox6";
-            textBox6.PlaceholderText = "💳 DPI";
-            textBox6.Size = new Size(255, 27);
-            textBox6.TabIndex = 23;
+            Dpi_Empleado.Location = new Point(128, 159);
+            Dpi_Empleado.Margin = new Padding(4);
+            Dpi_Empleado.Name = "Dpi_Empleado";
+            Dpi_Empleado.PlaceholderText = "💳 DPI";
+            Dpi_Empleado.Size = new Size(224, 23);
+            Dpi_Empleado.TabIndex = 23;
             // 
-            // textBox2
+            // Apellidos_Empleado
             // 
-            textBox2.Location = new Point(146, 171);
-            textBox2.Margin = new Padding(5, 5, 5, 5);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = " 🙋 Apellidos";
-            textBox2.Size = new Size(255, 27);
-            textBox2.TabIndex = 13;
+            Apellidos_Empleado.Location = new Point(128, 128);
+            Apellidos_Empleado.Margin = new Padding(4);
+            Apellidos_Empleado.Name = "Apellidos_Empleado";
+            Apellidos_Empleado.PlaceholderText = " 🙋 Apellidos";
+            Apellidos_Empleado.Size = new Size(224, 23);
+            Apellidos_Empleado.TabIndex = 13;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.AliceBlue;
             label5.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(18, 139);
-            label5.Margin = new Padding(5, 0, 5, 0);
+            label5.Location = new Point(16, 104);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(74, 18);
+            label5.Size = new Size(60, 16);
             label5.TabIndex = 7;
             label5.Text = "Nombres";
             // 
@@ -437,10 +360,10 @@
             label7.AutoSize = true;
             label7.BackColor = Color.AliceBlue;
             label7.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(18, 180);
-            label7.Margin = new Padding(5, 0, 5, 0);
+            label7.Location = new Point(16, 135);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(77, 18);
+            label7.Size = new Size(62, 16);
             label7.TabIndex = 11;
             label7.Text = "Apellidos";
             // 
@@ -449,10 +372,10 @@
             label6.AutoSize = true;
             label6.BackColor = Color.AliceBlue;
             label6.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(18, 215);
-            label6.Margin = new Padding(5, 0, 5, 0);
+            label6.Location = new Point(16, 161);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(31, 18);
+            label6.Size = new Size(26, 16);
             label6.TabIndex = 9;
             label6.Text = "DPI";
             // 
@@ -461,10 +384,10 @@
             label3.AutoSize = true;
             label3.BackColor = Color.AliceBlue;
             label3.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(18, 93);
-            label3.Margin = new Padding(5, 0, 5, 0);
+            label3.Location = new Point(16, 70);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(118, 18);
+            label3.Size = new Size(95, 16);
             label3.TabIndex = 5;
             label3.Text = "Tipo Empleado";
             // 
@@ -473,25 +396,23 @@
             panel5.BackColor = Color.AliceBlue;
             panel5.Controls.Add(pictureBox3);
             panel5.Controls.Add(label4);
-            panel5.Controls.Add(button3);
-            panel5.Controls.Add(button6);
-            panel5.Controls.Add(button2);
-            panel5.Controls.Add(button4);
-            panel5.Controls.Add(button1);
-            panel5.Controls.Add(button5);
-            panel5.Location = new Point(888, 147);
-            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Controls.Add(Btn_Limpiar_Emp);
+            panel5.Controls.Add(Btn_Nuevo_Emp);
+            panel5.Controls.Add(Btn_Editar_Emp);
+            panel5.Controls.Add(Btn_Eliminar_Emp);
+            panel5.Controls.Add(Btn_Guardar_Emp);
+            panel5.Controls.Add(Btn_Actualizar_Emp);
+            panel5.Location = new Point(777, 155);
             panel5.Name = "panel5";
-            panel5.Size = new Size(425, 204);
+            panel5.Size = new Size(372, 127);
             panel5.TabIndex = 40;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Icon_Acciones;
-            pictureBox3.Location = new Point(119, 19);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(113, 6);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(34, 43);
+            pictureBox3.Size = new Size(30, 32);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 41;
             pictureBox3.TabStop = false;
@@ -501,74 +422,70 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(160, 19);
+            label4.Location = new Point(138, 10);
             label4.Name = "label4";
-            label4.Size = new Size(116, 32);
+            label4.Size = new Size(90, 25);
             label4.TabIndex = 40;
             label4.Text = "Acciones";
             // 
-            // button3
+            // Btn_Limpiar_Emp
             // 
-            button3.Image = Properties.Resources.Btn_Editar;
-            button3.Location = new Point(280, 76);
-            button3.Margin = new Padding(3, 4, 3, 4);
-            button3.Name = "button3";
-            button3.Size = new Size(126, 49);
-            button3.TabIndex = 36;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            Btn_Limpiar_Emp.Image = Properties.Resources.Btn_Limpiar;
+            Btn_Limpiar_Emp.Location = new Point(247, 77);
+            Btn_Limpiar_Emp.Name = "Btn_Limpiar_Emp";
+            Btn_Limpiar_Emp.Size = new Size(110, 37);
+            Btn_Limpiar_Emp.TabIndex = 39;
+            Btn_Limpiar_Emp.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // Btn_Nuevo_Emp
             // 
-            button6.Image = Properties.Resources.Btn_Limpiar;
-            button6.Location = new Point(280, 133);
-            button6.Margin = new Padding(3, 4, 3, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(126, 49);
-            button6.TabIndex = 39;
-            button6.UseVisualStyleBackColor = true;
+            Btn_Nuevo_Emp.Image = Properties.Resources.Btn_Nuevo;
+            Btn_Nuevo_Emp.Location = new Point(15, 34);
+            Btn_Nuevo_Emp.Name = "Btn_Nuevo_Emp";
+            Btn_Nuevo_Emp.Size = new Size(110, 37);
+            Btn_Nuevo_Emp.TabIndex = 34;
+            Btn_Nuevo_Emp.UseVisualStyleBackColor = true;
+            Btn_Nuevo_Emp.Click += Btn_Nuevo_Emp_Click;
             // 
-            // button2
+            // Btn_Editar_Emp
             // 
-            button2.Image = Properties.Resources.Btn_guardar;
-            button2.Location = new Point(147, 76);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(126, 49);
-            button2.TabIndex = 35;
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            Btn_Editar_Emp.Image = Properties.Resources.Btn_Editar;
+            Btn_Editar_Emp.Location = new Point(245, 34);
+            Btn_Editar_Emp.Name = "Btn_Editar_Emp";
+            Btn_Editar_Emp.Size = new Size(110, 37);
+            Btn_Editar_Emp.TabIndex = 36;
+            Btn_Editar_Emp.UseVisualStyleBackColor = true;
+            Btn_Editar_Emp.Click += button3_Click;
             // 
-            // button4
+            // Btn_Eliminar_Emp
             // 
-            button4.Image = Properties.Resources.Btn_ELiminar;
-            button4.Location = new Point(15, 133);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(126, 49);
-            button4.TabIndex = 37;
-            button4.UseVisualStyleBackColor = true;
+            Btn_Eliminar_Emp.Image = Properties.Resources.Btn_ELiminar;
+            Btn_Eliminar_Emp.Location = new Point(15, 78);
+            Btn_Eliminar_Emp.Name = "Btn_Eliminar_Emp";
+            Btn_Eliminar_Emp.Size = new Size(110, 37);
+            Btn_Eliminar_Emp.TabIndex = 37;
+            Btn_Eliminar_Emp.UseVisualStyleBackColor = true;
+            Btn_Eliminar_Emp.Click += Btn_Eliminar_Emp_Click;
             // 
-            // button1
+            // Btn_Guardar_Emp
             // 
-            button1.Image = Properties.Resources.Btn_Nuevo;
-            button1.Location = new Point(15, 76);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(126, 49);
-            button1.TabIndex = 34;
-            button1.UseVisualStyleBackColor = true;
+            Btn_Guardar_Emp.Image = Properties.Resources.Btn_guardar;
+            Btn_Guardar_Emp.Location = new Point(131, 34);
+            Btn_Guardar_Emp.Name = "Btn_Guardar_Emp";
+            Btn_Guardar_Emp.Size = new Size(110, 37);
+            Btn_Guardar_Emp.TabIndex = 35;
+            Btn_Guardar_Emp.UseVisualStyleBackColor = true;
+            Btn_Guardar_Emp.Click += button2_Click;
             // 
-            // button5
+            // Btn_Actualizar_Emp
             // 
-            button5.Image = Properties.Resources.Btn_Actualizar;
-            button5.Location = new Point(147, 133);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(126, 49);
-            button5.TabIndex = 38;
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            Btn_Actualizar_Emp.Image = Properties.Resources.Btn_Actualizar;
+            Btn_Actualizar_Emp.Location = new Point(131, 77);
+            Btn_Actualizar_Emp.Name = "Btn_Actualizar_Emp";
+            Btn_Actualizar_Emp.Size = new Size(110, 37);
+            Btn_Actualizar_Emp.TabIndex = 38;
+            Btn_Actualizar_Emp.UseVisualStyleBackColor = true;
+            Btn_Actualizar_Emp.Click += button5_Click;
             // 
             // panel1
             // 
@@ -582,8 +499,9 @@
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1370, 177);
+            panel1.Size = new Size(1199, 133);
             panel1.TabIndex = 11;
             // 
             // pictureBox1
@@ -591,10 +509,9 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.patito1;
-            pictureBox1.Location = new Point(1168, 10);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(1022, 8);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(130, 163);
+            pictureBox1.Size = new Size(114, 122);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
@@ -605,9 +522,9 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(183, 105);
+            label15.Location = new Point(160, 79);
             label15.Name = "label15";
-            label15.Size = new Size(465, 28);
+            label15.Size = new Size(371, 21);
             label15.TabIndex = 8;
             label15.Text = "Gestiona la información del personal de la empresa.";
             // 
@@ -615,10 +532,9 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.Repa_ico;
-            pictureBox2.Location = new Point(59, 16);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(52, 12);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(117, 132);
+            pictureBox2.Size = new Size(102, 99);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
@@ -631,28 +547,34 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(183, 47);
+            label2.Location = new Point(160, 35);
             label2.Name = "label2";
-            label2.Size = new Size(214, 52);
+            label2.Size = new Size(171, 42);
             label2.TabIndex = 6;
             label2.Text = "Empleados";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
             // 
+            // Telefono_Empleado
+            // 
+            Telefono_Empleado.Location = new Point(504, 92);
+            Telefono_Empleado.Name = "Telefono_Empleado";
+            Telefono_Empleado.Size = new Size(230, 23);
+            Telefono_Empleado.TabIndex = 44;
+            // 
             // Empleados
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1199, 562);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(4);
             Name = "Empleados";
             Text = "Form5";
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Tabla_Empleados).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
@@ -670,56 +592,46 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Nit_Empleado;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Direccion_Empleado;
+        private System.Windows.Forms.TextBox Apellidos_Empleado;
+        private System.Windows.Forms.TextBox Nombre_Empleado;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Tabla_Empleados;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox Dpi_Empleado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.DateTimePicker Contratacion_Empleado;
+        private System.Windows.Forms.ComboBox Estado_Empleado;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox Tipo_Empleado1;
         private Panel panel4;
-        private Button button1;
+        private Button Btn_Nuevo_Emp;
         private Label label1;
-        private DateTimePicker dateTimePicker3;
+        private DateTimePicker Nacimiento_Empleado;
         private Panel panel5;
-        private Button button3;
-        private Button button6;
-        private Button button2;
-        private Button button4;
-        private Button button5;
+        private Button Btn_Editar_Emp;
+        private Button Btn_Limpiar_Emp;
+        private Button Btn_Guardar_Emp;
+        private Button Btn_Eliminar_Emp;
+        private Button Btn_Actualizar_Emp;
         private Label label4;
         private Label label15;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
-        private DataGridViewTextBoxColumn Id_Empleado;
-        private DataGridViewTextBoxColumn Tipo_Empleado;
-        private DataGridViewTextBoxColumn Estado;
-        private DataGridViewTextBoxColumn Nombres;
-        private DataGridViewTextBoxColumn Apellidos;
-        private DataGridViewTextBoxColumn DPI;
-        private DataGridViewTextBoxColumn NIT;
-        private DataGridViewTextBoxColumn Correo;
-        private DataGridViewTextBoxColumn Direccion;
-        private DataGridViewTextBoxColumn Fecha_nacimiento;
-        private DataGridViewTextBoxColumn Fecha_contratacion;
         private PictureBox pictureBox4;
+        private Button btnProbarConexion_Click;
+        private TextBox Correo_Empleado;
+        private TextBox Telefono_Empleado;
     }
 }
