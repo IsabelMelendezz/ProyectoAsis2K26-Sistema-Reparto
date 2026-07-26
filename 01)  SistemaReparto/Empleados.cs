@@ -24,10 +24,7 @@ namespace SistemaReparto
         {
             InitializeComponent();
 
-            // ==== AGREGADO: eventos de sincronización (no se tocó el Designer) ====
-            // Se hace "-=" antes de "+=" para blindar contra suscripciones duplicadas
-            // (por ejemplo si el Designer también quedó enganchando el mismo evento
-            // por un doble clic accidental en el botón dentro del diseñador).
+            // ==== AGREGADO: eventos de sincronización 
             this.Load -= Empleados_Load;
             this.Load += Empleados_Load;
 
