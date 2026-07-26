@@ -24,7 +24,8 @@ namespace SistemaReparto
         {
             InitializeComponent();
 
-            // ==== AGREGADO: eventos de sincronización 
+            // ==== AGREGADO: eventos de sincronización (no se tocó el Designer) ====
+
             this.Load -= Empleados_Load;
             this.Load += Empleados_Load;
 
@@ -102,6 +103,9 @@ namespace SistemaReparto
             objEmpleados.llenarComboTipoEmpleado(Tipo_Empleado1);
             objEmpleados.llenarComboEstadoEmpleado(Estado_Empleado);
             objEmpleados.mostrarEmpleados(Tabla_Empleados);
+
+            // Al cargar el formulario, los campos inician bloqueados hasta seleccionar o presionar Nuevo/Editar
+            BloquearCampos();
         }
 
         private void Tabla_Empleados_SelectionChanged(object sender, EventArgs e)
@@ -114,12 +118,16 @@ namespace SistemaReparto
                 Nombre_Empleado, Apellidos_Empleado, Dpi_Empleado, Nit_Empleado,
                 Telefono_Empleado, Correo_Empleado, Direccion_Empleado,
                 Nacimiento_Empleado, Contratacion_Empleado);
+
+            // El empleado seleccionado solo se puede ver, no modificar, hasta presionar Editar
+            BloquearCampos();
         }
 
-        // Btn_Nuevo_Emp: solo limpia el formulario para capturar un registro nuevo
+        // Btn_Nuevo_Emp: limpia el formulario y habilita los campos para capturar un registro nuevo
         private void Btn_Nuevo_Emp_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            HabilitarCampos();
         }
 
         // Btn_Guardar_Emp: valida y guarda (INSERT) un nuevo empleado
@@ -133,10 +141,23 @@ namespace SistemaReparto
 
             objEmpleados.mostrarEmpleados(Tabla_Empleados);
             LimpiarCampos();
+            BloquearCampos();
         }
 
-        // Btn_Editar_Emp: modifica el empleado seleccionado en el grid
+        // Btn_Editar_Emp: habilita los campos para poder modificar el empleado seleccionado en el grid
         private void Btn_Editar_Emp_Click(object sender, EventArgs e)
+        {
+            if (idEmpleadoSeleccionado <= 0)
+            {
+                MessageBox.Show("Debe seleccionar un empleado de la tabla antes de editar.");
+                return;
+            }
+
+            HabilitarCampos();
+        }
+
+        // Btn_Actualizar_Emp: valida y guarda (UPDATE) los cambios del empleado seleccionado, luego refresca el grid
+        private void Btn_Actualizar_Emp_Click(object sender, EventArgs e)
         {
             objEmpleados.ModificarEmpleado(
                 idEmpleadoSeleccionado,
@@ -146,6 +167,7 @@ namespace SistemaReparto
                 Nacimiento_Empleado, Contratacion_Empleado);
 
             objEmpleados.mostrarEmpleados(Tabla_Empleados);
+            BloquearCampos();
         }
 
         // Btn_Eliminar_Emp: elimina el empleado seleccionado en el grid
@@ -159,19 +181,15 @@ namespace SistemaReparto
                 objEmpleados.EliminarEmpleado(idEmpleadoSeleccionado);
                 objEmpleados.mostrarEmpleados(Tabla_Empleados);
                 LimpiarCampos();
+                BloquearCampos();
             }
-        }
-
-        // Btn_Actualizar_Emp: refresca el grid con los datos actuales de la BD
-        private void Btn_Actualizar_Emp_Click(object sender, EventArgs e)
-        {
-            objEmpleados.mostrarEmpleados(Tabla_Empleados);
         }
 
         // Btn_Limpiar_Emp: limpia el formulario para capturar un nuevo registro
         private void Btn_Limpiar_Emp_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            BloquearCampos();
         }
 
         private void LimpiarCampos()
@@ -188,6 +206,38 @@ namespace SistemaReparto
             Direccion_Empleado.Clear();
             Nacimiento_Empleado.Value = DateTime.Now;
             Contratacion_Empleado.Value = DateTime.Now;
+        }
+
+        // ==== AGREGADO: bloquea todos los campos (solo lectura/visualización) ====
+        private void BloquearCampos()
+        {
+            Tipo_Empleado1.Enabled = false;
+            Estado_Empleado.Enabled = false;
+            Nombre_Empleado.ReadOnly = true;
+            Apellidos_Empleado.ReadOnly = true;
+            Dpi_Empleado.ReadOnly = true;
+            Nit_Empleado.ReadOnly = true;
+            Telefono_Empleado.ReadOnly = true;
+            Correo_Empleado.ReadOnly = true;
+            Direccion_Empleado.ReadOnly = true;
+            Nacimiento_Empleado.Enabled = false;
+            Contratacion_Empleado.Enabled = false;
+        }
+
+        // ==== AGREGADO: habilita todos los campos para poder capturar/editar ====
+        private void HabilitarCampos()
+        {
+            Tipo_Empleado1.Enabled = true;
+            Estado_Empleado.Enabled = true;
+            Nombre_Empleado.ReadOnly = false;
+            Apellidos_Empleado.ReadOnly = false;
+            Dpi_Empleado.ReadOnly = false;
+            Nit_Empleado.ReadOnly = false;
+            Telefono_Empleado.ReadOnly = false;
+            Correo_Empleado.ReadOnly = false;
+            Direccion_Empleado.ReadOnly = false;
+            Nacimiento_Empleado.Enabled = true;
+            Contratacion_Empleado.Enabled = true;
         }
     }
 }

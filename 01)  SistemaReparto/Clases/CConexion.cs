@@ -13,7 +13,7 @@ namespace SistemaReparto.Clases
         static string servidor = "localhost";
         static string bd = "sistema_reparto";
         static string usuario = "root";
-        static string password = "Root@123456";
+        static string password = "Isa2004";
         static string puerto = "3306";
 
         string cadenaConexion = "server=" + servidor + ";" + "port=" + puerto + ";" + "user id=" + usuario + ";" + "password=" + password + ";" + "database=" + bd + ";";
