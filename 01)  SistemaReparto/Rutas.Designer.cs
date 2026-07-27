@@ -75,8 +75,9 @@
             panel1.Controls.Add(label2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1420, 177);
+            panel1.Size = new Size(1199, 133);
             panel1.TabIndex = 2;
             // 
             // pictureBox2
@@ -84,20 +85,21 @@
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.patito1;
-            pictureBox2.Location = new Point(1225, 10);
-            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Location = new Point(1029, 8);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(130, 163);
+            pictureBox2.Size = new Size(114, 122);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 10;
             pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(56, 26);
+            pictureBox1.Location = new Point(49, 20);
+            pictureBox1.Margin = new Padding(3, 2, 3, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(116, 120);
+            pictureBox1.Size = new Size(102, 90);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
@@ -108,9 +110,9 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label15.ForeColor = SystemColors.ButtonHighlight;
-            label15.Location = new Point(178, 103);
+            label15.Location = new Point(156, 77);
             label15.Name = "label15";
-            label15.Size = new Size(465, 28);
+            label15.Size = new Size(371, 21);
             label15.TabIndex = 9;
             label15.Text = "Gestiona la información del personal de la empresa.";
             // 
@@ -122,9 +124,9 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(178, 38);
+            label2.Location = new Point(156, 28);
             label2.Name = "label2";
-            label2.Size = new Size(121, 52);
+            label2.Size = new Size(97, 42);
             label2.TabIndex = 6;
             label2.Text = "RUTAS";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -135,11 +137,11 @@
             // 
             Total_Rutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Total_Rutas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Total_Rutas.Location = new Point(85, 382);
-            Total_Rutas.Margin = new Padding(4, 5, 4, 5);
+            Total_Rutas.Location = new Point(74, 286);
+            Total_Rutas.Margin = new Padding(4, 4, 4, 4);
             Total_Rutas.Name = "Total_Rutas";
             Total_Rutas.RowHeadersWidth = 51;
-            Total_Rutas.Size = new Size(1259, 369);
+            Total_Rutas.Size = new Size(1102, 277);
             Total_Rutas.TabIndex = 3;
             Total_Rutas.CellContentClick += dataGridView1_CellContentClick;
             Total_Rutas.CellMouseDoubleClick += Total_Rutas_CellMouseDoubleClick;
@@ -152,10 +154,10 @@
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(Total_Rutas);
-            panel3.Location = new Point(0, 172);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(0, 129);
+            panel3.Margin = new Padding(4, 4, 4, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1419, 786);
+            panel3.Size = new Size(1242, 590);
             panel3.TabIndex = 6;
             panel3.Paint += panel3_Paint;
             // 
@@ -170,19 +172,17 @@
             panel5.Controls.Add(Btn_Eliminar_Ruta);
             panel5.Controls.Add(Btn_Guardar_Ruta);
             panel5.Controls.Add(Btn_Actualizar_Ruta);
-            panel5.Location = new Point(973, 66);
-            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Location = new Point(851, 50);
             panel5.Name = "panel5";
-            panel5.Size = new Size(425, 169);
+            panel5.Size = new Size(372, 127);
             panel5.TabIndex = 41;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Icon_Acciones;
-            pictureBox3.Location = new Point(129, 8);
-            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Location = new Point(113, 6);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(34, 43);
+            pictureBox3.Size = new Size(30, 32);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 41;
             pictureBox3.TabStop = false;
@@ -192,19 +192,18 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(158, 13);
+            label4.Location = new Point(138, 10);
             label4.Name = "label4";
-            label4.Size = new Size(116, 32);
+            label4.Size = new Size(90, 25);
             label4.TabIndex = 40;
             label4.Text = "Acciones";
             // 
             // Btn_Limpiar_Emp
             // 
             Btn_Limpiar_Emp.Image = Properties.Resources.Btn_Limpiar;
-            Btn_Limpiar_Emp.Location = new Point(282, 103);
-            Btn_Limpiar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Limpiar_Emp.Location = new Point(247, 77);
             Btn_Limpiar_Emp.Name = "Btn_Limpiar_Emp";
-            Btn_Limpiar_Emp.Size = new Size(126, 49);
+            Btn_Limpiar_Emp.Size = new Size(110, 37);
             Btn_Limpiar_Emp.TabIndex = 39;
             Btn_Limpiar_Emp.UseVisualStyleBackColor = true;
             Btn_Limpiar_Emp.Click += Btn_Limpiar_Emp_Click;
@@ -212,30 +211,27 @@
             // Btn_Nueva_Ruta
             // 
             Btn_Nueva_Ruta.Image = Properties.Resources.Btn_Nuevo;
-            Btn_Nueva_Ruta.Location = new Point(17, 45);
-            Btn_Nueva_Ruta.Margin = new Padding(3, 4, 3, 4);
+            Btn_Nueva_Ruta.Location = new Point(15, 34);
             Btn_Nueva_Ruta.Name = "Btn_Nueva_Ruta";
-            Btn_Nueva_Ruta.Size = new Size(126, 49);
+            Btn_Nueva_Ruta.Size = new Size(110, 37);
             Btn_Nueva_Ruta.TabIndex = 34;
             Btn_Nueva_Ruta.UseVisualStyleBackColor = true;
             // 
             // Btn_Editar_Ruta
             // 
             Btn_Editar_Ruta.Image = Properties.Resources.Btn_Editar;
-            Btn_Editar_Ruta.Location = new Point(280, 45);
-            Btn_Editar_Ruta.Margin = new Padding(3, 4, 3, 4);
+            Btn_Editar_Ruta.Location = new Point(245, 34);
             Btn_Editar_Ruta.Name = "Btn_Editar_Ruta";
-            Btn_Editar_Ruta.Size = new Size(126, 49);
+            Btn_Editar_Ruta.Size = new Size(110, 37);
             Btn_Editar_Ruta.TabIndex = 36;
             Btn_Editar_Ruta.UseVisualStyleBackColor = true;
             // 
             // Btn_Eliminar_Ruta
             // 
             Btn_Eliminar_Ruta.Image = Properties.Resources.Btn_ELiminar;
-            Btn_Eliminar_Ruta.Location = new Point(17, 104);
-            Btn_Eliminar_Ruta.Margin = new Padding(3, 4, 3, 4);
+            Btn_Eliminar_Ruta.Location = new Point(15, 78);
             Btn_Eliminar_Ruta.Name = "Btn_Eliminar_Ruta";
-            Btn_Eliminar_Ruta.Size = new Size(126, 49);
+            Btn_Eliminar_Ruta.Size = new Size(110, 37);
             Btn_Eliminar_Ruta.TabIndex = 37;
             Btn_Eliminar_Ruta.UseVisualStyleBackColor = true;
             Btn_Eliminar_Ruta.Click += Btn_Eliminar_Ruta_Click;
@@ -243,10 +239,9 @@
             // Btn_Guardar_Ruta
             // 
             Btn_Guardar_Ruta.Image = Properties.Resources.Btn_guardar;
-            Btn_Guardar_Ruta.Location = new Point(150, 45);
-            Btn_Guardar_Ruta.Margin = new Padding(3, 4, 3, 4);
+            Btn_Guardar_Ruta.Location = new Point(131, 34);
             Btn_Guardar_Ruta.Name = "Btn_Guardar_Ruta";
-            Btn_Guardar_Ruta.Size = new Size(126, 49);
+            Btn_Guardar_Ruta.Size = new Size(110, 37);
             Btn_Guardar_Ruta.TabIndex = 35;
             Btn_Guardar_Ruta.UseVisualStyleBackColor = true;
             Btn_Guardar_Ruta.Click += Btn_Guardar_Ruta_Click;
@@ -254,10 +249,9 @@
             // Btn_Actualizar_Ruta
             // 
             Btn_Actualizar_Ruta.Image = Properties.Resources.Btn_Actualizar;
-            Btn_Actualizar_Ruta.Location = new Point(150, 103);
-            Btn_Actualizar_Ruta.Margin = new Padding(3, 4, 3, 4);
+            Btn_Actualizar_Ruta.Location = new Point(131, 77);
             Btn_Actualizar_Ruta.Name = "Btn_Actualizar_Ruta";
-            Btn_Actualizar_Ruta.Size = new Size(126, 49);
+            Btn_Actualizar_Ruta.Size = new Size(110, 37);
             Btn_Actualizar_Ruta.TabIndex = 38;
             Btn_Actualizar_Ruta.UseVisualStyleBackColor = true;
             Btn_Actualizar_Ruta.Click += Btn_Actualizar_Ruta_Click;
@@ -272,20 +266,19 @@
             panel4.Controls.Add(Text_Descripcion_Ruta);
             panel4.Controls.Add(label5);
             panel4.Controls.Add(label7);
-            panel4.Location = new Point(85, 24);
-            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Location = new Point(74, 18);
             panel4.Name = "panel4";
-            panel4.Size = new Size(854, 295);
+            panel4.Size = new Size(747, 221);
             panel4.TabIndex = 34;
             // 
             // Text_Id_Ruta
             // 
-            Text_Id_Ruta.Location = new Point(350, 109);
-            Text_Id_Ruta.Margin = new Padding(5);
+            Text_Id_Ruta.Location = new Point(306, 82);
+            Text_Id_Ruta.Margin = new Padding(4, 4, 4, 4);
             Text_Id_Ruta.Name = "Text_Id_Ruta";
             Text_Id_Ruta.PlaceholderText = "ID_Tipo_Ruta";
             Text_Id_Ruta.ReadOnly = true;
-            Text_Id_Ruta.Size = new Size(255, 27);
+            Text_Id_Ruta.Size = new Size(224, 23);
             Text_Id_Ruta.TabIndex = 36;
             Text_Id_Ruta.TextChanged += textBox1_TextChanged;
             // 
@@ -294,10 +287,10 @@
             label3.AutoSize = true;
             label3.BackColor = Color.AliceBlue;
             label3.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(297, 113);
-            label3.Margin = new Padding(5, 0, 5, 0);
+            label3.Location = new Point(260, 85);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(23, 18);
+            label3.Size = new Size(19, 16);
             label3.TabIndex = 35;
             label3.Text = "ID";
             // 
@@ -306,28 +299,28 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Navy;
-            label1.Location = new Point(278, 24);
+            label1.Location = new Point(243, 18);
             label1.Name = "label1";
-            label1.Size = new Size(317, 32);
+            label1.Size = new Size(247, 25);
             label1.TabIndex = 34;
             label1.Text = "Información del Empleado";
             // 
             // Text_Nombre_Ruta
             // 
-            Text_Nombre_Ruta.Location = new Point(144, 184);
-            Text_Nombre_Ruta.Margin = new Padding(5);
+            Text_Nombre_Ruta.Location = new Point(126, 138);
+            Text_Nombre_Ruta.Margin = new Padding(4, 4, 4, 4);
             Text_Nombre_Ruta.Name = "Text_Nombre_Ruta";
             Text_Nombre_Ruta.PlaceholderText = " Nombre";
-            Text_Nombre_Ruta.Size = new Size(255, 27);
+            Text_Nombre_Ruta.Size = new Size(224, 23);
             Text_Nombre_Ruta.TabIndex = 12;
             // 
             // Text_Descripcion_Ruta
             // 
-            Text_Descripcion_Ruta.Location = new Point(552, 184);
-            Text_Descripcion_Ruta.Margin = new Padding(5);
+            Text_Descripcion_Ruta.Location = new Point(483, 138);
+            Text_Descripcion_Ruta.Margin = new Padding(4, 4, 4, 4);
             Text_Descripcion_Ruta.Name = "Text_Descripcion_Ruta";
             Text_Descripcion_Ruta.PlaceholderText = "Descripcion";
-            Text_Descripcion_Ruta.Size = new Size(255, 27);
+            Text_Descripcion_Ruta.Size = new Size(224, 23);
             Text_Descripcion_Ruta.TabIndex = 13;
             // 
             // label5
@@ -335,10 +328,10 @@
             label5.AutoSize = true;
             label5.BackColor = Color.AliceBlue;
             label5.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(44, 188);
-            label5.Margin = new Padding(5, 0, 5, 0);
+            label5.Location = new Point(38, 141);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(68, 18);
+            label5.Size = new Size(55, 16);
             label5.TabIndex = 7;
             label5.Text = "Nombre";
             // 
@@ -347,20 +340,21 @@
             label7.AutoSize = true;
             label7.BackColor = Color.AliceBlue;
             label7.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(424, 193);
-            label7.Margin = new Padding(5, 0, 5, 0);
+            label7.Location = new Point(371, 145);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(77, 18);
+            label7.Size = new Size(62, 16);
             label7.TabIndex = 11;
             label7.Text = "Apellidos";
             // 
             // Rutas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1420, 971);
+            ClientSize = new Size(1199, 562);
             Controls.Add(panel3);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Rutas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
