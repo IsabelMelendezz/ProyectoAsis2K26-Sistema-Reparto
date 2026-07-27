@@ -543,6 +543,16 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Tipo_V {
+            get {
+                object obj = ResourceManager.GetObject("Tipo_V", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Trans_ico {
             get {
                 object obj = ResourceManager.GetObject("Trans_ico", resourceCulture);

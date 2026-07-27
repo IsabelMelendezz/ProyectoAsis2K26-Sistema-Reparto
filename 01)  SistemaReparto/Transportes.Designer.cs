@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             Pnl_Fondo1_Transporte = new Panel();
-            button7 = new Button();
             pictureBox4 = new PictureBox();
             Lbl_Accion_Transporte = new Label();
             Btn_Limpiar_Transporte = new Button();
             Btn_Editar_Transporte = new Button();
+            Btn_Guardar_Transporte = new Button();
             Btn_Actualizar_Transporte = new Button();
             Btn_Eliminar_Transporte = new Button();
-            Btn_Guardar_Transporte = new Button();
             Btn_Nuevo_Transporte = new Button();
             Dgv_Tabla_Transporte = new DataGridView();
             Pnl_Fondo2_Transporte = new Panel();
@@ -57,6 +56,9 @@
             Lbl_Peso_Transporte = new Label();
             Txt_Marca_Transporte = new TextBox();
             Pnl_Fondo3_Transporte = new Panel();
+            Pnl_Fondo4_Transporte = new Panel();
+            label1 = new Label();
+            button7 = new Button();
             Pnl_Fondo_Transporte = new Panel();
             pictureBox1 = new PictureBox();
             Lbl_Enca_Trans = new Label();
@@ -67,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_Transporte).BeginInit();
             Pnl_Fondo2_Transporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            Pnl_Fondo4_Transporte.SuspendLayout();
             Pnl_Fondo_Transporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Lbl_Icon_Transporte).BeginInit();
@@ -77,39 +80,29 @@
             Pnl_Fondo1_Transporte.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Pnl_Fondo1_Transporte.AutoScroll = true;
             Pnl_Fondo1_Transporte.BackColor = Color.Lavender;
-            Pnl_Fondo1_Transporte.Controls.Add(button7);
             Pnl_Fondo1_Transporte.Controls.Add(pictureBox4);
             Pnl_Fondo1_Transporte.Controls.Add(Lbl_Accion_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Btn_Limpiar_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Btn_Editar_Transporte);
+            Pnl_Fondo1_Transporte.Controls.Add(Btn_Guardar_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Btn_Actualizar_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Btn_Eliminar_Transporte);
-            Pnl_Fondo1_Transporte.Controls.Add(Btn_Guardar_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Btn_Nuevo_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Dgv_Tabla_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Pnl_Fondo2_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Pnl_Fondo3_Transporte);
+            Pnl_Fondo1_Transporte.Controls.Add(Pnl_Fondo4_Transporte);
             Pnl_Fondo1_Transporte.Location = new Point(0, 182);
             Pnl_Fondo1_Transporte.Margin = new Padding(4, 5, 4, 5);
             Pnl_Fondo1_Transporte.Name = "Pnl_Fondo1_Transporte";
             Pnl_Fondo1_Transporte.Size = new Size(1419, 786);
             Pnl_Fondo1_Transporte.TabIndex = 10;
             // 
-            // button7
-            // 
-            button7.Location = new Point(843, 34);
-            button7.Name = "button7";
-            button7.Size = new Size(94, 29);
-            button7.TabIndex = 32;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
-            // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.AliceBlue;
             pictureBox4.Image = Properties.Resources.Icon_Acciones;
-            pictureBox4.Location = new Point(963, 113);
+            pictureBox4.Location = new Point(973, 189);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(41, 43);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -122,7 +115,7 @@
             Lbl_Accion_Transporte.BackColor = Color.AliceBlue;
             Lbl_Accion_Transporte.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             Lbl_Accion_Transporte.ForeColor = Color.Navy;
-            Lbl_Accion_Transporte.Location = new Point(1003, 113);
+            Lbl_Accion_Transporte.Location = new Point(1013, 189);
             Lbl_Accion_Transporte.Name = "Lbl_Accion_Transporte";
             Lbl_Accion_Transporte.Size = new Size(116, 32);
             Lbl_Accion_Transporte.TabIndex = 29;
@@ -131,7 +124,7 @@
             // Btn_Limpiar_Transporte
             // 
             Btn_Limpiar_Transporte.Image = Properties.Resources.Btn_Limpiar;
-            Btn_Limpiar_Transporte.Location = new Point(1138, 245);
+            Btn_Limpiar_Transporte.Location = new Point(1148, 321);
             Btn_Limpiar_Transporte.Name = "Btn_Limpiar_Transporte";
             Btn_Limpiar_Transporte.Size = new Size(106, 38);
             Btn_Limpiar_Transporte.TabIndex = 28;
@@ -141,17 +134,27 @@
             // Btn_Editar_Transporte
             // 
             Btn_Editar_Transporte.Image = Properties.Resources.Btn_Editar;
-            Btn_Editar_Transporte.Location = new Point(1138, 171);
+            Btn_Editar_Transporte.Location = new Point(1148, 247);
             Btn_Editar_Transporte.Name = "Btn_Editar_Transporte";
             Btn_Editar_Transporte.Size = new Size(106, 38);
             Btn_Editar_Transporte.TabIndex = 27;
             Btn_Editar_Transporte.UseVisualStyleBackColor = true;
             Btn_Editar_Transporte.Click += Btn_Editar_Transporte_Click;
             // 
+            // Btn_Guardar_Transporte
+            // 
+            Btn_Guardar_Transporte.Image = Properties.Resources.Btn_guardar;
+            Btn_Guardar_Transporte.Location = new Point(1003, 247);
+            Btn_Guardar_Transporte.Name = "Btn_Guardar_Transporte";
+            Btn_Guardar_Transporte.Size = new Size(106, 38);
+            Btn_Guardar_Transporte.TabIndex = 24;
+            Btn_Guardar_Transporte.UseVisualStyleBackColor = true;
+            Btn_Guardar_Transporte.Click += Btn_Guardar_Transporte_Click;
+            // 
             // Btn_Actualizar_Transporte
             // 
             Btn_Actualizar_Transporte.Image = Properties.Resources.Btn_Actualizar;
-            Btn_Actualizar_Transporte.Location = new Point(993, 245);
+            Btn_Actualizar_Transporte.Location = new Point(1003, 321);
             Btn_Actualizar_Transporte.Name = "Btn_Actualizar_Transporte";
             Btn_Actualizar_Transporte.Size = new Size(106, 38);
             Btn_Actualizar_Transporte.TabIndex = 26;
@@ -161,27 +164,17 @@
             // Btn_Eliminar_Transporte
             // 
             Btn_Eliminar_Transporte.Image = Properties.Resources.Btn_ELiminar;
-            Btn_Eliminar_Transporte.Location = new Point(848, 245);
+            Btn_Eliminar_Transporte.Location = new Point(858, 321);
             Btn_Eliminar_Transporte.Name = "Btn_Eliminar_Transporte";
             Btn_Eliminar_Transporte.Size = new Size(106, 38);
             Btn_Eliminar_Transporte.TabIndex = 25;
             Btn_Eliminar_Transporte.UseVisualStyleBackColor = true;
             Btn_Eliminar_Transporte.Click += Btn_Eliminar_Transporte_Click;
             // 
-            // Btn_Guardar_Transporte
-            // 
-            Btn_Guardar_Transporte.Image = Properties.Resources.Btn_guardar;
-            Btn_Guardar_Transporte.Location = new Point(993, 171);
-            Btn_Guardar_Transporte.Name = "Btn_Guardar_Transporte";
-            Btn_Guardar_Transporte.Size = new Size(106, 38);
-            Btn_Guardar_Transporte.TabIndex = 24;
-            Btn_Guardar_Transporte.UseVisualStyleBackColor = true;
-            Btn_Guardar_Transporte.Click += Btn_Guardar_Transporte_Click;
-            // 
             // Btn_Nuevo_Transporte
             // 
             Btn_Nuevo_Transporte.Image = Properties.Resources.Btn_Nuevo;
-            Btn_Nuevo_Transporte.Location = new Point(848, 171);
+            Btn_Nuevo_Transporte.Location = new Point(858, 247);
             Btn_Nuevo_Transporte.Name = "Btn_Nuevo_Transporte";
             Btn_Nuevo_Transporte.Size = new Size(106, 38);
             Btn_Nuevo_Transporte.TabIndex = 23;
@@ -390,10 +383,42 @@
             // Pnl_Fondo3_Transporte
             // 
             Pnl_Fondo3_Transporte.BackColor = Color.AliceBlue;
-            Pnl_Fondo3_Transporte.Location = new Point(833, 86);
+            Pnl_Fondo3_Transporte.Location = new Point(843, 162);
             Pnl_Fondo3_Transporte.Name = "Pnl_Fondo3_Transporte";
             Pnl_Fondo3_Transporte.Size = new Size(427, 218);
             Pnl_Fondo3_Transporte.TabIndex = 33;
+            // 
+            // Pnl_Fondo4_Transporte
+            // 
+            Pnl_Fondo4_Transporte.BackColor = Color.AliceBlue;
+            Pnl_Fondo4_Transporte.Controls.Add(label1);
+            Pnl_Fondo4_Transporte.Controls.Add(button7);
+            Pnl_Fondo4_Transporte.Location = new Point(843, 15);
+            Pnl_Fondo4_Transporte.Name = "Pnl_Fondo4_Transporte";
+            Pnl_Fondo4_Transporte.Size = new Size(427, 125);
+            Pnl_Fondo4_Transporte.TabIndex = 34;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            label1.ForeColor = Color.Navy;
+            label1.Location = new Point(91, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(264, 32);
+            label1.TabIndex = 33;
+            label1.Text = "Catálogos del Sistema";
+            // 
+            // button7
+            // 
+            button7.ForeColor = Color.Navy;
+            button7.Location = new Point(298, 71);
+            button7.Name = "button7";
+            button7.Size = new Size(113, 29);
+            button7.TabIndex = 32;
+            button7.Text = "Administrar >";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // Pnl_Fondo_Transporte
             // 
@@ -466,14 +491,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             ClientSize = new Size(1420, 971);
             Controls.Add(Pnl_Fondo_Transporte);
             Controls.Add(Pnl_Fondo1_Transporte);
             Margin = new Padding(4, 5, 4, 5);
             Name = "Transportes";
             Text = "Form4";
-            WindowState = FormWindowState.Maximized;
             Load += Transportes_Load;
             Pnl_Fondo1_Transporte.ResumeLayout(false);
             Pnl_Fondo1_Transporte.PerformLayout();
@@ -482,6 +505,8 @@
             Pnl_Fondo2_Transporte.ResumeLayout(false);
             Pnl_Fondo2_Transporte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            Pnl_Fondo4_Transporte.ResumeLayout(false);
+            Pnl_Fondo4_Transporte.PerformLayout();
             Pnl_Fondo_Transporte.ResumeLayout(false);
             Pnl_Fondo_Transporte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -526,5 +551,7 @@
         private PictureBox pictureBox4;
         private Button button7;
         private Panel Pnl_Fondo3_Transporte;
+        private Panel Pnl_Fondo4_Transporte;
+        private Label label1;
     }
 }

@@ -38,8 +38,10 @@ namespace SistemaReparto
             var conexion = cn.establecerConexion();
             if (conexion.State == System.Data.ConnectionState.Open)
             {
-                MessageBox.Show("¡Conexión exitosa!");
-                cn.cerrarConexion();
+                
+                Tipo_Transporte formTipos = new Tipo_Transporte();
+                formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
+
             }
             else
             {
