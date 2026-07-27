@@ -1,6 +1,6 @@
 ﻿namespace SistemaReparto
 {
-    partial class Rutas
+    partial class EstadoRutas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rutas));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstadoRutas));
             panel1 = new Panel();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             label15 = new Label();
             label2 = new Label();
-            Total_Rutas = new DataGridView();
+            Total_Estado_Rutas = new DataGridView();
             panel3 = new Panel();
             panel5 = new Panel();
             pictureBox3 = new PictureBox();
@@ -46,7 +46,7 @@
             Btn_Guardar_Ruta = new Button();
             Btn_Actualizar_Ruta = new Button();
             panel4 = new Panel();
-            Text_Id_Ruta = new TextBox();
+            Text_Id_Tipo_Ruta = new TextBox();
             label3 = new Label();
             label1 = new Label();
             Text_Nombre_Ruta = new TextBox();
@@ -56,7 +56,7 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)Total_Rutas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Total_Estado_Rutas).BeginInit();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -131,18 +131,18 @@
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
             // 
-            // Total_Rutas
+            // Total_Estado_Rutas
             // 
-            Total_Rutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            Total_Rutas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Total_Rutas.Location = new Point(85, 382);
-            Total_Rutas.Margin = new Padding(4, 5, 4, 5);
-            Total_Rutas.Name = "Total_Rutas";
-            Total_Rutas.RowHeadersWidth = 51;
-            Total_Rutas.Size = new Size(1259, 369);
-            Total_Rutas.TabIndex = 3;
-            Total_Rutas.CellContentClick += dataGridView1_CellContentClick;
-            Total_Rutas.CellMouseDoubleClick += Total_Rutas_CellMouseDoubleClick;
+            Total_Estado_Rutas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Total_Estado_Rutas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Total_Estado_Rutas.Location = new Point(85, 382);
+            Total_Estado_Rutas.Margin = new Padding(4, 5, 4, 5);
+            Total_Estado_Rutas.Name = "Total_Estado_Rutas";
+            Total_Estado_Rutas.RowHeadersWidth = 51;
+            Total_Estado_Rutas.Size = new Size(1259, 369);
+            Total_Estado_Rutas.TabIndex = 3;
+            Total_Estado_Rutas.CellContentClick += dataGridView1_CellContentClick;
+            Total_Estado_Rutas.CellMouseDoubleClick += Total_Rutas_CellMouseDoubleClick;
             // 
             // panel3
             // 
@@ -151,7 +151,7 @@
             panel3.BackColor = Color.Lavender;
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
-            panel3.Controls.Add(Total_Rutas);
+            panel3.Controls.Add(Total_Estado_Rutas);
             panel3.Location = new Point(0, 172);
             panel3.Margin = new Padding(4, 5, 4, 5);
             panel3.Name = "panel3";
@@ -265,7 +265,7 @@
             // panel4
             // 
             panel4.BackColor = Color.AliceBlue;
-            panel4.Controls.Add(Text_Id_Ruta);
+            panel4.Controls.Add(Text_Id_Tipo_Ruta);
             panel4.Controls.Add(label3);
             panel4.Controls.Add(label1);
             panel4.Controls.Add(Text_Nombre_Ruta);
@@ -278,16 +278,16 @@
             panel4.Size = new Size(854, 295);
             panel4.TabIndex = 34;
             // 
-            // Text_Id_Ruta
+            // Text_Id_Tipo_Ruta
             // 
-            Text_Id_Ruta.Location = new Point(350, 109);
-            Text_Id_Ruta.Margin = new Padding(5);
-            Text_Id_Ruta.Name = "Text_Id_Ruta";
-            Text_Id_Ruta.PlaceholderText = "ID_Tipo_Ruta";
-            Text_Id_Ruta.ReadOnly = true;
-            Text_Id_Ruta.Size = new Size(255, 27);
-            Text_Id_Ruta.TabIndex = 36;
-            Text_Id_Ruta.TextChanged += textBox1_TextChanged;
+            Text_Id_Tipo_Ruta.Location = new Point(350, 109);
+            Text_Id_Tipo_Ruta.Margin = new Padding(5);
+            Text_Id_Tipo_Ruta.Name = "Text_Id_Tipo_Ruta";
+            Text_Id_Tipo_Ruta.PlaceholderText = "ID_Tipo_Ruta";
+            Text_Id_Tipo_Ruta.ReadOnly = true;
+            Text_Id_Tipo_Ruta.Size = new Size(255, 27);
+            Text_Id_Tipo_Ruta.TabIndex = 36;
+            Text_Id_Tipo_Ruta.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
@@ -354,14 +354,14 @@
             label7.TabIndex = 11;
             label7.Text = "Apellidos";
             // 
-            // Rutas
+            // EstadoRutas
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1420, 971);
             Controls.Add(panel3);
             Controls.Add(panel1);
-            Name = "Rutas";
+            Name = "EstadoRutas";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             Load += Rutas_Load;
@@ -369,7 +369,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)Total_Rutas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Total_Estado_Rutas).EndInit();
             panel3.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -384,7 +384,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView Total_Rutas;
+        private System.Windows.Forms.DataGridView Total_Estado_Rutas;
         private System.Windows.Forms.Panel panel3;
         private Label label15;
         private PictureBox pictureBox2;
@@ -403,7 +403,7 @@
         private Button Btn_Eliminar_Ruta;
         private Button Btn_Guardar_Ruta;
         private Button Btn_Actualizar_Ruta;
-        private TextBox Text_Id_Ruta;
+        private TextBox Text_Id_Tipo_Ruta;
         private Label label3;
     }
 }

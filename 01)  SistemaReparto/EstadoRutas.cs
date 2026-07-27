@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace SistemaReparto
 {
-    public partial class Rutas : Form
+    public partial class EstadoRutas : Form
     {
-        public Rutas()
+        public EstadoRutas()
         {
             InitializeComponent();
-            Clases.CRutas objetoRutas = new Clases.CRutas();
-            objetoRutas.mostrarRutas(Total_Rutas);
+            Clases.CEstadoRutas objetoRutas = new Clases.CEstadoRutas();
+            objetoRutas.mostrarRutas(Total_Estado_Rutas);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -56,34 +56,34 @@ namespace SistemaReparto
 
         private void Btn_Guardar_Ruta_Click(object sender, EventArgs e)
         {
-            Clases.CRutas objetoRutas = new Clases.CRutas();
+            Clases.CEstadoRutas objetoRutas = new Clases.CEstadoRutas();
             objetoRutas.GuardarRutas(Text_Nombre_Ruta, Text_Descripcion_Ruta);
-            objetoRutas.mostrarRutas(Total_Rutas);
+            objetoRutas.mostrarRutas(Total_Estado_Rutas);
         }
 
         private void Total_Rutas_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            Clases.CRutas objetoRutas = new Clases.CRutas();
-            objetoRutas.SeleccionarRutas(Total_Rutas, Text_Id_Ruta, Text_Nombre_Ruta, Text_Descripcion_Ruta);
+            Clases.CEstadoRutas objetoRutas = new Clases.CEstadoRutas();
+            objetoRutas.SeleccionarRutas(Total_Estado_Rutas, Text_Id_Tipo_Ruta, Text_Nombre_Ruta, Text_Descripcion_Ruta);
         }
 
         private void Btn_Actualizar_Ruta_Click(object sender, EventArgs e)
         {
-            Clases.CRutas objetoRutas = new Clases.CRutas();
-            objetoRutas.ModificarRutas(Text_Id_Ruta, Text_Nombre_Ruta, Text_Descripcion_Ruta);
-            objetoRutas.mostrarRutas(Total_Rutas);
+            Clases.CEstadoRutas objetoRutas = new Clases.CEstadoRutas();
+            objetoRutas.ModificarRutas(Text_Id_Tipo_Ruta, Text_Nombre_Ruta, Text_Descripcion_Ruta);
+            objetoRutas.mostrarRutas(Total_Estado_Rutas);
         }
 
         private void Btn_Eliminar_Ruta_Click(object sender, EventArgs e)
         {
-            Clases.CRutas objetoRutas = new Clases.CRutas();
-            objetoRutas.EliminarRutas(Text_Id_Ruta);
-            objetoRutas.mostrarRutas(Total_Rutas);
+            Clases.CEstadoRutas objetoRutas = new Clases.CEstadoRutas();
+            objetoRutas.EliminarRutas(Text_Id_Tipo_Ruta);
+            objetoRutas.mostrarRutas(Total_Estado_Rutas);
         }
 
         private void Btn_Limpiar_Emp_Click(object sender, EventArgs e)
         {
-            Text_Id_Ruta.Clear();
+            Text_Id_Tipo_Ruta.Clear();
             Text_Nombre_Ruta.Clear();
             Text_Descripcion_Ruta.Clear();
         }
