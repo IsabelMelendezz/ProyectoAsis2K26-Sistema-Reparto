@@ -38,7 +38,7 @@ namespace SistemaReparto
             var conexion = cn.establecerConexion();
             if (conexion.State == System.Data.ConnectionState.Open)
             {
-                
+
                 Tipo_Transporte formTipos = new Tipo_Transporte();
                 formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
 
@@ -156,7 +156,7 @@ namespace SistemaReparto
             Txt_Modelo_Transporte.ReadOnly = true;
             Txt_Marca_Transporte.ReadOnly = true;
             Txt_Peso_Transporte.ReadOnly = true;
-          
+
         }
         // ==== AGREGADO: habilita todos los campos para poder capturar/editar ====
         private void HabilitarCampos()
@@ -168,7 +168,26 @@ namespace SistemaReparto
             Txt_Modelo_Transporte.ReadOnly = false;
             Txt_Marca_Transporte.ReadOnly = false;
             Txt_Peso_Transporte.ReadOnly = false;
-            
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnProbarConexion_Click_Click(object sender, EventArgs e)
+        {
+            Tipo_Transporte formTipos = new Tipo_Transporte();
+            formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
+
+        }
+
+        private void Btn_Estado_Transporte_Click(object sender, EventArgs e)
+        {
+            Estado_Transporte formTipos = new Estado_Transporte();
+            formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
+
         }
     }
 }

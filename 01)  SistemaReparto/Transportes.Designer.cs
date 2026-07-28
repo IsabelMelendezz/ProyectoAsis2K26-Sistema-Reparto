@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             Pnl_Fondo1_Transporte = new Panel();
+            panel2 = new Panel();
+            label17 = new Label();
+            label16 = new Label();
+            panel6 = new Panel();
+            label18 = new Label();
+            btnProbarConexion_Click = new Button();
+            panel7 = new Panel();
+            label19 = new Label();
+            Btn_Estado_Transporte = new Button();
+            button1 = new Button();
             pictureBox4 = new PictureBox();
             Lbl_Accion_Transporte = new Label();
             Btn_Limpiar_Transporte = new Button();
@@ -56,20 +66,19 @@
             Lbl_Peso_Transporte = new Label();
             Txt_Marca_Transporte = new TextBox();
             Pnl_Fondo3_Transporte = new Panel();
-            Pnl_Fondo4_Transporte = new Panel();
-            label1 = new Label();
-            button7 = new Button();
             Pnl_Fondo_Transporte = new Panel();
             pictureBox1 = new PictureBox();
             Lbl_Enca_Trans = new Label();
             Lbl_Icon_Transporte = new PictureBox();
             Lbl_Titulo_Transporte = new Label();
             Pnl_Fondo1_Transporte.SuspendLayout();
+            panel2.SuspendLayout();
+            panel6.SuspendLayout();
+            panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_Transporte).BeginInit();
             Pnl_Fondo2_Transporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            Pnl_Fondo4_Transporte.SuspendLayout();
             Pnl_Fondo_Transporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Lbl_Icon_Transporte).BeginInit();
@@ -80,6 +89,7 @@
             Pnl_Fondo1_Transporte.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Pnl_Fondo1_Transporte.AutoScroll = true;
             Pnl_Fondo1_Transporte.BackColor = Color.Lavender;
+            Pnl_Fondo1_Transporte.Controls.Add(panel2);
             Pnl_Fondo1_Transporte.Controls.Add(pictureBox4);
             Pnl_Fondo1_Transporte.Controls.Add(Lbl_Accion_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Btn_Limpiar_Transporte);
@@ -91,18 +101,133 @@
             Pnl_Fondo1_Transporte.Controls.Add(Dgv_Tabla_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Pnl_Fondo2_Transporte);
             Pnl_Fondo1_Transporte.Controls.Add(Pnl_Fondo3_Transporte);
-            Pnl_Fondo1_Transporte.Controls.Add(Pnl_Fondo4_Transporte);
             Pnl_Fondo1_Transporte.Location = new Point(0, 182);
             Pnl_Fondo1_Transporte.Margin = new Padding(4, 5, 4, 5);
             Pnl_Fondo1_Transporte.Name = "Pnl_Fondo1_Transporte";
-            Pnl_Fondo1_Transporte.Size = new Size(1419, 786);
+            Pnl_Fondo1_Transporte.Size = new Size(1347, 786);
             Pnl_Fondo1_Transporte.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.AliceBlue;
+            panel2.Controls.Add(label17);
+            panel2.Controls.Add(label16);
+            panel2.Controls.Add(panel6);
+            panel2.Controls.Add(panel7);
+            panel2.Location = new Point(843, 13);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(455, 207);
+            panel2.TabIndex = 43;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = Color.Transparent;
+            label17.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.Navy;
+            label17.Location = new Point(3, 49);
+            label17.Name = "label17";
+            label17.Size = new Size(450, 23);
+            label17.TabIndex = 43;
+            label17.Text = "Gestiona la información de los Transportes de la empresa.";
+            label17.Click += label17_Click;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.Navy;
+            label16.Location = new Point(95, 17);
+            label16.Name = "label16";
+            label16.Size = new Size(264, 32);
+            label16.TabIndex = 35;
+            label16.Text = "Catálogos del Sistema";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.PowderBlue;
+            panel6.Controls.Add(label18);
+            panel6.Controls.Add(btnProbarConexion_Click);
+            panel6.Location = new Point(9, 88);
+            panel6.Margin = new Padding(3, 4, 3, 4);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(408, 51);
+            panel6.TabIndex = 44;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.Navy;
+            label18.Location = new Point(88, 13);
+            label18.Name = "label18";
+            label18.Size = new Size(169, 23);
+            label18.TabIndex = 42;
+            label18.Text = "Tipos de Transporte";
+            // 
+            // btnProbarConexion_Click
+            // 
+            btnProbarConexion_Click.AccessibleRole = AccessibleRole.Clock;
+            btnProbarConexion_Click.Location = new Point(288, 4);
+            btnProbarConexion_Click.Margin = new Padding(3, 4, 3, 4);
+            btnProbarConexion_Click.Name = "btnProbarConexion_Click";
+            btnProbarConexion_Click.Size = new Size(114, 40);
+            btnProbarConexion_Click.TabIndex = 41;
+            btnProbarConexion_Click.Text = "Administrar >";
+            btnProbarConexion_Click.UseVisualStyleBackColor = true;
+            btnProbarConexion_Click.Click += btnProbarConexion_Click_Click;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.LightBlue;
+            panel7.Controls.Add(label19);
+            panel7.Controls.Add(Btn_Estado_Transporte);
+            panel7.Controls.Add(button1);
+            panel7.Location = new Point(9, 148);
+            panel7.Margin = new Padding(3, 4, 3, 4);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(408, 49);
+            panel7.TabIndex = 45;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Navy;
+            label19.Location = new Point(86, 14);
+            label19.Name = "label19";
+            label19.Size = new Size(191, 23);
+            label19.TabIndex = 44;
+            label19.Text = "Estados del Transporte";
+            // 
+            // Btn_Estado_Transporte
+            // 
+            Btn_Estado_Transporte.AccessibleRole = AccessibleRole.Clock;
+            Btn_Estado_Transporte.Location = new Point(287, 5);
+            Btn_Estado_Transporte.Margin = new Padding(3, 4, 3, 4);
+            Btn_Estado_Transporte.Name = "Btn_Estado_Transporte";
+            Btn_Estado_Transporte.Size = new Size(114, 40);
+            Btn_Estado_Transporte.TabIndex = 43;
+            Btn_Estado_Transporte.Text = "Administrar >";
+            Btn_Estado_Transporte.UseVisualStyleBackColor = true;
+            Btn_Estado_Transporte.Click += Btn_Estado_Transporte_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(271, 0);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(0, 0);
+            button1.TabIndex = 42;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.AliceBlue;
             pictureBox4.Image = Properties.Resources.Icon_Acciones;
-            pictureBox4.Location = new Point(973, 189);
+            pictureBox4.Location = new Point(973, 267);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(41, 43);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -115,7 +240,7 @@
             Lbl_Accion_Transporte.BackColor = Color.AliceBlue;
             Lbl_Accion_Transporte.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             Lbl_Accion_Transporte.ForeColor = Color.Navy;
-            Lbl_Accion_Transporte.Location = new Point(1013, 189);
+            Lbl_Accion_Transporte.Location = new Point(1013, 267);
             Lbl_Accion_Transporte.Name = "Lbl_Accion_Transporte";
             Lbl_Accion_Transporte.Size = new Size(116, 32);
             Lbl_Accion_Transporte.TabIndex = 29;
@@ -124,7 +249,7 @@
             // Btn_Limpiar_Transporte
             // 
             Btn_Limpiar_Transporte.Image = Properties.Resources.Btn_Limpiar;
-            Btn_Limpiar_Transporte.Location = new Point(1148, 321);
+            Btn_Limpiar_Transporte.Location = new Point(1148, 399);
             Btn_Limpiar_Transporte.Name = "Btn_Limpiar_Transporte";
             Btn_Limpiar_Transporte.Size = new Size(106, 38);
             Btn_Limpiar_Transporte.TabIndex = 28;
@@ -134,7 +259,7 @@
             // Btn_Editar_Transporte
             // 
             Btn_Editar_Transporte.Image = Properties.Resources.Btn_Editar;
-            Btn_Editar_Transporte.Location = new Point(1148, 247);
+            Btn_Editar_Transporte.Location = new Point(1148, 325);
             Btn_Editar_Transporte.Name = "Btn_Editar_Transporte";
             Btn_Editar_Transporte.Size = new Size(106, 38);
             Btn_Editar_Transporte.TabIndex = 27;
@@ -144,7 +269,7 @@
             // Btn_Guardar_Transporte
             // 
             Btn_Guardar_Transporte.Image = Properties.Resources.Btn_guardar;
-            Btn_Guardar_Transporte.Location = new Point(1003, 247);
+            Btn_Guardar_Transporte.Location = new Point(1003, 325);
             Btn_Guardar_Transporte.Name = "Btn_Guardar_Transporte";
             Btn_Guardar_Transporte.Size = new Size(106, 38);
             Btn_Guardar_Transporte.TabIndex = 24;
@@ -154,7 +279,7 @@
             // Btn_Actualizar_Transporte
             // 
             Btn_Actualizar_Transporte.Image = Properties.Resources.Btn_Actualizar;
-            Btn_Actualizar_Transporte.Location = new Point(1003, 321);
+            Btn_Actualizar_Transporte.Location = new Point(1003, 399);
             Btn_Actualizar_Transporte.Name = "Btn_Actualizar_Transporte";
             Btn_Actualizar_Transporte.Size = new Size(106, 38);
             Btn_Actualizar_Transporte.TabIndex = 26;
@@ -164,7 +289,7 @@
             // Btn_Eliminar_Transporte
             // 
             Btn_Eliminar_Transporte.Image = Properties.Resources.Btn_ELiminar;
-            Btn_Eliminar_Transporte.Location = new Point(858, 321);
+            Btn_Eliminar_Transporte.Location = new Point(858, 399);
             Btn_Eliminar_Transporte.Name = "Btn_Eliminar_Transporte";
             Btn_Eliminar_Transporte.Size = new Size(106, 38);
             Btn_Eliminar_Transporte.TabIndex = 25;
@@ -174,7 +299,7 @@
             // Btn_Nuevo_Transporte
             // 
             Btn_Nuevo_Transporte.Image = Properties.Resources.Btn_Nuevo;
-            Btn_Nuevo_Transporte.Location = new Point(858, 247);
+            Btn_Nuevo_Transporte.Location = new Point(858, 325);
             Btn_Nuevo_Transporte.Name = "Btn_Nuevo_Transporte";
             Btn_Nuevo_Transporte.Size = new Size(106, 38);
             Btn_Nuevo_Transporte.TabIndex = 23;
@@ -185,11 +310,11 @@
             // 
             Dgv_Tabla_Transporte.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             Dgv_Tabla_Transporte.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgv_Tabla_Transporte.Location = new Point(117, 394);
+            Dgv_Tabla_Transporte.Location = new Point(54, 475);
             Dgv_Tabla_Transporte.Margin = new Padding(4, 5, 4, 5);
             Dgv_Tabla_Transporte.Name = "Dgv_Tabla_Transporte";
             Dgv_Tabla_Transporte.RowHeadersWidth = 51;
-            Dgv_Tabla_Transporte.Size = new Size(1259, 369);
+            Dgv_Tabla_Transporte.Size = new Size(1259, 300);
             Dgv_Tabla_Transporte.TabIndex = 3;
             // 
             // Pnl_Fondo2_Transporte
@@ -383,42 +508,10 @@
             // Pnl_Fondo3_Transporte
             // 
             Pnl_Fondo3_Transporte.BackColor = Color.AliceBlue;
-            Pnl_Fondo3_Transporte.Location = new Point(843, 162);
+            Pnl_Fondo3_Transporte.Location = new Point(843, 240);
             Pnl_Fondo3_Transporte.Name = "Pnl_Fondo3_Transporte";
-            Pnl_Fondo3_Transporte.Size = new Size(427, 218);
+            Pnl_Fondo3_Transporte.Size = new Size(453, 218);
             Pnl_Fondo3_Transporte.TabIndex = 33;
-            // 
-            // Pnl_Fondo4_Transporte
-            // 
-            Pnl_Fondo4_Transporte.BackColor = Color.AliceBlue;
-            Pnl_Fondo4_Transporte.Controls.Add(label1);
-            Pnl_Fondo4_Transporte.Controls.Add(button7);
-            Pnl_Fondo4_Transporte.Location = new Point(843, 15);
-            Pnl_Fondo4_Transporte.Name = "Pnl_Fondo4_Transporte";
-            Pnl_Fondo4_Transporte.Size = new Size(427, 125);
-            Pnl_Fondo4_Transporte.TabIndex = 34;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            label1.ForeColor = Color.Navy;
-            label1.Location = new Point(91, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(264, 32);
-            label1.TabIndex = 33;
-            label1.Text = "Catálogos del Sistema";
-            // 
-            // button7
-            // 
-            button7.ForeColor = Color.Navy;
-            button7.Location = new Point(298, 71);
-            button7.Name = "button7";
-            button7.Size = new Size(113, 29);
-            button7.TabIndex = 32;
-            button7.Text = "Administrar >";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
             // 
             // Pnl_Fondo_Transporte
             // 
@@ -433,7 +526,7 @@
             Pnl_Fondo_Transporte.Dock = DockStyle.Top;
             Pnl_Fondo_Transporte.Location = new Point(0, 0);
             Pnl_Fondo_Transporte.Name = "Pnl_Fondo_Transporte";
-            Pnl_Fondo_Transporte.Size = new Size(1420, 177);
+            Pnl_Fondo_Transporte.Size = new Size(1348, 177);
             Pnl_Fondo_Transporte.TabIndex = 9;
             // 
             // pictureBox1
@@ -441,7 +534,7 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.patito1;
-            pictureBox1.Location = new Point(1193, 11);
+            pictureBox1.Location = new Point(1121, 11);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(130, 163);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -491,7 +584,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1420, 971);
+            ClientSize = new Size(1348, 971);
             Controls.Add(Pnl_Fondo_Transporte);
             Controls.Add(Pnl_Fondo1_Transporte);
             Margin = new Padding(4, 5, 4, 5);
@@ -500,13 +593,17 @@
             Load += Transportes_Load;
             Pnl_Fondo1_Transporte.ResumeLayout(false);
             Pnl_Fondo1_Transporte.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_Transporte).EndInit();
             Pnl_Fondo2_Transporte.ResumeLayout(false);
             Pnl_Fondo2_Transporte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            Pnl_Fondo4_Transporte.ResumeLayout(false);
-            Pnl_Fondo4_Transporte.PerformLayout();
             Pnl_Fondo_Transporte.ResumeLayout(false);
             Pnl_Fondo_Transporte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -549,9 +646,16 @@
         private Button Btn_Editar_Transporte;
         private Label Lbl_Accion_Transporte;
         private PictureBox pictureBox4;
-        private Button button7;
         private Panel Pnl_Fondo3_Transporte;
-        private Panel Pnl_Fondo4_Transporte;
-        private Label label1;
+        private Panel panel2;
+        private Label label17;
+        private Label label16;
+        private Panel panel6;
+        private Label label18;
+        private Button btnProbarConexion_Click;
+        private Panel panel7;
+        private Label label19;
+        private Button Btn_Estado_Transporte;
+        private Button button1;
     }
 }
