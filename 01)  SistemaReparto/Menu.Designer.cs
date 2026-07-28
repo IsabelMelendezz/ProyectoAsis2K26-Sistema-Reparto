@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             pnl_Contencion_Btn = new Panel();
             pic_Sucur = new PictureBox();
             pic_Repa = new PictureBox();
@@ -614,11 +615,12 @@
             ClientSize = new Size(1536, 991);
             Controls.Add(pnl_Control);
             Controls.Add(pnl_Contencion_Btn);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 4, 3, 4);
             Name = "Menu";
             SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "NORTEK";
             Load += Form1_Load;
             pnl_Contencion_Btn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pic_Sucur).EndInit();
