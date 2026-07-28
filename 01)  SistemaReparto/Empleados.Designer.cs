@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel3 = new Panel();
-            btnProbarConexion_Click = new Button();
             Tabla_Empleados = new DataGridView();
             panel4 = new Panel();
+            Telefono_Empleado = new TextBox();
             Correo_Empleado = new TextBox();
             Contratacion_Empleado = new DateTimePicker();
             pictureBox4 = new PictureBox();
@@ -64,18 +64,30 @@
             Btn_Eliminar_Emp = new Button();
             Btn_Guardar_Emp = new Button();
             Btn_Actualizar_Emp = new Button();
+            panel2 = new Panel();
+            label17 = new Label();
+            label16 = new Label();
+            panel6 = new Panel();
+            label18 = new Label();
+            btnProbarConexion_Click = new Button();
+            panel7 = new Panel();
+            label19 = new Label();
+            button2 = new Button();
+            button1 = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             label15 = new Label();
             pictureBox2 = new PictureBox();
             label2 = new Label();
-            Telefono_Empleado = new TextBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Tabla_Empleados).BeginInit();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel2.SuspendLayout();
+            panel6.SuspendLayout();
+            panel7.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -85,27 +97,16 @@
             // 
             panel3.AutoScroll = true;
             panel3.BackColor = Color.Lavender;
-            panel3.Controls.Add(btnProbarConexion_Click);
             panel3.Controls.Add(Tabla_Empleados);
             panel3.Controls.Add(panel4);
             panel3.Controls.Add(panel5);
+            panel3.Controls.Add(panel2);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 133);
             panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(1199, 429);
             panel3.TabIndex = 12;
-            // 
-            // btnProbarConexion_Click
-            // 
-            btnProbarConexion_Click.AccessibleRole = AccessibleRole.Clock;
-            btnProbarConexion_Click.Location = new Point(818, 58);
-            btnProbarConexion_Click.Name = "btnProbarConexion_Click";
-            btnProbarConexion_Click.Size = new Size(75, 23);
-            btnProbarConexion_Click.TabIndex = 41;
-            btnProbarConexion_Click.Text = "button1";
-            btnProbarConexion_Click.UseVisualStyleBackColor = true;
-            btnProbarConexion_Click.Click += btnProbarConexion_Click_Click;
             // 
             // Tabla_Empleados
             // 
@@ -148,8 +149,15 @@
             panel4.Controls.Add(label3);
             panel4.Location = new Point(12, 20);
             panel4.Name = "panel4";
-            panel4.Size = new Size(747, 262);
+            panel4.Size = new Size(747, 273);
             panel4.TabIndex = 33;
+            // 
+            // Telefono_Empleado
+            // 
+            Telefono_Empleado.Location = new Point(504, 92);
+            Telefono_Empleado.Name = "Telefono_Empleado";
+            Telefono_Empleado.Size = new Size(230, 23);
+            Telefono_Empleado.TabIndex = 44;
             // 
             // Correo_Empleado
             // 
@@ -402,15 +410,15 @@
             panel5.Controls.Add(Btn_Eliminar_Emp);
             panel5.Controls.Add(Btn_Guardar_Emp);
             panel5.Controls.Add(Btn_Actualizar_Emp);
-            panel5.Location = new Point(777, 155);
+            panel5.Location = new Point(777, 181);
             panel5.Name = "panel5";
-            panel5.Size = new Size(372, 127);
+            panel5.Size = new Size(372, 112);
             panel5.TabIndex = 40;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.Icon_Acciones;
-            pictureBox3.Location = new Point(113, 6);
+            pictureBox3.Location = new Point(114, 1);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(30, 32);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -422,7 +430,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(138, 10);
+            label4.Location = new Point(145, 1);
             label4.Name = "label4";
             label4.Size = new Size(90, 25);
             label4.TabIndex = 40;
@@ -431,18 +439,19 @@
             // Btn_Limpiar_Emp
             // 
             Btn_Limpiar_Emp.Image = Properties.Resources.Btn_Limpiar;
-            Btn_Limpiar_Emp.Location = new Point(247, 77);
+            Btn_Limpiar_Emp.Location = new Point(251, 64);
             Btn_Limpiar_Emp.Name = "Btn_Limpiar_Emp";
-            Btn_Limpiar_Emp.Size = new Size(110, 37);
+            Btn_Limpiar_Emp.Size = new Size(100, 35);
             Btn_Limpiar_Emp.TabIndex = 39;
             Btn_Limpiar_Emp.UseVisualStyleBackColor = true;
+            Btn_Limpiar_Emp.Click += Btn_Limpiar_Emp_Click_1;
             // 
             // Btn_Nuevo_Emp
             // 
             Btn_Nuevo_Emp.Image = Properties.Resources.Btn_Nuevo;
-            Btn_Nuevo_Emp.Location = new Point(15, 34);
+            Btn_Nuevo_Emp.Location = new Point(37, 29);
             Btn_Nuevo_Emp.Name = "Btn_Nuevo_Emp";
-            Btn_Nuevo_Emp.Size = new Size(110, 37);
+            Btn_Nuevo_Emp.Size = new Size(100, 35);
             Btn_Nuevo_Emp.TabIndex = 34;
             Btn_Nuevo_Emp.UseVisualStyleBackColor = true;
             Btn_Nuevo_Emp.Click += Btn_Nuevo_Emp_Click;
@@ -450,9 +459,9 @@
             // Btn_Editar_Emp
             // 
             Btn_Editar_Emp.Image = Properties.Resources.Btn_Editar;
-            Btn_Editar_Emp.Location = new Point(245, 34);
+            Btn_Editar_Emp.Location = new Point(251, 25);
             Btn_Editar_Emp.Name = "Btn_Editar_Emp";
-            Btn_Editar_Emp.Size = new Size(110, 37);
+            Btn_Editar_Emp.Size = new Size(100, 35);
             Btn_Editar_Emp.TabIndex = 36;
             Btn_Editar_Emp.UseVisualStyleBackColor = true;
             Btn_Editar_Emp.Click += button3_Click;
@@ -460,9 +469,9 @@
             // Btn_Eliminar_Emp
             // 
             Btn_Eliminar_Emp.Image = Properties.Resources.Btn_ELiminar;
-            Btn_Eliminar_Emp.Location = new Point(15, 78);
+            Btn_Eliminar_Emp.Location = new Point(37, 68);
             Btn_Eliminar_Emp.Name = "Btn_Eliminar_Emp";
-            Btn_Eliminar_Emp.Size = new Size(110, 37);
+            Btn_Eliminar_Emp.Size = new Size(100, 35);
             Btn_Eliminar_Emp.TabIndex = 37;
             Btn_Eliminar_Emp.UseVisualStyleBackColor = true;
             Btn_Eliminar_Emp.Click += Btn_Eliminar_Emp_Click;
@@ -470,9 +479,9 @@
             // Btn_Guardar_Emp
             // 
             Btn_Guardar_Emp.Image = Properties.Resources.Btn_guardar;
-            Btn_Guardar_Emp.Location = new Point(131, 34);
+            Btn_Guardar_Emp.Location = new Point(145, 29);
             Btn_Guardar_Emp.Name = "Btn_Guardar_Emp";
-            Btn_Guardar_Emp.Size = new Size(110, 37);
+            Btn_Guardar_Emp.Size = new Size(100, 35);
             Btn_Guardar_Emp.TabIndex = 35;
             Btn_Guardar_Emp.UseVisualStyleBackColor = true;
             Btn_Guardar_Emp.Click += button2_Click;
@@ -480,12 +489,122 @@
             // Btn_Actualizar_Emp
             // 
             Btn_Actualizar_Emp.Image = Properties.Resources.Btn_Actualizar;
-            Btn_Actualizar_Emp.Location = new Point(131, 77);
+            Btn_Actualizar_Emp.Location = new Point(145, 64);
             Btn_Actualizar_Emp.Name = "Btn_Actualizar_Emp";
-            Btn_Actualizar_Emp.Size = new Size(110, 37);
+            Btn_Actualizar_Emp.Size = new Size(100, 35);
             Btn_Actualizar_Emp.TabIndex = 38;
             Btn_Actualizar_Emp.UseVisualStyleBackColor = true;
             Btn_Actualizar_Emp.Click += button5_Click;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.AliceBlue;
+            panel2.Controls.Add(label17);
+            panel2.Controls.Add(label16);
+            panel2.Controls.Add(panel6);
+            panel2.Controls.Add(panel7);
+            panel2.Location = new Point(777, 20);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(372, 155);
+            panel2.TabIndex = 42;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = Color.Transparent;
+            label17.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.ForeColor = Color.Navy;
+            label17.Location = new Point(37, 36);
+            label17.Name = "label17";
+            label17.Size = new Size(314, 17);
+            label17.TabIndex = 43;
+            label17.Text = "Gestiona la información del personal de la empresa.";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.ForeColor = Color.Navy;
+            label16.Location = new Point(46, 11);
+            label16.Name = "label16";
+            label16.Size = new Size(205, 25);
+            label16.TabIndex = 35;
+            label16.Text = "Catálogos del Sistema";
+            label16.Click += label16_Click;
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.PowderBlue;
+            panel6.Controls.Add(label18);
+            panel6.Controls.Add(btnProbarConexion_Click);
+            panel6.Location = new Point(8, 66);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(357, 38);
+            panel6.TabIndex = 44;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label18.ForeColor = Color.Navy;
+            label18.Location = new Point(91, 9);
+            label18.Name = "label18";
+            label18.Size = new Size(126, 17);
+            label18.TabIndex = 42;
+            label18.Text = "Tipos de Empleado";
+            // 
+            // btnProbarConexion_Click
+            // 
+            btnProbarConexion_Click.AccessibleRole = AccessibleRole.Clock;
+            btnProbarConexion_Click.Location = new Point(252, 3);
+            btnProbarConexion_Click.Name = "btnProbarConexion_Click";
+            btnProbarConexion_Click.Size = new Size(100, 30);
+            btnProbarConexion_Click.TabIndex = 41;
+            btnProbarConexion_Click.Text = "Administrar >";
+            btnProbarConexion_Click.UseVisualStyleBackColor = true;
+            btnProbarConexion_Click.Click += btnProbarConexion_Click_Click;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = Color.LightBlue;
+            panel7.Controls.Add(label19);
+            panel7.Controls.Add(button2);
+            panel7.Controls.Add(button1);
+            panel7.Location = new Point(8, 111);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(357, 37);
+            panel7.TabIndex = 45;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label19.ForeColor = Color.Navy;
+            label19.Location = new Point(91, 11);
+            label19.Name = "label19";
+            label19.Size = new Size(143, 17);
+            label19.TabIndex = 44;
+            label19.Text = "Estados del Empleado";
+            // 
+            // button2
+            // 
+            button2.AccessibleRole = AccessibleRole.Clock;
+            button2.Location = new Point(251, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(100, 30);
+            button2.TabIndex = 43;
+            button2.Text = "Administrar >";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click_1;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(237, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(0, 0);
+            button1.TabIndex = 42;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -556,13 +675,6 @@
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
             // 
-            // Telefono_Empleado
-            // 
-            Telefono_Empleado.Location = new Point(504, 92);
-            Telefono_Empleado.Name = "Telefono_Empleado";
-            Telefono_Empleado.Size = new Size(230, 23);
-            Telefono_Empleado.TabIndex = 44;
-            // 
             // Empleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -581,6 +693,12 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -630,8 +748,17 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private Button btnProbarConexion_Click;
         private TextBox Correo_Empleado;
         private TextBox Telefono_Empleado;
+        private Panel panel2;
+        private Label label16;
+        private Button button1;
+        private Label label17;
+        private Panel panel6;
+        private Panel panel7;
+        private Button btnProbarConexion_Click;
+        private Button button2;
+        private Label label18;
+        private Label label19;
     }
 }

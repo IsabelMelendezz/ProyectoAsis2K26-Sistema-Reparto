@@ -83,17 +83,8 @@ namespace SistemaReparto
 
         private void btnProbarConexion_Click_Click(object sender, EventArgs e)
         {
-            CConexion cn = new CConexion();
-            var conexion = cn.establecerConexion();
-            if (conexion.State == System.Data.ConnectionState.Open)
-            {
-                MessageBox.Show("¡Conexión exitosa!");
-                cn.cerrarConexion();
-            }
-            else
-            {
-                MessageBox.Show("No se pudo conectar. Estado: " + conexion.State);
-            }
+            TipoEmpleado formTipos = new TipoEmpleado();
+            formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
         }
 
         // sincronización con la base de datos
@@ -238,6 +229,22 @@ namespace SistemaReparto
             Direccion_Empleado.ReadOnly = false;
             Nacimiento_Empleado.Enabled = true;
             Contratacion_Empleado.Enabled = true;
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_Limpiar_Emp_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Estado_Empleado formTipos = new Estado_Empleado();
+            formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
         }
     }
 }
