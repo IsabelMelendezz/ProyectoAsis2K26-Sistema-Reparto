@@ -31,9 +31,13 @@ namespace SistemaReparto
 
             objetoPaquetes.LlenarComboPedido(cboPedido);
 
+            cboEstado.Items.Clear();
+            cboEstado.Items.Add("Activo");
+            cboEstado.Items.Add("Inactivo");
+            cboEstado.SelectedIndex = 0;
+
 
             cboTipoPaquete.Enabled = false;
-            cboEstado.Enabled = false;
             cboTipoFiltro.Enabled = false;
             cboEstadoFiltro.Enabled = false;
         }
@@ -49,12 +53,13 @@ namespace SistemaReparto
                 txtAncho,
                 txtLargo,
                 txtDescripcion,
-                cboFragil);
+                cboFragil,
+                cboEstado);
 
             objetoPaquetes.MostrarPaquetes(dgvPaquetes);
         }
 
-            private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
             {
                 objetoPaquetes.ModificarPaquete(
                     idPaqueteSeleccionado,
@@ -65,7 +70,8 @@ namespace SistemaReparto
                     txtAncho,
                     txtLargo,
                     txtDescripcion,
-                    cboFragil);
+                    cboFragil,
+                    cboEstado);
 
                 objetoPaquetes.MostrarPaquetes(dgvPaquetes);
             }
@@ -157,7 +163,8 @@ namespace SistemaReparto
                     txtAncho,
                     txtLargo,
                     txtDescripcion,
-                    cboFragil);
+                    cboFragil,
+                    cboEstado);
 
                 objetoPaquetes.MostrarRutaPedido(
                     cboPedido,

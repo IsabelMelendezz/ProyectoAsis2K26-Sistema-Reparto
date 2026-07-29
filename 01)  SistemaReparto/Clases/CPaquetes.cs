@@ -107,14 +107,15 @@ namespace SistemaReparto.Clases
             TextBox txtAncho,
             TextBox txtLargo,
             TextBox txtDescripcion,
-            ComboBox cboFragil)
+            ComboBox cboFragil,
+            ComboBox cboEstado)
         {
             try
             {
                 string consulta = @"INSERT INTO paquete
-                (id_pedido, codigo_rastreo, peso, alto, ancho, largo, descripcion, fragil)
+                (id_pedido, codigo_rastreo, peso, alto, ancho, largo, descripcion, fragil, estado)
                 VALUES
-                (@id_pedido, @codigo_rastreo, @peso, @alto, @ancho, @largo, @descripcion, @fragil);";
+                (@id_pedido, @codigo_rastreo, @peso, @alto, @ancho, @largo, @descripcion, @fragil, @estado);";
 
                 MySqlCommand comando = new MySqlCommand(
                     consulta,
@@ -128,6 +129,7 @@ namespace SistemaReparto.Clases
                 comando.Parameters.AddWithValue("@largo", txtLargo.Text);
                 comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                 comando.Parameters.AddWithValue("@fragil", cboFragil.Text);
+                comando.Parameters.AddWithValue("@estado", cboEstado.Text);
 
                 comando.ExecuteNonQuery();
 
@@ -174,20 +176,22 @@ namespace SistemaReparto.Clases
             TextBox txtAncho,
             TextBox txtLargo,
             TextBox txtDescripcion,
-            ComboBox cboFragil)
+            ComboBox cboFragil,
+            ComboBox cboEstado)
         {
             try
             {
                 string consulta = @"UPDATE paquete SET
-                            id_pedido = @id_pedido,
-                            codigo_rastreo = @codigo_rastreo,
-                            peso = @peso,
-                            alto = @alto,
-                            ancho = @ancho,
-                            largo = @largo,
-                            descripcion = @descripcion,
-                            fragil = @fragil
-                            WHERE id_paquete = @id_paquete;";
+                    id_pedido = @id_pedido,
+                    codigo_rastreo = @codigo_rastreo,
+                    peso = @peso,
+                    alto = @alto,
+                    ancho = @ancho,
+                    largo = @largo,
+                    descripcion = @descripcion,
+                    fragil = @fragil,
+                    estado = @estado
+                    WHERE id_paquete = @id_paquete;";
 
                 MySqlCommand comando = new MySqlCommand(
                     consulta,
@@ -202,6 +206,7 @@ namespace SistemaReparto.Clases
                 comando.Parameters.AddWithValue("@largo", txtLargo.Text);
                 comando.Parameters.AddWithValue("@descripcion", txtDescripcion.Text);
                 comando.Parameters.AddWithValue("@fragil", cboFragil.Text);
+                comando.Parameters.AddWithValue("@estado", cboEstado.Text);
 
                 comando.ExecuteNonQuery();
 
@@ -257,7 +262,8 @@ namespace SistemaReparto.Clases
             TextBox txtAncho,
             TextBox txtLargo,
             TextBox txtDescripcion,
-            ComboBox cboFragil)
+            ComboBox cboFragil,
+            ComboBox cboEstado)
         {
             try
             {
@@ -269,6 +275,7 @@ namespace SistemaReparto.Clases
                 txtLargo.Text = dgvPaquetes.CurrentRow.Cells["largo"].Value.ToString();
                 txtDescripcion.Text = dgvPaquetes.CurrentRow.Cells["descripcion"].Value.ToString();
                 cboFragil.Text = dgvPaquetes.CurrentRow.Cells["fragil"].Value.ToString();
+                cboEstado.Text = dgvPaquetes.CurrentRow.Cells["estado"].Value.ToString();
             }
             catch (Exception)
             {
