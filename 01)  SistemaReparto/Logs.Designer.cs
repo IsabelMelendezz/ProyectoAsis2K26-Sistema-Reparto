@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Logs));
             btn_Log = new Button();
             txt_Usu_Log = new TextBox();
             txt_Contra_Log = new TextBox();
@@ -47,9 +48,10 @@
             // btn_Log
             // 
             btn_Log.FlatStyle = FlatStyle.Popup;
-            btn_Log.Location = new Point(121, 299);
+            btn_Log.Location = new Point(151, 374);
+            btn_Log.Margin = new Padding(4, 4, 4, 4);
             btn_Log.Name = "btn_Log";
-            btn_Log.Size = new Size(94, 29);
+            btn_Log.Size = new Size(118, 36);
             btn_Log.TabIndex = 0;
             btn_Log.Text = "LOGIN";
             btn_Log.UseVisualStyleBackColor = true;
@@ -59,19 +61,21 @@
             // 
             txt_Usu_Log.BackColor = SystemColors.Menu;
             txt_Usu_Log.ForeColor = SystemColors.InfoText;
-            txt_Usu_Log.Location = new Point(49, 181);
+            txt_Usu_Log.Location = new Point(61, 226);
+            txt_Usu_Log.Margin = new Padding(4, 4, 4, 4);
             txt_Usu_Log.Name = "txt_Usu_Log";
             txt_Usu_Log.PlaceholderText = "👤 Usuario";
-            txt_Usu_Log.Size = new Size(261, 27);
+            txt_Usu_Log.Size = new Size(325, 31);
             txt_Usu_Log.TabIndex = 1;
             // 
             // txt_Contra_Log
             // 
-            txt_Contra_Log.Location = new Point(52, 240);
+            txt_Contra_Log.Location = new Point(65, 300);
+            txt_Contra_Log.Margin = new Padding(4, 4, 4, 4);
             txt_Contra_Log.Name = "txt_Contra_Log";
             txt_Contra_Log.PasswordChar = '*';
             txt_Contra_Log.PlaceholderText = "🔐 Contraseña";
-            txt_Contra_Log.Size = new Size(261, 27);
+            txt_Contra_Log.Size = new Size(325, 31);
             txt_Contra_Log.TabIndex = 2;
             // 
             // btn_Registrar_Log
@@ -79,9 +83,10 @@
             btn_Registrar_Log.BackColor = SystemColors.ButtonFace;
             btn_Registrar_Log.FlatStyle = FlatStyle.Flat;
             btn_Registrar_Log.ForeColor = Color.Black;
-            btn_Registrar_Log.Location = new Point(215, 346);
+            btn_Registrar_Log.Location = new Point(269, 432);
+            btn_Registrar_Log.Margin = new Padding(4, 4, 4, 4);
             btn_Registrar_Log.Name = "btn_Registrar_Log";
-            btn_Registrar_Log.Size = new Size(95, 30);
+            btn_Registrar_Log.Size = new Size(119, 38);
             btn_Registrar_Log.TabIndex = 4;
             btn_Registrar_Log.Text = "Registrate";
             btn_Registrar_Log.UseVisualStyleBackColor = false;
@@ -91,9 +96,10 @@
             // 
             lbl_no_Cuenta.AutoSize = true;
             lbl_no_Cuenta.BackColor = SystemColors.ButtonFace;
-            lbl_no_Cuenta.Location = new Point(24, 356);
+            lbl_no_Cuenta.Location = new Point(30, 445);
+            lbl_no_Cuenta.Margin = new Padding(4, 0, 4, 0);
             lbl_no_Cuenta.Name = "lbl_no_Cuenta";
-            lbl_no_Cuenta.Size = new Size(162, 20);
+            lbl_no_Cuenta.Size = new Size(194, 25);
             lbl_no_Cuenta.TabIndex = 6;
             lbl_no_Cuenta.Text = "¿No tienes una cuenta?";
             // 
@@ -101,9 +107,10 @@
             // 
             pictureLog1.ErrorImage = null;
             pictureLog1.Image = Properties.Resources.patito;
-            pictureLog1.Location = new Point(110, 15);
+            pictureLog1.Location = new Point(138, 19);
+            pictureLog1.Margin = new Padding(4, 4, 4, 4);
             pictureLog1.Name = "pictureLog1";
-            pictureLog1.Size = new Size(114, 111);
+            pictureLog1.Size = new Size(142, 139);
             pictureLog1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureLog1.TabIndex = 7;
             pictureLog1.TabStop = false;
@@ -112,9 +119,10 @@
             // 
             lbl_Inicio.AutoSize = true;
             lbl_Inicio.BackColor = SystemColors.ButtonFace;
-            lbl_Inicio.Location = new Point(110, 140);
+            lbl_Inicio.Location = new Point(138, 175);
+            lbl_Inicio.Margin = new Padding(4, 0, 4, 0);
             lbl_Inicio.Name = "lbl_Inicio";
-            lbl_Inicio.Size = new Size(114, 20);
+            lbl_Inicio.Size = new Size(140, 25);
             lbl_Inicio.TabIndex = 8;
             lbl_Inicio.Text = "INICIAR SESIÓN";
             // 
@@ -130,26 +138,29 @@
             pnl_log.Controls.Add(btn_Registrar_Log);
             pnl_log.Controls.Add(panel2);
             pnl_log.Controls.Add(panel3);
-            pnl_log.Location = new Point(525, 133);
+            pnl_log.Location = new Point(656, 166);
+            pnl_log.Margin = new Padding(4, 4, 4, 4);
             pnl_log.Name = "pnl_log";
-            pnl_log.Size = new Size(351, 400);
+            pnl_log.Size = new Size(439, 500);
             pnl_log.TabIndex = 11;
             pnl_log.Paint += panel1_Paint;
             // 
             // panel2
             // 
             panel2.BackColor = Color.SkyBlue;
-            panel2.Location = new Point(45, 176);
+            panel2.Location = new Point(56, 220);
+            panel2.Margin = new Padding(4, 4, 4, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(268, 35);
+            panel2.Size = new Size(335, 44);
             panel2.TabIndex = 11;
             // 
             // panel3
             // 
             panel3.BackColor = Color.SkyBlue;
-            panel3.Location = new Point(48, 234);
+            panel3.Location = new Point(60, 292);
+            panel3.Margin = new Padding(4, 4, 4, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(268, 36);
+            panel3.Size = new Size(335, 45);
             panel3.TabIndex = 12;
             // 
             // pictureBox1
@@ -157,24 +168,27 @@
             pictureBox1.BackgroundImage = Properties.Resources.Fondo_1;
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(898, 599);
+            pictureBox1.Size = new Size(1122, 749);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
             // Logs
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(898, 599);
+            ClientSize = new Size(1122, 749);
             Controls.Add(pnl_log);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 4, 4, 4);
             MaximizeBox = false;
             Name = "Logs";
-            Text = "Form1";
+            Text = "Inicio de sesión";
             Load += Logs_Load;
             ((System.ComponentModel.ISupportInitialize)pictureLog1).EndInit();
             pnl_log.ResumeLayout(false);
