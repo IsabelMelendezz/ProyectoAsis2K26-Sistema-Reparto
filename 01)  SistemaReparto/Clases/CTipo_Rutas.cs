@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace SistemaReparto.Clases
 {
-    internal class CEstadoRutas
+    internal class CTipo_Rutas
     {
         public void mostrarRutas(DataGridView tablaRutas)
         {
             try
             {
                 CConexion objetoConexion = new CConexion();
-                String query = "select * from estado_ruta";
+                String query = "select * from tipo_ruta";
                 tablaRutas.DataSource = null;
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
@@ -38,7 +38,7 @@ namespace SistemaReparto.Clases
             try
             {
                 CConexion objetoConexion = new CConexion();
-                String query = "insert into estado_ruta (nombre, descripcion)" +
+                String query = "insert into tipo_ruta (nombre, descripcion)" +
                     "values ('" + nombre.Text + "', '" + descripcion.Text + "')";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
@@ -57,11 +57,11 @@ namespace SistemaReparto.Clases
         }
 
 
-        public void SeleccionarRutas(DataGridView tablaRutas, TextBox id_estado_ruta, TextBox nombre, TextBox descripcion)
+        public void SeleccionarRutas(DataGridView tablaRutas, TextBox id_tipo_ruta, TextBox nombre, TextBox descripcion)
         {
             try
             {
-                id_estado_ruta.Text = tablaRutas.CurrentRow.Cells[0].Value.ToString();
+                id_tipo_ruta.Text = tablaRutas.CurrentRow.Cells[0].Value.ToString();
                 nombre.Text = tablaRutas.CurrentRow.Cells[1].Value.ToString();
                 descripcion.Text = tablaRutas.CurrentRow.Cells[2].Value.ToString();
             }
@@ -72,15 +72,15 @@ namespace SistemaReparto.Clases
             }
         }
 
-        public void ModificarRutas(TextBox id_estado_ruta, TextBox nombre, TextBox descripcion)
+        public void ModificarRutas(TextBox id_tipo_ruta, TextBox nombre, TextBox descripcion)
         {
             try
             {
                 CConexion objetoConexion = new CConexion();
-                String query = "update estado_ruta set id_estado_ruta='"
-                    + id_estado_ruta.Text + "', nombre='" + nombre.Text
+                String query = "update tipo_ruta set id_tipo_ruta='"
+                    + id_tipo_ruta.Text + "', nombre='" + nombre.Text
                     + "', descripcion='" + descripcion.Text
-                    + "' where id_estado_ruta = '" + id_estado_ruta.Text + "';";
+                    + "' where id_tipo_ruta = '" + id_tipo_ruta.Text + "';";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
                 MySqlDataReader reader = myComand.ExecuteReader();
@@ -98,15 +98,15 @@ namespace SistemaReparto.Clases
         }
 
 
-        public void EliminarRutas(TextBox id_estado_ruta)
+        public void EliminarRutas(TextBox id_tipo_ruta)
         {
             try
             {
                 CConexion objetoConexion = new CConexion();
-                string query = "DELETE FROM tipo_ruta WHERE id_estado_ruta = @id";
+                string query = "DELETE FROM tipo_ruta WHERE id_tipo_ruta = @id";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
-                myComand.Parameters.AddWithValue("@id", id_estado_ruta.Text);
+                myComand.Parameters.AddWithValue("@id", id_tipo_ruta.Text);
 
                 int filasAfectadas = myComand.ExecuteNonQuery();
 
