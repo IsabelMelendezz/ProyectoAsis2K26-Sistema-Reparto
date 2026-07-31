@@ -1,4 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿//Lourdes Isabel Melendez Pineda 
+//9959-23-1379
+
+
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -39,8 +43,7 @@ namespace SistemaReparto.Clases
         }
 
         // BOTON GUARDAR (INSERT)
-        // No se manda el id_estado_empleado porque la columna es AUTO_INCREMENT: lo genera MySQL solo,
-        // y con myComand.LastInsertedId se recupera ese id recién generado para devolverlo
+     
 
         public int GuardarEstadoEmpleado(TextBox nombre, TextBox descripcion)
         {
@@ -77,8 +80,7 @@ namespace SistemaReparto.Clases
             }
         }
 
-        // SELECCIONAR (cargar fila del grid a los controles)
-        // Devuelve el id_estado_empleado de la fila (o -1 si no hay nada válido seleccionado)
+        // SELECCIONAR
 
         public int SeleccionarEstadoEmpleado(DataGridView tablaEstados, TextBox nombre, TextBox descripcion)
         {

@@ -3,7 +3,9 @@
 
 using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SistemaReparto.Clases
@@ -41,11 +43,75 @@ namespace SistemaReparto.Clases
                 adapter.Fill(dt);
                 tablaEmpleados.AutoGenerateColumns = true;
                 tablaEmpleados.DataSource = dt;
+
+                ConfigurarEstiloTabla(tablaEmpleados);
+
                 objetoConexion.cerrarConexion();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se mostraron los datos de la base de datos, error: " + ex.ToString());
+            }
+        }
+
+        
+        private void ConfigurarEstiloTabla(DataGridView dgv)
+        {
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.BorderStyle = BorderStyle.None;
+            dgv.BackgroundColor = Color.White;
+            dgv.GridColor = Color.FromArgb(230, 230, 230);
+            dgv.RowHeadersVisible = false;
+            dgv.AllowUserToResizeRows = false;
+            dgv.MultiSelect = false;
+
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(21, 66, 143);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dgv.ColumnHeadersHeight = 38;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+
+            dgv.DefaultCellStyle.Font = new Font("Segoe UI", 9F);
+            dgv.DefaultCellStyle.ForeColor = Color.FromArgb(64, 64, 64);
+            dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(210, 225, 245);
+            dgv.DefaultCellStyle.SelectionForeColor = Color.FromArgb(21, 66, 143);
+            dgv.DefaultCellStyle.Padding = new Padding(4);
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(247, 249, 252);
+
+            dgv.RowTemplate.Height = 32;
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            var config = new Dictionary<string, (string texto, int peso)>
+            {
+                { "Id_Empleado",         ("ID", 6) },
+                { "Tipo_Empleado",       ("Tipo", 10) },
+                { "Estado",              ("Estado", 8) },
+                { "Nombres",             ("Nombres", 14) },
+                { "Apellidos",           ("Apellidos", 14) },
+                { "DPI",                 ("DPI", 12) },
+                { "NIT",                 ("NIT", 10) },
+                { "Telefono",            ("Teléfono", 10) },
+                { "Correo",              ("Correo", 16) },
+                { "Direccion",           ("Dirección", 18) },
+                { "Fecha_nacimiento",    ("Fecha Nacimiento", 12) },
+                { "Fecha_contratacion",  ("Fecha Contratación", 12) },
+            };
+
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                if (config.TryGetValue(col.Name, out var datos))
+                {
+                    col.HeaderText = datos.texto;
+                    col.FillWeight = datos.peso;
+                }
+                else
+                {
+                    col.FillWeight = 10;
+                }
+
+                col.MinimumWidth = 60;
+                col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             }
         }
 
