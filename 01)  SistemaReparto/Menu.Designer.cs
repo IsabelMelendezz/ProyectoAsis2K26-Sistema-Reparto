@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             pnl_Contencion_Btn = new Panel();
+            pictureBox1 = new PictureBox();
+            button1 = new Button();
             pic_Sucur = new PictureBox();
             pic_Repa = new PictureBox();
             pic_Trans = new PictureBox();
@@ -68,6 +70,7 @@
             lbl_Mns_bienv = new Label();
             lbl_Bienvenido = new Label();
             pnl_Contencion_Btn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Sucur).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Repa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Trans).BeginInit();
@@ -97,6 +100,8 @@
             pnl_Contencion_Btn.BackgroundImage = Properties.Resources.barra_menu;
             pnl_Contencion_Btn.BackgroundImageLayout = ImageLayout.Stretch;
             pnl_Contencion_Btn.CausesValidation = false;
+            pnl_Contencion_Btn.Controls.Add(pictureBox1);
+            pnl_Contencion_Btn.Controls.Add(button1);
             pnl_Contencion_Btn.Controls.Add(pic_Sucur);
             pnl_Contencion_Btn.Controls.Add(pic_Repa);
             pnl_Contencion_Btn.Controls.Add(pic_Trans);
@@ -122,6 +127,36 @@
             pnl_Contencion_Btn.Size = new Size(270, 1500);
             pnl_Contencion_Btn.TabIndex = 0;
             pnl_Contencion_Btn.Paint += panel1_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Icon_Pedidos1;
+            pictureBox1.Location = new Point(8, 851);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(64, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 20;
+            pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(27, 835);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.RightToLeft = RightToLeft.No;
+            button1.Size = new Size(216, 87);
+            button1.TabIndex = 21;
+            button1.Text = "Pedidos";
+            button1.UseMnemonic = false;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_2;
             // 
             // pic_Sucur
             // 
@@ -218,7 +253,7 @@
             btnSucursales.RightToLeft = RightToLeft.No;
             btnSucursales.Size = new Size(216, 87);
             btnSucursales.TabIndex = 12;
-            btnSucursales.Text = "  Sucursales";
+            btnSucursales.Text = "Sucursales";
             btnSucursales.UseMnemonic = false;
             btnSucursales.UseVisualStyleBackColor = false;
             btnSucursales.Click += btnSucursales_Click;
@@ -455,7 +490,7 @@
             label6.ForeColor = Color.Navy;
             label6.Location = new Point(128, 72);
             label6.Name = "label6";
-            label6.Size = new Size(137, 62);
+            label6.Size = new Size(114, 54);
             label6.TabIndex = 17;
             label6.Text = "Bodegas\r\nOperativas\r\n";
             label6.UseMnemonic = false;
@@ -488,7 +523,7 @@
             label7.ForeColor = Color.Navy;
             label7.Location = new Point(120, 72);
             label7.Name = "label7";
-            label7.Size = new Size(160, 62);
+            label7.Size = new Size(134, 54);
             label7.TabIndex = 18;
             label7.Text = "Repartidores\r\nEn servicio\r\n";
             label7.UseMnemonic = false;
@@ -521,7 +556,7 @@
             label5.ForeColor = Color.Navy;
             label5.Location = new Point(144, 72);
             label5.Name = "label5";
-            label5.Size = new Size(95, 62);
+            label5.Size = new Size(79, 54);
             label5.TabIndex = 18;
             label5.Text = "Rutas\r\nActivas\r\n";
             label5.UseMnemonic = false;
@@ -554,7 +589,7 @@
             lbl_Paq_Reg.ForeColor = Color.Navy;
             lbl_Paq_Reg.Location = new Point(128, 72);
             lbl_Paq_Reg.Name = "lbl_Paq_Reg";
-            lbl_Paq_Reg.Size = new Size(148, 62);
+            lbl_Paq_Reg.Size = new Size(124, 54);
             lbl_Paq_Reg.TabIndex = 16;
             lbl_Paq_Reg.Text = "Paquetes\r\nRegistrados";
             lbl_Paq_Reg.UseMnemonic = false;
@@ -567,7 +602,7 @@
             lbl_Res_Hoy.ForeColor = Color.DarkBlue;
             lbl_Res_Hoy.Location = new Point(29, 576);
             lbl_Res_Hoy.Name = "lbl_Res_Hoy";
-            lbl_Res_Hoy.Size = new Size(287, 42);
+            lbl_Res_Hoy.Size = new Size(243, 36);
             lbl_Res_Hoy.TabIndex = 19;
             lbl_Res_Hoy.Text = "Resumen de hoy";
             // 
@@ -590,7 +625,7 @@
             lbl_Mns_bienv.ForeColor = Color.Navy;
             lbl_Mns_bienv.Location = new Point(101, 176);
             lbl_Mns_bienv.Name = "lbl_Mns_bienv";
-            lbl_Mns_bienv.Size = new Size(569, 164);
+            lbl_Mns_bienv.Size = new Size(479, 140);
             lbl_Mns_bienv.TabIndex = 17;
             lbl_Mns_bienv.Text = "Nos alegra tenerte de vuelta.\r\nAquí puedes gestionar y monitorear\r\ntodas las operaciones de logística\r\nde forma eficiente.";
             lbl_Mns_bienv.UseMnemonic = false;
@@ -603,7 +638,7 @@
             lbl_Bienvenido.ForeColor = Color.DarkBlue;
             lbl_Bienvenido.Location = new Point(88, 64);
             lbl_Bienvenido.Name = "lbl_Bienvenido";
-            lbl_Bienvenido.Size = new Size(619, 120);
+            lbl_Bienvenido.Size = new Size(517, 100);
             lbl_Bienvenido.TabIndex = 16;
             lbl_Bienvenido.Text = "¡Bienvenido!";
             // 
@@ -623,6 +658,7 @@
             Text = "NORTEK";
             Load += Form1_Load;
             pnl_Contencion_Btn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Sucur).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Repa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Trans).EndInit();
@@ -693,6 +729,8 @@
         private PictureBox pic_Patroclo;
         private Label lbl_Mns_bienv;
         private Label lbl_Bienvenido;
+        private PictureBox pictureBox1;
+        private Button button1;
     }
 }
 

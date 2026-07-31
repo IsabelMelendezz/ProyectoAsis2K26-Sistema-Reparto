@@ -136,5 +136,15 @@ namespace SistemaReparto
 
             OpenFormInPanel(new Bienvenida());
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new Pedidos());
+        }
     }
 }
