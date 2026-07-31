@@ -246,5 +246,10 @@ namespace SistemaReparto
             Estado_Empleado formTipos = new Estado_Empleado();
             formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
         }
+
+        private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
