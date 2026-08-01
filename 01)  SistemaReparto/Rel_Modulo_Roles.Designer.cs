@@ -29,44 +29,57 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            comboBox3 = new ComboBox();
+            Cbo_Rol_Disponibles = new ComboBox();
             label3 = new Label();
-            comboBox1 = new ComboBox();
+            cbo_Mod_Disponibles = new ComboBox();
             label2 = new Label();
-            listBox1 = new ListBox();
             label4 = new Label();
             panel4 = new Panel();
+            panel5 = new Panel();
+            pictureBox3 = new PictureBox();
+            label9 = new Label();
+            Btn_Limpiar_Emp = new Button();
+            Btn_Editar_Emp = new Button();
+            Btn_Eliminar_Emp = new Button();
+            Btn_Guardar_Emp = new Button();
             label5 = new Label();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox1 = new CheckBox();
+            chk_Eliminar = new CheckBox();
+            chk_Editar = new CheckBox();
+            chk_Insertar = new CheckBox();
             label6 = new Label();
-            textBox1 = new TextBox();
-            label7 = new Label();
+            txt_Rol = new TextBox();
             label8 = new Label();
-            listBox2 = new ListBox();
-            button2 = new Button();
-            button4 = new Button();
-            button5 = new Button();
+            lst_Mod_Asignados = new ListBox();
+            panel1 = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label15 = new Label();
+            label10 = new Label();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(56, 48);
+            label1.Location = new Point(56, 288);
             label1.Name = "label1";
             label1.Size = new Size(0, 20);
             label1.TabIndex = 1;
             // 
-            // comboBox3
+            // Cbo_Rol_Disponibles
             // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(176, 16);
-            comboBox3.Margin = new Padding(5);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(160, 28);
-            comboBox3.TabIndex = 32;
+            Cbo_Rol_Disponibles.FormattingEnabled = true;
+            Cbo_Rol_Disponibles.Location = new Point(176, 16);
+            Cbo_Rol_Disponibles.Margin = new Padding(5);
+            Cbo_Rol_Disponibles.Name = "Cbo_Rol_Disponibles";
+            Cbo_Rol_Disponibles.Size = new Size(160, 28);
+            Cbo_Rol_Disponibles.TabIndex = 32;
+            Cbo_Rol_Disponibles.SelectedIndexChanged += Cbo_Rol_Disponibles_SelectedIndexChanged;
             // 
             // label3
             // 
@@ -80,14 +93,14 @@
             label3.TabIndex = 31;
             label3.Text = "Roles Disponibles";
             // 
-            // comboBox1
+            // cbo_Mod_Disponibles
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(176, 64);
-            comboBox1.Margin = new Padding(5);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(160, 28);
-            comboBox1.TabIndex = 34;
+            cbo_Mod_Disponibles.FormattingEnabled = true;
+            cbo_Mod_Disponibles.Location = new Point(176, 64);
+            cbo_Mod_Disponibles.Margin = new Padding(5);
+            cbo_Mod_Disponibles.Name = "cbo_Mod_Disponibles";
+            cbo_Mod_Disponibles.Size = new Size(160, 28);
+            cbo_Mod_Disponibles.TabIndex = 34;
             // 
             // label2
             // 
@@ -101,20 +114,12 @@
             label2.TabIndex = 33;
             label2.Text = "Modulos Disponibles";
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(416, 128);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(264, 304);
-            listBox1.TabIndex = 35;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.AliceBlue;
             label4.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(432, 8);
+            label4.Location = new Point(432, 248);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(75, 18);
@@ -124,22 +129,101 @@
             // panel4
             // 
             panel4.BackColor = Color.AliceBlue;
-            panel4.Controls.Add(button2);
+            panel4.Controls.Add(panel5);
             panel4.Controls.Add(label5);
-            panel4.Controls.Add(button4);
-            panel4.Controls.Add(checkBox4);
-            panel4.Controls.Add(button5);
-            panel4.Controls.Add(checkBox3);
-            panel4.Controls.Add(checkBox1);
-            panel4.Controls.Add(comboBox1);
+            panel4.Controls.Add(chk_Eliminar);
+            panel4.Controls.Add(chk_Editar);
+            panel4.Controls.Add(chk_Insertar);
+            panel4.Controls.Add(cbo_Mod_Disponibles);
             panel4.Controls.Add(label3);
-            panel4.Controls.Add(comboBox3);
+            panel4.Controls.Add(Cbo_Rol_Disponibles);
             panel4.Controls.Add(label2);
-            panel4.Location = new Point(32, 24);
+            panel4.Location = new Point(32, 264);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
             panel4.Size = new Size(368, 488);
             panel4.TabIndex = 37;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.AliceBlue;
+            panel5.Controls.Add(pictureBox3);
+            panel5.Controls.Add(label9);
+            panel5.Controls.Add(Btn_Limpiar_Emp);
+            panel5.Controls.Add(Btn_Editar_Emp);
+            panel5.Controls.Add(Btn_Eliminar_Emp);
+            panel5.Controls.Add(Btn_Guardar_Emp);
+            panel5.Location = new Point(16, 288);
+            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(340, 149);
+            panel5.TabIndex = 58;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Icon_Acciones;
+            pictureBox3.Location = new Point(72, 1);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(34, 43);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 41;
+            pictureBox3.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.Navy;
+            label9.Location = new Point(108, 1);
+            label9.Name = "label9";
+            label9.Size = new Size(116, 32);
+            label9.TabIndex = 40;
+            label9.Text = "Acciones";
+            // 
+            // Btn_Limpiar_Emp
+            // 
+            Btn_Limpiar_Emp.Image = Properties.Resources.Btn_Limpiar;
+            Btn_Limpiar_Emp.Location = new Point(184, 88);
+            Btn_Limpiar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Limpiar_Emp.Name = "Btn_Limpiar_Emp";
+            Btn_Limpiar_Emp.Size = new Size(114, 47);
+            Btn_Limpiar_Emp.TabIndex = 39;
+            Btn_Limpiar_Emp.UseVisualStyleBackColor = true;
+            Btn_Limpiar_Emp.Click += Btn_Limpiar_Emp_Click;
+            // 
+            // Btn_Editar_Emp
+            // 
+            Btn_Editar_Emp.Image = Properties.Resources.Btn_Editar;
+            Btn_Editar_Emp.Location = new Point(184, 40);
+            Btn_Editar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Editar_Emp.Name = "Btn_Editar_Emp";
+            Btn_Editar_Emp.Size = new Size(114, 47);
+            Btn_Editar_Emp.TabIndex = 36;
+            Btn_Editar_Emp.UseVisualStyleBackColor = true;
+            Btn_Editar_Emp.Click += Btn_Editar_Emp_Click;
+            // 
+            // Btn_Eliminar_Emp
+            // 
+            Btn_Eliminar_Emp.Image = Properties.Resources.Btn_ELiminar;
+            Btn_Eliminar_Emp.Location = new Point(42, 91);
+            Btn_Eliminar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Eliminar_Emp.Name = "Btn_Eliminar_Emp";
+            Btn_Eliminar_Emp.Size = new Size(114, 47);
+            Btn_Eliminar_Emp.TabIndex = 37;
+            Btn_Eliminar_Emp.UseVisualStyleBackColor = true;
+            Btn_Eliminar_Emp.Click += Btn_Eliminar_Emp_Click;
+            // 
+            // Btn_Guardar_Emp
+            // 
+            Btn_Guardar_Emp.Image = Properties.Resources.Btn_guardar;
+            Btn_Guardar_Emp.Location = new Point(48, 40);
+            Btn_Guardar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Guardar_Emp.Name = "Btn_Guardar_Emp";
+            Btn_Guardar_Emp.Size = new Size(114, 47);
+            Btn_Guardar_Emp.TabIndex = 35;
+            Btn_Guardar_Emp.UseVisualStyleBackColor = true;
+            Btn_Guardar_Emp.Click += Btn_Guardar_Emp_Click;
             // 
             // label5
             // 
@@ -154,162 +238,200 @@
             label5.Text = "Permisos";
             label5.Click += label5_Click;
             // 
-            // checkBox4
+            // chk_Eliminar
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(144, 144);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(85, 24);
-            checkBox4.TabIndex = 38;
-            checkBox4.Text = "Eliminar";
-            checkBox4.UseVisualStyleBackColor = true;
+            chk_Eliminar.AutoSize = true;
+            chk_Eliminar.Location = new Point(144, 144);
+            chk_Eliminar.Name = "chk_Eliminar";
+            chk_Eliminar.Size = new Size(85, 24);
+            chk_Eliminar.TabIndex = 38;
+            chk_Eliminar.Text = "Eliminar";
+            chk_Eliminar.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chk_Editar
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(32, 200);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(70, 24);
-            checkBox3.TabIndex = 37;
-            checkBox3.Text = "Editar";
-            checkBox3.UseVisualStyleBackColor = true;
+            chk_Editar.AutoSize = true;
+            chk_Editar.Location = new Point(32, 200);
+            chk_Editar.Name = "chk_Editar";
+            chk_Editar.Size = new Size(70, 24);
+            chk_Editar.TabIndex = 37;
+            chk_Editar.Text = "Editar";
+            chk_Editar.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // chk_Insertar
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(32, 144);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(80, 24);
-            checkBox1.TabIndex = 35;
-            checkBox1.Text = "Insertar";
-            checkBox1.UseVisualStyleBackColor = true;
+            chk_Insertar.AutoSize = true;
+            chk_Insertar.Location = new Point(32, 144);
+            chk_Insertar.Name = "chk_Insertar";
+            chk_Insertar.Size = new Size(80, 24);
+            chk_Insertar.TabIndex = 35;
+            chk_Insertar.Text = "Insertar";
+            chk_Insertar.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.AliceBlue;
             label6.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(584, 16);
+            label6.Location = new Point(584, 256);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new Size(31, 18);
             label6.TabIndex = 38;
             label6.Text = "Rol";
             // 
-            // textBox1
+            // txt_Rol
             // 
-            textBox1.Location = new Point(624, 8);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(136, 27);
-            textBox1.TabIndex = 39;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.AliceBlue;
-            label7.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(416, 96);
-            label7.Margin = new Padding(5, 0, 5, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(159, 18);
-            label7.TabIndex = 40;
-            label7.Text = "Modulos Disponibles";
+            txt_Rol.Location = new Point(624, 248);
+            txt_Rol.Name = "txt_Rol";
+            txt_Rol.Size = new Size(136, 27);
+            txt_Rol.TabIndex = 39;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.BackColor = Color.AliceBlue;
             label8.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(704, 96);
+            label8.Location = new Point(528, 336);
             label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
             label8.Size = new Size(151, 18);
             label8.TabIndex = 42;
             label8.Text = "Modulos Asignados";
             // 
-            // listBox2
+            // lst_Mod_Asignados
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(712, 128);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(264, 304);
-            listBox2.TabIndex = 41;
+            lst_Mod_Asignados.FormattingEnabled = true;
+            lst_Mod_Asignados.Location = new Point(536, 368);
+            lst_Mod_Asignados.Name = "lst_Mod_Asignados";
+            lst_Mod_Asignados.Size = new Size(264, 304);
+            lst_Mod_Asignados.TabIndex = 41;
+            lst_Mod_Asignados.SelectedIndexChanged += lst_Mod_Asignados_SelectedIndexChanged;
             // 
-            // button2
+            // panel1
             // 
-            button2.BackColor = Color.SpringGreen;
-            button2.Location = new Point(24, 272);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(126, 49);
-            button2.TabIndex = 44;
-            button2.Text = "Asignar";
-            button2.UseVisualStyleBackColor = false;
+            panel1.AutoScroll = true;
+            panel1.BackColor = Color.Indigo;
+            panel1.BackgroundImage = Properties.Resources.barra_menu_horizontal;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(label10);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1014, 177);
+            panel1.TabIndex = 43;
             // 
-            // button4
+            // pictureBox2
             // 
-            button4.BackColor = Color.Tomato;
-            button4.Location = new Point(24, 337);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(126, 49);
-            button4.TabIndex = 45;
-            button4.Text = "Eliminar";
-            button4.UseVisualStyleBackColor = false;
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.patito1;
+            pictureBox2.Location = new Point(864, 8);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(130, 163);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
             // 
-            // button5
+            // pictureBox1
             // 
-            button5.BackColor = Color.DarkTurquoise;
-            button5.Location = new Point(156, 337);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(126, 49);
-            button5.TabIndex = 46;
-            button5.Text = "Editar";
-            button5.UseVisualStyleBackColor = false;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.Usu_ico;
+            pictureBox1.Location = new Point(56, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(117, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label15.ForeColor = SystemColors.ButtonHighlight;
+            label15.Location = new Point(178, 103);
+            label15.Name = "label15";
+            label15.Size = new Size(465, 28);
+            label15.TabIndex = 9;
+            label15.Text = "Gestiona la información del personal de la empresa.";
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Left;
+            label10.AutoEllipsis = true;
+            label10.AutoSize = true;
+            label10.BackColor = Color.Transparent;
+            label10.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(178, 52);
+            label10.Name = "label10";
+            label10.Size = new Size(280, 52);
+            label10.TabIndex = 6;
+            label10.Text = "Rel.Modulo Rol";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            label10.UseCompatibleTextRendering = true;
             // 
             // Rel_Modulo_Roles
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1014, 529);
+            ClientSize = new Size(1014, 764);
+            Controls.Add(panel1);
             Controls.Add(label8);
-            Controls.Add(listBox2);
-            Controls.Add(label7);
-            Controls.Add(textBox1);
+            Controls.Add(lst_Mod_Asignados);
+            Controls.Add(txt_Rol);
             Controls.Add(label6);
             Controls.Add(panel4);
             Controls.Add(label4);
-            Controls.Add(listBox1);
             Controls.Add(label1);
             Name = "Rel_Modulo_Roles";
             Text = "Rel_Modulo_Roles";
+            Load += Rel_Modulo_Roles_Load;
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private Label label1;
-        private ComboBox comboBox3;
+        private ComboBox Cbo_Rol_Disponibles;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox cbo_Mod_Disponibles;
         private Label label2;
-        private ListBox listBox1;
         private Label label4;
         private Panel panel4;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox1;
+        private CheckBox chk_Eliminar;
+        private CheckBox chk_Editar;
+        private CheckBox chk_Insertar;
         private Label label5;
         private Label label6;
-        private TextBox textBox1;
-        private Label label7;
+        private TextBox txt_Rol;
         private Label label8;
-        private ListBox listBox2;
-        private Button button2;
-        private Button button4;
-        private Button button5;
+        private ListBox lst_Mod_Asignados;
+        private Panel panel5;
+        private PictureBox pictureBox3;
+        private Label label9;
+        private Button Btn_Limpiar_Emp;
+        private Button Btn_Editar_Emp;
+        private Button Btn_Eliminar_Emp;
+        private Button Btn_Guardar_Emp;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Label label15;
+        private Label label10;
+        private PictureBox pictureBox2;
     }
 }

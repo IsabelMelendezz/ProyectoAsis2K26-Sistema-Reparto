@@ -5,20 +5,21 @@ using MySql.Data.MySqlClient;
 
 namespace SistemaReparto.Clases
 {
-    internal class RolController
+    internal class rol_cont
     {
         // CREATE
-        public bool AnadirRol(Rol rol)
+        public bool AnadirRol(CRol rol)
         {
             CConexion cn = new CConexion();
             MySqlConnection conexion = cn.establecerConexion();
 
             try
             {
-                string query = "INSERT INTO roles (nombre, descripcion) VALUES (@nombre, @descripcion)";
+                string query = "INSERT INTO roles (nombre, descripcion,estado) VALUES (@nombre, @descripcion,@estado)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@nombre", rol.Nombre);
                 cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
+                cmd.Parameters.AddWithValue("@estado",rol.Estado);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
@@ -35,24 +36,25 @@ namespace SistemaReparto.Clases
         }
 
         // READ (todos, para llenar la grid)
-        public List<Rol> ListarRoles()
+        public List<CRol> ListarRoles()
         {
-            List<Rol> lista = new List<Rol>();
+            List<CRol> lista = new List<CRol>();
             CConexion cn = new CConexion();
             MySqlConnection conexion = cn.establecerConexion();
 
             try
             {
-                string query = "SELECT id_rol, nombre, descripcion FROM roles";
+                string query = "SELECT id_rol, nombre, descripcion,estado FROM roles";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    lista.Add(new Rol(
+                    lista.Add(new CRol(
                         Convert.ToInt32(reader["id_rol"]),
                         reader["nombre"].ToString(),
-                        reader["descripcion"].ToString()
+                        reader["descripcion"].ToString(),
+                        reader["estado"].ToString()
                     ));
                 }
             }
@@ -68,19 +70,20 @@ namespace SistemaReparto.Clases
         }
 
         // UPDATE
-        public bool EditarRol(Rol rol)
+        public bool EditarRol(CRol rol)
         {
             CConexion cn = new CConexion();
             MySqlConnection conexion = cn.establecerConexion();
 
             try
             {
-                string query = "UPDATE roles SET nombre=@nombre, descripcion=@descripcion WHERE id_rol=@id";
+                string query = "UPDATE roles SET nombre=@nombre, descripcion=@descripcion,estado=@estado WHERE id_rol=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@nombre", rol.Nombre);
                 cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
                 cmd.Parameters.AddWithValue("@id", rol.IdRol);
-
+                    cmd.Parameters.AddWithValue("@estado",rol.Estado);
+                
                 int filasAfectadas = cmd.ExecuteNonQuery();
                 return filasAfectadas > 0;
             }

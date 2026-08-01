@@ -10,11 +10,63 @@ using System.Windows.Forms;
 
 namespace SistemaReparto.Clases
 {
+    internal class ContEmpleados
+    {
+        // MOSTRAR la tabla completa llamando los campos con un query especifico como hacer mineria de datos
+        // y luego se crea automaticamente la tabla con codigo cada columna 
+        //Victor Omar Gomez Carrascosa
+        //9959-23-10733
+        public List<CEmpleados> ListarEmpleadosSinUsuario()
+        {
+            List<CEmpleados> lista = new List<CEmpleados>();
+            CConexion cn = new CConexion();
+            MySqlConnection conexion = cn.establecerConexion();
+
+            try
+            {
+                string query = @"SELECT e.id_empleado, CONCAT(e.nombres, ' ', e.apellidos) AS nombre_completo,
+                                    u.id_usuario, u.id_empleado, u.usuario, u.correo, 
+                                         u.ultimo_acceso, u.fecha_creacion, u.estado
+                                  FROM empleados e
+                                  left JOIN usuarios u ON e.id_empleado = u.id_empleado";
+                MySqlCommand cmd = new MySqlCommand(query, conexion);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lista.Add(new CEmpleados
+                    {
+                        IdEmpleado = Convert.ToInt32(reader["id_empleado"]),
+                        NombreCompleto = reader["nombre_completo"].ToString(),
+                        NombreUsuario = reader["usuario"] != DBNull.Value ? reader["usuario"].ToString() : null,
+                        Correo = reader["correo"] != DBNull.Value ? reader["correo"].ToString() : null,
+                        Contrasena = null, // No se obtiene la contraseña en esta consulta
+                        Estado = reader["estado"] != DBNull.Value ? reader["estado"].ToString() : null
+
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar empleados: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+            return lista;
+        }
+    }
     internal class CEmpleados
     {
         // MOSTRAR la tabla completa llamando los campos con un query especifico como hacer mineria de datos
         // y luego se crea automaticamente la tabla con codigo cada columna 
-
+        public int IdEmpleado { get; set; }
+        public string NombreCompleto { get; set; }
+        public string NombreUsuario { get; set; }     // columna "usuario"
+        public string Correo { get; set; }
+        public string Contrasena { get; set; }
+        public string Estado { get; set; }
         public void mostrarEmpleados(DataGridView tablaEmpleados)
         {
             try

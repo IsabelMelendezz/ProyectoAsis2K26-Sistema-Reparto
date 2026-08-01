@@ -6,25 +6,29 @@ using System.Threading.Tasks;
 
 namespace SistemaReparto.Clases
 {
-    public class Rol
+    public class CRol
     {
         public int IdRol { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
-        public Rol() { }
+        public string Estado { get; set; } // Agregado para el estado del rol
 
-        public Rol(string nombre, string descripcion)
+        public CRol() { }
+
+        public CRol(string nombre, string descripcion, string estado)
         {
             Nombre = nombre;
             Descripcion = descripcion;
+            Estado = estado;
         }
 
-        public Rol(int idRol, string nombre, string descripcion)
+        public CRol(int idRol, string nombre, string descripcion, string estado)
         {
             IdRol = idRol;
             Nombre = nombre;
             Descripcion = descripcion;
+            Estado = estado;
         }
     }
 }

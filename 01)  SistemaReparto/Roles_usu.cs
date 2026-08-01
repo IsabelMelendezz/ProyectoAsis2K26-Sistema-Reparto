@@ -13,7 +13,7 @@ namespace SistemaReparto
 {
     public partial class Roles_usu : Form
     {
-        RolController controlador = new RolController();
+        rol_cont controlador = new rol_cont();
         int idRolSeleccionado = 0; // guarda el id del rol seleccionado en la grid
 
         public Roles_usu()
@@ -23,7 +23,15 @@ namespace SistemaReparto
 
         private void Roles_usu_Load(object sender, EventArgs e)
         {
-            CargarGrid();
+            try
+            {
+                CargarGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el formulario: " + ex.Message + Environment.NewLine + ex.StackTrace,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void CargarGrid()
@@ -37,24 +45,20 @@ namespace SistemaReparto
                 Dgv_Tabla_Rol.Columns["IdRol"].HeaderText = "ID_Rol";
                 Dgv_Tabla_Rol.Columns["Nombre"].HeaderText = "Nombre";
                 Dgv_Tabla_Rol.Columns["Descripcion"].HeaderText = "descripcion";
+                Dgv_Tabla_Rol.Columns["Estado"].HeaderText = "estado";
             }
         }
 
         private void LimpiarCampos()
         {
             Txt_Nombre_Rol.Clear();
-            txtDescripcion.Clear();
+            txt_Descripcion.Clear();
+            cmb_Estado.SelectedIndex = -1; // Deselecciona cualquier valor en el ComboBox
+
             idRolSeleccionado = 0;
         }
 
-        // Botón "Añadir Rol"
 
-
-        // Botón "Editar Rol"
-
-
-        // Botón "Borrar Rol"
-        
 
         // Botón "Actualizar Datos" (refresca la grid sin guardar nada)
         private void btnActualizarDatos_Click(object sender, EventArgs e)
@@ -66,31 +70,15 @@ namespace SistemaReparto
         // Al hacer clic en una fila de la grid, cargar los datos en los campos
         private void dgvRoles_SelectionChanged(object sender, EventArgs e)
         {
-            if (Dgv_Tabla_Rol.CurrentRow != null && Dgv_Tabla_Rol.CurrentRow.DataBoundItem is Rol rolSeleccionado)
+            if (Dgv_Tabla_Rol.CurrentRow != null && Dgv_Tabla_Rol.CurrentRow.DataBoundItem is CRol rolSeleccionado)
             {
                 idRolSeleccionado = rolSeleccionado.IdRol;
                 Txt_Nombre_Rol.Text = rolSeleccionado.Nombre;
-                txtDescripcion.Text = rolSeleccionado.Descripcion;
+                txt_Descripcion.Text = rolSeleccionado.Descripcion;
             }
         }
 
-        private void Btn_Insert_Usu_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Txt_Nombre_Rol.Text))
-            {
-                MessageBox.Show("El nombre del rol es obligatorio");
-                return;
-            }
 
-            Rol nuevoRol = new Rol(Txt_Nombre_Rol.Text, txtDescripcion.Text);
-
-            if (controlador.AnadirRol(nuevoRol))
-            {
-                MessageBox.Show("Rol añadido correctamente");
-                CargarGrid();
-                LimpiarCampos();
-            }
-        }
 
         private void Btn_Update_Usu_Click(object sender, EventArgs e)
         {
@@ -99,8 +87,13 @@ namespace SistemaReparto
                 MessageBox.Show("Selecciona un rol de la lista primero");
                 return;
             }
+            if (cmb_Estado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debes seleccionar un estado", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            Rol rolEditado = new Rol(idRolSeleccionado, Txt_Nombre_Rol.Text, txtDescripcion.Text);
+            CRol rolEditado = new CRol(idRolSeleccionado, Txt_Nombre_Rol.Text, txt_Descripcion.Text, cmb_Estado.Text);
 
             if (controlador.EditarRol(rolEditado))
             {
@@ -129,5 +122,53 @@ namespace SistemaReparto
                 }
             }
         }
+
+        private void Dgv_Tabla_Rol_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Btn_Limpiar_Emp_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void Btn_Guardar_Emp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(Txt_Nombre_Rol.Text))
+                {
+                    MessageBox.Show("El nombre del rol es obligatorio");
+                    return;
+                }
+                if (cmb_Estado.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debes seleccionar un estado", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                CRol nuevoRol = new CRol(Txt_Nombre_Rol.Text, txt_Descripcion.Text, cmb_Estado.Text);
+                if (controlador.AnadirRol(nuevoRol))
+                {
+                    MessageBox.Show("Rol añadido correctamente");
+                    CargarGrid();
+                    LimpiarCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ocurrió un error al añadir el rol." + Environment.NewLine +
+                    "Tipo: " + ex.GetType().Name + Environment.NewLine +
+                    "Mensaje: " + ex.Message + Environment.NewLine +
+                    "Detalle: " + ex.StackTrace,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    
+
+        
     }
 }

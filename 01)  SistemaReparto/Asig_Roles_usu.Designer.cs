@@ -30,163 +30,338 @@
         {
             label1 = new Label();
             label2 = new Label();
-            Btn_Update_Usu = new Button();
-            Btn_Delete_Usu = new Button();
-            Dgv_Tabla_Usu = new DataGridView();
-            Btn_Read_Usu = new Button();
-            Btn_Insert_Usu = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_Usu).BeginInit();
+            Dgv_Tabla_UR = new DataGridView();
+            cbo_Usu_Disponible = new ComboBox();
+            Cbo_Rol_Disponibles = new ComboBox();
+            panel4 = new Panel();
+            pictureBox4 = new PictureBox();
+            label4 = new Label();
+            panel5 = new Panel();
+            pictureBox3 = new PictureBox();
+            label3 = new Label();
+            Btn_Limpiar_Emp = new Button();
+            Btn_Nuevo_Emp = new Button();
+            Btn_Editar_Emp = new Button();
+            Btn_Eliminar_Emp = new Button();
+            Btn_Guardar_Emp = new Button();
+            Btn_Actualizar_Emp = new Button();
+            panel1 = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label15 = new Label();
+            label5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_UR).BeginInit();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(304, 24);
+            label1.Location = new Point(8, 104);
             label1.Name = "label1";
-            label1.Size = new Size(59, 20);
+            label1.Size = new Size(147, 20);
             label1.TabIndex = 55;
-            label1.Text = "Usuario";
+            label1.Text = "Usuarios Disponibles";
             label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(304, 120);
+            label2.Location = new Point(8, 208);
             label2.Name = "label2";
-            label2.Size = new Size(45, 20);
+            label2.Size = new Size(127, 20);
             label2.TabIndex = 56;
-            label2.Text = "Roles";
+            label2.Text = "Roles Disponibles";
             label2.Click += label2_Click;
             // 
-            // Btn_Update_Usu
+            // Dgv_Tabla_UR
             // 
-            Btn_Update_Usu.BackgroundImage = Properties.Resources.barra_menu_horizontal;
-            Btn_Update_Usu.ForeColor = SystemColors.ControlLightLight;
-            Btn_Update_Usu.Location = new Point(569, 232);
-            Btn_Update_Usu.Name = "Btn_Update_Usu";
-            Btn_Update_Usu.Size = new Size(159, 37);
-            Btn_Update_Usu.TabIndex = 61;
-            Btn_Update_Usu.Text = "✏️ Editar Rol";
-            Btn_Update_Usu.UseVisualStyleBackColor = true;
+            Dgv_Tabla_UR.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Dgv_Tabla_UR.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            Dgv_Tabla_UR.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv_Tabla_UR.Location = new Point(20, 544);
+            Dgv_Tabla_UR.Name = "Dgv_Tabla_UR";
+            Dgv_Tabla_UR.RowHeadersWidth = 51;
+            Dgv_Tabla_UR.Size = new Size(1034, 162);
+            Dgv_Tabla_UR.TabIndex = 59;
+            Dgv_Tabla_UR.CellContentClick += Dgv_Tabla_Usu_CellContentClick;
+            Dgv_Tabla_UR.SelectionChanged += Dgv_Tabla_UR_SelectionChanged;
             // 
-            // Btn_Delete_Usu
+            // cbo_Usu_Disponible
             // 
-            Btn_Delete_Usu.BackgroundImage = Properties.Resources.barra_menu_horizontal;
-            Btn_Delete_Usu.ForeColor = SystemColors.ControlLightLight;
-            Btn_Delete_Usu.Location = new Point(21, 230);
-            Btn_Delete_Usu.Name = "Btn_Delete_Usu";
-            Btn_Delete_Usu.Size = new Size(139, 39);
-            Btn_Delete_Usu.TabIndex = 60;
-            Btn_Delete_Usu.Text = "❌ Borrar Rol";
-            Btn_Delete_Usu.UseVisualStyleBackColor = true;
+            cbo_Usu_Disponible.FormattingEnabled = true;
+            cbo_Usu_Disponible.Location = new Point(160, 104);
+            cbo_Usu_Disponible.Name = "cbo_Usu_Disponible";
+            cbo_Usu_Disponible.Size = new Size(160, 28);
+            cbo_Usu_Disponible.TabIndex = 62;
             // 
-            // Dgv_Tabla_Usu
+            // Cbo_Rol_Disponibles
             // 
-            Dgv_Tabla_Usu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            Dgv_Tabla_Usu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            Dgv_Tabla_Usu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            Dgv_Tabla_Usu.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column4 });
-            Dgv_Tabla_Usu.Location = new Point(20, 328);
-            Dgv_Tabla_Usu.Name = "Dgv_Tabla_Usu";
-            Dgv_Tabla_Usu.RowHeadersWidth = 51;
-            Dgv_Tabla_Usu.Size = new Size(975, 158);
-            Dgv_Tabla_Usu.TabIndex = 59;
+            Cbo_Rol_Disponibles.FormattingEnabled = true;
+            Cbo_Rol_Disponibles.Location = new Point(160, 200);
+            Cbo_Rol_Disponibles.Name = "Cbo_Rol_Disponibles";
+            Cbo_Rol_Disponibles.Size = new Size(160, 28);
+            Cbo_Rol_Disponibles.TabIndex = 63;
             // 
-            // Btn_Read_Usu
+            // panel4
             // 
-            Btn_Read_Usu.BackgroundImage = Properties.Resources.barra_menu_horizontal;
-            Btn_Read_Usu.ForeColor = SystemColors.ControlLightLight;
-            Btn_Read_Usu.ImageAlign = ContentAlignment.MiddleLeft;
-            Btn_Read_Usu.Location = new Point(384, 232);
-            Btn_Read_Usu.Name = "Btn_Read_Usu";
-            Btn_Read_Usu.Size = new Size(152, 37);
-            Btn_Read_Usu.TabIndex = 58;
-            Btn_Read_Usu.Text = "🔄️ Actualizar Datos";
-            Btn_Read_Usu.UseVisualStyleBackColor = true;
+            panel4.BackColor = Color.AliceBlue;
+            panel4.Controls.Add(pictureBox4);
+            panel4.Controls.Add(Cbo_Rol_Disponibles);
+            panel4.Controls.Add(cbo_Usu_Disponible);
+            panel4.Controls.Add(label4);
+            panel4.Controls.Add(label1);
+            panel4.Controls.Add(label2);
+            panel4.Location = new Point(72, 208);
+            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(448, 304);
+            panel4.TabIndex = 64;
             // 
-            // Btn_Insert_Usu
+            // pictureBox4
             // 
-            Btn_Insert_Usu.BackgroundImage = Properties.Resources.barra_menu_horizontal;
-            Btn_Insert_Usu.ForeColor = SystemColors.ControlLightLight;
-            Btn_Insert_Usu.Location = new Point(193, 230);
-            Btn_Insert_Usu.Name = "Btn_Insert_Usu";
-            Btn_Insert_Usu.Size = new Size(152, 39);
-            Btn_Insert_Usu.TabIndex = 57;
-            Btn_Insert_Usu.Text = "➕ Añadir Rol";
-            Btn_Insert_Usu.UseVisualStyleBackColor = true;
+            pictureBox4.Image = Properties.Resources.Usu_ico1;
+            pictureBox4.Location = new Point(87, 13);
+            pictureBox4.Margin = new Padding(3, 4, 3, 4);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(34, 36);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 42;
+            pictureBox4.TabStop = false;
             // 
-            // Column1
+            // label4
             // 
-            Column1.HeaderText = "ID_Usu";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Navy;
+            label4.Location = new Point(128, 16);
+            label4.Name = "label4";
+            label4.Size = new Size(247, 32);
+            label4.TabIndex = 34;
+            label4.Text = "Asignacion De Roles";
             // 
-            // Column2
+            // panel5
             // 
-            Column2.HeaderText = "ID_Rol";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
+            panel5.BackColor = Color.AliceBlue;
+            panel5.Controls.Add(pictureBox3);
+            panel5.Controls.Add(label3);
+            panel5.Controls.Add(Btn_Limpiar_Emp);
+            panel5.Controls.Add(Btn_Nuevo_Emp);
+            panel5.Controls.Add(Btn_Editar_Emp);
+            panel5.Controls.Add(Btn_Eliminar_Emp);
+            panel5.Controls.Add(Btn_Guardar_Emp);
+            panel5.Controls.Add(Btn_Actualizar_Emp);
+            panel5.Location = new Point(592, 272);
+            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(425, 149);
+            panel5.TabIndex = 64;
             // 
-            // Column4
+            // pictureBox3
             // 
-            Column4.HeaderText = "Fecha_Asig";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
+            pictureBox3.Image = Properties.Resources.Icon_Acciones;
+            pictureBox3.Location = new Point(130, 1);
+            pictureBox3.Margin = new Padding(3, 4, 3, 4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(34, 43);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 41;
+            pictureBox3.TabStop = false;
             // 
-            // comboBox1
+            // label3
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(312, 56);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(160, 28);
-            comboBox1.TabIndex = 62;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Navy;
+            label3.Location = new Point(166, 1);
+            label3.Name = "label3";
+            label3.Size = new Size(116, 32);
+            label3.TabIndex = 40;
+            label3.Text = "Acciones";
             // 
-            // comboBox2
+            // Btn_Limpiar_Emp
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(312, 152);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(160, 28);
-            comboBox2.TabIndex = 63;
+            Btn_Limpiar_Emp.Image = Properties.Resources.Btn_Limpiar;
+            Btn_Limpiar_Emp.Location = new Point(287, 85);
+            Btn_Limpiar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Limpiar_Emp.Name = "Btn_Limpiar_Emp";
+            Btn_Limpiar_Emp.Size = new Size(114, 47);
+            Btn_Limpiar_Emp.TabIndex = 39;
+            Btn_Limpiar_Emp.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Nuevo_Emp
+            // 
+            Btn_Nuevo_Emp.Image = Properties.Resources.Btn_Nuevo;
+            Btn_Nuevo_Emp.Location = new Point(42, 39);
+            Btn_Nuevo_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Nuevo_Emp.Name = "Btn_Nuevo_Emp";
+            Btn_Nuevo_Emp.Size = new Size(114, 47);
+            Btn_Nuevo_Emp.TabIndex = 34;
+            Btn_Nuevo_Emp.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Editar_Emp
+            // 
+            Btn_Editar_Emp.Image = Properties.Resources.Btn_Editar;
+            Btn_Editar_Emp.Location = new Point(287, 33);
+            Btn_Editar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Editar_Emp.Name = "Btn_Editar_Emp";
+            Btn_Editar_Emp.Size = new Size(114, 47);
+            Btn_Editar_Emp.TabIndex = 36;
+            Btn_Editar_Emp.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Eliminar_Emp
+            // 
+            Btn_Eliminar_Emp.Image = Properties.Resources.Btn_ELiminar;
+            Btn_Eliminar_Emp.Location = new Point(42, 91);
+            Btn_Eliminar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Eliminar_Emp.Name = "Btn_Eliminar_Emp";
+            Btn_Eliminar_Emp.Size = new Size(114, 47);
+            Btn_Eliminar_Emp.TabIndex = 37;
+            Btn_Eliminar_Emp.UseVisualStyleBackColor = true;
+            // 
+            // Btn_Guardar_Emp
+            // 
+            Btn_Guardar_Emp.Image = Properties.Resources.Btn_guardar;
+            Btn_Guardar_Emp.Location = new Point(166, 39);
+            Btn_Guardar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Guardar_Emp.Name = "Btn_Guardar_Emp";
+            Btn_Guardar_Emp.Size = new Size(114, 47);
+            Btn_Guardar_Emp.TabIndex = 35;
+            Btn_Guardar_Emp.UseVisualStyleBackColor = true;
+            Btn_Guardar_Emp.Click += Btn_Guardar_Emp_Click;
+            // 
+            // Btn_Actualizar_Emp
+            // 
+            Btn_Actualizar_Emp.Image = Properties.Resources.Btn_Actualizar;
+            Btn_Actualizar_Emp.Location = new Point(166, 85);
+            Btn_Actualizar_Emp.Margin = new Padding(3, 4, 3, 4);
+            Btn_Actualizar_Emp.Name = "Btn_Actualizar_Emp";
+            Btn_Actualizar_Emp.Size = new Size(114, 47);
+            Btn_Actualizar_Emp.TabIndex = 38;
+            Btn_Actualizar_Emp.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.AutoScroll = true;
+            panel1.BackColor = Color.Indigo;
+            panel1.BackgroundImage = Properties.Resources.barra_menu_horizontal;
+            panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(label5);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1073, 177);
+            panel1.TabIndex = 65;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.patito1;
+            pictureBox2.Location = new Point(933, 8);
+            pictureBox2.Margin = new Padding(3, 4, 3, 4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(130, 163);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 66;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.Usu_ico;
+            pictureBox1.Location = new Point(56, 27);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(117, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label15.ForeColor = SystemColors.ButtonHighlight;
+            label15.Location = new Point(178, 103);
+            label15.Name = "label15";
+            label15.Size = new Size(465, 28);
+            label15.TabIndex = 9;
+            label15.Text = "Gestiona la información del personal de la empresa.";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Left;
+            label5.AutoEllipsis = true;
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(178, 52);
+            label5.Name = "label5";
+            label5.Size = new Size(206, 52);
+            label5.TabIndex = 6;
+            label5.Text = "Asig. Roles";
+            label5.TextAlign = ContentAlignment.MiddleCenter;
+            label5.UseCompatibleTextRendering = true;
             // 
             // Asig_Roles_usu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1014, 529);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(Btn_Update_Usu);
-            Controls.Add(Btn_Delete_Usu);
-            Controls.Add(Dgv_Tabla_Usu);
-            Controls.Add(Btn_Read_Usu);
-            Controls.Add(Btn_Insert_Usu);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            ClientSize = new Size(1073, 749);
+            Controls.Add(panel1);
+            Controls.Add(panel5);
+            Controls.Add(panel4);
+            Controls.Add(Dgv_Tabla_UR);
             Name = "Asig_Roles_usu";
             Text = "Asig_Roles_usu";
-            ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_Usu).EndInit();
+            Load += Asig_Roles_usu_Load;
+            ((System.ComponentModel.ISupportInitialize)Dgv_Tabla_UR).EndInit();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private Label label1;
         private Label label2;
-        private Button Btn_Update_Usu;
-        private Button Btn_Delete_Usu;
-        private DataGridView Dgv_Tabla_Usu;
-        private Button Btn_Read_Usu;
-        private Button Btn_Insert_Usu;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column4;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private DataGridView Dgv_Tabla_UR;
+        private ComboBox cbo_Usu_Disponible;
+        private ComboBox Cbo_Rol_Disponibles;
+        private Panel panel4;
+        private PictureBox pictureBox4;
+        private Label label4;
+        private Panel panel5;
+        private PictureBox pictureBox3;
+        private Label label3;
+        private Button Btn_Limpiar_Emp;
+        private Button Btn_Nuevo_Emp;
+        private Button Btn_Editar_Emp;
+        private Button Btn_Eliminar_Emp;
+        private Button Btn_Guardar_Emp;
+        private Button Btn_Actualizar_Emp;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Label label15;
+        private Label label5;
+        private PictureBox pictureBox2;
     }
 }
