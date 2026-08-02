@@ -67,11 +67,20 @@ namespace SistemaReparto.Clases
         {
             try
             {
-                string consulta = @"SELECT r.id_ruta
-                            FROM pedido p
-                            INNER JOIN ruta r
-                                ON p.id_ruta = r.id_ruta
-                            WHERE p.id_pedido = @idPedido;";
+                string consulta = @"SELECT
+                        r.id_ruta,
+                        CONCAT(
+                            'Ruta #', r.id_ruta,
+                            ' - ',
+                            DATE_FORMAT(r.fecha_ruta, '%d/%m/%Y'),
+                            ' - ',
+                            FORMAT(r.distancia_km, 2),
+                            ' km'
+                        ) AS descripcion_ruta
+                    FROM pedido p
+                    INNER JOIN ruta r
+                        ON p.id_ruta = r.id_ruta
+                    WHERE p.id_pedido = @idPedido;";
 
                 MySqlCommand comando = new MySqlCommand(
                     consulta,
@@ -85,7 +94,7 @@ namespace SistemaReparto.Clases
 
                 if (reader.Read())
                 {
-                    cboRuta.Items.Add(reader["id_ruta"].ToString());
+                    cboRuta.Items.Add(reader["descripcion_ruta"].ToString());
                     cboRuta.SelectedIndex = 0;
                 }
 

@@ -60,21 +60,21 @@ namespace SistemaReparto
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
-            {
-                objetoPaquetes.ModificarPaquete(
-                    idPaqueteSeleccionado,
-                    cboPedido,
-                    txtCodigoRastreo,
-                    txtPeso,
-                    txtAlto,
-                    txtAncho,
-                    txtLargo,
-                    txtDescripcion,
-                    cboFragil,
-                    cboEstado);
+        {
+            objetoPaquetes.ModificarPaquete(
+                idPaqueteSeleccionado,
+                cboPedido,
+                txtCodigoRastreo,
+                txtPeso,
+                txtAlto,
+                txtAncho,
+                txtLargo,
+                txtDescripcion,
+                cboFragil,
+                cboEstado);
 
-                objetoPaquetes.MostrarPaquetes(dgvPaquetes);
-            }
+            objetoPaquetes.MostrarPaquetes(dgvPaquetes);
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -170,6 +170,11 @@ namespace SistemaReparto
                     cboPedido,
                     cboRuta);
             }
+        }
+
+        private void cboRuta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

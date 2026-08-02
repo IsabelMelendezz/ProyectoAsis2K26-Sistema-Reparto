@@ -275,16 +275,17 @@
             cboRuta.FormattingEnabled = true;
             cboRuta.Location = new Point(302, 64);
             cboRuta.Name = "cboRuta";
-            cboRuta.Size = new Size(276, 33);
+            cboRuta.Size = new Size(325, 33);
             cboRuta.TabIndex = 6;
             cboRuta.Text = "Seleccionar ruta";
+            cboRuta.SelectedIndexChanged += cboRuta_SelectedIndexChanged;
             // 
             // labelTipoPaquete
             // 
             labelTipoPaquete.AutoSize = true;
             labelTipoPaquete.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTipoPaquete.ForeColor = Color.FromArgb(64, 64, 64);
-            labelTipoPaquete.Location = new Point(588, 44);
+            labelTipoPaquete.Location = new Point(633, 44);
             labelTipoPaquete.Name = "labelTipoPaquete";
             labelTipoPaquete.Size = new Size(135, 19);
             labelTipoPaquete.TabIndex = 7;
@@ -293,7 +294,7 @@
             // cboTipoPaquete
             // 
             cboTipoPaquete.FormattingEnabled = true;
-            cboTipoPaquete.Location = new Point(588, 64);
+            cboTipoPaquete.Location = new Point(633, 64);
             cboTipoPaquete.Name = "cboTipoPaquete";
             cboTipoPaquete.Size = new Size(276, 33);
             cboTipoPaquete.TabIndex = 8;

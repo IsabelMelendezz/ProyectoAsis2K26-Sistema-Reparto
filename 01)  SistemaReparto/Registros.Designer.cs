@@ -56,7 +56,7 @@
             txtApellidos.ForeColor = Color.Black;
             txtApellidos.ImeMode = ImeMode.NoControl;
             txtApellidos.Location = new Point(21, 200);
-            txtApellidos.Margin = new Padding(4, 4, 4, 4);
+            txtApellidos.Margin = new Padding(4);
             txtApellidos.Name = "txtApellidos";
             txtApellidos.PlaceholderText = "👥 APELLIDOS";
             txtApellidos.Size = new Size(391, 31);
@@ -69,7 +69,7 @@
             txtcontraseña.BorderStyle = BorderStyle.FixedSingle;
             txtcontraseña.ForeColor = Color.Black;
             txtcontraseña.Location = new Point(21, 276);
-            txtcontraseña.Margin = new Padding(4, 4, 4, 4);
+            txtcontraseña.Margin = new Padding(4);
             txtcontraseña.Name = "txtcontraseña";
             txtcontraseña.PlaceholderText = "🔐 CONTRASEÑA";
             txtcontraseña.Size = new Size(391, 31);
@@ -82,7 +82,7 @@
             txtnombres.BorderStyle = BorderStyle.FixedSingle;
             txtnombres.ForeColor = Color.Black;
             txtnombres.Location = new Point(21, 130);
-            txtnombres.Margin = new Padding(4, 4, 4, 4);
+            txtnombres.Margin = new Padding(4);
             txtnombres.Name = "txtnombres";
             txtnombres.PlaceholderText = "👤​ NOMBRES";
             txtnombres.Size = new Size(391, 31);
@@ -95,7 +95,7 @@
             txtcontrav.BorderStyle = BorderStyle.FixedSingle;
             txtcontrav.ForeColor = Color.Black;
             txtcontrav.Location = new Point(21, 350);
-            txtcontrav.Margin = new Padding(4, 4, 4, 4);
+            txtcontrav.Margin = new Padding(4);
             txtcontrav.Name = "txtcontrav";
             txtcontrav.PlaceholderText = "🔏 CONFIRMAR CONTRASEÑA";
             txtcontrav.Size = new Size(391, 31);
@@ -120,7 +120,7 @@
             txtemail.BorderStyle = BorderStyle.FixedSingle;
             txtemail.ForeColor = Color.Black;
             txtemail.Location = new Point(21, 424);
-            txtemail.Margin = new Padding(4, 4, 4, 4);
+            txtemail.Margin = new Padding(4);
             txtemail.Name = "txtemail";
             txtemail.PlaceholderText = "📩 EMAIL";
             txtemail.Size = new Size(391, 31);
@@ -134,7 +134,7 @@
             button1.ForeColor = SystemColors.Window;
             button1.Image = Properties.Resources.boton_RE;
             button1.Location = new Point(110, 570);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(235, 46);
             button1.TabIndex = 7;
@@ -147,7 +147,7 @@
             txttelefono.BorderStyle = BorderStyle.FixedSingle;
             txttelefono.ForeColor = Color.Black;
             txttelefono.Location = new Point(21, 492);
-            txttelefono.Margin = new Padding(4, 4, 4, 4);
+            txttelefono.Margin = new Padding(4);
             txttelefono.Name = "txttelefono";
             txttelefono.PlaceholderText = "📞 TELEFONO";
             txttelefono.Size = new Size(391, 31);
@@ -157,7 +157,7 @@
             // pictureBox2
             // 
             pictureBox2.Location = new Point(-21, -102);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(366, 88);
             pictureBox2.TabIndex = 10;
@@ -177,7 +177,7 @@
             pnl_Registro.Controls.Add(txtemail);
             pnl_Registro.Controls.Add(txttelefono);
             pnl_Registro.Location = new Point(280, 150);
-            pnl_Registro.Margin = new Padding(4, 4, 4, 4);
+            pnl_Registro.Margin = new Padding(4);
             pnl_Registro.Name = "pnl_Registro";
             pnl_Registro.Size = new Size(448, 658);
             pnl_Registro.TabIndex = 8;
@@ -189,7 +189,7 @@
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(pnl_Registro);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(960, 940);
             panel1.TabIndex = 9;
@@ -201,7 +201,7 @@
             panel2.BackgroundImage = Properties.Resources.norton_Letras_logo;
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(40, 50);
-            panel2.Margin = new Padding(4, 4, 4, 4);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new Size(264, 94);
             panel2.TabIndex = 9;
@@ -210,7 +210,7 @@
             // 
             pictureBox1.Image = Properties.Resources.norteklogo;
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(260, 90);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -228,7 +228,7 @@
             ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "Registros";
             RightToLeft = RightToLeft.No;

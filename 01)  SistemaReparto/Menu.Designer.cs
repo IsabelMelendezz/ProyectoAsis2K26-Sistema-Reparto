@@ -490,7 +490,7 @@
             label6.ForeColor = Color.Navy;
             label6.Location = new Point(128, 72);
             label6.Name = "label6";
-            label6.Size = new Size(114, 54);
+            label6.Size = new Size(137, 62);
             label6.TabIndex = 17;
             label6.Text = "Bodegas\r\nOperativas\r\n";
             label6.UseMnemonic = false;
@@ -523,7 +523,7 @@
             label7.ForeColor = Color.Navy;
             label7.Location = new Point(120, 72);
             label7.Name = "label7";
-            label7.Size = new Size(134, 54);
+            label7.Size = new Size(160, 62);
             label7.TabIndex = 18;
             label7.Text = "Repartidores\r\nEn servicio\r\n";
             label7.UseMnemonic = false;
@@ -556,7 +556,7 @@
             label5.ForeColor = Color.Navy;
             label5.Location = new Point(144, 72);
             label5.Name = "label5";
-            label5.Size = new Size(79, 54);
+            label5.Size = new Size(95, 62);
             label5.TabIndex = 18;
             label5.Text = "Rutas\r\nActivas\r\n";
             label5.UseMnemonic = false;
@@ -589,7 +589,7 @@
             lbl_Paq_Reg.ForeColor = Color.Navy;
             lbl_Paq_Reg.Location = new Point(128, 72);
             lbl_Paq_Reg.Name = "lbl_Paq_Reg";
-            lbl_Paq_Reg.Size = new Size(124, 54);
+            lbl_Paq_Reg.Size = new Size(148, 62);
             lbl_Paq_Reg.TabIndex = 16;
             lbl_Paq_Reg.Text = "Paquetes\r\nRegistrados";
             lbl_Paq_Reg.UseMnemonic = false;
@@ -602,7 +602,7 @@
             lbl_Res_Hoy.ForeColor = Color.DarkBlue;
             lbl_Res_Hoy.Location = new Point(29, 576);
             lbl_Res_Hoy.Name = "lbl_Res_Hoy";
-            lbl_Res_Hoy.Size = new Size(243, 36);
+            lbl_Res_Hoy.Size = new Size(287, 42);
             lbl_Res_Hoy.TabIndex = 19;
             lbl_Res_Hoy.Text = "Resumen de hoy";
             // 
@@ -625,7 +625,7 @@
             lbl_Mns_bienv.ForeColor = Color.Navy;
             lbl_Mns_bienv.Location = new Point(101, 176);
             lbl_Mns_bienv.Name = "lbl_Mns_bienv";
-            lbl_Mns_bienv.Size = new Size(479, 140);
+            lbl_Mns_bienv.Size = new Size(569, 164);
             lbl_Mns_bienv.TabIndex = 17;
             lbl_Mns_bienv.Text = "Nos alegra tenerte de vuelta.\r\nAquí puedes gestionar y monitorear\r\ntodas las operaciones de logística\r\nde forma eficiente.";
             lbl_Mns_bienv.UseMnemonic = false;
@@ -638,7 +638,7 @@
             lbl_Bienvenido.ForeColor = Color.DarkBlue;
             lbl_Bienvenido.Location = new Point(88, 64);
             lbl_Bienvenido.Name = "lbl_Bienvenido";
-            lbl_Bienvenido.Size = new Size(517, 100);
+            lbl_Bienvenido.Size = new Size(619, 120);
             lbl_Bienvenido.TabIndex = 16;
             lbl_Bienvenido.Text = "¡Bienvenido!";
             // 

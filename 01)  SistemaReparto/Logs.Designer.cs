@@ -49,7 +49,7 @@
             // 
             btn_Log.FlatStyle = FlatStyle.Popup;
             btn_Log.Location = new Point(151, 374);
-            btn_Log.Margin = new Padding(4, 4, 4, 4);
+            btn_Log.Margin = new Padding(4);
             btn_Log.Name = "btn_Log";
             btn_Log.Size = new Size(118, 36);
             btn_Log.TabIndex = 0;
@@ -62,7 +62,7 @@
             txt_Usu_Log.BackColor = SystemColors.Menu;
             txt_Usu_Log.ForeColor = SystemColors.InfoText;
             txt_Usu_Log.Location = new Point(61, 226);
-            txt_Usu_Log.Margin = new Padding(4, 4, 4, 4);
+            txt_Usu_Log.Margin = new Padding(4);
             txt_Usu_Log.Name = "txt_Usu_Log";
             txt_Usu_Log.PlaceholderText = "👤 Usuario";
             txt_Usu_Log.Size = new Size(325, 31);
@@ -71,7 +71,7 @@
             // txt_Contra_Log
             // 
             txt_Contra_Log.Location = new Point(65, 300);
-            txt_Contra_Log.Margin = new Padding(4, 4, 4, 4);
+            txt_Contra_Log.Margin = new Padding(4);
             txt_Contra_Log.Name = "txt_Contra_Log";
             txt_Contra_Log.PasswordChar = '*';
             txt_Contra_Log.PlaceholderText = "🔐 Contraseña";
@@ -84,7 +84,7 @@
             btn_Registrar_Log.FlatStyle = FlatStyle.Flat;
             btn_Registrar_Log.ForeColor = Color.Black;
             btn_Registrar_Log.Location = new Point(269, 432);
-            btn_Registrar_Log.Margin = new Padding(4, 4, 4, 4);
+            btn_Registrar_Log.Margin = new Padding(4);
             btn_Registrar_Log.Name = "btn_Registrar_Log";
             btn_Registrar_Log.Size = new Size(119, 38);
             btn_Registrar_Log.TabIndex = 4;
@@ -108,7 +108,7 @@
             pictureLog1.ErrorImage = null;
             pictureLog1.Image = Properties.Resources.patito;
             pictureLog1.Location = new Point(138, 19);
-            pictureLog1.Margin = new Padding(4, 4, 4, 4);
+            pictureLog1.Margin = new Padding(4);
             pictureLog1.Name = "pictureLog1";
             pictureLog1.Size = new Size(142, 139);
             pictureLog1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -139,7 +139,7 @@
             pnl_log.Controls.Add(panel2);
             pnl_log.Controls.Add(panel3);
             pnl_log.Location = new Point(656, 166);
-            pnl_log.Margin = new Padding(4, 4, 4, 4);
+            pnl_log.Margin = new Padding(4);
             pnl_log.Name = "pnl_log";
             pnl_log.Size = new Size(439, 500);
             pnl_log.TabIndex = 11;
@@ -149,7 +149,7 @@
             // 
             panel2.BackColor = Color.SkyBlue;
             panel2.Location = new Point(56, 220);
-            panel2.Margin = new Padding(4, 4, 4, 4);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
             panel2.Size = new Size(335, 44);
             panel2.TabIndex = 11;
@@ -158,7 +158,7 @@
             // 
             panel3.BackColor = Color.SkyBlue;
             panel3.Location = new Point(60, 292);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(335, 45);
             panel3.TabIndex = 12;
@@ -168,7 +168,7 @@
             pictureBox1.BackgroundImage = Properties.Resources.Fondo_1;
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(1122, 749);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -185,7 +185,7 @@
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "Logs";
             Text = "Inicio de sesión";
