@@ -108,7 +108,7 @@ namespace SistemaReparto.Clases
         {
             try
             {
-                string consulta = "SELECT id_cliente FROM clientes ORDER BY id_cliente ASC;";
+                string consulta = "SELECT id_cliente FROM cliente ORDER BY id_cliente ASC;";
 
                 MySqlCommand cmd = new MySqlCommand(consulta, objetoConexion.establecerConexion());
 
@@ -197,7 +197,7 @@ namespace SistemaReparto.Clases
             try
             {
                 string consulta = @"INSERT INTO pedido
-                (codigo_pedido, id_cliente, id_estado_pedido, id_ruta, fecha_solicitud, direccion_origen, direccion_destino, peso_total, cantidad_paquetes, observaciones)
+                (codigo_pedido, id_cliente, id_estado_pedido, id_ruta, fecha_solicitud_pedido, direccion_origen_pedido, direccion_destino_pedido, peso_total_pedido, cantidad_paquetes_pedido, observaciones_pedido)
                 VALUES
                 (@codigo_pedido, @id_cliente, @id_estado_pedido, @id_ruta, @fecha_solicitud, @direccion_origen, @direccion_destino, @peso_total, @cantidad_paquetes, @observaciones);";
 
@@ -324,8 +324,8 @@ namespace SistemaReparto.Clases
             {
                 string consulta = @"SELECT * FROM pedido
                             WHERE codigo_pedido LIKE @buscar
-                            OR direccion_origen LIKE @buscar
-                            OR direccion_destino LIKE @buscar
+                            OR direccion_origen_pedido LIKE @buscar
+                            OR direccion_destino_pedido LIKE @buscar
                             OR CAST(id_pedido AS CHAR) LIKE @buscar;";
 
                 MySqlCommand comando = new MySqlCommand(

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,9 +32,11 @@ namespace SistemaReparto
         {
             CBodegas objetoBodega = new CBodegas();
 
-            objetoBodega.MostrarBodegas(dataGridView1);
-
             objetoBodega.LlenarComboSucursal(comboBoxSucursal);
+
+            objetoBodega.LlenarComboDepartamento(comboBoxDepartamento);
+
+            objetoBodega.MostrarBodegas(dataGridView1);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -61,10 +63,37 @@ namespace SistemaReparto
                 textBoxIdBodega,
                 comboBoxSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono);
+        }
 
+        // Al cambiar el departamento se recarga el combo de municipios
+        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CBodegas objetoBodega = new CBodegas();
+
+            string departamento = comboBoxDepartamento.SelectedValue?.ToString();
+
+            objetoBodega.LlenarComboMunicipio(comboBoxMunicipio, departamento);
+
+            // Al cambiar el departamento ya no aplica la zona previamente cargada
+            comboBoxZona.DataSource = null;
+            comboBoxZona.Items.Clear();
+        }
+
+        // Al cambiar el municipio se recarga el combo de zonas/áreas
+        private void comboBoxMunicipio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CBodegas objetoBodega = new CBodegas();
+
+            string municipio = comboBoxMunicipio.SelectedValue?.ToString();
+            string departamento = comboBoxDepartamento.SelectedValue?.ToString();
+
+            objetoBodega.LlenarComboZona(comboBoxZona, municipio, departamento);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -76,6 +105,9 @@ namespace SistemaReparto
                 textBoxIdBodega,
                 comboBoxSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono);
@@ -88,6 +120,9 @@ namespace SistemaReparto
             objetoBodega.Guardar(
                 comboBoxSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono,
@@ -103,12 +138,13 @@ namespace SistemaReparto
                 textBoxIdBodega,
                 comboBoxSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono,
                 dataGridView1);
-
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -119,6 +155,9 @@ namespace SistemaReparto
                 textBoxIdBodega,
                 comboBoxSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono,
@@ -143,6 +182,9 @@ namespace SistemaReparto
                 textBoxIdBodega,
                 comboBoxSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono);

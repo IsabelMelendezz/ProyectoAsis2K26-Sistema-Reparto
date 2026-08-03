@@ -1,4 +1,4 @@
-﻿using SistemaReparto.Clases;
+using SistemaReparto.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,6 +28,48 @@ namespace SistemaReparto
             CSucursales objetoSucursal = new CSucursales();
 
             objetoSucursal.MostrarSucursales(dataGridView1);
+
+            // Enlazamos los combos en cascada por código para no
+            // depender de que el Designer ya tenga los eventos.
+            comboBoxDepartamento.SelectedIndexChanged += comboBoxDepartamento_SelectedIndexChanged;
+            comboBoxMunicipio.SelectedIndexChanged += comboBoxMunicipio_SelectedIndexChanged;
+
+            objetoSucursal.CargarDepartamentos(comboBoxDepartamento);
+        }
+
+        private void comboBoxDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CSucursales objetoSucursal = new CSucursales();
+
+            if (comboBoxDepartamento.SelectedIndex == -1)
+            {
+                comboBoxMunicipio.DataSource = null;
+                comboBoxMunicipio.Items.Clear();
+                comboBoxZona.DataSource = null;
+                comboBoxZona.Items.Clear();
+                return;
+            }
+
+            string departamento = comboBoxDepartamento.SelectedValue.ToString();
+
+            objetoSucursal.CargarMunicipios(comboBoxMunicipio, departamento);
+        }
+
+        private void comboBoxMunicipio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CSucursales objetoSucursal = new CSucursales();
+
+            if (comboBoxMunicipio.SelectedIndex == -1 || comboBoxDepartamento.SelectedIndex == -1)
+            {
+                comboBoxZona.DataSource = null;
+                comboBoxZona.Items.Clear();
+                return;
+            }
+
+            string departamento = comboBoxDepartamento.SelectedValue.ToString();
+            string municipio = comboBoxMunicipio.SelectedValue.ToString();
+
+            objetoSucursal.CargarZonas(comboBoxZona, departamento, municipio);
         }
 
         private void textBoxDireccion_TextChanged(object sender, EventArgs e)
@@ -53,6 +95,9 @@ namespace SistemaReparto
                 dataGridView1,
                 textBoxIdSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo);
@@ -65,6 +110,9 @@ namespace SistemaReparto
             objetoSucursal.Nuevo(
                 textBoxIdSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo);
@@ -76,6 +124,9 @@ namespace SistemaReparto
 
             objetoSucursal.Guardar(
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo,
@@ -90,6 +141,9 @@ namespace SistemaReparto
             objetoSucursal.Editar(
                 textBoxIdSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo,
@@ -103,6 +157,9 @@ namespace SistemaReparto
             objetoSucursal.Eliminar(
                 textBoxIdSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo,
@@ -126,6 +183,9 @@ namespace SistemaReparto
                 dataGridView1,
                 textBoxIdSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo);
@@ -139,6 +199,9 @@ namespace SistemaReparto
                 dataGridView1,
                 textBoxIdSucursal,
                 textBoxNombre,
+                comboBoxDepartamento,
+                comboBoxMunicipio,
+                comboBoxZona,
                 textBoxDireccion,
                 textBoxTelefono,
                 textBoxCorreo);

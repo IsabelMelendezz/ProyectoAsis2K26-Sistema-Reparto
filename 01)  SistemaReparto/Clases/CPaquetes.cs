@@ -1,4 +1,4 @@
-﻿//Byron Alexander Chiquito Paredes
+//Byron Alexander Chiquito Paredes
 //0901-23-3747
 
 using MySql.Data.MySqlClient;
@@ -74,7 +74,7 @@ namespace SistemaReparto.Clases
                             ' - ',
                             DATE_FORMAT(r.fecha_ruta, '%d/%m/%Y'),
                             ' - ',
-                            FORMAT(r.distancia_km, 2),
+                            FORMAT(r.distancia_km_ruta, 2),
                             ' km'
                         ) AS descripcion_ruta
                     FROM pedido p
@@ -122,9 +122,9 @@ namespace SistemaReparto.Clases
             try
             {
                 string consulta = @"INSERT INTO paquete
-                (id_pedido, codigo_rastreo, peso, alto, ancho, largo, descripcion, fragil, estado)
+                (id_pedido, codigo_rastreo_paquete, peso_paquete, alto_paquete, ancho_paquete, largo_paquete, descripcion_paquete, fragil_paquete, tipo_paquete,estado_paquete)
                 VALUES
-                (@id_pedido, @codigo_rastreo, @peso, @alto, @ancho, @largo, @descripcion, @fragil, @estado);";
+                (@id_pedido, @codigo_rastreo, @peso, @alto, @ancho, @largo, @descripcion, @fragil,@tipo_paquete,@estado);";
 
                 MySqlCommand comando = new MySqlCommand(
                     consulta,
@@ -192,14 +192,14 @@ namespace SistemaReparto.Clases
             {
                 string consulta = @"UPDATE paquete SET
                     id_pedido = @id_pedido,
-                    codigo_rastreo = @codigo_rastreo,
-                    peso = @peso,
-                    alto = @alto,
-                    ancho = @ancho,
-                    largo = @largo,
-                    descripcion = @descripcion,
-                    fragil = @fragil,
-                    estado = @estado
+                    codigo_rastreo_paquete = @codigo_rastreo,
+                    peso_paquete = @peso,
+                    alto_paquete = @alto,
+                    ancho_paquete = @ancho,
+                    largo_paquete = @largo,
+                    descripcion_paquete = @descripcion,
+                    fragil_paquete = @fragil,
+                    estado_paquete = @estado
                     WHERE id_paquete = @id_paquete;";
 
                 MySqlCommand comando = new MySqlCommand(
@@ -235,8 +235,8 @@ namespace SistemaReparto.Clases
             try
             {
                 string consulta = @"SELECT * FROM paquete
-                            WHERE codigo_rastreo LIKE @buscar
-                            OR descripcion LIKE @buscar
+                            WHERE codigo_rastreo_paquete LIKE @buscar
+                            OR descripcion_paquete LIKE @buscar
                             OR CAST(id_pedido AS CHAR) LIKE @buscar;";
 
                 MySqlCommand comando = new MySqlCommand(
@@ -277,14 +277,14 @@ namespace SistemaReparto.Clases
             try
             {
                 cboPedido.Text = dgvPaquetes.CurrentRow.Cells["id_pedido"].Value.ToString();
-                txtCodigoRastreo.Text = dgvPaquetes.CurrentRow.Cells["codigo_rastreo"].Value.ToString();
-                txtPeso.Text = dgvPaquetes.CurrentRow.Cells["peso"].Value.ToString();
-                txtAlto.Text = dgvPaquetes.CurrentRow.Cells["alto"].Value.ToString();
-                txtAncho.Text = dgvPaquetes.CurrentRow.Cells["ancho"].Value.ToString();
-                txtLargo.Text = dgvPaquetes.CurrentRow.Cells["largo"].Value.ToString();
-                txtDescripcion.Text = dgvPaquetes.CurrentRow.Cells["descripcion"].Value.ToString();
-                cboFragil.Text = dgvPaquetes.CurrentRow.Cells["fragil"].Value.ToString();
-                cboEstado.Text = dgvPaquetes.CurrentRow.Cells["estado"].Value.ToString();
+                txtCodigoRastreo.Text = dgvPaquetes.CurrentRow.Cells["codigo_rastreo_paquete"].Value.ToString();
+                txtPeso.Text = dgvPaquetes.CurrentRow.Cells["peso_paquete"].Value.ToString();
+                txtAlto.Text = dgvPaquetes.CurrentRow.Cells["alto_paquete"].Value.ToString();
+                txtAncho.Text = dgvPaquetes.CurrentRow.Cells["ancho_paquete"].Value.ToString();
+                txtLargo.Text = dgvPaquetes.CurrentRow.Cells["largo_paquete"].Value.ToString();
+                txtDescripcion.Text = dgvPaquetes.CurrentRow.Cells["descripcion_paquete"].Value.ToString();
+                cboFragil.Text = dgvPaquetes.CurrentRow.Cells["fragil_paquete"].Value.ToString();
+                cboEstado.Text = dgvPaquetes.CurrentRow.Cells["estado_paquete"].Value.ToString();
             }
             catch (Exception)
             {

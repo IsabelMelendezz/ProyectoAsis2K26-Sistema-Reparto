@@ -43,13 +43,13 @@ namespace SistemaReparto.Clases
                 Cbo_Id_Bodega.DataSource = null;
                 Cbo_Id_Bodega.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_bodega, nombre FROM bodega";
+                string query = "SELECT id_bodega, nombre_bodega FROM bodega";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 Cbo_Id_Bodega.DataSource = dt;
-                Cbo_Id_Bodega.DisplayMember = "nombre";
+                Cbo_Id_Bodega.DisplayMember = "nombre_bodega";
                 Cbo_Id_Bodega.ValueMember = "id_bodega";
                 Cbo_Id_Bodega.SelectedIndex = -1;
 
@@ -69,13 +69,13 @@ namespace SistemaReparto.Clases
                 Cbo_Id_Area.DataSource = null;
                 Cbo_Id_Area.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_area, nombre FROM areas_cubiertas";
+                string query = "SELECT id_area, CONCAT('Zona_area_cubierta ', zona_area_cubierta, ' - ', municipio_area_cubierta, ', ', departamento_area_cubierta) AS area_completa FROM area_cubierta";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 Cbo_Id_Area.DataSource = dt;
-                Cbo_Id_Area.DisplayMember = "nombre";
+                Cbo_Id_Area.DisplayMember = "area_completa";
                 Cbo_Id_Area.ValueMember = "id_area";
                 Cbo_Id_Area.SelectedIndex = -1;
 
@@ -95,13 +95,13 @@ namespace SistemaReparto.Clases
                 Cbo_Tipo_Ruta.DataSource = null;
                 Cbo_Tipo_Ruta.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_tipo_ruta, nombre FROM tipo_ruta";
+                string query = "SELECT id_tipo_ruta, nombre_tipo_ruta FROM tipo_ruta";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 Cbo_Tipo_Ruta.DataSource = dt;
-                Cbo_Tipo_Ruta.DisplayMember = "nombre";
+                Cbo_Tipo_Ruta.DisplayMember = "nombre_tipo_ruta";
                 Cbo_Tipo_Ruta.ValueMember = "id_tipo_ruta";
                 Cbo_Tipo_Ruta.SelectedIndex = -1;
 
@@ -121,13 +121,13 @@ namespace SistemaReparto.Clases
                 Cbo_Estado_Ruta.DataSource = null;
                 Cbo_Estado_Ruta.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_estado_ruta, nombre FROM estado_ruta";
+                string query = "SELECT id_estado_ruta, nombre_estado_ruta FROM estado_ruta";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 Cbo_Estado_Ruta.DataSource = dt;
-                Cbo_Estado_Ruta.DisplayMember = "nombre";
+                Cbo_Estado_Ruta.DisplayMember = "nombre_estado_ruta";
                 Cbo_Estado_Ruta.ValueMember = "id_estado_ruta";
                 Cbo_Estado_Ruta.SelectedIndex = -1;
 
@@ -159,7 +159,7 @@ namespace SistemaReparto.Clases
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
                 string query = "INSERT INTO ruta " +
-                    "(id_bodega, id_area, id_tipo_ruta, id_estado_ruta, fecha_ruta, hora_inicio, hora_fin, distancia_km, observaciones) " +
+                    "(id_bodega, id_area, id_tipo_ruta, id_estado_ruta, fecha_ruta, hora_inicio_ruta, hora_fin_ruta, distancia_km_ruta, observaciones_ruta) " +
                     "VALUES (@bodega, @area, @tipor, @estador, @fecha, @horainicio, @horafin, @distancia, @observ)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
@@ -215,16 +215,16 @@ namespace SistemaReparto.Clases
                 if (!string.IsNullOrEmpty(fechaTexto))
                     Fecha_Ruta.Value = Convert.ToDateTime(fechaTexto);
 
-                string horaInicioTexto = ObtenerTexto(fila, "hora_inicio");
+                string horaInicioTexto = ObtenerTexto(fila, "hora_inicio_ruta");
                 if (!string.IsNullOrEmpty(horaInicioTexto))
                     Hora_Inicio.Value = Convert.ToDateTime(horaInicioTexto);
 
-                string horaFinTexto = ObtenerTexto(fila, "hora_fin");
+                string horaFinTexto = ObtenerTexto(fila, "hora_fin_ruta");
                 if (!string.IsNullOrEmpty(horaFinTexto))
                     Hora_Fin.Value = Convert.ToDateTime(horaFinTexto);
 
-                text_Distancia.Text = ObtenerTexto(fila, "distancia_km");
-                text_observaciones.Text = ObtenerTexto(fila, "observaciones");
+                text_Distancia.Text = ObtenerTexto(fila, "distancia_km_ruta");
+                text_observaciones.Text = ObtenerTexto(fila, "observaciones_ruta");
 
                 return idRuta;
             }
@@ -263,10 +263,10 @@ namespace SistemaReparto.Clases
                     "id_tipo_ruta = @tipor, " +
                     "id_estado_ruta = @estador, " +
                     "fecha_ruta = @fecha, " +
-                    "hora_inicio = @horainicio, " +
-                    "hora_fin = @horafin, " +
-                    "distancia_km = @distancia, " +
-                    "observaciones = @observ " +
+                    "hora_inicio_ruta = @horainicio, " +
+                    "hora_fin_ruta = @horafin, " +
+                    "distancia_km_ruta = @distancia, " +
+                    "observaciones_ruta = @observ " +
                     "WHERE id_ruta = @id";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());

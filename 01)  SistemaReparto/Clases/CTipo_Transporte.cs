@@ -1,4 +1,4 @@
-﻿//Carlos David Calderón Ramirez
+//Carlos David Calderón Ramirez
 //9959-23-848
 
 using MySql.Data.MySqlClient;
@@ -19,8 +19,8 @@ namespace SistemaReparto.Clases
             {
                 CConexion objetoConexion = new CConexion();
                 String query = "SELECT tv.id_tipo_vehiculo AS Id_Tipo_Vehiculo, " +
-                               "tv.nombre AS Nombre, " +
-                               "tv.descripcion AS Descripcion " +
+                               "tv.nombre_tipo_vehiculo AS Nombre, " +
+                               "tv.descripcion_tipo_vehiculo AS Descripcion " +
                                "FROM tipo_vehiculo tv ";
 
                 Tabla_T_Transporte.DataSource = null;
@@ -49,7 +49,7 @@ namespace SistemaReparto.Clases
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
                 string query = "INSERT INTO tipo_vehiculo " +
-                    "(nombre, descripcion) " +
+                    "(nombre_tipo_vehiculo, descripcion_tipo_vehiculo) " +
                     "VALUES (@nombre, @descripcion)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
@@ -120,8 +120,8 @@ namespace SistemaReparto.Clases
 
                 CConexion objetoConexion = new CConexion();
                 string query = "UPDATE tipo_vehiculo SET " +
-                    "nombre = @nombre, " +
-                    "descripcion = @descrip, ";
+                    "nombre_tipo_vehiculo = @nombre, " +
+                    "descripcion_tipo_vehiculo = @descrip, ";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
                 myComand.Parameters.AddWithValue("@nombre", nombre.Text);

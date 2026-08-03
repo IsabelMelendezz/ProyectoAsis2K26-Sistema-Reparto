@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +18,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"INSERT INTO usuarios (id_empleado, usuario, correo, contrasena, fecha_creacion, estado) 
+                string query = @"INSERT INTO usuario (id_empleado, usuario_usuario, correo_usuario, contrasena_usuario, fecha_creacion_usuario, estado_usuario) 
                                   VALUES (@idEmpleado, @usuario, @correo, @contrasena, @fechaCreacion, @estado)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idEmpleado", u.IdEmpleado);
@@ -57,11 +57,11 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT u.id_usuario, u.id_empleado, u.usuario, u.correo, 
-                                         u.ultimo_acceso, u.fecha_creacion, u.estado,
-                                         CONCAT(e.nombres, ' ', e.apellidos) AS nombre_empleado
-                                  FROM usuarios u
-                                  left JOIN empleados e ON u.id_empleado = e.id_empleado";
+                string query = @"SELECT u.id_usuario, u.id_empleado, u.usuario_usuario, u.correo_usuario, 
+                                         u.ultimo_acceso_usuario, u.fecha_creacion_usuario, u.estado_usuario,
+                                         CONCAT(e.nombre_empleado, ' ', e.apellido_empleado) AS nombre_empleado
+                                  FROM usuario u
+                                  left JOIN empleado e ON u.id_empleado = e.id_empleado";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -70,11 +70,11 @@ namespace SistemaReparto.Clases
                     lista.Add(new CUsuarios(
                         Convert.ToInt32(reader["id_usuario"]),
                         Convert.ToInt32(reader["id_empleado"]),
-                        reader["usuario"].ToString(),
-                        reader["correo"] == DBNull.Value ? "" : reader["correo"].ToString(),
-                        reader["ultimo_acceso"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ultimo_acceso"]),
-                        Convert.ToDateTime(reader["fecha_creacion"]),
-                        reader["estado"].ToString(),
+                        reader["usuario_usuario"].ToString(),
+                        reader["correo_usuario"] == DBNull.Value ? "" : reader["correo_usuario"].ToString(),
+                        reader["ultimo_acceso_usuario"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ultimo_acceso_usuario"]),
+                        Convert.ToDateTime(reader["fecha_creacion_usuario"]),
+                        reader["estado_usuario"].ToString(),
                         reader["nombre_empleado"].ToString()
                     ));
                 }
@@ -99,7 +99,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_usuario, usuario FROM usuarios WHERE estado = 'Activo'";
+                string query = "SELECT id_usuario, usuario_usuario FROM usuario WHERE estado_usuario = 'Activo'";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -108,7 +108,7 @@ namespace SistemaReparto.Clases
                     lista.Add(new   CUsuarios
                     {
                         IdUsuario = Convert.ToInt32(reader["id_usuario"]),
-                        NombreUsuario = reader["usuario"].ToString()
+                        NombreUsuario = reader["usuario_usuario"].ToString()
                     });
                 }
             }
@@ -131,8 +131,8 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"UPDATE usuarios 
-                                  SET id_empleado=@idEmpleado, usuario=@usuario, correo=@correo, estado=@estado 
+                string query = @"UPDATE usuario 
+                                  SET id_empleado=@idEmpleado, usuario_usuario=@usuario, correo_usuario=@correo, estado_usuario=@estado 
                                   WHERE id_usuario=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idEmpleado", u.IdEmpleado);
@@ -163,7 +163,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "UPDATE usuarios SET contrasena=@contrasena WHERE id_usuario=@id";
+                string query = "UPDATE usuario SET contrasena_usuario=@contrasena WHERE id_usuario=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@contrasena", nuevaContrasena); // Recomendado: hashear antes
                 cmd.Parameters.AddWithValue("@id", idUsuario);
@@ -190,7 +190,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "DELETE FROM usuarios WHERE id_usuario=@id";
+                string query = "DELETE FROM usuario WHERE id_usuario=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@id", idUsuario);
 

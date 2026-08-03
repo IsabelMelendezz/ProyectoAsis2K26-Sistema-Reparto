@@ -1,4 +1,4 @@
-﻿//Lourdes Isabel Melendez Pineda 
+//Lourdes Isabel Melendez Pineda 
 //9959-23-1379
 
 
@@ -21,8 +21,8 @@ namespace SistemaReparto.Clases
             {
                 CConexion objetoConexion = new CConexion();
                 String query = "SELECT te.id_tipo_empleado AS Id_Tipo_Empleado, " +
-                               "te.nombre AS Nombre, " +
-                               "te.descripcion AS Descripcion " +
+                               "te.nombre_tipo_empleado AS Nombre, " +
+                               "te.descripcion_tipo_empleado AS Descripcion " +
                                "FROM tipo_empleado te ";
 
                 Tabla_TipoEmp.DataSource = null;
@@ -51,7 +51,7 @@ namespace SistemaReparto.Clases
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
                 string query = "INSERT INTO tipo_empleado " +
-                    "(nombre, descripcion) " +
+                    "(nombre_tipo_empleado, descripcion_tipo_empleado) " +
                     "VALUES (@nombre, @descripcion)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
@@ -122,8 +122,8 @@ namespace SistemaReparto.Clases
 
                 CConexion objetoConexion = new CConexion();
                 string query = "UPDATE tipo_empleado SET " +
-                    "nombre = @nombre, " +
-                    "descripcion = @descripcion " +
+                    "nombre_tipo_empleado = @nombre, " +
+                    "descripcion_tipo_empleado = @descripcion " +
                     "WHERE id_tipo_empleado = @id";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());

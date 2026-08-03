@@ -1,4 +1,4 @@
-﻿//Carlos David Calderón Ramirez
+//Carlos David Calderón Ramirez
 //9959-23-848
 
 using MySql.Data.MySqlClient;
@@ -20,13 +20,13 @@ namespace SistemaReparto.Clases
             {
                 CConexion objetoConexion = new CConexion();
                 String query = "SELECT t.id_vehiculo AS Id_Vehiculo, " +
-                               "t.placa AS Placa, " +
-                               "t.marca AS Marca, " +
-                               "t.modelo AS Modelo, " +
-                               "t.anio AS Año, " +
-                               "t.capacidad_peso AS Capacidad_Peso, " +
-                               "tv.nombre AS Vehiculo, " +
-                               "ev.nombre AS Estado " +
+                               "t.placa_vehiculo AS Placa, " +
+                               "t.marca_vehiculo AS Marca, " +
+                               "t.modelo_vehiculo AS Modelo, " +
+                               "t.anio_vehiculo AS Año, " +
+                               "t.capacidad_peso_vehiculo AS Capacidad_Peso, " +
+                               "tv.nombre_tipo_vehiculo AS Vehiculo, " +
+                               "ev.nombre_estado_vehiculo AS Estado " +
                                "FROM vehiculo t " +
                                "INNER JOIN tipo_vehiculo tv ON t.id_tipo_vehiculo = tv.id_tipo_vehiculo " +
                                "INNER JOIN estado_vehiculo ev ON t.id_estado_vehiculo = ev.id_estado_vehiculo";
@@ -54,13 +54,13 @@ namespace SistemaReparto.Clases
                 Cbo_Tipo_Transporte.DataSource = null;
                 Cbo_Tipo_Transporte.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_tipo_vehiculo, nombre FROM tipo_vehiculo";
+                string query = "SELECT id_tipo_vehiculo, nombre_tipo_vehiculo FROM tipo_vehiculo";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 Cbo_Tipo_Transporte.DataSource = dt;
-                Cbo_Tipo_Transporte.DisplayMember = "nombre";
+                Cbo_Tipo_Transporte.DisplayMember = "nombre_tipo_vehiculo";
                 Cbo_Tipo_Transporte.ValueMember = "id_tipo_vehiculo";
                 Cbo_Tipo_Transporte.SelectedIndex = -1;
 
@@ -80,13 +80,13 @@ namespace SistemaReparto.Clases
                 Cbo_Estado_Transporte.DataSource = null;
                 Cbo_Estado_Transporte.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_estado_vehiculo, nombre FROM estado_vehiculo";
+                string query = "SELECT id_estado_vehiculo, nombre_estado_vehiculo FROM estado_vehiculo";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 Cbo_Estado_Transporte.DataSource = dt;
-                Cbo_Estado_Transporte.DisplayMember = "nombre";
+                Cbo_Estado_Transporte.DisplayMember = "nombre_estado_vehiculo";
                 Cbo_Estado_Transporte.ValueMember = "id_estado_vehiculo";
                 Cbo_Estado_Transporte.SelectedIndex = -1;
 
@@ -117,7 +117,7 @@ namespace SistemaReparto.Clases
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
                 string query = "INSERT INTO vehiculo " +
-                    "(id_tipo_vehiculo, id_estado_vehiculo, placa, anio,modelo, marca, capacidad_peso) " +
+                    "(id_tipo_vehiculo, id_estado_vehiculo, placa_vehiculo, anio_vehiculo,modelo_vehiculo, marca_vehiculo, capacidad_peso_vehiculo) " +
                     "VALUES (@tipov, @estadov, @placa, @anio, @modelo, @marca, @capacidad_peso)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
@@ -205,11 +205,11 @@ namespace SistemaReparto.Clases
                 string query = "UPDATE vehiculo SET " +
                     "id_tipo_vehiculo = @tipov, " +
                     "id_estado_vehiculo = @estadov, " +
-                    "placa = @placa, " +
-                    "año = @anio, " +
-                    "modelo = @modelo, " +
-                    "marca = @marca, " +
-                    "peso = @capacidad_peso, ";
+                    "placa_vehiculo = @placa, " +
+                    "anio_vehiculo = @anio, " +
+                    "modelo_vehiculo = @modelo, " +
+                    "marca_vehiculo = @marca, " +
+                    "capacidad_peso_vehiculo = @capacidad_peso, ";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
                 myComand.Parameters.AddWithValue("@tipov", Cbo_Tipo_Transporte.SelectedValue);

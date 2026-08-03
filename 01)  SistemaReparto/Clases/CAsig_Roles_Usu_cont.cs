@@ -20,7 +20,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_usuario, usuario FROM usuarios WHERE estado = 'Activo'";
+                string query = "SELECT id_usuario, usuario_usuario FROM usuario WHERE estado_usuario = 'Activo'";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -53,7 +53,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_rol, nombre FROM roles WHERE estado = 1";
+                string query = "SELECT id_rol, nombre_rol FROM rol WHERE estado_rol = 1";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -87,7 +87,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "INSERT INTO usuario_rol (id_usuario, id_rol, fecha_asignacion) VALUES (@idUsuario, @idRol, @fecha)";
+                string query = "INSERT INTO usuario_rol (id_usuario, id_rol, fecha_asignacion_usuario_rol) VALUES (@idUsuario, @idRol, @fecha)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idUsuario", ur.IdUsuario);
                 cmd.Parameters.AddWithValue("@idRol", ur.IdRol);
@@ -121,11 +121,11 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT ur.id_usuario, ur.id_rol, ur.fecha_asignacion,
-                                         u.usuario AS nombre_usuario, r.nombre AS nombre_rol
+                string query = @"SELECT ur.id_usuario, ur.id_rol, ur.fecha_asignacion_usuario_rol,
+                                         u.usuario_usuario AS nombre_usuario, r.nombre_rol AS nombre_rol
                                   FROM usuario_rol ur
-                                  INNER JOIN usuarios u ON ur.id_usuario = u.id_usuario
-                                  INNER JOIN roles r ON ur.id_rol = r.id_rol";
+                                  INNER JOIN usuario u ON ur.id_usuario = u.id_usuario
+                                  INNER JOIN rol r ON ur.id_rol = r.id_rol";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -160,7 +160,7 @@ namespace SistemaReparto.Clases
             try
             {
                 string query = @"UPDATE usuario_rol 
-                                  SET id_usuario=@nuevoUsuario, id_rol=@nuevoRol, fecha_asignacion=@fecha 
+                                  SET id_usuario=@nuevoUsuario, id_rol=@nuevoRol, fecha_asignacion_usuario_rol=@fecha 
                                   WHERE id_usuario=@viejoUsuario AND id_rol=@viejoRol";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@nuevoUsuario", nuevo.IdUsuario);

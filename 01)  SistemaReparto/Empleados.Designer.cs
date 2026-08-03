@@ -32,7 +32,6 @@
             Tabla_Empleados = new DataGridView();
             panel4 = new Panel();
             Telefono_Empleado = new TextBox();
-            Correo_Empleado = new TextBox();
             Contratacion_Empleado = new DateTimePicker();
             pictureBox4 = new PictureBox();
             label13 = new Label();
@@ -46,7 +45,6 @@
             Nombre_Empleado = new TextBox();
             label11 = new Label();
             Direccion_Empleado = new TextBox();
-            label10 = new Label();
             label9 = new Label();
             label8 = new Label();
             Dpi_Empleado = new TextBox();
@@ -131,7 +129,6 @@
             // 
             panel4.BackColor = Color.AliceBlue;
             panel4.Controls.Add(Telefono_Empleado);
-            panel4.Controls.Add(Correo_Empleado);
             panel4.Controls.Add(Contratacion_Empleado);
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(label13);
@@ -145,7 +142,6 @@
             panel4.Controls.Add(Nombre_Empleado);
             panel4.Controls.Add(label11);
             panel4.Controls.Add(Direccion_Empleado);
-            panel4.Controls.Add(label10);
             panel4.Controls.Add(label9);
             panel4.Controls.Add(label8);
             panel4.Controls.Add(Dpi_Empleado);
@@ -165,20 +161,13 @@
             Telefono_Empleado.Location = new Point(576, 123);
             Telefono_Empleado.Margin = new Padding(3, 4, 3, 4);
             Telefono_Empleado.Name = "Telefono_Empleado";
+            Telefono_Empleado.PlaceholderText = "Telefono";
             Telefono_Empleado.Size = new Size(262, 27);
             Telefono_Empleado.TabIndex = 44;
             // 
-            // Correo_Empleado
-            // 
-            Correo_Empleado.Location = new Point(577, 161);
-            Correo_Empleado.Margin = new Padding(3, 4, 3, 4);
-            Correo_Empleado.Name = "Correo_Empleado";
-            Correo_Empleado.Size = new Size(261, 27);
-            Correo_Empleado.TabIndex = 43;
-            // 
             // Contratacion_Empleado
             // 
-            Contratacion_Empleado.Location = new Point(359, 305);
+            Contratacion_Empleado.Location = new Point(566, 282);
             Contratacion_Empleado.Margin = new Padding(5);
             Contratacion_Empleado.Name = "Contratacion_Empleado";
             Contratacion_Empleado.Size = new Size(273, 27);
@@ -199,7 +188,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label13.Location = new Point(194, 311);
+            label13.Location = new Point(411, 288);
             label13.Margin = new Padding(5, 0, 5, 0);
             label13.Name = "label13";
             label13.Size = new Size(155, 18);
@@ -219,7 +208,7 @@
             // 
             // Nacimiento_Empleado
             // 
-            Nacimiento_Empleado.Location = new Point(574, 253);
+            Nacimiento_Empleado.Location = new Point(573, 223);
             Nacimiento_Empleado.Margin = new Padding(5);
             Nacimiento_Empleado.Name = "Nacimiento_Empleado";
             Nacimiento_Empleado.Size = new Size(265, 27);
@@ -270,7 +259,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label12.Location = new Point(430, 253);
+            label12.Location = new Point(422, 226);
             label12.Margin = new Padding(5, 0, 5, 0);
             label12.Name = "label12";
             label12.Size = new Size(144, 18);
@@ -292,7 +281,7 @@
             label11.AutoSize = true;
             label11.BackColor = Color.AliceBlue;
             label11.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.Location = new Point(430, 209);
+            label11.Location = new Point(430, 175);
             label11.Margin = new Padding(5, 0, 5, 0);
             label11.Name = "label11";
             label11.Size = new Size(81, 18);
@@ -301,24 +290,12 @@
             // 
             // Direccion_Empleado
             // 
-            Direccion_Empleado.Location = new Point(574, 200);
+            Direccion_Empleado.Location = new Point(573, 171);
             Direccion_Empleado.Margin = new Padding(5);
             Direccion_Empleado.Name = "Direccion_Empleado";
             Direccion_Empleado.PlaceholderText = "📍 Direccion ";
             Direccion_Empleado.Size = new Size(265, 27);
             Direccion_Empleado.TabIndex = 14;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.BackColor = Color.AliceBlue;
-            label10.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.Location = new Point(430, 171);
-            label10.Margin = new Padding(5, 0, 5, 0);
-            label10.Name = "label10";
-            label10.Size = new Size(60, 18);
-            label10.TabIndex = 20;
-            label10.Text = "Correo";
             // 
             // label9
             // 
@@ -796,7 +773,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox Nit_Empleado;
         private System.Windows.Forms.Label label8;
@@ -834,7 +810,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private TextBox Correo_Empleado;
         private TextBox Telefono_Empleado;
         private Panel panel2;
         private Label label16;

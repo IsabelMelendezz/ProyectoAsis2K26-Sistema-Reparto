@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_modulo, nombre_modulos, estatus_modulo FROM modulos WHERE estatus_modulo = 'Activo'";
+                string query = "SELECT id_modulo, nombre_modulo, estatus_modulo FROM modulo WHERE estatus_modulo = 'Activo'";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -27,7 +27,7 @@ namespace SistemaReparto.Clases
                 {
                     lista.Add(new CModulo(
                         Convert.ToInt32(reader["id_modulo"]),
-                        reader["nombre_modulos"].ToString(),
+                        reader["nombre_modulo"].ToString(),
                         reader["estatus_modulo"].ToString()
                     ));
                 }
@@ -52,11 +52,11 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT m.id_modulo, m.nombre_modulos, m.estatus_modulo
-                                  FROM modulos m
+                string query = @"SELECT m.id_modulo, m.nombre_modulo, m.estatus_modulo
+                                  FROM modulo m
                                   WHERE m.estatus_modulo = 'Activo'
                                   AND m.id_modulo NOT IN (
-                                      SELECT id_modulo FROM relrolmodulo WHERE id_rol = @idRol
+                                      SELECT id_modulo FROM relacion_rol_modulo WHERE id_rol = @idRol
                                   )";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idRol", idRol);
@@ -66,7 +66,7 @@ namespace SistemaReparto.Clases
                 {
                     lista.Add(new CModulo(
                         Convert.ToInt32(reader["id_modulo"]),
-                        reader["nombre_modulos"].ToString(),
+                        reader["nombre_modulo"].ToString(),
                         reader["estatus_modulo"].ToString()
                     ));
                 }
@@ -91,10 +91,10 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT rm.id_modulo, rm.id_usuario, rm.der_insertar, rm.der_editar, rm.der_eliminar, rm.der_imprimir,
-                                         m.nombre_modulos
-                                  FROM relusumodulo rm
-                                  INNER JOIN modulos m ON rm.id_modulo = m.id_modulo
+                string query = @"SELECT rm.id_modulo, rm.id_usuario, rm.der_insertar_relusumodulo, rm.der_editar_relusumodulo, rm.der_eliminar_relusumodulo, rm.der_imprimir_relusumodulo,
+                                         m.nombre_modulo
+                                  FROM relacion_usuario_modulo rm
+                                  INNER JOIN modulo m ON rm.id_modulo = m.id_modulo
                                   WHERE rm.id_usuario = @idUsuario";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idUsuario", IdUsuario);
@@ -106,11 +106,11 @@ namespace SistemaReparto.Clases
                     {
                         IdModulo = Convert.ToInt32(reader["id_modulo"]),
                         IdUsuario = Convert.ToInt32(reader["id_usuario"]),
-                        DerInsertar = reader["der_insertar"].ToString() == "S",
-                        DerEditar = reader["der_editar"].ToString() == "S",
-                        DerEliminar = reader["der_eliminar"].ToString() == "S",
-                        DerImprimir = reader["der_imprimir"].ToString() == "S",
-                        NombreModulo = reader["nombre_modulos"].ToString()
+                        DerInsertar = reader["der_insertar_relusumodulo"].ToString() == "S",
+                        DerEditar = reader["der_editar_relusumodulo"].ToString() == "S",
+                        DerEliminar = reader["der_eliminar_relusumodulo"].ToString() == "S",
+                        DerImprimir = reader["der_imprimir_relusumodulo"].ToString() == "S",
+                        NombreModulo = reader["nombre_modulo"].ToString()
                     });
                 }
             }
@@ -135,7 +135,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"INSERT INTO relusumodulo (id_modulo, id_usuario, der_insertar, der_editar, der_eliminar, der_imprimir) 
+                string query = @"INSERT INTO relacion_usuario_modulo (id_modulo, id_usuario, der_insertar_relusumodulo, der_editar_relusumodulo, der_eliminar_relusumodulo, der_imprimir_relusumodulo) 
                                   VALUES (@idModulo, @idUsuario, @insertar, @editar, @eliminar, @imprimir)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idModulo", r.IdModulo);
@@ -172,8 +172,8 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"UPDATE relusumodulo 
-                                  SET der_insertar=@insertar, der_editar=@editar, der_eliminar=@eliminar, der_imprimir=@imprimir
+                string query = @"UPDATE relacion_usuario_modulo 
+                                  SET der_insertar_relusumodulo=@insertar, der_editar_relusumodulo=@editar, der_eliminar_relusumodulo=@eliminar, der_imprimir_relusumodulo=@imprimir
                                   WHERE id_modulo=@idModulo AND id_usuario=@idUsuario";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@insertar", r.DerInsertar ? "S" : "N");
@@ -205,7 +205,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "DELETE FROM relusumodulo WHERE id_modulo=@idModulo AND id_usuario=@idUsuario";
+                string query = "DELETE FROM relacion_usuario_modulo WHERE id_modulo=@idModulo AND id_usuario=@idUsuario";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idModulo", idModulo);
                 cmd.Parameters.AddWithValue("@idUsuario", idUsuario);

@@ -20,8 +20,8 @@ namespace SistemaReparto.Clases
             {
                 CConexion objetoConexion = new CConexion();
                 String query = "SELECT ev.id_estado_vehiculo AS Id_Estado_Vehiculo, " +
-                               "ev.nombre AS Nombre, " +
-                               "ev.descripcion AS Descripcion " +
+                               "ev.nombre_estado_vehiculo AS Nombre, " +
+                               "ev.descripcion_estado_vehiculo AS Descripcion " +
                                "FROM estado_vehiculo ev ";
 
                 Tabla_E_Transporte.DataSource = null;
@@ -41,7 +41,7 @@ namespace SistemaReparto.Clases
 
 
 
-        public int GuardarEstadoT(TextBox nombre, TextBox descrip)
+        public int Guardar_Estado_V(TextBox nombre, TextBox descrip)
         {
             try
             {
@@ -50,7 +50,7 @@ namespace SistemaReparto.Clases
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
                 string query = "INSERT INTO estado_vehiculo " +
-                    "(nombre, descripcion) " +
+                    "(nombre_estado_vehiculo, descripcion_estado_vehiculo) " +
                     "VALUES (@nombre, @descripcion)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
@@ -77,7 +77,7 @@ namespace SistemaReparto.Clases
 
         // SELECCIONAR (cargar fila tabla de controles)
         // 
-        public int SeleccionarEstadoV(DataGridView Tabla_E_Transporte,
+        public int Seleccionar_Estado_V(DataGridView Tabla_E_Transporte,
             TextBox nombre, TextBox descrip)
         {
             try
@@ -109,7 +109,7 @@ namespace SistemaReparto.Clases
 
         // MODIFICAR (UPDATE)
 
-        public void ModificarEstadoT(int idEstadoV, TextBox nombre, TextBox descrip)
+        public void Modificar_Estado_V(int idEstadoV, TextBox nombre, TextBox descrip)
         {
             try
             {
@@ -121,8 +121,8 @@ namespace SistemaReparto.Clases
 
                 CConexion objetoConexion = new CConexion();
                 string query = "UPDATE estado_vehiculo SET " +
-                    "nombre = @nombre, " +
-                    "descripcion = @descrip, ";
+                    "nombre_estado_vehiculo = @nombre, " +
+                    "descripcion_estado_vehiculo = @descrip, ";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
                 myComand.Parameters.AddWithValue("@nombre", nombre.Text);
@@ -145,7 +145,7 @@ namespace SistemaReparto.Clases
 
         // ELIMINAR (DELETE)
 
-        public void EliminarEstadoT(int idEstadoV)
+        public void Eliminar_Estado_V(int idEstadoV)
         {
             try
             {

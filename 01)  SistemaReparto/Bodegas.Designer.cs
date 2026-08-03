@@ -44,6 +44,12 @@
             textBoxTelefono = new TextBox();
             labelNombre = new Label();
             textBoxNombre = new TextBox();
+            labelDepartamento = new Label();
+            comboBoxDepartamento = new ComboBox();
+            labelMunicipio = new Label();
+            comboBoxMunicipio = new ComboBox();
+            labelZona = new Label();
+            comboBoxZona = new ComboBox();
             labelDireccion = new Label();
             textBoxDireccion = new TextBox();
             labelObligatorios = new Label();
@@ -86,9 +92,9 @@
             panel1.Controls.Add(pic_Bode);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 4, 2, 4);
+            panel1.Margin = new Padding(2, 3, 2, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1774, 221);
+            panel1.Size = new Size(1419, 177);
             panel1.TabIndex = 7;
             panel1.Paint += panel1_Paint;
             // 
@@ -97,10 +103,10 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.patito1;
-            pictureBox1.Location = new Point(1397, 13);
-            pictureBox1.Margin = new Padding(4, 5, 4, 5);
+            pictureBox1.Location = new Point(1118, 10);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(163, 203);
+            pictureBox1.Size = new Size(130, 162);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
@@ -108,9 +114,10 @@
             // pic_Bode
             // 
             pic_Bode.Image = Properties.Resources.Bode_ico;
-            pic_Bode.Location = new Point(60, 33);
+            pic_Bode.Location = new Point(48, 26);
+            pic_Bode.Margin = new Padding(2, 2, 2, 2);
             pic_Bode.Name = "pic_Bode";
-            pic_Bode.Size = new Size(172, 152);
+            pic_Bode.Size = new Size(138, 122);
             pic_Bode.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_Bode.TabIndex = 16;
             pic_Bode.TabStop = false;
@@ -122,10 +129,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(237, 45);
+            label2.Location = new Point(190, 36);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(264, 78);
+            label2.Size = new Size(220, 65);
             label2.TabIndex = 6;
             label2.Text = "Bodegas";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -146,13 +153,18 @@
             panel3.Controls.Add(textBoxTelefono);
             panel3.Controls.Add(labelNombre);
             panel3.Controls.Add(textBoxNombre);
+            panel3.Controls.Add(labelDepartamento);
+            panel3.Controls.Add(comboBoxDepartamento);
+            panel3.Controls.Add(labelMunicipio);
+            panel3.Controls.Add(comboBoxMunicipio);
+            panel3.Controls.Add(labelZona);
+            panel3.Controls.Add(comboBoxZona);
             panel3.Controls.Add(labelDireccion);
             panel3.Controls.Add(textBoxDireccion);
             panel3.Controls.Add(labelObligatorios);
-            panel3.Location = new Point(29, 229);
-            panel3.Margin = new Padding(4);
+            panel3.Location = new Point(23, 183);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1171, 474);
+            panel3.Size = new Size(937, 380);
             panel3.TabIndex = 8;
             // 
             // label3
@@ -160,10 +172,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Navy;
-            label3.Location = new Point(25, 22);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(20, 18);
             label3.Name = "label3";
-            label3.Size = new Size(390, 40);
+            label3.Size = new Size(324, 32);
             label3.TabIndex = 0;
             label3.Text = "📋 Información de Bodega";
             // 
@@ -172,22 +183,20 @@
             labelIdBodega.AutoSize = true;
             labelIdBodega.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelIdBodega.ForeColor = Color.FromArgb(64, 64, 64);
-            labelIdBodega.Location = new Point(30, 95);
-            labelIdBodega.Margin = new Padding(4, 0, 4, 0);
+            labelIdBodega.Location = new Point(24, 76);
             labelIdBodega.Name = "labelIdBodega";
-            labelIdBodega.Size = new Size(93, 23);
+            labelIdBodega.Size = new Size(79, 19);
             labelIdBodega.TabIndex = 1;
             labelIdBodega.Text = "Bodega:";
             // 
             // textBoxIdBodega
             // 
             textBoxIdBodega.BackColor = Color.FromArgb(237, 237, 237);
-            textBoxIdBodega.Location = new Point(238, 90);
-            textBoxIdBodega.Margin = new Padding(4);
+            textBoxIdBodega.Location = new Point(190, 72);
             textBoxIdBodega.Name = "textBoxIdBodega";
             textBoxIdBodega.PlaceholderText = "(Autogenerado)";
             textBoxIdBodega.ReadOnly = true;
-            textBoxIdBodega.Size = new Size(299, 31);
+            textBoxIdBodega.Size = new Size(240, 27);
             textBoxIdBodega.TabIndex = 2;
             // 
             // labelCapacidad
@@ -195,20 +204,18 @@
             labelCapacidad.AutoSize = true;
             labelCapacidad.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelCapacidad.ForeColor = Color.FromArgb(64, 64, 64);
-            labelCapacidad.Location = new Point(600, 95);
-            labelCapacidad.Margin = new Padding(4, 0, 4, 0);
+            labelCapacidad.Location = new Point(480, 76);
             labelCapacidad.Name = "labelCapacidad";
-            labelCapacidad.Size = new Size(143, 23);
+            labelCapacidad.Size = new Size(120, 19);
             labelCapacidad.TabIndex = 3;
             labelCapacidad.Text = "Capacidad: *";
             // 
             // numericUpDownCapacidad
             // 
-            numericUpDownCapacidad.Location = new Point(812, 90);
-            numericUpDownCapacidad.Margin = new Padding(4);
+            numericUpDownCapacidad.Location = new Point(650, 72);
             numericUpDownCapacidad.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericUpDownCapacidad.Name = "numericUpDownCapacidad";
-            numericUpDownCapacidad.Size = new Size(288, 31);
+            numericUpDownCapacidad.Size = new Size(230, 27);
             numericUpDownCapacidad.TabIndex = 4;
             // 
             // labelIdSucursal
@@ -216,20 +223,18 @@
             labelIdSucursal.AutoSize = true;
             labelIdSucursal.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelIdSucursal.ForeColor = Color.FromArgb(64, 64, 64);
-            labelIdSucursal.Location = new Point(30, 152);
-            labelIdSucursal.Margin = new Padding(4, 0, 4, 0);
+            labelIdSucursal.Location = new Point(24, 122);
             labelIdSucursal.Name = "labelIdSucursal";
-            labelIdSucursal.Size = new Size(111, 23);
+            labelIdSucursal.Size = new Size(94, 19);
             labelIdSucursal.TabIndex = 5;
             labelIdSucursal.Text = "Sucursal: *";
             // 
             // comboBoxSucursal
             // 
             comboBoxSucursal.FormattingEnabled = true;
-            comboBoxSucursal.Location = new Point(238, 148);
-            comboBoxSucursal.Margin = new Padding(4);
+            comboBoxSucursal.Location = new Point(190, 118);
             comboBoxSucursal.Name = "comboBoxSucursal";
-            comboBoxSucursal.Size = new Size(299, 33);
+            comboBoxSucursal.Size = new Size(240, 28);
             comboBoxSucursal.TabIndex = 6;
             // 
             // labelTelefono
@@ -237,20 +242,18 @@
             labelTelefono.AutoSize = true;
             labelTelefono.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelTelefono.ForeColor = Color.FromArgb(64, 64, 64);
-            labelTelefono.Location = new Point(600, 152);
-            labelTelefono.Margin = new Padding(4, 0, 4, 0);
+            labelTelefono.Location = new Point(480, 122);
             labelTelefono.Name = "labelTelefono";
-            labelTelefono.Size = new Size(114, 23);
+            labelTelefono.Size = new Size(96, 19);
             labelTelefono.TabIndex = 7;
             labelTelefono.Text = "Teléfono: *";
             // 
             // textBoxTelefono
             // 
-            textBoxTelefono.Location = new Point(812, 148);
-            textBoxTelefono.Margin = new Padding(4);
+            textBoxTelefono.Location = new Point(650, 118);
             textBoxTelefono.Name = "textBoxTelefono";
             textBoxTelefono.PlaceholderText = "Ingrese el teléfono";
-            textBoxTelefono.Size = new Size(286, 31);
+            textBoxTelefono.Size = new Size(230, 27);
             textBoxTelefono.TabIndex = 8;
             // 
             // labelNombre
@@ -258,55 +261,109 @@
             labelNombre.AutoSize = true;
             labelNombre.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelNombre.ForeColor = Color.FromArgb(64, 64, 64);
-            labelNombre.Location = new Point(30, 210);
-            labelNombre.Margin = new Padding(4, 0, 4, 0);
+            labelNombre.Location = new Point(24, 168);
             labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(110, 23);
+            labelNombre.Size = new Size(93, 19);
             labelNombre.TabIndex = 9;
             labelNombre.Text = "Nombre: *";
             // 
             // textBoxNombre
             // 
-            textBoxNombre.Location = new Point(238, 205);
-            textBoxNombre.Margin = new Padding(4);
+            textBoxNombre.Location = new Point(190, 164);
             textBoxNombre.Name = "textBoxNombre";
             textBoxNombre.PlaceholderText = "Ingrese el nombre de la bodega";
-            textBoxNombre.Size = new Size(862, 31);
+            textBoxNombre.Size = new Size(690, 27);
             textBoxNombre.TabIndex = 10;
+            // 
+            // labelDepartamento
+            // 
+            labelDepartamento.AutoSize = true;
+            labelDepartamento.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDepartamento.ForeColor = Color.FromArgb(64, 64, 64);
+            labelDepartamento.Location = new Point(24, 214);
+            labelDepartamento.Name = "labelDepartamento";
+            labelDepartamento.Size = new Size(143, 19);
+            labelDepartamento.TabIndex = 11;
+            labelDepartamento.Text = "Departamento: *";
+            // 
+            // comboBoxDepartamento
+            // 
+            comboBoxDepartamento.FormattingEnabled = true;
+            comboBoxDepartamento.Location = new Point(190, 210);
+            comboBoxDepartamento.Name = "comboBoxDepartamento";
+            comboBoxDepartamento.Size = new Size(240, 28);
+            comboBoxDepartamento.TabIndex = 12;
+            comboBoxDepartamento.SelectedIndexChanged += comboBoxDepartamento_SelectedIndexChanged;
+            // 
+            // labelMunicipio
+            // 
+            labelMunicipio.AutoSize = true;
+            labelMunicipio.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelMunicipio.ForeColor = Color.FromArgb(64, 64, 64);
+            labelMunicipio.Location = new Point(480, 214);
+            labelMunicipio.Name = "labelMunicipio";
+            labelMunicipio.Size = new Size(106, 19);
+            labelMunicipio.TabIndex = 13;
+            labelMunicipio.Text = "Municipio: *";
+            // 
+            // comboBoxMunicipio
+            // 
+            comboBoxMunicipio.FormattingEnabled = true;
+            comboBoxMunicipio.Location = new Point(650, 210);
+            comboBoxMunicipio.Name = "comboBoxMunicipio";
+            comboBoxMunicipio.Size = new Size(230, 28);
+            comboBoxMunicipio.TabIndex = 14;
+            comboBoxMunicipio.SelectedIndexChanged += comboBoxMunicipio_SelectedIndexChanged;
+            // 
+            // labelZona
+            // 
+            labelZona.AutoSize = true;
+            labelZona.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelZona.ForeColor = Color.FromArgb(64, 64, 64);
+            labelZona.Location = new Point(24, 256);
+            labelZona.Name = "labelZona";
+            labelZona.Size = new Size(125, 19);
+            labelZona.TabIndex = 15;
+            labelZona.Text = "Zona / Área: *";
+            // 
+            // comboBoxZona
+            // 
+            comboBoxZona.FormattingEnabled = true;
+            comboBoxZona.Location = new Point(190, 252);
+            comboBoxZona.Name = "comboBoxZona";
+            comboBoxZona.Size = new Size(690, 28);
+            comboBoxZona.TabIndex = 16;
             // 
             // labelDireccion
             // 
             labelDireccion.AutoSize = true;
             labelDireccion.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelDireccion.ForeColor = Color.FromArgb(64, 64, 64);
-            labelDireccion.Location = new Point(30, 268);
-            labelDireccion.Margin = new Padding(4, 0, 4, 0);
+            labelDireccion.Location = new Point(24, 298);
             labelDireccion.Name = "labelDireccion";
-            labelDireccion.Size = new Size(125, 23);
-            labelDireccion.TabIndex = 11;
-            labelDireccion.Text = "Dirección: *";
+            labelDireccion.Size = new Size(178, 19);
+            labelDireccion.TabIndex = 17;
+            labelDireccion.Text = "Dirección (detalle): *";
             // 
             // textBoxDireccion
             // 
-            textBoxDireccion.Location = new Point(238, 262);
-            textBoxDireccion.Margin = new Padding(4);
+            textBoxDireccion.Location = new Point(208, 295);
             textBoxDireccion.Multiline = true;
             textBoxDireccion.Name = "textBoxDireccion";
-            textBoxDireccion.PlaceholderText = "Ingrese la dirección completa";
+            textBoxDireccion.PlaceholderText = "Ej. 5a avenida 3-45, referencia frente al parque";
             textBoxDireccion.ScrollBars = ScrollBars.Vertical;
-            textBoxDireccion.Size = new Size(862, 99);
-            textBoxDireccion.TabIndex = 12;
+            textBoxDireccion.Size = new Size(690, 41);
+            textBoxDireccion.TabIndex = 18;
             // 
             // labelObligatorios
             // 
             labelObligatorios.AutoSize = true;
             labelObligatorios.Font = new Font("Segoe UI", 8.5F, FontStyle.Italic, GraphicsUnit.Point, 0);
             labelObligatorios.ForeColor = Color.Red;
-            labelObligatorios.Location = new Point(30, 425);
-            labelObligatorios.Margin = new Padding(4, 0, 4, 0);
+            labelObligatorios.Location = new Point(24, 348);
             labelObligatorios.Name = "labelObligatorios";
-            labelObligatorios.Size = new Size(172, 23);
-            labelObligatorios.TabIndex = 13;
+            labelObligatorios.Size = new Size(152, 20);
+            labelObligatorios.TabIndex = 19;
             labelObligatorios.Text = "* Campos obligatorios";
             // 
             // panel4
@@ -319,10 +376,9 @@
             panel4.Controls.Add(btnEditar);
             panel4.Controls.Add(btnEliminar);
             panel4.Controls.Add(btnLimpiar);
-            panel4.Location = new Point(1220, 229);
-            panel4.Margin = new Padding(4);
+            panel4.Location = new Point(976, 183);
             panel4.Name = "panel4";
-            panel4.Size = new Size(521, 474);
+            panel4.Size = new Size(417, 380);
             panel4.TabIndex = 9;
             // 
             // label4
@@ -330,10 +386,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(25, 22);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(20, 18);
             label4.Name = "label4";
-            label4.Size = new Size(187, 40);
+            label4.Size = new Size(157, 32);
             label4.TabIndex = 0;
             label4.Text = "⚙️ Acciones";
             // 
@@ -344,10 +399,9 @@
             btnNuevo.FlatStyle = FlatStyle.Flat;
             btnNuevo.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevo.ForeColor = Color.White;
-            btnNuevo.Location = new Point(30, 85);
-            btnNuevo.Margin = new Padding(4);
+            btnNuevo.Location = new Point(24, 68);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(452, 62);
+            btnNuevo.Size = new Size(362, 50);
             btnNuevo.TabIndex = 1;
             btnNuevo.Text = "➕  Nuevo";
             btnNuevo.UseVisualStyleBackColor = false;
@@ -360,10 +414,9 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(30, 160);
-            btnGuardar.Margin = new Padding(4);
+            btnGuardar.Location = new Point(24, 128);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(452, 62);
+            btnGuardar.Size = new Size(362, 50);
             btnGuardar.TabIndex = 2;
             btnGuardar.Text = "💾  Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -376,10 +429,9 @@
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(30, 235);
-            btnEditar.Margin = new Padding(4);
+            btnEditar.Location = new Point(24, 188);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(452, 62);
+            btnEditar.Size = new Size(362, 50);
             btnEditar.TabIndex = 3;
             btnEditar.Text = "✏️  Editar";
             btnEditar.UseVisualStyleBackColor = false;
@@ -392,10 +444,9 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(30, 310);
-            btnEliminar.Margin = new Padding(4);
+            btnEliminar.Location = new Point(24, 248);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(452, 62);
+            btnEliminar.Size = new Size(362, 50);
             btnEliminar.TabIndex = 4;
             btnEliminar.Text = "🗑️  Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -408,10 +459,9 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLimpiar.ForeColor = Color.FromArgb(64, 64, 64);
-            btnLimpiar.Location = new Point(30, 385);
-            btnLimpiar.Margin = new Padding(4);
+            btnLimpiar.Location = new Point(24, 308);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(452, 62);
+            btnLimpiar.Size = new Size(362, 50);
             btnLimpiar.TabIndex = 5;
             btnLimpiar.Text = "\U0001f9f9  Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -431,10 +481,9 @@
             panel5.Controls.Add(btnPagina);
             panel5.Controls.Add(btnSiguiente);
             panel5.Controls.Add(btnUltimo);
-            panel5.Location = new Point(29, 725);
-            panel5.Margin = new Padding(4);
+            panel5.Location = new Point(23, 580);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1712, 476);
+            panel5.Size = new Size(1370, 381);
             panel5.TabIndex = 10;
             // 
             // label5
@@ -442,20 +491,18 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Navy;
-            label5.Location = new Point(25, 22);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(20, 18);
             label5.Name = "label5";
-            label5.Size = new Size(333, 40);
+            label5.Size = new Size(276, 32);
             label5.TabIndex = 0;
             label5.Text = "📋 Listado de Bodegas";
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(30, 85);
-            txtBuscar.Margin = new Padding(4);
+            txtBuscar.Location = new Point(24, 68);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Buscar por nombre, dirección o teléfono...";
-            txtBuscar.Size = new Size(649, 31);
+            txtBuscar.Size = new Size(520, 27);
             txtBuscar.TabIndex = 1;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
@@ -466,10 +513,9 @@
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(690, 82);
-            btnBuscar.Margin = new Padding(4);
+            btnBuscar.Location = new Point(552, 66);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(62, 39);
+            btnBuscar.Size = new Size(50, 31);
             btnBuscar.TabIndex = 2;
             btnBuscar.Text = "🔍";
             btnBuscar.UseVisualStyleBackColor = false;
@@ -481,10 +527,9 @@
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = Color.FromArgb(21, 66, 143);
-            btnActualizar.Location = new Point(1475, 80);
-            btnActualizar.Margin = new Padding(4);
+            btnActualizar.Location = new Point(1180, 64);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(188, 44);
+            btnActualizar.Size = new Size(150, 35);
             btnActualizar.TabIndex = 4;
             btnActualizar.Text = "🔄  Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -495,13 +540,12 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(30, 132);
-            dataGridView1.Margin = new Padding(4);
+            dataGridView1.Location = new Point(24, 106);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1633, 284);
+            dataGridView1.Size = new Size(1306, 227);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
@@ -511,10 +555,9 @@
             labelRegistros.AutoSize = true;
             labelRegistros.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelRegistros.ForeColor = Color.FromArgb(90, 90, 90);
-            labelRegistros.Location = new Point(30, 555);
-            labelRegistros.Margin = new Padding(4, 0, 4, 0);
+            labelRegistros.Location = new Point(24, 444);
             labelRegistros.Name = "labelRegistros";
-            labelRegistros.Size = new Size(280, 28);
+            labelRegistros.Size = new Size(243, 23);
             labelRegistros.TabIndex = 6;
             labelRegistros.Text = "Mostrando 1 a 5 de 5 registros";
             // 
@@ -524,10 +567,9 @@
             btnPrimero.FlatAppearance.BorderColor = Color.FromArgb(200, 200, 200);
             btnPrimero.FlatStyle = FlatStyle.Flat;
             btnPrimero.ForeColor = Color.FromArgb(64, 64, 64);
-            btnPrimero.Location = new Point(1250, 548);
-            btnPrimero.Margin = new Padding(4);
+            btnPrimero.Location = new Point(1000, 438);
             btnPrimero.Name = "btnPrimero";
-            btnPrimero.Size = new Size(50, 40);
+            btnPrimero.Size = new Size(40, 32);
             btnPrimero.TabIndex = 7;
             btnPrimero.Text = "«";
             btnPrimero.UseVisualStyleBackColor = false;
@@ -538,10 +580,9 @@
             btnAnterior.FlatAppearance.BorderColor = Color.FromArgb(200, 200, 200);
             btnAnterior.FlatStyle = FlatStyle.Flat;
             btnAnterior.ForeColor = Color.FromArgb(64, 64, 64);
-            btnAnterior.Location = new Point(1308, 548);
-            btnAnterior.Margin = new Padding(4);
+            btnAnterior.Location = new Point(1046, 438);
             btnAnterior.Name = "btnAnterior";
-            btnAnterior.Size = new Size(50, 40);
+            btnAnterior.Size = new Size(40, 32);
             btnAnterior.TabIndex = 8;
             btnAnterior.Text = "‹";
             btnAnterior.UseVisualStyleBackColor = false;
@@ -553,10 +594,9 @@
             btnPagina.FlatStyle = FlatStyle.Flat;
             btnPagina.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPagina.ForeColor = Color.White;
-            btnPagina.Location = new Point(1365, 548);
-            btnPagina.Margin = new Padding(4);
+            btnPagina.Location = new Point(1092, 438);
             btnPagina.Name = "btnPagina";
-            btnPagina.Size = new Size(50, 40);
+            btnPagina.Size = new Size(40, 32);
             btnPagina.TabIndex = 9;
             btnPagina.Text = "1";
             btnPagina.UseVisualStyleBackColor = false;
@@ -567,10 +607,9 @@
             btnSiguiente.FlatAppearance.BorderColor = Color.FromArgb(200, 200, 200);
             btnSiguiente.FlatStyle = FlatStyle.Flat;
             btnSiguiente.ForeColor = Color.FromArgb(64, 64, 64);
-            btnSiguiente.Location = new Point(1422, 548);
-            btnSiguiente.Margin = new Padding(4);
+            btnSiguiente.Location = new Point(1138, 438);
             btnSiguiente.Name = "btnSiguiente";
-            btnSiguiente.Size = new Size(50, 40);
+            btnSiguiente.Size = new Size(40, 32);
             btnSiguiente.TabIndex = 10;
             btnSiguiente.Text = "›";
             btnSiguiente.UseVisualStyleBackColor = false;
@@ -581,24 +620,23 @@
             btnUltimo.FlatAppearance.BorderColor = Color.FromArgb(200, 200, 200);
             btnUltimo.FlatStyle = FlatStyle.Flat;
             btnUltimo.ForeColor = Color.FromArgb(64, 64, 64);
-            btnUltimo.Location = new Point(1480, 548);
-            btnUltimo.Margin = new Padding(4);
+            btnUltimo.Location = new Point(1184, 438);
             btnUltimo.Name = "btnUltimo";
-            btnUltimo.Size = new Size(50, 40);
+            btnUltimo.Size = new Size(40, 32);
             btnUltimo.TabIndex = 11;
             btnUltimo.Text = "»";
             btnUltimo.UseVisualStyleBackColor = false;
             // 
             // Bodegas
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1774, 1214);
+            ClientSize = new Size(1419, 844);
             Controls.Add(panel3);
             Controls.Add(panel4);
             Controls.Add(panel5);
             Controls.Add(panel1);
-            Margin = new Padding(6, 5, 6, 5);
+            Margin = new Padding(5, 4, 5, 4);
             Name = "Bodegas";
             Text = "Form3";
             Load += Form3_Load;
@@ -636,6 +674,12 @@
         private TextBox textBoxNombre;
         private Label labelDireccion;
         private TextBox textBoxDireccion;
+        private Label labelDepartamento;
+        private ComboBox comboBoxDepartamento;
+        private Label labelMunicipio;
+        private ComboBox comboBoxMunicipio;
+        private Label labelZona;
+        private ComboBox comboBoxZona;
         private Label labelObligatorios;
         private Panel panel4;
         private Label label4;

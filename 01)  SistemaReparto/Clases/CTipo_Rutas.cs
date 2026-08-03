@@ -1,4 +1,4 @@
-﻿//Cristian David Sipac Ispache
+//Cristian David Sipac Ispache
 //9959-23-1567
 using MySql.Data.MySqlClient;
 using Mysqlx.Datatypes;
@@ -38,7 +38,7 @@ namespace SistemaReparto.Clases
             try
             {
                 CConexion objetoConexion = new CConexion();
-                String query = "insert into tipo_ruta (nombre, descripcion)" +
+                String query = "insert into tipo_ruta (nombre_tipo_ruta, descripcion_tipo_ruta)" +
                     "values ('" + nombre.Text + "', '" + descripcion.Text + "')";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
@@ -78,8 +78,8 @@ namespace SistemaReparto.Clases
             {
                 CConexion objetoConexion = new CConexion();
                 String query = "update tipo_ruta set id_tipo_ruta='"
-                    + id_tipo_ruta.Text + "', nombre='" + nombre.Text
-                    + "', descripcion='" + descripcion.Text
+                    + id_tipo_ruta.Text + "', nombre_tipo_ruta='" + nombre.Text
+                    + "', descripcion_tipo_ruta='" + descripcion.Text
                     + "' where id_tipo_ruta = '" + id_tipo_ruta.Text + "';";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());

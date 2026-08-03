@@ -24,11 +24,11 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT e.id_empleado, CONCAT(e.nombres, ' ', e.apellidos) AS nombre_completo,
-                                    u.id_usuario, u.id_empleado, u.usuario, u.correo, 
-                                         u.ultimo_acceso, u.fecha_creacion, u.estado
-                                  FROM empleados e
-                                  left JOIN usuarios u ON e.id_empleado = u.id_empleado";
+                string query = @"SELECT e.id_empleado, CONCAT(e.nombre_empleado, ' ', e.apellido_empleado) AS nombre_completo_empleado,
+                                    u.id_usuario, u.id_empleado, u.usuario_usuario, u.correo_usuario, 
+                                         u.ultimo_acceso_usuario, u.fecha_creacion_usuario, u.estado_usuario
+                                  FROM empleado e
+                                  left JOIN usuario u ON e.id_empleado = u.id_empleado";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -37,11 +37,11 @@ namespace SistemaReparto.Clases
                     lista.Add(new CEmpleados
                     {
                         IdEmpleado = Convert.ToInt32(reader["id_empleado"]),
-                        NombreCompleto = reader["nombre_completo"].ToString(),
-                        NombreUsuario = reader["usuario"] != DBNull.Value ? reader["usuario"].ToString() : null,
-                        Correo = reader["correo"] != DBNull.Value ? reader["correo"].ToString() : null,
+                        NombreCompleto = reader["nombre_completo_empleado"].ToString(),
+                        NombreUsuario = reader["usuario_usuario"] != DBNull.Value ? reader["usuario_usuario"].ToString() : null,
+                        Correo = reader["correo_usuario"] != DBNull.Value ? reader["correo_usuario"].ToString() : null,
                         Contrasena = null, // No se obtiene la contraseña en esta consulta
-                        Estado = reader["estado"] != DBNull.Value ? reader["estado"].ToString() : null
+                        Estado = reader["estado_usuario"] != DBNull.Value ? reader["estado_usuario"].ToString() : null
 
                     });
                 }
@@ -67,24 +67,23 @@ namespace SistemaReparto.Clases
         public string Correo { get; set; }
         public string Contrasena { get; set; }
         public string Estado { get; set; }
-        public void mostrarEmpleados(DataGridView tablaEmpleados)
+        public void mostrar_Empleados(DataGridView tablaEmpleados)
         {
             try
             {
                 CConexion objetoConexion = new CConexion();
                 string query = "SELECT e.id_empleado AS Id_Empleado, " +
-                               "te.nombre AS Tipo_Empleado, " +
-                               "ee.nombre AS Estado, " +
-                               "e.nombres AS Nombres, " +
-                               "e.apellidos AS Apellidos, " +
-                               "e.dpi AS DPI, " +
-                               "e.nit AS NIT, " +
-                               "e.telefono AS Telefono, " +
-                               "e.correo AS Correo, " +
-                               "e.direccion AS Direccion, " +
-                               "e.fecha_nacimiento AS Fecha_nacimiento, " +
-                               "e.fecha_contratacion AS Fecha_contratacion " +
-                               "FROM empleados e " +
+                               "te.nombre_tipo_empleado AS Tipo_Empleado, " +
+                               "ee.nombre_estado_empleado AS Estado, " +
+                               "e.nombre_empleado AS Nombres, " +
+                               "e.apellido_empleado AS Apellidos, " +
+                               "e.dpi_empleado AS DPI, " +
+                               "e.nit_empleado AS NIT, " +
+                               "e.telefono_empleado AS Telefono, " +
+                               "e.direccion_empleado AS Direccion, " +
+                               "e.fecha_nacimiento_empleado AS Fecha_nacimiento, " +
+                               "e.fecha_contratacion_empleado AS Fecha_contratacion " +
+                               "FROM empleado e " +
                                "INNER JOIN tipo_empleado te ON e.id_tipo_empleado = te.id_tipo_empleado " +
                                "INNER JOIN estado_empleado ee ON e.id_estado_empleado = ee.id_estado_empleado";
 
@@ -144,7 +143,6 @@ namespace SistemaReparto.Clases
                 { "DPI",                 ("DPI", 12) },
                 { "NIT",                 ("NIT", 10) },
                 { "Telefono",            ("Teléfono", 10) },
-                { "Correo",              ("Correo", 16) },
                 { "Direccion",           ("Dirección", 18) },
                 { "Fecha_nacimiento",    ("Fecha Nacimiento", 12) },
                 { "Fecha_contratacion",  ("Fecha Contratación", 12) },
@@ -177,13 +175,13 @@ namespace SistemaReparto.Clases
                 cboTipoEmpleado.DataSource = null;
                 cboTipoEmpleado.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_tipo_empleado, nombre FROM tipo_empleado";
+                string query = "SELECT id_tipo_empleado, nombre_tipo_empleado FROM tipo_empleado";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 cboTipoEmpleado.DataSource = dt;
-                cboTipoEmpleado.DisplayMember = "nombre";
+                cboTipoEmpleado.DisplayMember = "nombre_tipo_empleado";
                 cboTipoEmpleado.ValueMember = "id_tipo_empleado";
                 cboTipoEmpleado.SelectedIndex = -1;
 
@@ -202,13 +200,13 @@ namespace SistemaReparto.Clases
                 cboEstadoEmpleado.DataSource = null;
                 cboEstadoEmpleado.Items.Clear();
                 CConexion objetoConexion = new CConexion();
-                string query = "SELECT id_estado_empleado, nombre FROM estado_empleado";
+                string query = "SELECT id_estado_empleado, nombre_estado_empleado FROM estado_empleado";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, objetoConexion.establecerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 cboEstadoEmpleado.DataSource = dt;
-                cboEstadoEmpleado.DisplayMember = "nombre";
+                cboEstadoEmpleado.DisplayMember = "nombre_estado_empleado";
                 cboEstadoEmpleado.ValueMember = "id_estado_empleado";
                 cboEstadoEmpleado.SelectedIndex = -1;
 
@@ -225,7 +223,7 @@ namespace SistemaReparto.Clases
 
         public int GuardarEmpleado(ComboBox cboTipoEmpleado, ComboBox cboEstadoEmpleado,
             TextBox nombres, TextBox apellidos, TextBox dpi, TextBox nit,
-            TextBox telefono, TextBox correo, TextBox direccion,
+            TextBox telefono, TextBox direccion,
             DateTimePicker fechaNacimiento, DateTimePicker fechaContratacion)
         {
             try
@@ -239,9 +237,9 @@ namespace SistemaReparto.Clases
                 CConexion objetoConexion = new CConexion();
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
-                string query = "INSERT INTO empleados " +
-                    "(id_tipo_empleado, id_estado_empleado, nombres, apellidos, dpi, nit, telefono, correo, direccion, fecha_nacimiento, fecha_contratacion) " +
-                    "VALUES (@tipo, @estado, @nombres, @apellidos, @dpi, @nit, @telefono, @correo, @direccion, @nacimiento, @contratacion)";
+                string query = "INSERT INTO empleado " +
+                    "(id_tipo_empleado, id_estado_empleado, nombre_empleado, apellido_empleado, dpi_empleado, nit_empleado, telefono_empleado, direccion_empleado, fecha_nacimiento_empleado, fecha_contratacion_empleado) " +
+                    "VALUES (@tipo, @estado, @nombres, @apellidos, @dpi, @nit, @telefono, @direccion, @nacimiento, @contratacion)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
                 myComand.Parameters.AddWithValue("@tipo", cboTipoEmpleado.SelectedValue);
@@ -251,7 +249,6 @@ namespace SistemaReparto.Clases
                 myComand.Parameters.AddWithValue("@dpi", dpi.Text);
                 myComand.Parameters.AddWithValue("@nit", nit.Text);
                 myComand.Parameters.AddWithValue("@telefono", telefono.Text);
-                myComand.Parameters.AddWithValue("@correo", correo.Text);
                 myComand.Parameters.AddWithValue("@direccion", direccion.Text);
                 myComand.Parameters.AddWithValue("@nacimiento", fechaNacimiento.Value.Date);
                 myComand.Parameters.AddWithValue("@contratacion", fechaContratacion.Value.Date);
@@ -277,7 +274,7 @@ namespace SistemaReparto.Clases
         public int SeleccionarEmpleado(DataGridView tablaEmpleados,
             ComboBox cboTipoEmpleado, ComboBox cboEstadoEmpleado,
             TextBox nombres, TextBox apellidos, TextBox dpi, TextBox nit,
-            TextBox telefono, TextBox correo, TextBox direccion,
+            TextBox telefono,TextBox direccion,
             DateTimePicker fechaNacimiento, DateTimePicker fechaContratacion)
         {
             try
@@ -294,7 +291,6 @@ namespace SistemaReparto.Clases
                 dpi.Text = ObtenerTexto(fila, "DPI");
                 nit.Text = ObtenerTexto(fila, "NIT");
                 telefono.Text = ObtenerTexto(fila, "Telefono");
-                correo.Text = ObtenerTexto(fila, "Correo");
                 direccion.Text = ObtenerTexto(fila, "Direccion");
 
                 object valorNacimiento = fila.Cells["Fecha_nacimiento"].Value;
@@ -325,9 +321,9 @@ namespace SistemaReparto.Clases
 
         // MODIFICAR (UPDATE)
 
-        public void ModificarEmpleado(int idEmpleado, ComboBox cboTipoEmpleado, ComboBox cboEstadoEmpleado,
+        public void Modificar_Empleado(int idEmpleado, ComboBox cboTipoEmpleado, ComboBox cboEstadoEmpleado,
             TextBox nombres, TextBox apellidos, TextBox dpi, TextBox nit,
-            TextBox telefono, TextBox correo, TextBox direccion,
+            TextBox telefono, TextBox direccion,
             DateTimePicker fechaNacimiento, DateTimePicker fechaContratacion)
         {
             try
@@ -339,18 +335,17 @@ namespace SistemaReparto.Clases
                 }
 
                 CConexion objetoConexion = new CConexion();
-                string query = "UPDATE empleados SET " +
+                string query = "UPDATE empleado SET " +
                     "id_tipo_empleado = @tipo, " +
                     "id_estado_empleado = @estado, " +
-                    "nombres = @nombres, " +
-                    "apellidos = @apellidos, " +
-                    "dpi = @dpi, " +
-                    "nit = @nit, " +
-                    "telefono = @telefono, " +
-                    "correo = @correo, " +
-                    "direccion = @direccion, " +
-                    "fecha_nacimiento = @nacimiento, " +
-                    "fecha_contratacion = @contratacion " +
+                    "nombre_empleado = @nombres, " +
+                    "apellido_empleado = @apellidos, " +
+                    "dpi_empleado = @dpi, " +
+                    "nit_empleado = @nit, " +
+                    "telefono_empleado = @telefono, " +
+                    "direccion_empleado = @direccion, " +
+                    "fecha_nacimiento_empleado = @nacimiento, " +
+                    "fecha_contratacion_empleado = @contratacion " +
                     "WHERE id_empleado = @id";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
@@ -361,7 +356,6 @@ namespace SistemaReparto.Clases
                 myComand.Parameters.AddWithValue("@dpi", dpi.Text);
                 myComand.Parameters.AddWithValue("@nit", nit.Text);
                 myComand.Parameters.AddWithValue("@telefono", telefono.Text);
-                myComand.Parameters.AddWithValue("@correo", correo.Text);
                 myComand.Parameters.AddWithValue("@direccion", direccion.Text);
                 myComand.Parameters.AddWithValue("@nacimiento", fechaNacimiento.Value.Date);
                 myComand.Parameters.AddWithValue("@contratacion", fechaContratacion.Value.Date);
@@ -394,7 +388,7 @@ namespace SistemaReparto.Clases
                 }
 
                 CConexion objetoConexion = new CConexion();
-                string query = "DELETE FROM empleados WHERE id_empleado = @id";
+                string query = "DELETE FROM empleado WHERE id_empleado = @id";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
                 myComand.Parameters.AddWithValue("@id", idEmpleado);

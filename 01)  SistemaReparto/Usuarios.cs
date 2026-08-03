@@ -183,7 +183,6 @@ namespace SistemaReparto
             if (cbo_Id_Empleados.SelectedItem is CEmpleados empleadoSeleccionado)
             {
                 txt_Nombre_Empleado.Text = empleadoSeleccionado.IdEmpleado.ToString();
-                txt_Correo.Text = empleadoSeleccionado.Correo;
                 txt_Nombre_Usuario.Text = empleadoSeleccionado.NombreUsuario;
                 txt_Contraseña.Text = "";
                 

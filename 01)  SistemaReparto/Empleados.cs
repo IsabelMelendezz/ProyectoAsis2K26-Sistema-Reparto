@@ -93,7 +93,7 @@ namespace SistemaReparto
         {
             objEmpleados.llenarComboTipoEmpleado(Tipo_Empleado1);
             objEmpleados.llenarComboEstadoEmpleado(Estado_Empleado);
-            objEmpleados.mostrarEmpleados(Tabla_Empleados);
+            objEmpleados.mostrar_Empleados(Tabla_Empleados);
 
             // Al cargar el formulario, los campos inician bloqueados hasta seleccionar o presionar Nuevo/Editar
             BloquearCampos();
@@ -107,7 +107,7 @@ namespace SistemaReparto
                 Tabla_Empleados,
                 Tipo_Empleado1, Estado_Empleado,
                 Nombre_Empleado, Apellidos_Empleado, Dpi_Empleado, Nit_Empleado,
-                Telefono_Empleado, Correo_Empleado, Direccion_Empleado,
+                Telefono_Empleado,  Direccion_Empleado,
                 Nacimiento_Empleado, Contratacion_Empleado);
 
             // El empleado seleccionado solo se puede ver, no modificar, hasta presionar Editar
@@ -127,10 +127,10 @@ namespace SistemaReparto
             objEmpleados.GuardarEmpleado(
                 Tipo_Empleado1, Estado_Empleado,
                 Nombre_Empleado, Apellidos_Empleado, Dpi_Empleado, Nit_Empleado,
-                Telefono_Empleado, Correo_Empleado, Direccion_Empleado,
+                Telefono_Empleado,  Direccion_Empleado,
                 Nacimiento_Empleado, Contratacion_Empleado);
 
-            objEmpleados.mostrarEmpleados(Tabla_Empleados);
+            objEmpleados.mostrar_Empleados(Tabla_Empleados);
             LimpiarCampos();
             BloquearCampos();
         }
@@ -150,14 +150,14 @@ namespace SistemaReparto
         // Btn_Actualizar_Emp: valida y guarda (UPDATE) los cambios del empleado seleccionado, luego refresca el grid
         private void Btn_Actualizar_Emp_Click(object sender, EventArgs e)
         {
-            objEmpleados.ModificarEmpleado(
+            objEmpleados.Modificar_Empleado(
                 idEmpleadoSeleccionado,
                 Tipo_Empleado1, Estado_Empleado,
                 Nombre_Empleado, Apellidos_Empleado, Dpi_Empleado, Nit_Empleado,
-                Telefono_Empleado, Correo_Empleado, Direccion_Empleado,
+                Telefono_Empleado, Direccion_Empleado,
                 Nacimiento_Empleado, Contratacion_Empleado);
 
-            objEmpleados.mostrarEmpleados(Tabla_Empleados);
+            objEmpleados.mostrar_Empleados(Tabla_Empleados);
             BloquearCampos();
         }
 
@@ -170,7 +170,7 @@ namespace SistemaReparto
             if (confirmar == DialogResult.Yes)
             {
                 objEmpleados.EliminarEmpleado(idEmpleadoSeleccionado);
-                objEmpleados.mostrarEmpleados(Tabla_Empleados);
+                objEmpleados.mostrar_Empleados(Tabla_Empleados);
                 LimpiarCampos();
                 BloquearCampos();
             }
@@ -193,7 +193,6 @@ namespace SistemaReparto
             Dpi_Empleado.Clear();
             Nit_Empleado.Clear();
             Telefono_Empleado.Clear();
-            Correo_Empleado.Clear();
             Direccion_Empleado.Clear();
             Nacimiento_Empleado.Value = DateTime.Now;
             Contratacion_Empleado.Value = DateTime.Now;
@@ -209,7 +208,6 @@ namespace SistemaReparto
             Dpi_Empleado.ReadOnly = true;
             Nit_Empleado.ReadOnly = true;
             Telefono_Empleado.ReadOnly = true;
-            Correo_Empleado.ReadOnly = true;
             Direccion_Empleado.ReadOnly = true;
             Nacimiento_Empleado.Enabled = false;
             Contratacion_Empleado.Enabled = false;
@@ -225,7 +223,6 @@ namespace SistemaReparto
             Dpi_Empleado.ReadOnly = false;
             Nit_Empleado.ReadOnly = false;
             Telefono_Empleado.ReadOnly = false;
-            Correo_Empleado.ReadOnly = false;
             Direccion_Empleado.ReadOnly = false;
             Nacimiento_Empleado.Enabled = true;
             Contratacion_Empleado.Enabled = true;

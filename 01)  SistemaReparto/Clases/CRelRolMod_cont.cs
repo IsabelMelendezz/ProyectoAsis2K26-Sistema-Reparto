@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +20,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_modulo, nombre_modulos, estatus_modulo FROM modulos WHERE estatus_modulo = 'Activo'";
+                string query = "SELECT id_modulo, nombre_modulo, estatus_modulo FROM modulo WHERE estatus_modulo = 'Activo'";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -28,7 +28,7 @@ namespace SistemaReparto.Clases
                 {
                     lista.Add(new CModulo(
                         Convert.ToInt32(reader["id_modulo"]),
-                        reader["nombre_modulos"].ToString(),
+                        reader["nombre_modulo"].ToString(),
                         reader["estatus_modulo"].ToString()
                     ));
                 }
@@ -53,11 +53,11 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT m.id_modulo, m.nombre_modulos, m.estatus_modulo
-                                  FROM modulos m
+                string query = @"SELECT m.id_modulo, m.nombre_modulo, m.estatus_modulo
+                                  FROM modulo m
                                   WHERE m.estatus_modulo = 'Activo'
                                   AND m.id_modulo NOT IN (
-                                      SELECT id_modulo FROM relrolmodulo WHERE id_rol = @idRol
+                                      SELECT id_modulo FROM relacion_rol_modulo WHERE id_rol = @idRol
                                   )";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idRol", idRol);
@@ -67,7 +67,7 @@ namespace SistemaReparto.Clases
                 {
                     lista.Add(new CModulo(
                         Convert.ToInt32(reader["id_modulo"]),
-                        reader["nombre_modulos"].ToString(),
+                        reader["nombre_modulo"].ToString(),
                         reader["estatus_modulo"].ToString()
                     ));
                 }
@@ -92,10 +92,10 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT rm.id_modulo, rm.id_rol, rm.der_insertar, rm.der_editar, rm.der_eliminar, rm.der_imprimir,
-                                         m.nombre_modulos
-                                  FROM relrolmodulo rm
-                                  INNER JOIN modulos m ON rm.id_modulo = m.id_modulo
+                string query = @"SELECT rm.id_modulo, rm.id_rol, rm.der_insertar_relrolmodulo, rm.der_editar_relrolmodulo, rm.der_eliminar_relrolmodulo, rm.der_imprimir_relrolmodulo,
+                                         m.nombre_modulo
+                                  FROM relacion_rol_modulo rm
+                                  INNER JOIN modulo m ON rm.id_modulo = m.id_modulo
                                   WHERE rm.id_rol = @idRol";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idRol", idRol);
@@ -107,11 +107,11 @@ namespace SistemaReparto.Clases
                     {
                         IdModulo = Convert.ToInt32(reader["id_modulo"]),
                         IdRol = Convert.ToInt32(reader["id_rol"]),
-                        DerInsertar = reader["der_insertar"].ToString() == "S",
-                        DerEditar = reader["der_editar"].ToString() == "S",
-                        DerEliminar = reader["der_eliminar"].ToString() == "S",
-                        DerImprimir = reader["der_imprimir"].ToString() == "S",
-                        NombreModulo = reader["nombre_modulos"].ToString()
+                        DerInsertar = reader["der_insertar_relrolmodulo"].ToString() == "S",
+                        DerEditar = reader["der_editar_relrolmodulo"].ToString() == "S",
+                        DerEliminar = reader["der_eliminar_relrolmodulo"].ToString() == "S",
+                        DerImprimir = reader["der_imprimir_relrolmodulo"].ToString() == "S",
+                        NombreModulo = reader["nombre_modulo"].ToString()
                     });
                 }
             }
@@ -136,7 +136,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"INSERT INTO relrolmodulo (id_modulo, id_rol, der_insertar, der_editar, der_eliminar, der_imprimir) 
+                string query = @"INSERT INTO relacion_rol_modulo (id_modulo, id_rol, der_insertar_relrolmodulo, der_editar_relrolmodulo, der_eliminar_relrolmodulo, der_imprimir_relrolmodulo) 
                                   VALUES (@idModulo, @idRol, @insertar, @editar, @eliminar, @imprimir)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idModulo", r.IdModulo);
@@ -173,8 +173,8 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"UPDATE relrolmodulo 
-                                  SET der_insertar=@insertar, der_editar=@editar, der_eliminar=@eliminar, der_imprimir=@imprimir
+                string query = @"UPDATE relacion_rol_modulo 
+                                  SET der_insertar_relrolmodulo=@insertar, der_editar_relrolmodulo=@editar, der_eliminar_relrolmodulo=@eliminar, der_imprimir_relrolmodulo=@imprimir
                                   WHERE id_modulo=@idModulo AND id_rol=@idRol";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@insertar", r.DerInsertar ? "S" : "N");
@@ -206,7 +206,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "DELETE FROM relrolmodulo WHERE id_modulo=@idModulo AND id_rol=@idRol";
+                string query = "DELETE FROM relacion_rol_modulo WHERE id_modulo=@idModulo AND id_rol=@idRol";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idModulo", idModulo);
                 cmd.Parameters.AddWithValue("@idRol", idRol);
@@ -226,4 +226,3 @@ namespace SistemaReparto.Clases
         }
     }
 }
-

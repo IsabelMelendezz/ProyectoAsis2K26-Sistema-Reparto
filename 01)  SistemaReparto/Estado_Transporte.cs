@@ -111,7 +111,7 @@ namespace SistemaReparto
         {
             if (Dgv_Tabla_EstadoT.CurrentRow == null) return;
 
-            idEstadoTSeleccionado = objEstadoT.SeleccionarEstadoV(
+            idEstadoTSeleccionado = objEstadoT.Seleccionar_Estado_V(
                 Dgv_Tabla_EstadoT,
                 Txt_Nombre_EstadoV, Txt_Descripcion_EstadoV);
 
@@ -129,7 +129,7 @@ namespace SistemaReparto
         // Btn_Guardar_TipoT: valida y guarda (INSERT) un nuevo empleado
         private void Btn_Guardar_EstadoT_Click(object sender, EventArgs e)
         {
-            objEstadoT.GuardarEstadoT(
+            objEstadoT.Guardar_Estado_V(
                 Txt_Nombre_EstadoV, Txt_Descripcion_EstadoV);
 
             objEstadoT.mostrarEstado_Vehiculo(Dgv_Tabla_EstadoT);
@@ -152,7 +152,7 @@ namespace SistemaReparto
         // Btn_Actualizar_TipoT: valida y guarda (UPDATE) los cambios del Tipo de Vehiculo seleccionado, luego refresca el grid
         private void Btn_Actualizar_EstadoT_Click(object sender, EventArgs e)
         {
-            objEstadoT.ModificarEstadoT(
+            objEstadoT.Modificar_Estado_V(
                 idEstadoTSeleccionado,
                 Txt_Nombre_EstadoV, Txt_Descripcion_EstadoV);
 
@@ -168,7 +168,7 @@ namespace SistemaReparto
 
             if (confirmar == DialogResult.Yes)
             {
-                objEstadoT.EliminarEstadoT(idEstadoTSeleccionado);
+                objEstadoT.Eliminar_Estado_V(idEstadoTSeleccionado);
                 objEstadoT.mostrarEstado_Vehiculo(Dgv_Tabla_EstadoT);
                 LimpiarCampos();
                 BloquearCampos();

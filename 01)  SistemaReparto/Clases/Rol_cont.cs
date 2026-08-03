@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -15,7 +15,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "INSERT INTO roles (nombre, descripcion,estado) VALUES (@nombre, @descripcion,@estado)";
+                string query = "INSERT INTO rol (nombre_rol, descripcion_rol,estado_rol) VALUES (@nombre, @descripcion,@estado)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@nombre", rol.Nombre);
                 cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
@@ -44,7 +44,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_rol, nombre, descripcion,estado FROM roles";
+                string query = "SELECT id_rol, nombre_rol, descripcion_rol,estado_rol FROM rol";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -52,9 +52,9 @@ namespace SistemaReparto.Clases
                 {
                     lista.Add(new CRol(
                         Convert.ToInt32(reader["id_rol"]),
-                        reader["nombre"].ToString(),
-                        reader["descripcion"].ToString(),
-                        reader["estado"].ToString()
+                        reader["nombre_rol"].ToString(),
+                        reader["descripcion_rol"].ToString(),
+                        reader["estado_rol"].ToString()
                     ));
                 }
             }
@@ -77,7 +77,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "UPDATE roles SET nombre=@nombre, descripcion=@descripcion,estado=@estado WHERE id_rol=@id";
+                string query = "UPDATE rol SET nombre_rol=@nombre, descripcion_rol=@descripcion,estado_rol=@estado WHERE id_rol=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@nombre", rol.Nombre);
                 cmd.Parameters.AddWithValue("@descripcion", rol.Descripcion);
@@ -106,7 +106,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "DELETE FROM roles WHERE id_rol=@id";
+                string query = "DELETE FROM rol WHERE id_rol=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@id", idRol);
 

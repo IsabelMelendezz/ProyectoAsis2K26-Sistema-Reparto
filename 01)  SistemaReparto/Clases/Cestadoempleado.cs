@@ -19,8 +19,8 @@ namespace SistemaReparto.Clases
             {
                 CConexion objetoConexion = new CConexion();
                 string query = "SELECT id_estado_empleado AS Id_Estado_Empleado, " +
-                               "nombre AS Nombre, " +
-                               "descripcion AS Descripcion " +
+                               "nombre_estado_empleado AS Nombre, " +
+                               "descripcion_estado_empleado AS Descripcion " +
                                "FROM estado_empleado";
 
                 // se limpia el grid antes de llenarlo, para que no se dupliquen columnas
@@ -58,7 +58,7 @@ namespace SistemaReparto.Clases
                 CConexion objetoConexion = new CConexion();
                 MySqlConnection conexion = objetoConexion.establecerConexion();
 
-                string query = "INSERT INTO estado_empleado (nombre, descripcion) VALUES (@nombre, @descripcion)";
+                string query = "INSERT INTO estado_empleado (nombre_estado_empleado, descripcion_estado_empleado) VALUES (@nombre, @descripcion)";
 
                 MySqlCommand myComand = new MySqlCommand(query, conexion);
                 myComand.Parameters.AddWithValue("@nombre", nombre.Text);
@@ -129,8 +129,8 @@ namespace SistemaReparto.Clases
 
                 CConexion objetoConexion = new CConexion();
                 string query = "UPDATE estado_empleado SET " +
-                    "nombre = @nombre, " +
-                    "descripcion = @descripcion " +
+                    "nombre_estado_empleado = @nombre, " +
+                    "descripcion_estado_empleado = @descripcion " +
                     "WHERE id_estado_empleado = @id";
 
                 MySqlCommand myComand = new MySqlCommand(query, objetoConexion.establecerConexion());
