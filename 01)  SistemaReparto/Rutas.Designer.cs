@@ -498,9 +498,9 @@
             Lbl_id_bodega.Location = new Point(10, 133);
             Lbl_id_bodega.Margin = new Padding(4, 0, 4, 0);
             Lbl_id_bodega.Name = "Lbl_id_bodega";
-            Lbl_id_bodega.Size = new Size(90, 18);
+            Lbl_id_bodega.Size = new Size(89, 18);
             Lbl_id_bodega.TabIndex = 9;
-            Lbl_id_bodega.Text = "id_bodega";
+            Lbl_id_bodega.Text = "id_sucursal";
             // 
             // Lbl_hora_inicio
             // 

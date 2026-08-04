@@ -21,7 +21,7 @@ namespace SistemaReparto
 
         #region Windows Form Designer generated code
 
-   
+
         private void InitializeComponent()
         {
             btnBuscar = new Button();
@@ -46,7 +46,6 @@ namespace SistemaReparto
             btnPagina = new Button();
             btnSiguiente = new Button();
             btnUltimo = new Button();
-            cboRuta = new ComboBox();
             labelEstado = new Label();
             labelPeso = new Label();
             txtPesoTotal = new TextBox();
@@ -62,15 +61,22 @@ namespace SistemaReparto
             pnlInformacion = new Panel();
             pnlBusqueda = new Panel();
             TxtCodigoPedido = new TextBox();
-            TxtDireccionDestino = new TextBox();
+            comboBoxDepartamentoDestino = new ComboBox();
+            comboBoxMunicipioDestino = new ComboBox();
+            comboBoxZonaDestino = new ComboBox();
+            TextBoxDireccionDestino = new TextBox();
             Txt = new Label();
-            textDireccionOrigen = new TextBox();
+            comboBoxDepartamentoOrigen = new ComboBox();
+            comboBoxMunicipioOrigen = new ComboBox();
+            comboBoxZonaOrigen = new ComboBox();
+            TextBoxDireccionOrigen = new TextBox();
             dateTimePedido = new DateTimePicker();
             TxtObservaciones = new TextBox();
             btnGuardar = new Button();
             btnEditar = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
+            lblRuta = new Label();
             pnlTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -207,6 +213,7 @@ namespace SistemaReparto
             cboEstadoPedido.TabIndex = 8;
             cboEstadoPedido.Text = "Seleccione el Estado Pedido";
             cboEstadoPedido.UseWaitCursor = true;
+            cboEstadoPedido.SelectedIndexChanged += cboEstadoPedido_SelectedIndexChanged;
             // 
             // labelFragil
             // 
@@ -236,7 +243,7 @@ namespace SistemaReparto
             pnlTabla.Controls.Add(btnPagina);
             pnlTabla.Controls.Add(btnSiguiente);
             pnlTabla.Controls.Add(btnUltimo);
-            pnlTabla.Location = new Point(12, 477);
+            pnlTabla.Location = new Point(12, 517);
             pnlTabla.Name = "pnlTabla";
             pnlTabla.Size = new Size(1305, 256);
             pnlTabla.TabIndex = 3;
@@ -363,16 +370,6 @@ namespace SistemaReparto
             btnUltimo.Text = "»";
             btnUltimo.UseVisualStyleBackColor = false;
             // 
-            // cboRuta
-            // 
-            cboRuta.FormattingEnabled = true;
-            cboRuta.Items.AddRange(new object[] { "Sí", "No" });
-            cboRuta.Location = new Point(874, 64);
-            cboRuta.Name = "cboRuta";
-            cboRuta.Size = new Size(278, 28);
-            cboRuta.TabIndex = 10;
-            cboRuta.Text = "Elija el Id Ruta";
-            // 
             // labelEstado
             // 
             labelEstado.AutoSize = true;
@@ -389,7 +386,7 @@ namespace SistemaReparto
             labelPeso.AutoSize = true;
             labelPeso.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelPeso.ForeColor = Color.FromArgb(64, 64, 64);
-            labelPeso.Location = new Point(233, 156);
+            labelPeso.Location = new Point(233, 186);
             labelPeso.Name = "labelPeso";
             labelPeso.Size = new Size(108, 17);
             labelPeso.TabIndex = 15;
@@ -397,7 +394,7 @@ namespace SistemaReparto
             // 
             // txtPesoTotal
             // 
-            txtPesoTotal.Location = new Point(182, 176);
+            txtPesoTotal.Location = new Point(182, 206);
             txtPesoTotal.Name = "txtPesoTotal";
             txtPesoTotal.PlaceholderText = "0.00";
             txtPesoTotal.Size = new Size(220, 27);
@@ -408,7 +405,7 @@ namespace SistemaReparto
             labelAlto.AutoSize = true;
             labelAlto.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelAlto.ForeColor = Color.FromArgb(64, 64, 64);
-            labelAlto.Location = new Point(460, 156);
+            labelAlto.Location = new Point(460, 186);
             labelAlto.Name = "labelAlto";
             labelAlto.Size = new Size(163, 17);
             labelAlto.TabIndex = 17;
@@ -416,7 +413,7 @@ namespace SistemaReparto
             // 
             // TxtCantidadPaquetes
             // 
-            TxtCantidadPaquetes.Location = new Point(450, 176);
+            TxtCantidadPaquetes.Location = new Point(450, 206);
             TxtCantidadPaquetes.Name = "TxtCantidadPaquetes";
             TxtCantidadPaquetes.PlaceholderText = "0.00";
             TxtCantidadPaquetes.Size = new Size(220, 27);
@@ -438,7 +435,7 @@ namespace SistemaReparto
             labelAncho.AutoSize = true;
             labelAncho.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelAncho.ForeColor = Color.FromArgb(64, 64, 64);
-            labelAncho.Location = new Point(737, 156);
+            labelAncho.Location = new Point(737, 186);
             labelAncho.Name = "labelAncho";
             labelAncho.Size = new Size(109, 17);
             labelAncho.TabIndex = 19;
@@ -525,10 +522,17 @@ namespace SistemaReparto
             pnlBusqueda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pnlBusqueda.BackColor = Color.White;
             pnlBusqueda.BorderStyle = BorderStyle.FixedSingle;
+            pnlBusqueda.Controls.Add(lblRuta);
             pnlBusqueda.Controls.Add(TxtCodigoPedido);
-            pnlBusqueda.Controls.Add(TxtDireccionDestino);
+            pnlBusqueda.Controls.Add(comboBoxDepartamentoDestino);
+            pnlBusqueda.Controls.Add(comboBoxMunicipioDestino);
+            pnlBusqueda.Controls.Add(comboBoxZonaDestino);
+            pnlBusqueda.Controls.Add(TextBoxDireccionDestino);
             pnlBusqueda.Controls.Add(Txt);
-            pnlBusqueda.Controls.Add(textDireccionOrigen);
+            pnlBusqueda.Controls.Add(comboBoxDepartamentoOrigen);
+            pnlBusqueda.Controls.Add(comboBoxMunicipioOrigen);
+            pnlBusqueda.Controls.Add(comboBoxZonaOrigen);
+            pnlBusqueda.Controls.Add(TextBoxDireccionOrigen);
             pnlBusqueda.Controls.Add(dateTimePedido);
             pnlBusqueda.Controls.Add(label3);
             pnlBusqueda.Controls.Add(btnNuevoPaquete);
@@ -539,7 +543,6 @@ namespace SistemaReparto
             pnlBusqueda.Controls.Add(labelTipoPaquete);
             pnlBusqueda.Controls.Add(cboEstadoPedido);
             pnlBusqueda.Controls.Add(labelFragil);
-            pnlBusqueda.Controls.Add(cboRuta);
             pnlBusqueda.Controls.Add(labelDescripcion);
             pnlBusqueda.Controls.Add(labelEstado);
             pnlBusqueda.Controls.Add(labelPeso);
@@ -554,7 +557,7 @@ namespace SistemaReparto
             pnlBusqueda.Controls.Add(btnActualizar);
             pnlBusqueda.Location = new Point(12, 215);
             pnlBusqueda.Name = "pnlBusqueda";
-            pnlBusqueda.Size = new Size(1305, 256);
+            pnlBusqueda.Size = new Size(1305, 296);
             pnlBusqueda.TabIndex = 2;
             // 
             // TxtCodigoPedido
@@ -565,13 +568,40 @@ namespace SistemaReparto
             TxtCodigoPedido.Size = new Size(220, 27);
             TxtCodigoPedido.TabIndex = 33;
             // 
-            // TxtDireccionDestino
+            // comboBoxDepartamentoDestino
             // 
-            TxtDireccionDestino.Location = new Point(876, 120);
-            TxtDireccionDestino.Name = "TxtDireccionDestino";
-            TxtDireccionDestino.PlaceholderText = "Ej : 21 Av. Zona 1 comercial Capitol";
-            TxtDireccionDestino.Size = new Size(274, 27);
-            TxtDireccionDestino.TabIndex = 32;
+            comboBoxDepartamentoDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDepartamentoDestino.FormattingEnabled = true;
+            comboBoxDepartamentoDestino.Location = new Point(876, 121);
+            comboBoxDepartamentoDestino.Name = "comboBoxDepartamentoDestino";
+            comboBoxDepartamentoDestino.Size = new Size(132, 28);
+            comboBoxDepartamentoDestino.TabIndex = 32;
+            // 
+            // comboBoxMunicipioDestino
+            // 
+            comboBoxMunicipioDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMunicipioDestino.FormattingEnabled = true;
+            comboBoxMunicipioDestino.Location = new Point(1016, 121);
+            comboBoxMunicipioDestino.Name = "comboBoxMunicipioDestino";
+            comboBoxMunicipioDestino.Size = new Size(132, 28);
+            comboBoxMunicipioDestino.TabIndex = 33;
+            // 
+            // comboBoxZonaDestino
+            // 
+            comboBoxZonaDestino.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxZonaDestino.FormattingEnabled = true;
+            comboBoxZonaDestino.Location = new Point(1156, 121);
+            comboBoxZonaDestino.Name = "comboBoxZonaDestino";
+            comboBoxZonaDestino.Size = new Size(132, 28);
+            comboBoxZonaDestino.TabIndex = 34;
+            // 
+            // TextBoxDireccionDestino
+            // 
+            TextBoxDireccionDestino.Location = new Point(876, 152);
+            TextBoxDireccionDestino.Name = "TextBoxDireccionDestino";
+            TextBoxDireccionDestino.PlaceholderText = "Ej : 21 Av. Zona 1 comercial Capitol";
+            TextBoxDireccionDestino.Size = new Size(412, 27);
+            TextBoxDireccionDestino.TabIndex = 35;
             // 
             // Txt
             // 
@@ -584,13 +614,40 @@ namespace SistemaReparto
             Txt.TabIndex = 31;
             Txt.Text = "Direccion De Destino";
             // 
-            // textDireccionOrigen
+            // comboBoxDepartamentoOrigen
             // 
-            textDireccionOrigen.Location = new Point(413, 121);
-            textDireccionOrigen.Name = "textDireccionOrigen";
-            textDireccionOrigen.PlaceholderText = "Ej : 15 Av. 22-27 Alameda 3";
-            textDireccionOrigen.Size = new Size(451, 27);
-            textDireccionOrigen.TabIndex = 30;
+            comboBoxDepartamentoOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxDepartamentoOrigen.FormattingEnabled = true;
+            comboBoxDepartamentoOrigen.Location = new Point(413, 121);
+            comboBoxDepartamentoOrigen.Name = "comboBoxDepartamentoOrigen";
+            comboBoxDepartamentoOrigen.Size = new Size(148, 28);
+            comboBoxDepartamentoOrigen.TabIndex = 28;
+            // 
+            // comboBoxMunicipioOrigen
+            // 
+            comboBoxMunicipioOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMunicipioOrigen.FormattingEnabled = true;
+            comboBoxMunicipioOrigen.Location = new Point(569, 121);
+            comboBoxMunicipioOrigen.Name = "comboBoxMunicipioOrigen";
+            comboBoxMunicipioOrigen.Size = new Size(148, 28);
+            comboBoxMunicipioOrigen.TabIndex = 29;
+            // 
+            // comboBoxZonaOrigen
+            // 
+            comboBoxZonaOrigen.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxZonaOrigen.FormattingEnabled = true;
+            comboBoxZonaOrigen.Location = new Point(725, 121);
+            comboBoxZonaOrigen.Name = "comboBoxZonaOrigen";
+            comboBoxZonaOrigen.Size = new Size(148, 28);
+            comboBoxZonaOrigen.TabIndex = 30;
+            // 
+            // TextBoxDireccionOrigen
+            // 
+            TextBoxDireccionOrigen.Location = new Point(413, 152);
+            TextBoxDireccionOrigen.Name = "TextBoxDireccionOrigen";
+            TextBoxDireccionOrigen.PlaceholderText = "Ej : 15 Av. 22-27 Alameda 3";
+            TextBoxDireccionOrigen.Size = new Size(460, 27);
+            TextBoxDireccionOrigen.TabIndex = 31;
             // 
             // dateTimePedido
             // 
@@ -601,7 +658,7 @@ namespace SistemaReparto
             // 
             // TxtObservaciones
             // 
-            TxtObservaciones.Location = new Point(737, 176);
+            TxtObservaciones.Location = new Point(737, 206);
             TxtObservaciones.Name = "TxtObservaciones";
             TxtObservaciones.PlaceholderText = "0.00";
             TxtObservaciones.Size = new Size(220, 27);
@@ -614,7 +671,7 @@ namespace SistemaReparto
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(16, 212);
+            btnGuardar.Location = new Point(16, 242);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(276, 32);
             btnGuardar.TabIndex = 25;
@@ -628,7 +685,7 @@ namespace SistemaReparto
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(302, 212);
+            btnEditar.Location = new Point(302, 242);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(276, 32);
             btnEditar.TabIndex = 26;
@@ -642,7 +699,7 @@ namespace SistemaReparto
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(588, 212);
+            btnEliminar.Location = new Point(588, 242);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(276, 32);
             btnEliminar.TabIndex = 27;
@@ -656,12 +713,20 @@ namespace SistemaReparto
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = Color.White;
-            btnActualizar.Location = new Point(874, 212);
+            btnActualizar.Location = new Point(874, 242);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(276, 32);
             btnActualizar.TabIndex = 28;
             btnActualizar.Text = "🔄  Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
+            // 
+            // lblRuta
+            // 
+            lblRuta.AutoSize = true;
+            lblRuta.Location = new Point(876, 64);
+            lblRuta.Name = "lblRuta";
+            lblRuta.Size = new Size(0, 20);
+            lblRuta.TabIndex = 36;
             // 
             // Pedidos
             // 
@@ -709,7 +774,6 @@ namespace SistemaReparto
         private Button btnPagina;
         private Button btnSiguiente;
         private Button btnUltimo;
-        private ComboBox cboRuta;
         private Label labelEstado;
         private Label labelPeso;
         private TextBox txtPesoTotal;
@@ -729,10 +793,17 @@ namespace SistemaReparto
         private Button btnEditar;
         private Button btnEliminar;
         private Button btnActualizar;
-        private TextBox textDireccionOrigen;
+        private ComboBox comboBoxDepartamentoOrigen;
+        private ComboBox comboBoxMunicipioOrigen;
+        private ComboBox comboBoxZonaOrigen;
+        private TextBox TextBoxDireccionOrigen;
         private DateTimePicker dateTimePedido;
         private Label Txt;
-        private TextBox TxtDireccionDestino;
+        private ComboBox comboBoxDepartamentoDestino;
+        private ComboBox comboBoxMunicipioDestino;
+        private ComboBox comboBoxZonaDestino;
+        private TextBox TextBoxDireccionDestino;
         private TextBox TxtCodigoPedido;
+        private Label lblRuta;
     }
 }

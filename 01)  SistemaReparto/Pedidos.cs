@@ -48,6 +48,18 @@ namespace SistemaReparto
 
             this.btnMostrarTodos.Click -= btnMostrarTodos_Click;
             this.btnMostrarTodos.Click += btnMostrarTodos_Click;
+
+            this.comboBoxDepartamentoOrigen.SelectedIndexChanged -= comboBoxDepartamentoOrigen_SelectedIndexChanged;
+            this.comboBoxDepartamentoOrigen.SelectedIndexChanged += comboBoxDepartamentoOrigen_SelectedIndexChanged;
+
+            this.comboBoxMunicipioOrigen.SelectedIndexChanged -= comboBoxMunicipioOrigen_SelectedIndexChanged;
+            this.comboBoxMunicipioOrigen.SelectedIndexChanged += comboBoxMunicipioOrigen_SelectedIndexChanged;
+
+            this.comboBoxDepartamentoDestino.SelectedIndexChanged -= comboBoxDepartamentoDestino_SelectedIndexChanged;
+            this.comboBoxDepartamentoDestino.SelectedIndexChanged += comboBoxDepartamentoDestino_SelectedIndexChanged;
+
+            this.comboBoxMunicipioDestino.SelectedIndexChanged -= comboBoxMunicipioDestino_SelectedIndexChanged;
+            this.comboBoxMunicipioDestino.SelectedIndexChanged += comboBoxMunicipioDestino_SelectedIndexChanged;
         }
 
         private void Pedidos_Load(object sender, EventArgs e)
@@ -55,21 +67,58 @@ namespace SistemaReparto
             objetoPedidos.MostrarPedidos(dgvPedidos);
 
             objetoPedidos.LlenarComboCliente(cboCliente);
-            objetoPedidos.LlenarComboRuta(cboRuta);
             objetoPedidos.LlenarComboEstadoPedido(cboEstadoPedido);
+
+       //esto ya sale solo como un label informativo para evitar inconsistencias
+
+            lblRuta.Text = "Sin ruta asignada";
+
+            objetoPedidos.LlenarComboDepartamento(comboBoxDepartamentoOrigen);
+            objetoPedidos.LlenarComboDepartamento(comboBoxDepartamentoDestino);
+
             EstablecerModoConsulta();
+        }
+
+        private void comboBoxDepartamentoOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objetoPedidos.LlenarComboMunicipio(comboBoxMunicipioOrigen, comboBoxDepartamentoOrigen.Text);
+            comboBoxZonaOrigen.Items.Clear();
+            comboBoxZonaOrigen.Text = string.Empty;
+        }
+
+        private void comboBoxMunicipioOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objetoPedidos.LlenarComboZona(comboBoxZonaOrigen, comboBoxDepartamentoOrigen.Text, comboBoxMunicipioOrigen.Text);
+        }
+
+        private void comboBoxDepartamentoDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objetoPedidos.LlenarComboMunicipio(comboBoxMunicipioDestino, comboBoxDepartamentoDestino.Text);
+            comboBoxZonaDestino.Items.Clear();
+            comboBoxZonaDestino.Text = string.Empty;
+        }
+
+        private void comboBoxMunicipioDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            objetoPedidos.LlenarComboZona(comboBoxZonaDestino, comboBoxDepartamentoDestino.Text, comboBoxMunicipioDestino.Text);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+    
             objetoPedidos.GuardarPedido(
                 TxtCodigoPedido,
                 cboCliente,
-                cboRuta,
                 cboEstadoPedido,
                 dateTimePedido,
-                textDireccionOrigen,
-                TxtDireccionDestino,
+                comboBoxDepartamentoOrigen,
+                comboBoxMunicipioOrigen,
+                comboBoxZonaOrigen,
+                TextBoxDireccionOrigen,
+                comboBoxDepartamentoDestino,
+                comboBoxMunicipioDestino,
+                comboBoxZonaDestino,
+                TextBoxDireccionDestino,
                 txtPesoTotal,
                 TxtCantidadPaquetes,
                 TxtObservaciones);
@@ -104,11 +153,16 @@ namespace SistemaReparto
                 idPedidoSeleccionado,
                 TxtCodigoPedido,
                 cboCliente,
-                cboRuta,
                 cboEstadoPedido,
                 dateTimePedido,
-                textDireccionOrigen,
-                TxtDireccionDestino,
+                comboBoxDepartamentoOrigen,
+                comboBoxMunicipioOrigen,
+                comboBoxZonaOrigen,
+                TextBoxDireccionOrigen,
+                comboBoxDepartamentoDestino,
+                comboBoxMunicipioDestino,
+                comboBoxZonaDestino,
+                TextBoxDireccionDestino,
                 txtPesoTotal,
                 TxtCantidadPaquetes,
                 TxtObservaciones);
@@ -144,8 +198,8 @@ namespace SistemaReparto
             }
 
             DialogResult confirmacion = MessageBox.Show(
-                "¿Está seguro que desea eliminar este pedido?",
-                "Confirmar eliminación",
+                "Esta seguro que desea eliminar este pedido?",
+                "Confirmar eliminacion",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
@@ -180,34 +234,53 @@ namespace SistemaReparto
                 idPedidoSeleccionado = Convert.ToInt32(
                     dgvPedidos.CurrentRow.Cells["id_pedido"].Value);
 
+                // lblRuta se llena aqui como texto informativo
+                // La reasignacion de ruta se hace unicamente desde
+                // "Asignacion de Pedidos a Ruta".
                 objetoPedidos.SeleccionarPedido(
                     dgvPedidos,
                     TxtCodigoPedido,
                     cboCliente,
-                    cboRuta,
+                    lblRuta,
                     cboEstadoPedido,
                     dateTimePedido,
-                    textDireccionOrigen,
-                    TxtDireccionDestino,
+                    comboBoxDepartamentoOrigen,
+                    comboBoxMunicipioOrigen,
+                    comboBoxZonaOrigen,
+                    TextBoxDireccionOrigen,
+                    comboBoxDepartamentoDestino,
+                    comboBoxMunicipioDestino,
+                    comboBoxZonaDestino,
+                    TextBoxDireccionDestino,
                     txtPesoTotal,
                     TxtCantidadPaquetes,
                     TxtObservaciones);
 
-             //Funcion para habilitar los campos al editar 
+                //Funcion para habilitar los campos al editar 
                 EstablecerCamposHabilitados(false);
             }
         }
 
-       
+
         private void EstablecerCamposHabilitados(bool habilitado)
         {
             TxtCodigoPedido.Enabled = habilitado;
             cboCliente.Enabled = habilitado;
-            cboRuta.Enabled = habilitado;
+            
+            // lblRuta no se habilita/deshabilita: es un Label de solo lectura, esto para que luego 
+            //no genere inconsistencias con nuestro transaccional solo va ser como un control para ver sus rutas 
+            //sin asignarla porque eso ya lo ve el transaccional :) 
+
             cboEstadoPedido.Enabled = habilitado;
             dateTimePedido.Enabled = habilitado;
-            textDireccionOrigen.Enabled = habilitado;
-            TxtDireccionDestino.Enabled = habilitado;
+            comboBoxDepartamentoOrigen.Enabled = habilitado;
+            comboBoxMunicipioOrigen.Enabled = habilitado;
+            comboBoxZonaOrigen.Enabled = habilitado;
+            TextBoxDireccionOrigen.Enabled = habilitado;
+            comboBoxDepartamentoDestino.Enabled = habilitado;
+            comboBoxMunicipioDestino.Enabled = habilitado;
+            comboBoxZonaDestino.Enabled = habilitado;
+            TextBoxDireccionDestino.Enabled = habilitado;
             txtPesoTotal.Enabled = habilitado;
             TxtCantidadPaquetes.Enabled = habilitado;
             TxtObservaciones.Enabled = habilitado;
@@ -220,22 +293,31 @@ namespace SistemaReparto
             objetoPedidos.LimpiarCampos(
                 TxtCodigoPedido,
                 cboCliente,
-                cboRuta,
+                lblRuta,
                 cboEstadoPedido,
                 dateTimePedido,
-                textDireccionOrigen,
-                TxtDireccionDestino,
+                comboBoxDepartamentoOrigen,
+                comboBoxMunicipioOrigen,
+                comboBoxZonaOrigen,
+                TextBoxDireccionOrigen,
+                comboBoxDepartamentoDestino,
+                comboBoxMunicipioDestino,
+                comboBoxZonaDestino,
+                TextBoxDireccionDestino,
                 txtPesoTotal,
                 TxtCantidadPaquetes,
                 TxtObservaciones);
         }
 
-        /// al seleccionar una columna de la tabla se mantienen los campos bloqueados 
-        /// Con el fin de evitar acciones erroneas o accidentales
         private void EstablecerModoConsulta()
         {
             idPedidoSeleccionado = 0;
             EstablecerCamposHabilitados(false);
+        }
+
+        private void cboEstadoPedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

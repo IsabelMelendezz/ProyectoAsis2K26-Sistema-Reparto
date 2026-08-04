@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             pnl_Contencion_Btn = new Panel();
+            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            button1 = new Button();
+            pic_pedidos = new PictureBox();
             pic_Sucur = new PictureBox();
             pic_Repa = new PictureBox();
             pic_Trans = new PictureBox();
@@ -40,6 +41,8 @@
             pic_Paque = new PictureBox();
             pic_Rutas = new PictureBox();
             pic_usu = new PictureBox();
+            btnAsignacion = new Button();
+            btnPedidos = new Button();
             btnSucursales = new Button();
             btnRepartidores = new Button();
             btnTransportes = new Button();
@@ -47,8 +50,8 @@
             btnBodegas = new Button();
             btnPaquetes = new Button();
             btnRutas = new Button();
+            btnAreas = new Button();
             btnUsuarios = new Button();
-            pnl_Contencion_3 = new Panel();
             pnl_Contencion_2 = new Panel();
             pnl_Contencion_1 = new Panel();
             pic_Logo = new PictureBox();
@@ -70,7 +73,9 @@
             lbl_Mns_bienv = new Label();
             lbl_Bienvenido = new Label();
             pnl_Contencion_Btn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pic_pedidos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Sucur).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Repa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_Trans).BeginInit();
@@ -95,13 +100,14 @@
             // 
             // pnl_Contencion_Btn
             // 
-            pnl_Contencion_Btn.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pnl_Contencion_Btn.AutoScroll = true;
             pnl_Contencion_Btn.BackColor = Color.Transparent;
             pnl_Contencion_Btn.BackgroundImage = Properties.Resources.barra_menu;
             pnl_Contencion_Btn.BackgroundImageLayout = ImageLayout.Stretch;
             pnl_Contencion_Btn.CausesValidation = false;
+            pnl_Contencion_Btn.Controls.Add(pictureBox2);
             pnl_Contencion_Btn.Controls.Add(pictureBox1);
-            pnl_Contencion_Btn.Controls.Add(button1);
+            pnl_Contencion_Btn.Controls.Add(pic_pedidos);
             pnl_Contencion_Btn.Controls.Add(pic_Sucur);
             pnl_Contencion_Btn.Controls.Add(pic_Repa);
             pnl_Contencion_Btn.Controls.Add(pic_Trans);
@@ -110,6 +116,8 @@
             pnl_Contencion_Btn.Controls.Add(pic_Paque);
             pnl_Contencion_Btn.Controls.Add(pic_Rutas);
             pnl_Contencion_Btn.Controls.Add(pic_usu);
+            pnl_Contencion_Btn.Controls.Add(btnAsignacion);
+            pnl_Contencion_Btn.Controls.Add(btnPedidos);
             pnl_Contencion_Btn.Controls.Add(btnSucursales);
             pnl_Contencion_Btn.Controls.Add(btnRepartidores);
             pnl_Contencion_Btn.Controls.Add(btnTransportes);
@@ -117,51 +125,54 @@
             pnl_Contencion_Btn.Controls.Add(btnBodegas);
             pnl_Contencion_Btn.Controls.Add(btnPaquetes);
             pnl_Contencion_Btn.Controls.Add(btnRutas);
+            pnl_Contencion_Btn.Controls.Add(btnAreas);
             pnl_Contencion_Btn.Controls.Add(btnUsuarios);
-            pnl_Contencion_Btn.Controls.Add(pnl_Contencion_3);
             pnl_Contencion_Btn.Controls.Add(pnl_Contencion_2);
             pnl_Contencion_Btn.Controls.Add(pnl_Contencion_1);
-            pnl_Contencion_Btn.Location = new Point(0, -1);
+            pnl_Contencion_Btn.Dock = DockStyle.Left;
+            pnl_Contencion_Btn.Location = new Point(0, 0);
             pnl_Contencion_Btn.Margin = new Padding(3, 4, 3, 4);
             pnl_Contencion_Btn.Name = "pnl_Contencion_Btn";
-            pnl_Contencion_Btn.Size = new Size(270, 1500);
+            pnl_Contencion_Btn.Size = new Size(270, 991);
             pnl_Contencion_Btn.TabIndex = 0;
             pnl_Contencion_Btn.Paint += panel1_Paint;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Asig_ico;
+            pictureBox2.Location = new Point(9, 1021);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(63, 60);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 27;
+            pictureBox2.TabStop = false;
+            // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.Icon_Pedidos1;
-            pictureBox1.Location = new Point(8, 851);
+            pictureBox1.Image = Properties.Resources.Area_ico;
+            pictureBox1.Location = new Point(9, 233);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(64, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 20;
+            pictureBox1.TabIndex = 26;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click_1;
             // 
-            // button1
+            // pic_pedidos
             // 
-            button1.Cursor = Cursors.Hand;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(27, 835);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.RightToLeft = RightToLeft.No;
-            button1.Size = new Size(216, 87);
-            button1.TabIndex = 21;
-            button1.Text = "Pedidos";
-            button1.UseMnemonic = false;
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_2;
+            pic_pedidos.Image = Properties.Resources.Icon_Pedidos1;
+            pic_pedidos.Location = new Point(9, 932);
+            pic_pedidos.Name = "pic_pedidos";
+            pic_pedidos.Size = new Size(64, 60);
+            pic_pedidos.SizeMode = PictureBoxSizeMode.StretchImage;
+            pic_pedidos.TabIndex = 20;
+            pic_pedidos.TabStop = false;
+            pic_pedidos.Click += pictureBox1_Click;
             // 
             // pic_Sucur
             // 
             pic_Sucur.Image = Properties.Resources.Sucu_ico;
-            pic_Sucur.Location = new Point(8, 768);
+            pic_Sucur.Location = new Point(9, 849);
             pic_Sucur.Name = "pic_Sucur";
             pic_Sucur.Size = new Size(64, 60);
             pic_Sucur.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -171,7 +182,7 @@
             // pic_Repa
             // 
             pic_Repa.Image = Properties.Resources.Repa_ico;
-            pic_Repa.Location = new Point(8, 680);
+            pic_Repa.Location = new Point(9, 761);
             pic_Repa.Name = "pic_Repa";
             pic_Repa.Size = new Size(64, 60);
             pic_Repa.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -181,7 +192,7 @@
             // pic_Trans
             // 
             pic_Trans.Image = Properties.Resources.Trans_ico;
-            pic_Trans.Location = new Point(8, 592);
+            pic_Trans.Location = new Point(9, 673);
             pic_Trans.Name = "pic_Trans";
             pic_Trans.Size = new Size(64, 60);
             pic_Trans.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -191,7 +202,7 @@
             // pic_Repo
             // 
             pic_Repo.Image = Properties.Resources.Repo_ico;
-            pic_Repo.Location = new Point(8, 504);
+            pic_Repo.Location = new Point(9, 585);
             pic_Repo.Name = "pic_Repo";
             pic_Repo.Size = new Size(64, 60);
             pic_Repo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -201,7 +212,7 @@
             // pic_Bode
             // 
             pic_Bode.Image = Properties.Resources.Bode_ico;
-            pic_Bode.Location = new Point(8, 416);
+            pic_Bode.Location = new Point(9, 497);
             pic_Bode.Name = "pic_Bode";
             pic_Bode.Size = new Size(64, 60);
             pic_Bode.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -211,7 +222,7 @@
             // pic_Paque
             // 
             pic_Paque.Image = Properties.Resources.Paque_ico;
-            pic_Paque.Location = new Point(8, 328);
+            pic_Paque.Location = new Point(9, 409);
             pic_Paque.Name = "pic_Paque";
             pic_Paque.Size = new Size(64, 60);
             pic_Paque.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -221,7 +232,7 @@
             // pic_Rutas
             // 
             pic_Rutas.Image = Properties.Resources.Ruta_ico;
-            pic_Rutas.Location = new Point(8, 240);
+            pic_Rutas.Location = new Point(8, 320);
             pic_Rutas.Name = "pic_Rutas";
             pic_Rutas.Size = new Size(64, 60);
             pic_Rutas.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -238,6 +249,46 @@
             pic_usu.TabIndex = 0;
             pic_usu.TabStop = false;
             // 
+            // btnAsignacion
+            // 
+            btnAsignacion.Cursor = Cursors.Hand;
+            btnAsignacion.Dock = DockStyle.Top;
+            btnAsignacion.FlatAppearance.BorderSize = 0;
+            btnAsignacion.FlatStyle = FlatStyle.Flat;
+            btnAsignacion.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAsignacion.ForeColor = Color.White;
+            btnAsignacion.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAsignacion.Location = new Point(27, 1009);
+            btnAsignacion.Margin = new Padding(3, 4, 3, 4);
+            btnAsignacion.Name = "btnAsignacion";
+            btnAsignacion.RightToLeft = RightToLeft.No;
+            btnAsignacion.Size = new Size(217, 87);
+            btnAsignacion.TabIndex = 25;
+            btnAsignacion.Text = "Asignacion";
+            btnAsignacion.UseMnemonic = false;
+            btnAsignacion.UseVisualStyleBackColor = false;
+            btnAsignacion.Click += btnAsignacion_Click;
+            // 
+            // btnPedidos
+            // 
+            btnPedidos.Cursor = Cursors.Hand;
+            btnPedidos.Dock = DockStyle.Top;
+            btnPedidos.FlatAppearance.BorderSize = 0;
+            btnPedidos.FlatStyle = FlatStyle.Flat;
+            btnPedidos.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPedidos.ForeColor = Color.White;
+            btnPedidos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPedidos.Location = new Point(27, 922);
+            btnPedidos.Margin = new Padding(3, 4, 3, 4);
+            btnPedidos.Name = "btnPedidos";
+            btnPedidos.RightToLeft = RightToLeft.No;
+            btnPedidos.Size = new Size(217, 87);
+            btnPedidos.TabIndex = 21;
+            btnPedidos.Text = "Pedidos";
+            btnPedidos.UseMnemonic = false;
+            btnPedidos.UseVisualStyleBackColor = false;
+            btnPedidos.Click += button1_Click_2;
+            // 
             // btnSucursales
             // 
             btnSucursales.Cursor = Cursors.Hand;
@@ -247,11 +298,11 @@
             btnSucursales.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSucursales.ForeColor = Color.White;
             btnSucursales.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSucursales.Location = new Point(27, 748);
+            btnSucursales.Location = new Point(27, 835);
             btnSucursales.Margin = new Padding(3, 4, 3, 4);
             btnSucursales.Name = "btnSucursales";
             btnSucursales.RightToLeft = RightToLeft.No;
-            btnSucursales.Size = new Size(216, 87);
+            btnSucursales.Size = new Size(217, 87);
             btnSucursales.TabIndex = 12;
             btnSucursales.Text = "Sucursales";
             btnSucursales.UseMnemonic = false;
@@ -267,11 +318,11 @@
             btnRepartidores.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRepartidores.ForeColor = Color.White;
             btnRepartidores.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRepartidores.Location = new Point(27, 661);
+            btnRepartidores.Location = new Point(27, 748);
             btnRepartidores.Margin = new Padding(3, 4, 3, 4);
             btnRepartidores.Name = "btnRepartidores";
             btnRepartidores.RightToLeft = RightToLeft.No;
-            btnRepartidores.Size = new Size(216, 87);
+            btnRepartidores.Size = new Size(217, 87);
             btnRepartidores.TabIndex = 10;
             btnRepartidores.Text = "    Empleados";
             btnRepartidores.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -288,10 +339,10 @@
             btnTransportes.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnTransportes.ForeColor = Color.White;
             btnTransportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTransportes.Location = new Point(27, 574);
+            btnTransportes.Location = new Point(27, 661);
             btnTransportes.Margin = new Padding(3, 4, 3, 4);
             btnTransportes.Name = "btnTransportes";
-            btnTransportes.Size = new Size(216, 87);
+            btnTransportes.Size = new Size(217, 87);
             btnTransportes.TabIndex = 9;
             btnTransportes.Text = "   Transportes";
             btnTransportes.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -308,11 +359,11 @@
             btnReportes.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnReportes.ForeColor = Color.White;
             btnReportes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReportes.Location = new Point(27, 487);
+            btnReportes.Location = new Point(27, 574);
             btnReportes.Margin = new Padding(3, 4, 3, 4);
             btnReportes.Name = "btnReportes";
             btnReportes.RightToLeft = RightToLeft.No;
-            btnReportes.Size = new Size(216, 87);
+            btnReportes.Size = new Size(217, 87);
             btnReportes.TabIndex = 7;
             btnReportes.Text = "Reportes";
             btnReportes.UseMnemonic = false;
@@ -328,11 +379,11 @@
             btnBodegas.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBodegas.ForeColor = Color.White;
             btnBodegas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBodegas.Location = new Point(27, 400);
+            btnBodegas.Location = new Point(27, 487);
             btnBodegas.Margin = new Padding(3, 4, 3, 4);
             btnBodegas.Name = "btnBodegas";
             btnBodegas.RightToLeft = RightToLeft.No;
-            btnBodegas.Size = new Size(216, 87);
+            btnBodegas.Size = new Size(217, 87);
             btnBodegas.TabIndex = 6;
             btnBodegas.Text = "Bodegas";
             btnBodegas.UseMnemonic = false;
@@ -348,11 +399,11 @@
             btnPaquetes.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPaquetes.ForeColor = Color.White;
             btnPaquetes.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPaquetes.Location = new Point(27, 313);
+            btnPaquetes.Location = new Point(27, 400);
             btnPaquetes.Margin = new Padding(3, 4, 3, 4);
             btnPaquetes.Name = "btnPaquetes";
             btnPaquetes.RightToLeft = RightToLeft.No;
-            btnPaquetes.Size = new Size(216, 87);
+            btnPaquetes.Size = new Size(217, 87);
             btnPaquetes.TabIndex = 5;
             btnPaquetes.Text = " Paquetes";
             btnPaquetes.UseMnemonic = false;
@@ -368,16 +419,36 @@
             btnRutas.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRutas.ForeColor = Color.White;
             btnRutas.ImageAlign = ContentAlignment.MiddleLeft;
-            btnRutas.Location = new Point(27, 226);
+            btnRutas.Location = new Point(27, 313);
             btnRutas.Margin = new Padding(3, 4, 3, 4);
             btnRutas.Name = "btnRutas";
             btnRutas.RightToLeft = RightToLeft.No;
-            btnRutas.Size = new Size(216, 87);
+            btnRutas.Size = new Size(217, 87);
             btnRutas.TabIndex = 4;
             btnRutas.Text = "Rutas       ";
             btnRutas.UseMnemonic = false;
             btnRutas.UseVisualStyleBackColor = false;
             btnRutas.Click += button2_Click;
+            // 
+            // btnAreas
+            // 
+            btnAreas.Cursor = Cursors.Hand;
+            btnAreas.Dock = DockStyle.Top;
+            btnAreas.FlatAppearance.BorderSize = 0;
+            btnAreas.FlatStyle = FlatStyle.Flat;
+            btnAreas.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAreas.ForeColor = Color.White;
+            btnAreas.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAreas.Location = new Point(27, 226);
+            btnAreas.Margin = new Padding(3, 4, 3, 4);
+            btnAreas.Name = "btnAreas";
+            btnAreas.RightToLeft = RightToLeft.No;
+            btnAreas.Size = new Size(217, 87);
+            btnAreas.TabIndex = 23;
+            btnAreas.Text = "Areas \r\nCubiertas";
+            btnAreas.UseMnemonic = false;
+            btnAreas.UseVisualStyleBackColor = false;
+            btnAreas.Click += btnAreas_Click;
             // 
             // btnUsuarios
             // 
@@ -392,21 +463,12 @@
             btnUsuarios.Margin = new Padding(3, 4, 3, 4);
             btnUsuarios.Name = "btnUsuarios";
             btnUsuarios.RightToLeft = RightToLeft.No;
-            btnUsuarios.Size = new Size(216, 87);
+            btnUsuarios.Size = new Size(217, 87);
             btnUsuarios.TabIndex = 3;
             btnUsuarios.Text = "Usuarios  ";
             btnUsuarios.UseMnemonic = false;
             btnUsuarios.UseVisualStyleBackColor = false;
             btnUsuarios.Click += button1_Click;
-            // 
-            // pnl_Contencion_3
-            // 
-            pnl_Contencion_3.Dock = DockStyle.Right;
-            pnl_Contencion_3.Location = new Point(243, 139);
-            pnl_Contencion_3.Margin = new Padding(3, 4, 3, 4);
-            pnl_Contencion_3.Name = "pnl_Contencion_3";
-            pnl_Contencion_3.Size = new Size(27, 1361);
-            pnl_Contencion_3.TabIndex = 2;
             // 
             // pnl_Contencion_2
             // 
@@ -414,7 +476,7 @@
             pnl_Contencion_2.Location = new Point(0, 139);
             pnl_Contencion_2.Margin = new Padding(3, 4, 3, 4);
             pnl_Contencion_2.Name = "pnl_Contencion_2";
-            pnl_Contencion_2.Size = new Size(27, 1361);
+            pnl_Contencion_2.Size = new Size(27, 957);
             pnl_Contencion_2.TabIndex = 1;
             // 
             // pnl_Contencion_1
@@ -426,7 +488,7 @@
             pnl_Contencion_1.Location = new Point(0, 0);
             pnl_Contencion_1.Margin = new Padding(3, 4, 3, 4);
             pnl_Contencion_1.Name = "pnl_Contencion_1";
-            pnl_Contencion_1.Size = new Size(270, 139);
+            pnl_Contencion_1.Size = new Size(244, 139);
             pnl_Contencion_1.TabIndex = 0;
             pnl_Contencion_1.Paint += panel2_Paint;
             // 
@@ -434,7 +496,7 @@
             // 
             pic_Logo.Cursor = Cursors.Hand;
             pic_Logo.Image = Properties.Resources.norteklogo1;
-            pic_Logo.Location = new Point(18, 43);
+            pic_Logo.Location = new Point(8, 36);
             pic_Logo.Name = "pic_Logo";
             pic_Logo.Size = new Size(222, 77);
             pic_Logo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -658,7 +720,9 @@
             Text = "NORTEK";
             Load += Form1_Load;
             pnl_Contencion_Btn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pic_pedidos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Sucur).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Repa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_Trans).EndInit();
@@ -694,7 +758,6 @@
         private System.Windows.Forms.Panel pnl_Contencion_Btn;
         private System.Windows.Forms.Panel pnl_Contencion_1;
         private System.Windows.Forms.Button btnUsuarios;
-        private System.Windows.Forms.Panel pnl_Contencion_3;
         private System.Windows.Forms.Panel pnl_Contencion_2;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnBodegas;
@@ -729,8 +792,12 @@
         private PictureBox pic_Patroclo;
         private Label lbl_Mns_bienv;
         private Label lbl_Bienvenido;
+        private PictureBox pic_pedidos;
+        private Button btnPedidos;
+        private Button btnAreas;
+        private Button btnAsignacion;
+        private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private Button button1;
     }
 }
 

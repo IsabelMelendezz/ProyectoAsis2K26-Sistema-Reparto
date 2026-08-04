@@ -60,7 +60,7 @@ namespace SistemaReparto.Clases
         
         private void ConfigurarColumnasGrid(DataGridView tabla)
         {
-            string[] columnasOcultas = { "direccion_detalle", "id_area", "zona", "municipio", "departamento" };
+            string[] columnasOcultas = { "direccion_detalle", "id_area", "zona_area_cubierta", "municipio_area_cubierta", "departamento_area_cubierta" };
 
             foreach (string columna in columnasOcultas)
             {
@@ -70,14 +70,14 @@ namespace SistemaReparto.Clases
 
             if (tabla.Columns.Contains("id_sucursal"))
                 tabla.Columns["id_sucursal"].HeaderText = "ID";
-            if (tabla.Columns.Contains("nombre"))
-                tabla.Columns["nombre"].HeaderText = "Nombre";
+            if (tabla.Columns.Contains("nombre_sucursal"))
+                tabla.Columns["nombre_sucursal"].HeaderText = "Nombre";
             if (tabla.Columns.Contains("direccion_completa"))
                 tabla.Columns["direccion_completa"].HeaderText = "Dirección";
-            if (tabla.Columns.Contains("telefono"))
-                tabla.Columns["telefono"].HeaderText = "Teléfono";
-            if (tabla.Columns.Contains("correo"))
-                tabla.Columns["correo"].HeaderText = "Correo";
+            if (tabla.Columns.Contains("telefono_sucursal"))
+                tabla.Columns["telefono_sucursal"].HeaderText = "Teléfono";
+            if (tabla.Columns.Contains("correo_sucursal"))
+                tabla.Columns["correo_sucursal"].HeaderText = "Correo";
         }
 
         
@@ -216,13 +216,13 @@ namespace SistemaReparto.Clases
                     return;
 
                 txtIdSucursal.Text = fila.Cells["id_sucursal"].Value?.ToString();
-                txtNombre.Text = fila.Cells["nombre"].Value?.ToString();
-                txtTelefono.Text = fila.Cells["telefono"].Value?.ToString();
-                txtCorreo.Text = fila.Cells["correo"].Value?.ToString();
+                txtNombre.Text = fila.Cells["nombre_sucursal"].Value?.ToString();
+                txtTelefono.Text = fila.Cells["telefono_sucursal"].Value?.ToString();
+                txtCorreo.Text = fila.Cells["correo_sucursal"].Value?.ToString();
                 txtDireccion.Text = fila.Cells["direccion_detalle"].Value?.ToString();
 
-                object departamentoObj = fila.Cells["departamento"].Value;
-                object municipioObj = fila.Cells["municipio"].Value;
+                object departamentoObj = fila.Cells["departamento_area_cubierta"].Value;
+                object municipioObj = fila.Cells["municipio_area_cubierta"].Value;
                 object idAreaObj = fila.Cells["id_area"].Value;
 
                
