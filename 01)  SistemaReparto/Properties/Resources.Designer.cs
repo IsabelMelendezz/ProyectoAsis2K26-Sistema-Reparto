@@ -73,9 +73,29 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Area_ico {
+            get {
+                object obj = ResourceManager.GetObject("Area_ico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Arg_Transporte {
             get {
                 object obj = ResourceManager.GetObject("Arg_Transporte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Asig_ico {
+            get {
+                object obj = ResourceManager.GetObject("Asig_ico", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

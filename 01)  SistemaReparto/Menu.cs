@@ -146,5 +146,25 @@ namespace SistemaReparto
         {
             OpenFormInPanel(new Pedidos());
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAreas_Click(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new Areas());
+        }
+
+        private void btnAsignacion_Click(object sender, EventArgs e)
+        {
+            OpenFormInPanel(new Asignaciones());
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
