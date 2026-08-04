@@ -35,11 +35,29 @@ namespace SistemaReparto
             cboEstado.Items.Add("Activo");
             cboEstado.Items.Add("Inactivo");
             cboEstado.SelectedIndex = 0;
+            objetoPaquetes.LlenarComboTipoPaquete(cboTipoPaquete);
 
 
-            cboTipoPaquete.Enabled = false;
-            cboTipoFiltro.Enabled = false;
-            cboEstadoFiltro.Enabled = false;
+            cboEstadoFiltro.Items.Clear();
+
+            cboEstadoFiltro.Items.Add("Todos");
+            cboEstadoFiltro.Items.Add("Activo");
+            cboEstadoFiltro.Items.Add("Inactivo");
+
+            cboEstadoFiltro.SelectedIndex = 0;
+
+            cboTipoFiltro.Items.Clear();
+
+            cboTipoFiltro.Items.Add("Todos");
+            cboTipoFiltro.Items.Add("Documento");
+            cboTipoFiltro.Items.Add("Sobre");
+            cboTipoFiltro.Items.Add("Caja");
+            cboTipoFiltro.Items.Add("Paquete");
+            cboTipoFiltro.Items.Add("Electrónica");
+            cboTipoFiltro.Items.Add("Ropa");
+            cboTipoFiltro.Items.Add("Otro");
+
+            cboTipoFiltro.SelectedIndex = 0;
         }
 
 
@@ -54,7 +72,9 @@ namespace SistemaReparto
                 txtLargo,
                 txtDescripcion,
                 cboFragil,
-                cboEstado);
+                cboEstado,
+                txtValorDeclarado,
+                cboTipoPaquete);
 
             objetoPaquetes.MostrarPaquetes(dgvPaquetes);
         }
@@ -71,7 +91,9 @@ namespace SistemaReparto
                 txtLargo,
                 txtDescripcion,
                 cboFragil,
-                cboEstado);
+                cboEstado,
+                txtValorDeclarado,
+                cboTipoPaquete);
 
             objetoPaquetes.MostrarPaquetes(dgvPaquetes);
         }
@@ -84,15 +106,17 @@ namespace SistemaReparto
         private void btnNuevoPaquete_Click(object sender, EventArgs e)
         {
             objetoPaquetes.LimpiarCampos(
-            cboPedido,
-            cboRuta,
-            txtDescripcion,
-            txtPeso,
-            txtAlto,
-            txtAncho,
-            txtLargo,
-            cboFragil,
-            txtCodigoRastreo);
+                cboPedido,
+                cboRuta,
+                txtDescripcion,
+                txtPeso,
+                txtAlto,
+                txtAncho,
+                txtLargo,
+                cboFragil,
+                txtCodigoRastreo,
+                txtValorDeclarado,
+                cboTipoPaquete);
 
             idPaqueteSeleccionado = 0;
         }
@@ -100,15 +124,17 @@ namespace SistemaReparto
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             objetoPaquetes.LimpiarCampos(
-            cboPedido,
-            cboRuta,
-            txtDescripcion,
-            txtPeso,
-            txtAlto,
-            txtAncho,
-            txtLargo,
-            cboFragil,
-            txtCodigoRastreo);
+                cboPedido,
+                cboRuta,
+                txtDescripcion,
+                txtPeso,
+                txtAlto,
+                txtAncho,
+                txtLargo,
+                cboFragil,
+                txtCodigoRastreo,
+                txtValorDeclarado,
+                cboTipoPaquete);
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -125,7 +151,10 @@ namespace SistemaReparto
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-
+            objetoPaquetes.FiltrarPaquetes(
+                dgvPaquetes,
+                cboEstadoFiltro,
+                cboTipoFiltro);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -142,9 +171,16 @@ namespace SistemaReparto
 
         private void cboPedido_SelectedIndexChanged(object sender, EventArgs e)
         {
-            objetoPaquetes.MostrarRutaPedido(
-                cboPedido,
-                cboRuta);
+            if (cboPedido.SelectedIndex != -1)
+            {
+                objetoPaquetes.MostrarRutaPedido(
+                    cboPedido,
+                    cboRuta);
+            }
+            else
+            {
+                cboRuta.SelectedIndex = -1;
+            }
         }
 
         private void dgvPaquetes_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -164,7 +200,9 @@ namespace SistemaReparto
                     txtLargo,
                     txtDescripcion,
                     cboFragil,
-                    cboEstado);
+                    cboEstado,
+                    txtValorDeclarado,
+                    cboTipoPaquete);
 
                 objetoPaquetes.MostrarRutaPedido(
                     cboPedido,
@@ -176,5 +214,29 @@ namespace SistemaReparto
         {
 
         }
+
+        
+            private void txtValorDeclarado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números
+            if (char.IsDigit(e.KeyChar))
+                return;
+
+            // Permitir Backspace
+            if (e.KeyChar == (char)Keys.Back)
+                return;
+
+            // Permitir un único punto decimal
+            if (e.KeyChar == '.')
+            {
+                if (!txtValorDeclarado.Text.Contains(".") &&
+                    txtValorDeclarado.Text.Length > 0)
+                    return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
+        }
+    
     }
 }
