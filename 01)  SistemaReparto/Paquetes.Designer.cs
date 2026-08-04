@@ -48,6 +48,8 @@
             txtAncho = new TextBox();
             labelLargo = new Label();
             txtLargo = new TextBox();
+            labelValorDeclarado = new Label();
+            txtValorDeclarado = new TextBox();
             labelCodigoRastreo = new Label();
             txtCodigoRastreo = new TextBox();
             btnGuardar = new Button();
@@ -184,6 +186,8 @@
             pnlBusqueda.Controls.Add(txtAncho);
             pnlBusqueda.Controls.Add(labelLargo);
             pnlBusqueda.Controls.Add(txtLargo);
+            pnlBusqueda.Controls.Add(labelValorDeclarado);
+            pnlBusqueda.Controls.Add(txtValorDeclarado);
             pnlBusqueda.Controls.Add(labelCodigoRastreo);
             pnlBusqueda.Controls.Add(txtCodigoRastreo);
             pnlBusqueda.Controls.Add(btnGuardar);
@@ -382,7 +386,7 @@
             txtPeso.Location = new Point(16, 176);
             txtPeso.Name = "txtPeso";
             txtPeso.PlaceholderText = "0.00";
-            txtPeso.Size = new Size(220, 31);
+            txtPeso.Size = new Size(175, 31);
             txtPeso.TabIndex = 16;
             // 
             // labelAlto
@@ -390,7 +394,7 @@
             labelAlto.AutoSize = true;
             labelAlto.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelAlto.ForeColor = Color.FromArgb(64, 64, 64);
-            labelAlto.Location = new Point(244, 156);
+            labelAlto.Location = new Point(197, 156);
             labelAlto.Name = "labelAlto";
             labelAlto.Size = new Size(81, 19);
             labelAlto.TabIndex = 17;
@@ -398,10 +402,10 @@
             // 
             // txtAlto
             // 
-            txtAlto.Location = new Point(244, 176);
+            txtAlto.Location = new Point(197, 176);
             txtAlto.Name = "txtAlto";
             txtAlto.PlaceholderText = "0.00";
-            txtAlto.Size = new Size(220, 31);
+            txtAlto.Size = new Size(175, 31);
             txtAlto.TabIndex = 18;
             // 
             // labelAncho
@@ -409,7 +413,7 @@
             labelAncho.AutoSize = true;
             labelAncho.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelAncho.ForeColor = Color.FromArgb(64, 64, 64);
-            labelAncho.Location = new Point(472, 156);
+            labelAncho.Location = new Point(378, 156);
             labelAncho.Name = "labelAncho";
             labelAncho.Size = new Size(103, 19);
             labelAncho.TabIndex = 19;
@@ -417,10 +421,10 @@
             // 
             // txtAncho
             // 
-            txtAncho.Location = new Point(472, 176);
+            txtAncho.Location = new Point(378, 176);
             txtAncho.Name = "txtAncho";
             txtAncho.PlaceholderText = "0.00";
-            txtAncho.Size = new Size(220, 31);
+            txtAncho.Size = new Size(175, 31);
             txtAncho.TabIndex = 20;
             // 
             // labelLargo
@@ -428,7 +432,7 @@
             labelLargo.AutoSize = true;
             labelLargo.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelLargo.ForeColor = Color.FromArgb(64, 64, 64);
-            labelLargo.Location = new Point(700, 156);
+            labelLargo.Location = new Point(559, 156);
             labelLargo.Name = "labelLargo";
             labelLargo.Size = new Size(95, 19);
             labelLargo.TabIndex = 21;
@@ -436,11 +440,32 @@
             // 
             // txtLargo
             // 
-            txtLargo.Location = new Point(700, 176);
+            txtLargo.Location = new Point(559, 176);
             txtLargo.Name = "txtLargo";
             txtLargo.PlaceholderText = "0.00";
-            txtLargo.Size = new Size(220, 31);
+            txtLargo.Size = new Size(175, 31);
             txtLargo.TabIndex = 22;
+            // 
+            // labelValorDeclarado
+            // 
+            labelValorDeclarado.AutoSize = true;
+            labelValorDeclarado.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelValorDeclarado.ForeColor = Color.FromArgb(64, 64, 64);
+            labelValorDeclarado.Location = new Point(740, 156);
+            labelValorDeclarado.Name = "labelValorDeclarado";
+            labelValorDeclarado.Size = new Size(137, 19);
+            labelValorDeclarado.TabIndex = 23;
+            labelValorDeclarado.Text = "Valor Declarado";
+            // 
+            // txtValorDeclarado
+            // 
+            txtValorDeclarado.Location = new Point(740, 176);
+            txtValorDeclarado.Name = "txtValorDeclarado";
+            txtValorDeclarado.PlaceholderText = "$0.00";
+            txtValorDeclarado.Size = new Size(165, 31);
+            txtValorDeclarado.TabIndex = 24;
+            txtValorDeclarado.TextAlign = HorizontalAlignment.Right;
+            txtValorDeclarado.KeyPress += txtValorDeclarado_KeyPress;
             // 
             // labelCodigoRastreo
             // 
@@ -448,7 +473,7 @@
             labelCodigoRastreo.AutoSize = true;
             labelCodigoRastreo.Font = new Font("Century Gothic", 8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelCodigoRastreo.ForeColor = Color.FromArgb(64, 64, 64);
-            labelCodigoRastreo.Location = new Point(1065, 156);
+            labelCodigoRastreo.Location = new Point(1011, 156);
             labelCodigoRastreo.Name = "labelCodigoRastreo";
             labelCodigoRastreo.Size = new Size(126, 19);
             labelCodigoRastreo.TabIndex = 23;
@@ -457,10 +482,10 @@
             // txtCodigoRastreo
             // 
             txtCodigoRastreo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtCodigoRastreo.Location = new Point(1065, 176);
+            txtCodigoRastreo.Location = new Point(1011, 178);
             txtCodigoRastreo.Name = "txtCodigoRastreo";
             txtCodigoRastreo.PlaceholderText = "Ingrese código de rastreo";
-            txtCodigoRastreo.Size = new Size(224, 31);
+            txtCodigoRastreo.Size = new Size(275, 31);
             txtCodigoRastreo.TabIndex = 24;
             // 
             // btnGuardar
@@ -656,7 +681,7 @@
             btnMostrarTodos.Name = "btnMostrarTodos";
             btnMostrarTodos.Size = new Size(140, 28);
             btnMostrarTodos.TabIndex = 8;
-            btnMostrarTodos.Text = "🔄  Mostrar Todos";
+            btnMostrarTodos.Text = "Aplicar Filtros";
             btnMostrarTodos.UseVisualStyleBackColor = false;
             btnMostrarTodos.Click += btnMostrarTodos_Click;
             // 
@@ -696,7 +721,7 @@
             btnPrimero.ForeColor = Color.FromArgb(64, 64, 64);
             btnPrimero.Location = new Point(1095, 369);
             btnPrimero.Name = "btnPrimero";
-            btnPrimero.Size = new Size(34, 26);
+            btnPrimero.Size = new Size(34, 35);
             btnPrimero.TabIndex = 11;
             btnPrimero.Text = "«";
             btnPrimero.UseVisualStyleBackColor = false;
@@ -710,7 +735,7 @@
             btnAnterior.ForeColor = Color.FromArgb(64, 64, 64);
             btnAnterior.Location = new Point(1135, 369);
             btnAnterior.Name = "btnAnterior";
-            btnAnterior.Size = new Size(34, 26);
+            btnAnterior.Size = new Size(34, 35);
             btnAnterior.TabIndex = 12;
             btnAnterior.Text = "‹";
             btnAnterior.UseVisualStyleBackColor = false;
@@ -725,7 +750,7 @@
             btnPagina.ForeColor = Color.White;
             btnPagina.Location = new Point(1175, 369);
             btnPagina.Name = "btnPagina";
-            btnPagina.Size = new Size(34, 26);
+            btnPagina.Size = new Size(34, 35);
             btnPagina.TabIndex = 13;
             btnPagina.Text = "1";
             btnPagina.UseVisualStyleBackColor = false;
@@ -739,7 +764,7 @@
             btnSiguiente.ForeColor = Color.FromArgb(64, 64, 64);
             btnSiguiente.Location = new Point(1215, 369);
             btnSiguiente.Name = "btnSiguiente";
-            btnSiguiente.Size = new Size(34, 26);
+            btnSiguiente.Size = new Size(34, 35);
             btnSiguiente.TabIndex = 14;
             btnSiguiente.Text = "›";
             btnSiguiente.UseVisualStyleBackColor = false;
@@ -753,7 +778,7 @@
             btnUltimo.ForeColor = Color.FromArgb(64, 64, 64);
             btnUltimo.Location = new Point(1255, 369);
             btnUltimo.Name = "btnUltimo";
-            btnUltimo.Size = new Size(34, 26);
+            btnUltimo.Size = new Size(34, 35);
             btnUltimo.TabIndex = 15;
             btnUltimo.Text = "»";
             btnUltimo.UseVisualStyleBackColor = false;
@@ -812,6 +837,8 @@
         private System.Windows.Forms.TextBox txtAncho;
         private System.Windows.Forms.Label labelLargo;
         private System.Windows.Forms.TextBox txtLargo;
+        private System.Windows.Forms.Label labelValorDeclarado;
+        private System.Windows.Forms.TextBox txtValorDeclarado;
         private System.Windows.Forms.Label labelCodigoRastreo;
         private System.Windows.Forms.TextBox txtCodigoRastreo;
         private System.Windows.Forms.Button btnGuardar;
