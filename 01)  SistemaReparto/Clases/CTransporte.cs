@@ -9,12 +9,15 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace SistemaReparto.Clases
 {
+
     internal class CTransporte
     {
-        public void mostrarTransporte(DataGridView TablaTransporte)
+
+        public void mostrarVehiculo(DataGridView TablaTransporte)
         {
             try
             {
@@ -101,7 +104,7 @@ namespace SistemaReparto.Clases
 
 
 
-        public int GuardarEmpleado(ComboBox Cbo_Tipo_Transporte, ComboBox Cbo_Estado_Transporte,
+        public int GuardarVehiculo(ComboBox Cbo_Tipo_Transporte, ComboBox Cbo_Estado_Transporte,
             TextBox placa, TextBox año, TextBox modelo, TextBox marca,
             TextBox peso)
         {
@@ -109,7 +112,13 @@ namespace SistemaReparto.Clases
             {
                 if (Cbo_Tipo_Transporte.SelectedValue == null || Cbo_Estado_Transporte.SelectedValue == null)
                 {
-                    MessageBox.Show("Debe seleccionar Tipo de Empleado y Estado.");
+                    MessageBox.Show("Debe seleccionar Tipo de Vehiculo y Estado.");
+                    return -1;
+                }
+
+                if (!Regex.IsMatch(placa.Text, @"^[A-Za-z]{2}[0-9]{3}[A-Za-z]{3}$"))
+                {
+                    MessageBox.Show("La placa debe tener el formato: 2 letras, 3 números, 3 letras (Ej: PO159HRC)");
                     return -1;
                 }
 
@@ -190,7 +199,7 @@ namespace SistemaReparto.Clases
 
         // MODIFICAR (UPDATE)
 
-        public void ModificarTransporte(int idVehiculo, ComboBox Cbo_Tipo_Transporte, ComboBox Cbo_Estado_Transporte,
+        public void ModificarVehiculo(int idVehiculo, ComboBox Cbo_Tipo_Transporte, ComboBox Cbo_Estado_Transporte,
             TextBox placa, TextBox año, TextBox modelo, TextBox marca, TextBox peso)
         {
             try
@@ -198,6 +207,12 @@ namespace SistemaReparto.Clases
                 if (idVehiculo <= 0)
                 {
                     MessageBox.Show("Debe seleccionar un vehiculo de la tabla antes de editar.");
+                    return;
+                }
+
+                if (!Regex.IsMatch(placa.Text, @"^[A-Za-z]{2}[0-9]{3}[A-Za-z]{3}$"))
+                {
+                    MessageBox.Show("La placa debe tener el formato: 2 letras, 3 números, 3 letras (Ej: PO159HRC)");
                     return;
                 }
 

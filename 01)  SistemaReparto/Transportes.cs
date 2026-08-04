@@ -59,7 +59,7 @@ namespace SistemaReparto
         {
             objTransporte.llenarComboTipoVehiculo(Cbo_Tipo_Transporte);
             objTransporte.llenarComboEstadoVehiculo(Cbo_Estado_Transporte);
-            objTransporte.mostrarTransporte(Dgv_Tabla_Transporte);
+            objTransporte.mostrarVehiculo(Dgv_Tabla_Transporte);
 
             // Al cargar el formulario, los campos inician bloqueados hasta seleccionar o presionar Nuevo/Editar
             BloquearCampos();
@@ -97,7 +97,7 @@ namespace SistemaReparto
             if (confirmar == DialogResult.Yes)
             {
                 objTransporte.EliminarVehiculo(idVehiculoSeleccionado);
-                objTransporte.mostrarTransporte(Dgv_Tabla_Transporte);
+                objTransporte.mostrarVehiculo(Dgv_Tabla_Transporte);
                 LimpiarCampos();
                 BloquearCampos();
             }
@@ -106,13 +106,13 @@ namespace SistemaReparto
         // Btn_Actualizar_Emp: actualiza los datos de los textbox y componentes 
         private void Btn_Actualizar_Transporte_Click(object sender, EventArgs e)
         {
-            objTransporte.ModificarTransporte(
+            objTransporte.ModificarVehiculo(
                 idVehiculoSeleccionado,
                 Cbo_Tipo_Transporte, Cbo_Estado_Transporte,
                 Txt_Placa_Transporte, Txt_Año_Transporte, Txt_Modelo_Transporte, Txt_Marca_Transporte,
                 Txt_Peso_Transporte);
 
-            objTransporte.mostrarTransporte(Dgv_Tabla_Transporte);
+            objTransporte.mostrarVehiculo(Dgv_Tabla_Transporte);
             BloquearCampos();
         }
 
@@ -136,12 +136,12 @@ namespace SistemaReparto
 
         private void Btn_Guardar_Transporte_Click(object sender, EventArgs e)
         {
-            objTransporte.GuardarEmpleado(
+            objTransporte.GuardarVehiculo(
                Cbo_Tipo_Transporte, Cbo_Estado_Transporte,
                Txt_Placa_Transporte, Txt_Año_Transporte, Txt_Modelo_Transporte, Txt_Marca_Transporte,
                Txt_Peso_Transporte);
 
-            objTransporte.mostrarTransporte(Dgv_Tabla_Transporte);
+            objTransporte.mostrarVehiculo(Dgv_Tabla_Transporte);
             LimpiarCampos();
             BloquearCampos();
         }
@@ -188,6 +188,26 @@ namespace SistemaReparto
             Estado_Transporte formTipos = new Estado_Transporte();
             formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
 
+        }
+
+        private void Txt_Placa_Transporte_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Txt_Placa_Transporte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar)) return; 
+
+            int pos = Txt_Placa_Transporte.SelectionStart;
+
+            bool esLetra = pos < 2 || pos >= 5;    // posiciones 0,1 y 5,6,7 letras
+            bool esNumero = pos >= 2 && pos < 5;   // posiciones 2,3,4 números
+
+            if (esLetra && !char.IsLetter(e.KeyChar))
+                e.Handled = true;
+            else if (esNumero && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
         }
     }
 }

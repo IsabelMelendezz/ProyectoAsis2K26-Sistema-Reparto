@@ -397,12 +397,16 @@
             // 
             // Txt_Placa_Transporte
             // 
+            Txt_Placa_Transporte.CharacterCasing = CharacterCasing.Upper;
             Txt_Placa_Transporte.Location = new Point(98, 75);
             Txt_Placa_Transporte.Margin = new Padding(4, 5, 4, 5);
+            Txt_Placa_Transporte.MaxLength = 8;
             Txt_Placa_Transporte.Name = "Txt_Placa_Transporte";
             Txt_Placa_Transporte.PlaceholderText = "🚍 Placa";
             Txt_Placa_Transporte.Size = new Size(196, 27);
             Txt_Placa_Transporte.TabIndex = 17;
+            Txt_Placa_Transporte.TextChanged += Txt_Placa_Transporte_TextChanged;
+            Txt_Placa_Transporte.KeyPress += Txt_Placa_Transporte_KeyPress;
             // 
             // Cbo_Tipo_Transporte
             // 
