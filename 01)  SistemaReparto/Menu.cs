@@ -154,7 +154,7 @@ namespace SistemaReparto
 
         private void btnAreas_Click(object sender, EventArgs e)
         {
-            OpenFormInPanel(new Areas());
+            OpenFormInPanel(new Area_Cubierta());
         }
 
         private void btnAsignacion_Click(object sender, EventArgs e)
