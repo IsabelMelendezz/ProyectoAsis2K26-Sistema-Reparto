@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel4 = new Panel();
+            btn_cambiar_contra = new Button();
             cbo_Estado_Usuario = new ComboBox();
             label8 = new Label();
             txt_Contraseña = new TextBox();
@@ -94,6 +95,7 @@
             // panel4
             // 
             panel4.BackColor = Color.AliceBlue;
+            panel4.Controls.Add(btn_cambiar_contra);
             panel4.Controls.Add(cbo_Estado_Usuario);
             panel4.Controls.Add(label8);
             panel4.Controls.Add(txt_Contraseña);
@@ -115,6 +117,16 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(648, 512);
             panel4.TabIndex = 49;
+            // 
+            // btn_cambiar_contra
+            // 
+            btn_cambiar_contra.Location = new Point(432, 440);
+            btn_cambiar_contra.Margin = new Padding(3, 4, 3, 4);
+            btn_cambiar_contra.Name = "btn_cambiar_contra";
+            btn_cambiar_contra.Size = new Size(144, 56);
+            btn_cambiar_contra.TabIndex = 42;
+            btn_cambiar_contra.UseVisualStyleBackColor = true;
+            btn_cambiar_contra.Click += button2_Click;
             // 
             // cbo_Estado_Usuario
             // 
@@ -749,5 +761,6 @@
         private Label label15;
         private Label label10;
         private PictureBox pictureBox2;
+        private Button btn_cambiar_contra;
     }
 }

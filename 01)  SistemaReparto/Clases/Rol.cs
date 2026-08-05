@@ -14,7 +14,10 @@ namespace SistemaReparto.Clases
 
         public string Estado { get; set; } // Agregado para el estado del rol
 
-        public CRol() { }
+        public CRol() {
+          
+            
+        }
 
         public CRol(string nombre, string descripcion, string estado)
         {

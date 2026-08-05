@@ -186,7 +186,7 @@
             // 
             cmb_Estado.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_Estado.FormattingEnabled = true;
-            cmb_Estado.Items.AddRange(new object[] { "1", "0" });
+            cmb_Estado.Items.AddRange(new object[] { "Activo", "Inactivo" });
             cmb_Estado.Location = new Point(472, 216);
             cmb_Estado.Margin = new Padding(5);
             cmb_Estado.Name = "cmb_Estado";

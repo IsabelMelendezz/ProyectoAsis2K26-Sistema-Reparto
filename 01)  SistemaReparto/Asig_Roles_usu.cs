@@ -142,8 +142,134 @@ namespace SistemaReparto
 
         private void Btn_Guardar_Emp_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!ValidarCombos()) return;
 
+                int idUsuario = Convert.ToInt32(cbo_Usu_Disponible.SelectedValue);
+                int idRol = Convert.ToInt32(Cbo_Rol_Disponibles.SelectedValue);
+
+                CAsig_Roles_Usu nuevaAsignacion = new CAsig_Roles_Usu(idUsuario, idRol, DateTime.Now, "", "");
+
+                if (controlador.AsignarRol(nuevaAsignacion))
+                {
+                    MessageBox.Show("Rol asignado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarGrid();
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ocurrió un error al guardar la asignación." + Environment.NewLine +
+                    "Mensaje: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+        private void Btn_Actualizar_Asig_R_U_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!haySeleccion)
+                {
+                    MessageBox.Show("Selecciona una asignación de la lista primero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!ValidarCombos()) return;
+
+                int nuevoIdUsuario = Convert.ToInt32(cbo_Usu_Disponible.SelectedValue);
+                int nuevoIdRol = Convert.ToInt32(Cbo_Rol_Disponibles.SelectedValue);
+
+                CAsig_Roles_Usu actualizado = new CAsig_Roles_Usu(nuevoIdUsuario, nuevoIdRol, DateTime.Now, "", "");
+
+                if (controlador.EditarAsignacion(idUsuarioSeleccionado, idRolSeleccionado, actualizado))
+                {
+                    MessageBox.Show("Asignación actualizada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarGrid();
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ocurrió un error al editar la asignación." + Environment.NewLine +
+                    "Mensaje: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Btn_Eliminar_Emp_Asig_R_U_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!haySeleccion)
+                {
+                    MessageBox.Show("Selecciona una asignación de la lista primero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                var confirmacion = MessageBox.Show("¿Seguro que deseas eliminar esta asignación?", "Confirmar",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    if (controlador.EliminarAsignacion(idUsuarioSeleccionado, idRolSeleccionado))
+                    {
+                        MessageBox.Show("Asignación eliminada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarGrid();
+                        Limpiar();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ocurrió un error al eliminar la asignación." + Environment.NewLine +
+                    "Mensaje: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Btn_Limpiar_Emp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Limpiar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Cbo_Rol_Disponibles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbo_Usu_Disponible.SelectedIndex == -1) return;
+
+                int idUsuario = Convert.ToInt32(cbo_Usu_Disponible.SelectedValue);
+                
+
+                RefrescarModulosDisponibles(idUsuario);
+            
+             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al seleccionar el rol: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void RefrescarModulosDisponibles(int idUsuario)
+        {
+            Cbo_Rol_Disponibles.DataSource = controlador.ListarRolessDisponibles(idUsuario);
+            Cbo_Rol_Disponibles.DisplayMember = "NombreRol";
+            Cbo_Rol_Disponibles.ValueMember = "IdRol";
+            Cbo_Rol_Disponibles.SelectedIndex = -1;
+        }
+        
     }
 }
 

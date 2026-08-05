@@ -321,6 +321,7 @@
             cbo_Modulos_Disponibles.Name = "cbo_Modulos_Disponibles";
             cbo_Modulos_Disponibles.Size = new Size(160, 28);
             cbo_Modulos_Disponibles.TabIndex = 34;
+            cbo_Modulos_Disponibles.SelectedIndexChanged += cbo_Modulos_Disponibles_SelectedIndexChanged;
             // 
             // label3
             // 

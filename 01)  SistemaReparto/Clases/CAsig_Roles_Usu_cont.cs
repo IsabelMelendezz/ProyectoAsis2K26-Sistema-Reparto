@@ -1,9 +1,10 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemaReparto.Clases
 {
@@ -29,7 +30,7 @@ namespace SistemaReparto.Clases
                     lista.Add(new CUsuarios
                     {
                         IdUsuario = Convert.ToInt32(reader["id_usuario"]),
-                        NombreUsuario = reader["usuario"].ToString()
+                        NombreUsuario = reader["usuario_usuario"].ToString()
                     });
                 }
             }
@@ -53,7 +54,7 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = "SELECT id_rol, nombre_rol FROM rol WHERE estado_rol = 1";
+                string query = "SELECT id_rol, nombre_rol FROM rol WHERE estado_rol = 'Activo'";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -62,13 +63,52 @@ namespace SistemaReparto.Clases
                     lista.Add(new CRol
                     {
                         IdRol = Convert.ToInt32(reader["id_rol"]),
-                        Nombre = reader["nombre"].ToString()
+                        Nombre = reader["nombre_rol"].ToString()
                     });
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al listar roles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+            return lista;
+        }
+        //LISTA ROLES DISPONIBLES PARA UN USUARIO (para el combo de edición)
+        public List<CRol> ListarRolessDisponibles(int idRol)
+        {
+            List<CRol> lista = new List<CRol>();
+            CConexion cn = new CConexion();
+            MySqlConnection conexion = cn.establecerConexion();
+
+            try
+            {
+                string query = @"SELECT m.id_rol, m.nombre_rol, m.estado_rol
+                                  FROM rol m
+                                  WHERE m.estado_rol = 'Activo'
+                                  AND m.id_rol NOT IN (
+                                      SELECT id_rol FROM usuario_rol WHERE id_rol = @idRol
+                                  )";
+                MySqlCommand cmd = new MySqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@idRol", idRol);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    lista.Add(new CRol(
+                        Convert.ToInt32(reader["id_rol"]),
+                        reader["nombre_rol"].ToString(),
+                        null, // Descripcion no está en el SELECT, así que se pasa null
+                        reader["estado_rol"].ToString()
+                    ));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al listar módulos disponibles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -134,7 +174,7 @@ namespace SistemaReparto.Clases
                     lista.Add(new CAsig_Roles_Usu(
                         Convert.ToInt32(reader["id_usuario"]),
                         Convert.ToInt32(reader["id_rol"]),
-                        Convert.ToDateTime(reader["fecha_asignacion"]),
+                        Convert.ToDateTime(reader["fecha_asignacion_usuario_rol"]),
                         reader["nombre_usuario"].ToString(),
                         reader["nombre_rol"].ToString()
                     ));

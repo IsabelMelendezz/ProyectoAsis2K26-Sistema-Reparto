@@ -18,6 +18,8 @@ namespace SistemaReparto
 
         int idUsuarioSeleccionado = 0;
         bool haySeleccion = false;
+        bool cambiandoContrasena = false;
+
         public Usuarios()
         {
             InitializeComponent();
@@ -31,15 +33,43 @@ namespace SistemaReparto
                 CargarComboEmpleados();
                 CargarComboEstado();
                 CargarGrid();
-
+                btn_cambiar_contra.Text = "Cambio de Contraseña";
                 // Fecha de creación: automática y no editable
                 dtp_Fecha_Creacion.Value = DateTime.Now;
                 dtp_Fecha_Creacion.Enabled = false;
+                txt_Contraseña.PasswordChar = '*';
+
+                DeshabilitarCampos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void DeshabilitarCampos()
+        {
+            cbo_Id_Empleados.Enabled = false;
+            txt_Nombre_Usuario.Enabled = false;
+            txt_Correo.Enabled = false;
+            cbo_Estado_Usuario.Enabled = false;
+            txt_Contraseña.Enabled = false;
+
+        }
+        private void HabilitarCamposParaEditar()
+        {
+            cbo_Id_Empleados.Enabled = true;
+            txt_Nombre_Usuario.Enabled = true;
+            txt_Correo.Enabled = true;
+            cbo_Estado_Usuario.Enabled = true;
+            txt_Contraseña.Enabled = false;
+        }
+        private void HabilitarCamposParaNuevo()
+        {
+            cbo_Id_Empleados.Enabled = true;
+            txt_Nombre_Usuario.Enabled = true;
+            txt_Correo.Enabled = true;
+            cbo_Estado_Usuario.Enabled = true;
+            txt_Contraseña.Enabled = true;
         }
         private void CargarComboEmpleados()
         {
@@ -128,7 +158,15 @@ namespace SistemaReparto
 
         private void Btn_Nuevo_Emp_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Limpiar();
+                HabilitarCamposParaNuevo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -143,6 +181,7 @@ namespace SistemaReparto
 
         private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
         {
+            DeshabilitarCampos();
             try
             {
                 if (Dgv_Tabla_Usu.CurrentRow == null) return;
@@ -161,11 +200,11 @@ namespace SistemaReparto
                     cbo_Id_Empleados.DataSource = listaEmpleados;
                     cbo_Id_Empleados.DisplayMember = "NombreCompleto";
                     cbo_Id_Empleados.ValueMember = "IdEmpleado";
-                    cbo_Id_Empleados.SelectedValue = seleccionado.IdEmpleado;  // ahora sí lo encuentra
+                    cbo_Id_Empleados.SelectedValue = seleccionado.IdEmpleado;
 
                     txt_Nombre_Usuario.Text = seleccionado.NombreUsuario;
                     txt_Correo.Text = seleccionado.Correo;
-                    txt_Contraseña.Text = "";
+                    txt_Contraseña.Text = seleccionado.Contrasena;
                     txt_Nombre_Empleado.Text = seleccionado.IdEmpleado.ToString();
                     cbo_Estado_Usuario.SelectedItem = seleccionado.Estado;
                     dtp_Fecha_Creacion.Value = seleccionado.FechaCreacion;
@@ -184,10 +223,10 @@ namespace SistemaReparto
             {
                 txt_Nombre_Empleado.Text = empleadoSeleccionado.IdEmpleado.ToString();
                 txt_Nombre_Usuario.Text = empleadoSeleccionado.NombreUsuario;
-                txt_Contraseña.Text = "";
-                
+                txt_Contraseña.Text = empleadoSeleccionado.Contrasena;
+
                 cbo_Estado_Usuario.SelectedItem = empleadoSeleccionado.Estado;
-                
+
             }
         }
         private bool Validar()
@@ -239,7 +278,20 @@ namespace SistemaReparto
 
         private void Btn_Editar_Emp_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (!haySeleccion)
+                {
+                    MessageBox.Show("Selecciona un usuario de la lista primero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                HabilitarCamposParaEditar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Btn_Actualizar_Usu_Click(object sender, EventArgs e)
@@ -335,6 +387,63 @@ namespace SistemaReparto
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!haySeleccion)
+                {
+                    MessageBox.Show("Selecciona un usuario de la lista primero", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!cambiandoContrasena)
+                {
+                    // Paso 1: pedir confirmación antes de habilitar el campo
+                    var confirmacion = MessageBox.Show(
+                        "¿Estás seguro que deseas cambiar la contraseña de este usuario?",
+                        "Confirmar cambio de contraseña",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+                    btn_cambiar_contra.Text = "Cambio de Contraseña";
+
+                    if (confirmacion != DialogResult.Yes)
+                        return; // el usuario canceló, no se habilita nada
+
+                    // Habilita el campo vacío para escribir la nueva contraseña
+                    txt_Contraseña.Clear();
+                    txt_Contraseña.Enabled = true;
+                    txt_Contraseña.Focus();
+                    cambiandoContrasena = true;
+                    btn_cambiar_contra.Text = "Confirmar Nueva Contraseña";
+                }
+                else
+                {
+                    // Paso 2: valida y guarda la nueva contraseña
+                    if (string.IsNullOrWhiteSpace(txt_Contraseña.Text))
+                    {
+                        MessageBox.Show("Ingresa la nueva contraseña", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (controlador.CambiarContrasena(idUsuarioSeleccionado, txt_Contraseña.Text))
+                    {
+                        MessageBox.Show("Contraseña actualizada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txt_Contraseña.Enabled = false;
+                        cambiandoContrasena = false;
+                        btn_cambiar_contra.Text = "Cambio de Contraseña";
+                        CargarGrid();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cambiar la contraseña: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
+
 

@@ -232,6 +232,11 @@ namespace SistemaReparto
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cbo_Modulos_Disponibles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
