@@ -36,16 +36,18 @@ namespace SistemaReparto.Clases
         }
 
         // Constructor completo (desde la BD)
-        public CUsuarios(int idUsuario, int idEmpleado, string nombreUsuario, string correo,
+        public CUsuarios(int idUsuario, int idEmpleado, string nombreUsuario, string correo, string contrasena,
                         DateTime? ultimoAcceso, DateTime fechaCreacion, string estado, string nombreEmpleado)
         {
             IdUsuario = idUsuario;
             IdEmpleado = idEmpleado;
             NombreUsuario = nombreUsuario;
             Correo = correo;
+            Contrasena = contrasena;
             UltimoAcceso = ultimoAcceso;
             FechaCreacion = fechaCreacion;
             Estado = estado;
+           
             NombreEmpleado = nombreEmpleado;
         }
     }

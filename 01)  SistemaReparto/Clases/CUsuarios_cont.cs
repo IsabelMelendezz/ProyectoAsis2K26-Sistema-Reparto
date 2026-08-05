@@ -1,10 +1,11 @@
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Crypto.Generators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using MySql.Data.MySqlClient;
+using BCrypt.Net;
 
 namespace SistemaReparto.Clases
 {
@@ -18,13 +19,16 @@ namespace SistemaReparto.Clases
 
             try
             {
+                string hashContrasena = BCrypt.Net.BCrypt.HashPassword(u.Contrasena); // 
+
+
                 string query = @"INSERT INTO usuario (id_empleado, usuario_usuario, correo_usuario, contrasena_usuario, fecha_creacion_usuario, estado_usuario) 
                                   VALUES (@idEmpleado, @usuario, @correo, @contrasena, @fechaCreacion, @estado)";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
                 cmd.Parameters.AddWithValue("@idEmpleado", u.IdEmpleado);
                 cmd.Parameters.AddWithValue("@usuario", u.NombreUsuario);
                 cmd.Parameters.AddWithValue("@correo", u.Correo);
-                cmd.Parameters.AddWithValue("@contrasena", u.Contrasena); 
+                cmd.Parameters.AddWithValue("@contrasena", hashContrasena); 
                 cmd.Parameters.AddWithValue("@fechaCreacion", u.FechaCreacion);
                 cmd.Parameters.AddWithValue("@estado", u.Estado);
 
@@ -57,7 +61,8 @@ namespace SistemaReparto.Clases
 
             try
             {
-                string query = @"SELECT u.id_usuario, u.id_empleado, u.usuario_usuario, u.correo_usuario, 
+               
+                string query = @"SELECT u.id_usuario, u.id_empleado, u.usuario_usuario, u.correo_usuario, u.contrasena_usuario,
                                          u.ultimo_acceso_usuario, u.fecha_creacion_usuario, u.estado_usuario,
                                          CONCAT(e.nombre_empleado, ' ', e.apellido_empleado) AS nombre_empleado
                                   FROM usuario u
@@ -72,6 +77,7 @@ namespace SistemaReparto.Clases
                         Convert.ToInt32(reader["id_empleado"]),
                         reader["usuario_usuario"].ToString(),
                         reader["correo_usuario"] == DBNull.Value ? "" : reader["correo_usuario"].ToString(),
+                        reader["contrasena_usuario"].ToString(),
                         reader["ultimo_acceso_usuario"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ultimo_acceso_usuario"]),
                         Convert.ToDateTime(reader["fecha_creacion_usuario"]),
                         reader["estado_usuario"].ToString(),
@@ -163,9 +169,10 @@ namespace SistemaReparto.Clases
 
             try
             {
+                string hash = BCrypt.Net.BCrypt.HashPassword(nuevaContrasena);
                 string query = "UPDATE usuario SET contrasena_usuario=@contrasena WHERE id_usuario=@id";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
-                cmd.Parameters.AddWithValue("@contrasena", nuevaContrasena); // Recomendado: hashear antes
+                cmd.Parameters.AddWithValue("@contrasena", hash); // Recomendado: hashear antes
                 cmd.Parameters.AddWithValue("@id", idUsuario);
 
                 int filasAfectadas = cmd.ExecuteNonQuery();
@@ -212,6 +219,11 @@ namespace SistemaReparto.Clases
             {
                 cn.cerrarConexion();
             }
+        }
+
+        internal bool CambiarContrasena(CUsuarios usuarioEditado)
+        {
+            throw new NotImplementedException();
         }
     }
 }
