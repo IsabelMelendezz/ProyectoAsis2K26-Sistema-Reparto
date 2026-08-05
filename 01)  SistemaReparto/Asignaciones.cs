@@ -21,5 +21,45 @@ namespace SistemaReparto
         {
 
         }
+
+        private void lblAsignadosTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvAsignados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblBodegaOrigenValor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPedidosAsignados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblTiempoEstimadoBottomValor_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlBotonesAccion_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Asignaciones_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
