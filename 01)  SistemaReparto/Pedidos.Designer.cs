@@ -60,6 +60,7 @@ namespace SistemaReparto
             label2 = new Label();
             pnlInformacion = new Panel();
             pnlBusqueda = new Panel();
+            lblRuta = new Label();
             TxtCodigoPedido = new TextBox();
             comboBoxDepartamentoDestino = new ComboBox();
             comboBoxMunicipioDestino = new ComboBox();
@@ -76,7 +77,6 @@ namespace SistemaReparto
             btnEditar = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
-            lblRuta = new Label();
             pnlTabla.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
@@ -180,9 +180,9 @@ namespace SistemaReparto
             labelRuta.ForeColor = Color.FromArgb(64, 64, 64);
             labelRuta.Location = new Point(302, 44);
             labelRuta.Name = "labelRuta";
-            labelRuta.Size = new Size(77, 17);
+            labelRuta.Size = new Size(116, 17);
             labelRuta.TabIndex = 5;
-            labelRuta.Text = "Id_Cliente";
+            labelRuta.Text = "Nombre Cliente";
             // 
             // cboCliente
             // 
@@ -200,9 +200,9 @@ namespace SistemaReparto
             labelTipoPaquete.ForeColor = Color.FromArgb(64, 64, 64);
             labelTipoPaquete.Location = new Point(588, 44);
             labelTipoPaquete.Name = "labelTipoPaquete";
-            labelTipoPaquete.Size = new Size(130, 17);
+            labelTipoPaquete.Size = new Size(104, 17);
             labelTipoPaquete.TabIndex = 7;
-            labelTipoPaquete.Text = "id_estado_pedido";
+            labelTipoPaquete.Text = "Estado Pedido";
             // 
             // cboEstadoPedido
             // 
@@ -222,9 +222,9 @@ namespace SistemaReparto
             labelFragil.ForeColor = Color.FromArgb(64, 64, 64);
             labelFragil.Location = new Point(874, 44);
             labelFragil.Name = "labelFragil";
-            labelFragil.Size = new Size(53, 17);
+            labelFragil.Size = new Size(90, 17);
             labelFragil.TabIndex = 9;
-            labelFragil.Text = "id_ruta";
+            labelFragil.Text = "Detalle Ruta";
             // 
             // pnlTabla
             // 
@@ -377,9 +377,10 @@ namespace SistemaReparto
             labelEstado.ForeColor = Color.FromArgb(64, 64, 64);
             labelEstado.Location = new Point(413, 100);
             labelEstado.Name = "labelEstado";
-            labelEstado.Size = new Size(143, 17);
+            labelEstado.Size = new Size(376, 17);
             labelEstado.TabIndex = 13;
-            labelEstado.Text = "Direccion de origen";
+            labelEstado.Text = "Direccion de origen  (Departamento, Municipio, Zona)";
+            labelEstado.Click += labelEstado_Click;
             // 
             // labelPeso
             // 
@@ -560,6 +561,14 @@ namespace SistemaReparto
             pnlBusqueda.Size = new Size(1305, 296);
             pnlBusqueda.TabIndex = 2;
             // 
+            // lblRuta
+            // 
+            lblRuta.AutoSize = true;
+            lblRuta.Location = new Point(876, 64);
+            lblRuta.Name = "lblRuta";
+            lblRuta.Size = new Size(0, 20);
+            lblRuta.TabIndex = 36;
+            // 
             // TxtCodigoPedido
             // 
             TxtCodigoPedido.Location = new Point(17, 70);
@@ -610,9 +619,9 @@ namespace SistemaReparto
             Txt.ForeColor = Color.FromArgb(64, 64, 64);
             Txt.Location = new Point(874, 101);
             Txt.Name = "Txt";
-            Txt.Size = new Size(151, 17);
+            Txt.Size = new Size(380, 17);
             Txt.TabIndex = 31;
-            Txt.Text = "Direccion De Destino";
+            Txt.Text = "Direccion De Destino  (Departamento, Municipio,Zona)";
             // 
             // comboBoxDepartamentoOrigen
             // 
@@ -719,14 +728,6 @@ namespace SistemaReparto
             btnActualizar.TabIndex = 28;
             btnActualizar.Text = "🔄  Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
-            // 
-            // lblRuta
-            // 
-            lblRuta.AutoSize = true;
-            lblRuta.Location = new Point(876, 64);
-            lblRuta.Name = "lblRuta";
-            lblRuta.Size = new Size(0, 20);
-            lblRuta.TabIndex = 36;
             // 
             // Pedidos
             // 

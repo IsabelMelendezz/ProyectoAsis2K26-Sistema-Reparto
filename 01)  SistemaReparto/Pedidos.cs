@@ -69,7 +69,7 @@ namespace SistemaReparto
             objetoPedidos.LlenarComboCliente(cboCliente);
             objetoPedidos.LlenarComboEstadoPedido(cboEstadoPedido);
 
-       //esto ya sale solo como un label informativo para evitar inconsistencias
+            //esto ya sale solo como un label informativo para evitar inconsistencias
 
             lblRuta.Text = "Sin ruta asignada";
 
@@ -105,7 +105,7 @@ namespace SistemaReparto
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-    
+
             objetoPedidos.GuardarPedido(
                 TxtCodigoPedido,
                 cboCliente,
@@ -266,7 +266,7 @@ namespace SistemaReparto
         {
             TxtCodigoPedido.Enabled = habilitado;
             cboCliente.Enabled = habilitado;
-            
+
             // lblRuta no se habilita/deshabilita: es un Label de solo lectura, esto para que luego 
             //no genere inconsistencias con nuestro transaccional solo va ser como un control para ver sus rutas 
             //sin asignarla porque eso ya lo ve el transaccional :) 
@@ -316,6 +316,11 @@ namespace SistemaReparto
         }
 
         private void cboEstadoPedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelEstado_Click(object sender, EventArgs e)
         {
 
         }
