@@ -10,7 +10,7 @@ namespace SistemaReparto.Clases
             const string letras = "ABCDEFGHJKLMNPQRSTUVWXYZ";
             const string numeros = "23456789";
 
-            Random random = new Random();
+            Random random = Random.Shared;
 
             char[] token = new char[6];
 
