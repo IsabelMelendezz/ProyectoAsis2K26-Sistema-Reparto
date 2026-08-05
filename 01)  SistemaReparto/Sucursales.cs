@@ -206,5 +206,40 @@ namespace SistemaReparto
                 textBoxTelefono,
                 textBoxCorreo);
         }
+
+        private void textBoxCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar)) return; 
+
+            char c = e.KeyChar;
+
+            // Caracteres permitidos
+            bool esValido = char.IsLetterOrDigit(c) || c == '@' || c == '.' || c == '_' || c == '-';
+
+            if (!esValido)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // No permitir más de un '@'
+            if (c == '@' && textBoxCorreo.Text.Contains("@"))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // No permite '@' como primer carácter
+            if (c == '@' && textBoxCorreo.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (c == '.' && textBoxCorreo.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

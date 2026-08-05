@@ -443,6 +443,40 @@ namespace SistemaReparto
             }
         }
 
+        private void txt_Correo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar)) return; // permite backspace, etc.
+
+            char c = e.KeyChar;
+
+            // Caracteres permitidos en un correo: letras, números, @ . _ -
+            bool esValido = char.IsLetterOrDigit(c) || c == '@' || c == '.' || c == '_' || c == '-';
+
+            if (!esValido)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // No permitir más de un '@'
+            if (c == '@' && txt_Correo.Text.Contains("@"))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // No permitir '@' como primer carácter
+            if (c == '@' && txt_Correo.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (c == '.' && txt_Correo.Text.Length == 0)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
 

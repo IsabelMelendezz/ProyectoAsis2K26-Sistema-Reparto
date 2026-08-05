@@ -180,6 +180,7 @@
             txt_Correo.ShortcutsEnabled = false;
             txt_Correo.Size = new Size(256, 27);
             txt_Correo.TabIndex = 45;
+            txt_Correo.KeyPress += txt_Correo_KeyPress;
             // 
             // txt_Nombre_Usuario
             // 

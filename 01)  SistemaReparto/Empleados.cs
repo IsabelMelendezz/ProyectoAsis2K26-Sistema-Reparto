@@ -107,7 +107,7 @@ namespace SistemaReparto
                 Tabla_Empleados,
                 Tipo_Empleado1, Estado_Empleado,
                 Nombre_Empleado, Apellidos_Empleado, Dpi_Empleado, Nit_Empleado,
-                Telefono_Empleado,  Direccion_Empleado,
+                Telefono_Empleado, Direccion_Empleado,
                 Nacimiento_Empleado, Contratacion_Empleado);
 
             // El empleado seleccionado solo se puede ver, no modificar, hasta presionar Editar
@@ -127,7 +127,7 @@ namespace SistemaReparto
             objEmpleados.GuardarEmpleado(
                 Tipo_Empleado1, Estado_Empleado,
                 Nombre_Empleado, Apellidos_Empleado, Dpi_Empleado, Nit_Empleado,
-                Telefono_Empleado,  Direccion_Empleado,
+                Telefono_Empleado, Direccion_Empleado,
                 Nacimiento_Empleado, Contratacion_Empleado);
 
             objEmpleados.mostrar_Empleados(Tabla_Empleados);
@@ -247,6 +247,85 @@ namespace SistemaReparto
         private void label20_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Dpi_Empleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar)) return;
+            TextBox txt = (TextBox)sender;
+
+            // Solo números
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (txt.Text.Length >= 13 && txt.SelectionLength == 0)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Nit_Empleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar)) return; // permite backspace, etc.
+
+            TextBox txt = (TextBox)sender;
+            string texto = txt.Text;
+
+            // Si ya hay un guion, solo se permite UN número más después de él
+            if (texto.Contains("-"))
+            {
+                int posGuion = texto.IndexOf("-");
+                if (texto.Length > posGuion + 1)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+
+            if (e.KeyChar == '-')
+            {
+                // No permite que el guion sea el primer digito 
+                if (texto.Contains("-") || texto.Length == 0)
+                {
+                    e.Handled = true;
+                }
+                return;
+            }
+
+            // Solo números
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+
+            if (texto.Length >= 9 && txt.SelectionLength == 0)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Telefono_Empleado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar)) return;
+            TextBox txt = (TextBox)sender;
+
+            // Solo números
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (txt.Text.Length >= 8 && txt.SelectionLength == 0)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -345,6 +345,7 @@
             textBoxCorreo.PlaceholderText = "✉  Ingrese el correo electrónico";
             textBoxCorreo.Size = new Size(373, 27);
             textBoxCorreo.TabIndex = 10;
+            textBoxCorreo.KeyPress += textBoxCorreo_KeyPress;
             // 
             // panel4
             // 

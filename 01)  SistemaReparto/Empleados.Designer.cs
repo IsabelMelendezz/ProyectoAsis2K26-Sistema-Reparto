@@ -164,6 +164,7 @@
             Telefono_Empleado.PlaceholderText = "Telefono";
             Telefono_Empleado.Size = new Size(262, 27);
             Telefono_Empleado.TabIndex = 44;
+            Telefono_Empleado.KeyPress += Telefono_Empleado_KeyPress;
             // 
             // Contratacion_Empleado
             // 
@@ -254,6 +255,7 @@
             Nit_Empleado.PlaceholderText = "📇 NIT";
             Nit_Empleado.Size = new Size(265, 27);
             Nit_Empleado.TabIndex = 16;
+            Nit_Empleado.KeyPress += Nit_Empleado_KeyPress;
             // 
             // label12
             // 
@@ -329,6 +331,7 @@
             Dpi_Empleado.PlaceholderText = "💳 DPI";
             Dpi_Empleado.Size = new Size(255, 27);
             Dpi_Empleado.TabIndex = 23;
+            Dpi_Empleado.KeyPress += Dpi_Empleado_KeyPress;
             // 
             // Apellidos_Empleado
             // 
