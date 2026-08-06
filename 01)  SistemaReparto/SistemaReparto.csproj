@@ -16,6 +16,7 @@
     <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
     <PackageReference Include="MailKit" Version="4.17.0" />
     <PackageReference Include="MySql.Data" Version="9.7.0" />
+    <PackageReference Include="ScottPlot.WinForms" Version="5.1.59" />
   </ItemGroup>
 
   <ItemGroup>
