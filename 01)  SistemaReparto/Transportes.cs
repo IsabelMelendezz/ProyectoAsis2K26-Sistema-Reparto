@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SistemaReparto.Clases.CModulo;
 
 namespace SistemaReparto
 {
@@ -20,6 +21,12 @@ namespace SistemaReparto
         // ==== AGREGANDO: objeto CRUD e ID del vehiculo seleccionado en la tabla ====
         private CTransporte objTransporte = new CTransporte();
         private int idVehiculoSeleccionado = 0;
+        //Victor Omar GOmez Carrascosa 9959-23-10733
+        //LLamada de las clases para la verificación de permisos
+        private CPermisoModulo misPermisos;
+        private ModuloRolController permisosController = new ModuloRolController();
+        private ModuloUsuarioController permisosUsuarioController = new ModuloUsuarioController();
+
         public Transportes()
         {
             InitializeComponent();
@@ -61,12 +68,75 @@ namespace SistemaReparto
 
         private void Transportes_Load(object sender, EventArgs e)
         {
-            objTransporte.llenarComboTipoVehiculo(Cbo_Tipo_Transporte);
-            objTransporte.llenarComboEstadoVehiculo(Cbo_Estado_Transporte);
-            objTransporte.mostrarVehiculo(Dgv_Tabla_Transporte);
+            try
+            {
 
-            // Al cargar el formulario, los campos inician bloqueados hasta seleccionar o presionar Nuevo/Editar
-            BloquearCampos();
+                // --- Verificación de seguridad ---
+                CPermisoModulo permisosPorRol = permisosController.ObtenerPermisos(Modulos.Transportes, Sesion.IdsRoles);
+                CPermisoModulo permisosPorUsuario = permisosUsuarioController.ObtenerPermisos(Modulos.Transportes, Sesion.IdUsuario);
+
+                // Combina: si CUALQUIERA de los dos (rol o usuario específico) da el permiso, lo tiene
+                misPermisos = new CPermisoModulo
+                {
+                    TieneAcceso = permisosPorRol.TieneAcceso || permisosPorUsuario.TieneAcceso,
+                    PuedeInsertar = permisosPorRol.PuedeInsertar || permisosPorUsuario.PuedeInsertar,
+                    PuedeEditar = permisosPorRol.PuedeEditar || permisosPorUsuario.PuedeEditar,
+                    PuedeEliminar = permisosPorRol.PuedeEliminar || permisosPorUsuario.PuedeEliminar,
+                    PuedeImprimir = permisosPorRol.PuedeImprimir || permisosPorUsuario.PuedeImprimir
+                };
+
+                if (!misPermisos.TieneAcceso)
+                {
+                    DeshabilitarFormularioCompleto();
+                    MessageBox.Show("No tienes acceso a este módulo.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // no cierra el formulario, solo detiene la carga de datos
+                }
+
+
+
+                AplicarPermisosBotones();
+                // --- fin verificación ---
+
+
+
+                objTransporte.llenarComboTipoVehiculo(Cbo_Tipo_Transporte);
+                objTransporte.llenarComboEstadoVehiculo(Cbo_Estado_Transporte);
+                objTransporte.mostrarVehiculo(Dgv_Tabla_Transporte);
+
+                // Al cargar el formulario, los campos inician bloqueados hasta seleccionar o presionar Nuevo/Editar
+                BloquearCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Permisos de botones según el rol del usuario
+        private void AplicarPermisosBotones()
+        {
+            Btn_Guardar_Transporte.Enabled = misPermisos.PuedeInsertar;
+            Btn_Actualizar_Transporte.Enabled = misPermisos.PuedeEditar;
+            Btn_Eliminar_Transporte.Enabled = misPermisos.PuedeEliminar;
+            // Si tienes botón de imprimir/reportes en este form, lo controlas con PuedeImprimir
+        }
+        //Desabilita todos los controles del formulario, útil cuando el usuario no tiene permisos
+        private void DeshabilitarFormularioCompleto()
+        {
+            foreach (Control control in this.Controls)
+            {
+                DeshabilitarControlRecursivo(control);
+            }
+        }
+        //desabilita un control y todos sus controles hijos (si los tiene)
+        private void DeshabilitarControlRecursivo(Control control)
+        {
+            control.Enabled = false;
+
+            // Si el control tiene hijos (panels, group boxes, etc.), deshabilita también esos
+            foreach (Control hijo in control.Controls)
+            {
+                DeshabilitarControlRecursivo(hijo);
+            }
         }
 
         private void Dgv_Tabla_Transporte_SelectionChanged(object sender, EventArgs e)
@@ -201,7 +271,7 @@ namespace SistemaReparto
 
         private void Txt_Placa_Transporte_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (char.IsControl(e.KeyChar)) return; 
+            if (char.IsControl(e.KeyChar)) return;
 
             int pos = Txt_Placa_Transporte.SelectionStart;
 
@@ -212,6 +282,11 @@ namespace SistemaReparto
                 e.Handled = true;
             else if (esNumero && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void Pnl_Fondo_Transporte_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

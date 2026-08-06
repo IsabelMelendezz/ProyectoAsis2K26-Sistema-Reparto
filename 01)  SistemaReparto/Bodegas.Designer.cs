@@ -115,7 +115,7 @@
             // 
             pic_Bode.Image = Properties.Resources.Bode_ico;
             pic_Bode.Location = new Point(48, 26);
-            pic_Bode.Margin = new Padding(2, 2, 2, 2);
+            pic_Bode.Margin = new Padding(2);
             pic_Bode.Name = "pic_Bode";
             pic_Bode.Size = new Size(138, 122);
             pic_Bode.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -639,7 +639,7 @@
             Margin = new Padding(5, 4, 5, 4);
             Name = "Bodegas";
             Text = "Form3";
-            Load += Form3_Load;
+            Load += Bodega_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

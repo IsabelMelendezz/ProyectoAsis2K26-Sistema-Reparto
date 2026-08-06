@@ -52,8 +52,8 @@
             Btn_Limpiar_Emp = new Button();
             Btn_Nuevo_Emp = new Button();
             Btn_Editar_Emp = new Button();
-            Btn_Eliminar_Emp = new Button();
-            Btn_Guardar_Emp = new Button();
+            Btn_Eliminar_Usu = new Button();
+            Btn_Guardar_Usu = new Button();
             Btn_Actualizar_Usu = new Button();
             panel3 = new Panel();
             panel10 = new Panel();
@@ -310,8 +310,8 @@
             panel5.Controls.Add(Btn_Limpiar_Emp);
             panel5.Controls.Add(Btn_Nuevo_Emp);
             panel5.Controls.Add(Btn_Editar_Emp);
-            panel5.Controls.Add(Btn_Eliminar_Emp);
-            panel5.Controls.Add(Btn_Guardar_Emp);
+            panel5.Controls.Add(Btn_Eliminar_Usu);
+            panel5.Controls.Add(Btn_Guardar_Usu);
             panel5.Controls.Add(Btn_Actualizar_Usu);
             panel5.Location = new Point(784, 568);
             panel5.Margin = new Padding(3, 4, 3, 4);
@@ -373,27 +373,27 @@
             Btn_Editar_Emp.UseVisualStyleBackColor = true;
             Btn_Editar_Emp.Click += Btn_Editar_Emp_Click;
             // 
-            // Btn_Eliminar_Emp
+            // Btn_Eliminar_Usu
             // 
-            Btn_Eliminar_Emp.Image = Properties.Resources.Btn_ELiminar;
-            Btn_Eliminar_Emp.Location = new Point(42, 91);
-            Btn_Eliminar_Emp.Margin = new Padding(3, 4, 3, 4);
-            Btn_Eliminar_Emp.Name = "Btn_Eliminar_Emp";
-            Btn_Eliminar_Emp.Size = new Size(114, 47);
-            Btn_Eliminar_Emp.TabIndex = 37;
-            Btn_Eliminar_Emp.UseVisualStyleBackColor = true;
-            Btn_Eliminar_Emp.Click += Btn_Eliminar_Emp_Click;
+            Btn_Eliminar_Usu.Image = Properties.Resources.Btn_ELiminar;
+            Btn_Eliminar_Usu.Location = new Point(42, 91);
+            Btn_Eliminar_Usu.Margin = new Padding(3, 4, 3, 4);
+            Btn_Eliminar_Usu.Name = "Btn_Eliminar_Usu";
+            Btn_Eliminar_Usu.Size = new Size(114, 47);
+            Btn_Eliminar_Usu.TabIndex = 37;
+            Btn_Eliminar_Usu.UseVisualStyleBackColor = true;
+            Btn_Eliminar_Usu.Click += Btn_Eliminar_Emp_Click;
             // 
-            // Btn_Guardar_Emp
+            // Btn_Guardar_Usu
             // 
-            Btn_Guardar_Emp.Image = Properties.Resources.Btn_guardar;
-            Btn_Guardar_Emp.Location = new Point(166, 39);
-            Btn_Guardar_Emp.Margin = new Padding(3, 4, 3, 4);
-            Btn_Guardar_Emp.Name = "Btn_Guardar_Emp";
-            Btn_Guardar_Emp.Size = new Size(114, 47);
-            Btn_Guardar_Emp.TabIndex = 35;
-            Btn_Guardar_Emp.UseVisualStyleBackColor = true;
-            Btn_Guardar_Emp.Click += Btn_Guardar_Emp_Click;
+            Btn_Guardar_Usu.Image = Properties.Resources.Btn_guardar;
+            Btn_Guardar_Usu.Location = new Point(166, 39);
+            Btn_Guardar_Usu.Margin = new Padding(3, 4, 3, 4);
+            Btn_Guardar_Usu.Name = "Btn_Guardar_Usu";
+            Btn_Guardar_Usu.Size = new Size(114, 47);
+            Btn_Guardar_Usu.TabIndex = 35;
+            Btn_Guardar_Usu.UseVisualStyleBackColor = true;
+            Btn_Guardar_Usu.Click += Btn_Guardar_Emp_Click;
             // 
             // Btn_Actualizar_Usu
             // 
@@ -737,8 +737,8 @@
         private Button Btn_Limpiar_Emp;
         private Button Btn_Nuevo_Emp;
         private Button Btn_Editar_Emp;
-        private Button Btn_Eliminar_Emp;
-        private Button Btn_Guardar_Emp;
+        private Button Btn_Eliminar_Usu;
+        private Button Btn_Guardar_Usu;
         private Button Btn_Actualizar_Usu;
         private Panel panel3;
         private Panel panel10;

@@ -738,6 +738,7 @@ namespace SistemaReparto
             MinimumSize = new Size(1100, 750);
             Name = "Pedidos";
             Text = "Pedidos";
+            Load += Pedidos_Load_1;
             pnlTabla.ResumeLayout(false);
             pnlTabla.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPedidos).EndInit();

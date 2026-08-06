@@ -217,5 +217,19 @@ namespace SistemaReparto
                 this.Hide();
             }
         }
+        private void ActualizarInformacionUsuario()
+        {
+            lbl_usu_con.Text = $"Usuario: {Sesion.NombreEmpleado}";
+            lbl_rol_con.Text = $"Rol: {Sesion.RolesComoTexto()}";
+        }
+        private void menu_Load(object sender, EventArgs e)
+        {
+            ActualizarInformacionUsuario();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

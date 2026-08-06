@@ -85,9 +85,14 @@ namespace SistemaReparto
         {
 
         }
-
+        private void ActualizarInformacionUsuario()
+        {
+            lbl_usu_con.Text = $"Usuario: {Sesion.NombreEmpleado}";
+            lbl_rol_con.Text = $"Rol: {Sesion.RolesComoTexto()}";
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+            ActualizarInformacionUsuario();
             lbelUsuario.Text = Sesion.NombreUsuario + "!";
             lbelUsuario.ForeColor = Color.Navy;
             lbelUsuario.Enabled = false;
@@ -540,6 +545,27 @@ namespace SistemaReparto
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Seguro que deseas cerrar sesión?",
+                "Cerrar sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Logs formLogin = new Logs();
+                formLogin.Show();
+                this.Hide();
+            }
         }
     }
 }

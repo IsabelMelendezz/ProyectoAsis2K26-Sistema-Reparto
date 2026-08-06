@@ -79,6 +79,8 @@
             pic_Patroclo = new PictureBox();
             lbl_Mns_bienv = new Label();
             lbl_Bienvenido = new Label();
+            lbl_usu_con = new Label();
+            lbl_rol_con = new Label();
             pnl_Contencion_Btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -156,6 +158,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 29;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click_1;
             // 
             // button1
             // 
@@ -558,10 +561,10 @@
             pnl_Control.Controls.Add(pic_Patroclo);
             pnl_Control.Controls.Add(lbl_Mns_bienv);
             pnl_Control.Controls.Add(lbl_Bienvenido);
-            pnl_Control.Location = new Point(273, 4);
+            pnl_Control.Location = new Point(273, 40);
             pnl_Control.Margin = new Padding(3, 4, 3, 4);
             pnl_Control.Name = "pnl_Control";
-            pnl_Control.Size = new Size(1263, 1019);
+            pnl_Control.Size = new Size(1263, 983);
             pnl_Control.TabIndex = 1;
             pnl_Control.Paint += panelcontrol_Paint;
             // 
@@ -805,12 +808,36 @@
             lbl_Bienvenido.TabIndex = 16;
             lbl_Bienvenido.Text = "¡Bienvenido!";
             // 
+            // lbl_usu_con
+            // 
+            lbl_usu_con.AutoSize = true;
+            lbl_usu_con.Font = new Font("Microsoft YaHei UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_usu_con.ForeColor = Color.DarkBlue;
+            lbl_usu_con.Location = new Point(408, 8);
+            lbl_usu_con.Name = "lbl_usu_con";
+            lbl_usu_con.Size = new Size(46, 20);
+            lbl_usu_con.TabIndex = 3;
+            lbl_usu_con.Text = "label1";
+            // 
+            // lbl_rol_con
+            // 
+            lbl_rol_con.AutoSize = true;
+            lbl_rol_con.Font = new Font("Microsoft YaHei UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_rol_con.ForeColor = Color.DarkBlue;
+            lbl_rol_con.Location = new Point(576, 8);
+            lbl_rol_con.Name = "lbl_rol_con";
+            lbl_rol_con.Size = new Size(48, 20);
+            lbl_rol_con.TabIndex = 4;
+            lbl_rol_con.Text = "label2";
+            // 
             // Menu
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             ClientSize = new Size(1536, 1014);
+            Controls.Add(lbl_rol_con);
+            Controls.Add(lbl_usu_con);
             Controls.Add(pnl_Control);
             Controls.Add(pnl_Contencion_Btn);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -819,7 +846,7 @@
             SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NORTEK";
-            Load += Form1_Load;
+            Load += menu_Load;
             pnl_Contencion_Btn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -907,6 +934,8 @@
         private Label label_paquetes;
         private Button button1;
         private PictureBox pictureBox3;
+        private Label lbl_usu_con;
+        private Label lbl_rol_con;
     }
 }
 

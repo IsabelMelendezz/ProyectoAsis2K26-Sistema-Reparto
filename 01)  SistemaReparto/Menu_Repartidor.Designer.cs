@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu_Repartidor));
             pnl_Contencion_Btn = new Panel();
+            pictureBox9 = new PictureBox();
+            button1 = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             pic_pedidos = new PictureBox();
@@ -99,7 +101,10 @@
             pic_Patroclo = new PictureBox();
             lbl_Mns_bienv = new Label();
             lbl_Bienvenido = new Label();
+            lbl_rol_con = new Label();
+            lbl_usu_con = new Label();
             pnl_Contencion_Btn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pic_pedidos).BeginInit();
@@ -140,6 +145,8 @@
             pnl_Contencion_Btn.BackgroundImage = Properties.Resources.barra_menu;
             pnl_Contencion_Btn.BackgroundImageLayout = ImageLayout.Stretch;
             pnl_Contencion_Btn.CausesValidation = false;
+            pnl_Contencion_Btn.Controls.Add(pictureBox9);
+            pnl_Contencion_Btn.Controls.Add(button1);
             pnl_Contencion_Btn.Controls.Add(pictureBox2);
             pnl_Contencion_Btn.Controls.Add(pictureBox1);
             pnl_Contencion_Btn.Controls.Add(pic_pedidos);
@@ -171,6 +178,36 @@
             pnl_Contencion_Btn.Size = new Size(270, 991);
             pnl_Contencion_Btn.TabIndex = 0;
             pnl_Contencion_Btn.Paint += panel1_Paint;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = Properties.Resources.Asig_ico;
+            pictureBox9.Location = new Point(8, 1107);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(63, 60);
+            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox9.TabIndex = 33;
+            pictureBox9.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.Cursor = Cursors.Hand;
+            button1.Dock = DockStyle.Top;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(27, 1096);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.RightToLeft = RightToLeft.No;
+            button1.Size = new Size(222, 87);
+            button1.TabIndex = 32;
+            button1.Text = "Cerrar sesion";
+            button1.UseMnemonic = false;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_3;
             // 
             // pictureBox2
             // 
@@ -299,7 +336,7 @@
             btnAsignacion.RightToLeft = RightToLeft.No;
             btnAsignacion.Size = new Size(222, 87);
             btnAsignacion.TabIndex = 25;
-            btnAsignacion.Text = "Asignacion";
+            btnAsignacion.Text = "Asignaciones";
             btnAsignacion.UseMnemonic = false;
             btnAsignacion.UseVisualStyleBackColor = false;
             btnAsignacion.Click += btnAsignacion_Click;
@@ -511,7 +548,7 @@
             pnl_Contencion_2.Location = new Point(0, 139);
             pnl_Contencion_2.Margin = new Padding(3, 4, 3, 4);
             pnl_Contencion_2.Name = "pnl_Contencion_2";
-            pnl_Contencion_2.Size = new Size(27, 957);
+            pnl_Contencion_2.Size = new Size(27, 1044);
             pnl_Contencion_2.TabIndex = 1;
             // 
             // pnl_Contencion_1
@@ -557,10 +594,10 @@
             pnl_Control.Controls.Add(pic_Patroclo);
             pnl_Control.Controls.Add(lbl_Mns_bienv);
             pnl_Control.Controls.Add(lbl_Bienvenido);
-            pnl_Control.Location = new Point(273, 4);
+            pnl_Control.Location = new Point(273, 32);
             pnl_Control.Margin = new Padding(3, 4, 3, 4);
             pnl_Control.Name = "pnl_Control";
-            pnl_Control.Size = new Size(1263, 996);
+            pnl_Control.Size = new Size(1263, 968);
             pnl_Control.TabIndex = 1;
             pnl_Control.Paint += panelcontrol_Paint;
             // 
@@ -1043,12 +1080,36 @@
             lbl_Bienvenido.Text = "¡Bienvenido";
             lbl_Bienvenido.Click += lbl_Bienvenido_Click;
             // 
+            // lbl_rol_con
+            // 
+            lbl_rol_con.AutoSize = true;
+            lbl_rol_con.Font = new Font("Microsoft YaHei UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_rol_con.ForeColor = Color.DarkBlue;
+            lbl_rol_con.Location = new Point(488, 8);
+            lbl_rol_con.Name = "lbl_rol_con";
+            lbl_rol_con.Size = new Size(48, 20);
+            lbl_rol_con.TabIndex = 6;
+            lbl_rol_con.Text = "label2";
+            // 
+            // lbl_usu_con
+            // 
+            lbl_usu_con.AutoSize = true;
+            lbl_usu_con.Font = new Font("Microsoft YaHei UI Light", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            lbl_usu_con.ForeColor = Color.DarkBlue;
+            lbl_usu_con.Location = new Point(320, 8);
+            lbl_usu_con.Name = "lbl_usu_con";
+            lbl_usu_con.Size = new Size(46, 20);
+            lbl_usu_con.TabIndex = 5;
+            lbl_usu_con.Text = "label1";
+            // 
             // Menu_Repartidor
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             AutoValidate = AutoValidate.EnableAllowFocusChange;
             ClientSize = new Size(1536, 991);
+            Controls.Add(lbl_rol_con);
+            Controls.Add(lbl_usu_con);
             Controls.Add(pnl_Control);
             Controls.Add(pnl_Contencion_Btn);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -1059,6 +1120,7 @@
             Text = "NORTEK";
             Load += Form1_Load;
             pnl_Contencion_Btn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pic_pedidos).EndInit();
@@ -1175,6 +1237,10 @@
         private Label label_actual;
         private Label label_rutas;
         private Label label6;
+        private PictureBox pictureBox9;
+        private Button button1;
+        private Label lbl_rol_con;
+        private Label lbl_usu_con;
     }
 }
 

@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using static SistemaReparto.Clases.CModulo;
 namespace SistemaReparto
 {
     public partial class Rutas : Form
@@ -18,6 +18,12 @@ namespace SistemaReparto
         // ==== AGREGANDO: objeto CRUD e ID del vehiculo seleccionado en la tabla ====
         private CRutas objRuta = new CRutas();
         private int idRutaSeleccionado = 0;
+
+        //LLamada de las clases para la verificación de permisos
+        private CPermisoModulo misPermisos;
+        private ModuloRolController permisosController = new ModuloRolController();
+        private ModuloUsuarioController permisosUsuarioController = new ModuloUsuarioController();
+
         public Rutas()
         {
             InitializeComponent();
@@ -200,6 +206,71 @@ namespace SistemaReparto
         {
             EstadoRutas formTipos = new EstadoRutas();
             formTipos.ShowDialog(); // se abre encima, pausa Transportes hasta cerrarla
+        }
+        //VIctor Omar GOmez 9959-23-10733
+        private void Rutas_Load_1(object sender, EventArgs e)
+        {
+            try
+            {
+
+                // --- Verificación de seguridad ---
+                CPermisoModulo permisosPorRol = permisosController.ObtenerPermisos(Modulos.Rutas, Sesion.IdsRoles);
+                CPermisoModulo permisosPorUsuario = permisosUsuarioController.ObtenerPermisos(Modulos.Rutas, Sesion.IdUsuario);
+
+                // Combina: si CUALQUIERA de los dos (rol o usuario específico) da el permiso, lo tiene
+                misPermisos = new CPermisoModulo
+                {
+                    TieneAcceso = permisosPorRol.TieneAcceso || permisosPorUsuario.TieneAcceso,
+                    PuedeInsertar = permisosPorRol.PuedeInsertar || permisosPorUsuario.PuedeInsertar,
+                    PuedeEditar = permisosPorRol.PuedeEditar || permisosPorUsuario.PuedeEditar,
+                    PuedeEliminar = permisosPorRol.PuedeEliminar || permisosPorUsuario.PuedeEliminar,
+                    PuedeImprimir = permisosPorRol.PuedeImprimir || permisosPorUsuario.PuedeImprimir
+                };
+
+                if (!misPermisos.TieneAcceso)
+                {
+                    DeshabilitarFormularioCompleto();
+                    MessageBox.Show("No tienes acceso a este módulo.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // no cierra el formulario, solo detiene la carga de datos
+                }
+
+                
+
+                AplicarPermisosBotones();
+                // --- fin verificación ---
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }//Permisos de botones según el rol del usuario
+        private void AplicarPermisosBotones()
+        {
+            Btn_Guardar_Ruta.Enabled = misPermisos.PuedeInsertar;
+            Btn_Actualizar_Ruta.Enabled = misPermisos.PuedeEditar;
+            Btn_Eliminar_Ruta.Enabled = misPermisos.PuedeEliminar;
+            // Si tienes botón de imprimir/reportes en este form, lo controlas con PuedeImprimir
+        }
+        //Desabilita todos los controles del formulario, útil cuando el usuario no tiene permisos
+        private void DeshabilitarFormularioCompleto()
+        {
+            foreach (Control control in this.Controls)
+            {
+                DeshabilitarControlRecursivo(control);
+            }
+        }
+        //desabilita un control y todos sus controles hijos (si los tiene)
+        private void DeshabilitarControlRecursivo(Control control)
+        {
+            control.Enabled = false;
+
+            // Si el control tiene hijos (panels, group boxes, etc.), deshabilita también esos
+            foreach (Control hijo in control.Controls)
+            {
+                DeshabilitarControlRecursivo(hijo);
+            }
         }
 
         //private void btnProbarConexion_Click_Click(object sender, EventArgs e)

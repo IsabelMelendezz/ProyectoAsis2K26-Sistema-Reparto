@@ -8,11 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaReparto.Clases;
+using static SistemaReparto.Clases.CModulo;
 
 namespace SistemaReparto
 {
     public partial class Bodegas : Form
-    {
+    {//LLamada de las clases para la verificación de permisos
+        private CPermisoModulo misPermisos;
+        private ModuloRolController permisosController = new ModuloRolController();
+        private ModuloUsuarioController permisosUsuarioController = new ModuloUsuarioController();
+
         public Bodegas()
         {
             InitializeComponent();
@@ -188,6 +193,71 @@ namespace SistemaReparto
                 textBoxDireccion,
                 numericUpDownCapacidad,
                 textBoxTelefono);
+        }
+
+        private void Bodega_Load(object sender, EventArgs e)
+        {
+            try
+            {
+
+                // --- Verificación de seguridad ---
+                CPermisoModulo permisosPorRol = permisosController.ObtenerPermisos(Modulos.Bodegas, Sesion.IdsRoles);
+                CPermisoModulo permisosPorUsuario = permisosUsuarioController.ObtenerPermisos(Modulos.Bodegas, Sesion.IdUsuario);
+
+                // Combina: si CUALQUIERA de los dos (rol o usuario específico) da el permiso, lo tiene
+                misPermisos = new CPermisoModulo
+                {
+                    TieneAcceso = permisosPorRol.TieneAcceso || permisosPorUsuario.TieneAcceso,
+                    PuedeInsertar = permisosPorRol.PuedeInsertar || permisosPorUsuario.PuedeInsertar,
+                    PuedeEditar = permisosPorRol.PuedeEditar || permisosPorUsuario.PuedeEditar,
+                    PuedeEliminar = permisosPorRol.PuedeEliminar || permisosPorUsuario.PuedeEliminar,
+                    PuedeImprimir = permisosPorRol.PuedeImprimir || permisosPorUsuario.PuedeImprimir
+                };
+
+                if (!misPermisos.TieneAcceso)
+                {
+                    DeshabilitarFormularioCompleto();
+                    MessageBox.Show("No tienes acceso a este módulo.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // no cierra el formulario, solo detiene la carga de datos
+                }
+
+                
+
+                AplicarPermisosBotones();
+                // --- fin verificación ---
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        //Permisos de botones según el rol del usuario
+        private void AplicarPermisosBotones()
+        {
+            btnGuardar.Enabled = misPermisos.PuedeInsertar;
+            btnActualizar.Enabled = misPermisos.PuedeEditar;
+            btnEliminar.Enabled = misPermisos.PuedeEliminar;
+            // Si tienes botón de imprimir/reportes en este form, lo controlas con PuedeImprimir
+        }
+        //Desabilita todos los controles del formulario, útil cuando el usuario no tiene permisos
+        private void DeshabilitarFormularioCompleto()
+        {
+            foreach (Control control in this.Controls)
+            {
+                DeshabilitarControlRecursivo(control);
+            }
+        }
+        //desabilita un control y todos sus controles hijos (si los tiene)
+        private void DeshabilitarControlRecursivo(Control control)
+        {
+            control.Enabled = false;
+
+            // Si el control tiene hijos (panels, group boxes, etc.), deshabilita también esos
+            foreach (Control hijo in control.Controls)
+            {
+                DeshabilitarControlRecursivo(hijo);
+            }
         }
     }
 }

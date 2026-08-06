@@ -78,7 +78,7 @@ namespace SistemaReparto.Clases
             return lista;
         }
         //LISTA ROLES DISPONIBLES PARA UN USUARIO (para el combo de edición)
-        public List<CRol> ListarRolessDisponibles(int idRol)
+        public List<CRol> ListarRolessDisponibles(int idUsuario)
         {
             List<CRol> lista = new List<CRol>();
             CConexion cn = new CConexion();
@@ -87,28 +87,29 @@ namespace SistemaReparto.Clases
             try
             {
                 string query = @"SELECT m.id_rol, m.nombre_rol, m.estado_rol
-                                  FROM rol m
-                                  WHERE m.estado_rol = 'Activo'
-                                  AND m.id_rol NOT IN (
-                                      SELECT id_rol FROM usuario_rol WHERE id_rol = @idRol
-                                  )";
+                          FROM rol m
+                          WHERE m.estado_rol = 'Activo'
+                          AND m.id_rol NOT IN (
+                              SELECT id_rol FROM usuario_rol WHERE id_usuario = @idUsuario
+                          )";
                 MySqlCommand cmd = new MySqlCommand(query, conexion);
-                cmd.Parameters.AddWithValue("@idRol", idRol);
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     lista.Add(new CRol(
                         Convert.ToInt32(reader["id_rol"]),
+                       
                         reader["nombre_rol"].ToString(),
-                        null, // Descripcion no está en el SELECT, así que se pasa null
+                        null,
                         reader["estado_rol"].ToString()
                     ));
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al listar módulos disponibles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al listar roles disponibles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

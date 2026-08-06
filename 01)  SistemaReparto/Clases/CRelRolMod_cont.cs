@@ -225,4 +225,148 @@ namespace SistemaReparto.Clases
             }
         }
     }
+    internal class ModuloRolController
+    {
+        // Recibe el idModulo y la lista de roles que tiene el usuario logueado.
+        // Si el usuario tiene varios roles, se combinan los permisos:
+        // si CUALQUIER rol le da el permiso, el usuario lo tiene.
+        public CPermisoModulo ObtenerPermisos(int idModulo, List<int> idsRolesUsuario)
+        {
+            CPermisoModulo permisos = new CPermisoModulo();
+
+            if (idsRolesUsuario == null || idsRolesUsuario.Count == 0)
+                return permisos; // todo en false por defecto
+
+            CConexion cn = new CConexion();
+            MySqlConnection conexion = cn.establecerConexion();
+
+            try
+            {
+                var placeholders = new List<string>();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = conexion;
+
+                for (int i = 0; i < idsRolesUsuario.Count; i++)
+                {
+                    string paramName = $"@rol{i}";
+                    placeholders.Add(paramName);
+                    cmd.Parameters.AddWithValue(paramName, idsRolesUsuario[i]);
+                }
+
+                string query = $@"SELECT 
+                                    der_insertar_relrolmodulo,
+                                    der_editar_relrolmodulo,
+                                    der_eliminar_relrolmodulo,
+                                    der_imprimir_relrolmodulo
+                                  FROM relacion_rol_modulo
+                                  WHERE id_modulo = @idModulo
+                                  AND id_rol IN ({string.Join(",", placeholders)})";
+
+                cmd.CommandText = query;
+                cmd.Parameters.AddWithValue("@idModulo", idModulo);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    permisos.TieneAcceso = true; // encontró al menos una fila = tiene acceso al módulo
+
+                    // Combina permisos: si CUALQUIER rol dice "S", el usuario puede
+                    if (reader["der_insertar_relrolmodulo"].ToString() == "S")
+                        permisos.PuedeInsertar = true;
+
+                    if (reader["der_editar_relrolmodulo"].ToString() == "S")
+                        permisos.PuedeEditar = true;
+
+                    if (reader["der_eliminar_relrolmodulo"].ToString() == "S")
+                        permisos.PuedeEliminar = true;
+
+                    if (reader["der_imprimir_relrolmodulo"].ToString() == "S")
+                        permisos.PuedeImprimir = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener permisos del módulo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return permisos;
+        }
+    }
+
+
+
+
+
+
+
+
+
+    internal class ModuloUsuarioController
+    {
+        // Recibe el idModulo y el idUsuario del usuario logueado.
+        // A diferencia de los roles, aquí no hay que combinar nada:
+        // el usuario tiene o no tiene el permiso directamente.
+        public CPermisoModulo ObtenerPermisos(int idModulo, int idUsuario)
+        {
+            CPermisoModulo permisos = new CPermisoModulo();
+
+            if (idUsuario <= 0)
+                return permisos; // todo en false por defecto
+
+            CConexion cn = new CConexion();
+            MySqlConnection conexion = cn.establecerConexion();
+
+            try
+            {
+                string query = @"SELECT 
+                                der_insertar_relusumodulo,
+                                der_editar_relusumodulo,
+                                der_eliminar_relusumodulo,
+                                der_imprimir_relusumodulo
+                              FROM relacion_usuario_modulo
+                              WHERE id_modulo = @idModulo
+                              AND id_usuario = @idUsuario";
+
+                MySqlCommand cmd = new MySqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@idModulo", idModulo);
+                cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    permisos.TieneAcceso = true; // encontró la fila = tiene acceso al módulo
+
+                    if (reader["der_insertar_relusumodulo"].ToString() == "S")
+                        permisos.PuedeInsertar = true;
+
+                    if (reader["der_editar_relusumodulo"].ToString() == "S")
+                        permisos.PuedeEditar = true;
+
+                    if (reader["der_eliminar_relusumodulo"].ToString() == "S")
+                        permisos.PuedeEliminar = true;
+
+                    if (reader["der_imprimir_relusumodulo"].ToString() == "S")
+                        permisos.PuedeImprimir = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener permisos del módulo: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                cn.cerrarConexion();
+            }
+
+            return permisos;
+        }
+    }
 }
+
+

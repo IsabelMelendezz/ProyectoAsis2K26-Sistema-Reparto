@@ -631,6 +631,7 @@
             Margin = new Padding(4, 5, 4, 5);
             Name = "Rutas";
             Text = "Form4";
+            Load += Rutas_Load_1;
             Pnl_Fondo1_Transporte.ResumeLayout(false);
             Pnl_Fondo1_Transporte.PerformLayout();
             panel2.ResumeLayout(false);

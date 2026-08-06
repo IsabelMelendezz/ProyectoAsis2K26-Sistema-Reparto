@@ -1,4 +1,5 @@
-﻿using SistemaReparto.Clases;
+﻿//Victor Omar GOmez Carrascosa 9959-23-10733
+using SistemaReparto.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -246,21 +247,7 @@ namespace SistemaReparto
 
         private void Cbo_Rol_Disponibles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (cbo_Usu_Disponible.SelectedIndex == -1) return;
 
-                int idUsuario = Convert.ToInt32(cbo_Usu_Disponible.SelectedValue);
-                
-
-                RefrescarModulosDisponibles(idUsuario);
-            
-             
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al seleccionar el rol: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         private void RefrescarModulosDisponibles(int idUsuario)
         {
@@ -269,7 +256,22 @@ namespace SistemaReparto
             Cbo_Rol_Disponibles.ValueMember = "IdRol";
             Cbo_Rol_Disponibles.SelectedIndex = -1;
         }
-        
+
+        private void cbo_Usu_Disponible_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbo_Usu_Disponible.SelectedItem is CUsuarios usuarioSeleccionado)
+                {
+                    RefrescarModulosDisponibles(usuarioSeleccionado.IdUsuario);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los roles disponibles: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
 

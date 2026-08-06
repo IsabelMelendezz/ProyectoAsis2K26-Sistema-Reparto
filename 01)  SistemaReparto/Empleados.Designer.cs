@@ -748,6 +748,7 @@
             Margin = new Padding(5);
             Name = "Empleados";
             Text = "Form5";
+            Load += Empleados_Load_1;
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Tabla_Empleados).EndInit();
             panel4.ResumeLayout(false);

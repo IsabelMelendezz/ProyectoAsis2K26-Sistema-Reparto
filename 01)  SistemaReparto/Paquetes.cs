@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaReparto.Clases;
-
+using static SistemaReparto.Clases.CModulo;
 namespace SistemaReparto
 {
     public partial class Paquetes : Form
@@ -16,6 +16,10 @@ namespace SistemaReparto
         CPaquetes objetoPaquetes = new CPaquetes();
 
         private int idPaqueteSeleccionado = 0;
+        //LLamada de las clases para la verificación de permisos
+        private CPermisoModulo misPermisos;
+        private ModuloRolController permisosController = new ModuloRolController();
+        private ModuloUsuarioController permisosUsuarioController = new ModuloUsuarioController();
 
         public Paquetes()
         {
@@ -26,40 +30,99 @@ namespace SistemaReparto
 
 
         private void Paquetes_Load(object sender, EventArgs e)
-        {
-            objetoPaquetes.MostrarPaquetes(dgvPaquetes);
+        {//Victor Omar GOmez 9959-23-10733
+            try
+            {
 
-            objetoPaquetes.LlenarComboPedido(cboPedido);
+                // --- Verificación de seguridad ---
+                CPermisoModulo permisosPorRol = permisosController.ObtenerPermisos(Modulos.Paquetes, Sesion.IdsRoles);
+                CPermisoModulo permisosPorUsuario = permisosUsuarioController.ObtenerPermisos(Modulos.Paquetes, Sesion.IdUsuario);
 
-            cboEstado.Items.Clear();
-            cboEstado.Items.Add("Activo");
-            cboEstado.Items.Add("Inactivo");
-            cboEstado.SelectedIndex = 0;
-            objetoPaquetes.LlenarComboTipoPaquete(cboTipoPaquete);
+                // Combina: si CUALQUIERA de los dos (rol o usuario específico) da el permiso, lo tiene
+                misPermisos = new CPermisoModulo
+                {
+                    TieneAcceso = permisosPorRol.TieneAcceso || permisosPorUsuario.TieneAcceso,
+                    PuedeInsertar = permisosPorRol.PuedeInsertar || permisosPorUsuario.PuedeInsertar,
+                    PuedeEditar = permisosPorRol.PuedeEditar || permisosPorUsuario.PuedeEditar,
+                    PuedeEliminar = permisosPorRol.PuedeEliminar || permisosPorUsuario.PuedeEliminar,
+                    PuedeImprimir = permisosPorRol.PuedeImprimir || permisosPorUsuario.PuedeImprimir
+                };
+                if (!misPermisos.TieneAcceso)
+                {
+                    DeshabilitarFormularioCompleto();
+                    MessageBox.Show("No tienes acceso a este módulo.", "Acceso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // no cierra el formulario, solo detiene la carga de datos
+                }
+             
+
+                AplicarPermisosBotones();
+                // --- fin verificación ---
+
+             
+                objetoPaquetes.MostrarPaquetes(dgvPaquetes);
+
+                objetoPaquetes.LlenarComboPedido(cboPedido);
+
+                cboEstado.Items.Clear();
+                cboEstado.Items.Add("Activo");
+                cboEstado.Items.Add("Inactivo");
+                cboEstado.SelectedIndex = 0;
+                objetoPaquetes.LlenarComboTipoPaquete(cboTipoPaquete);
 
 
-            cboEstadoFiltro.Items.Clear();
+                cboEstadoFiltro.Items.Clear();
 
-            cboEstadoFiltro.Items.Add("Todos");
-            cboEstadoFiltro.Items.Add("Activo");
-            cboEstadoFiltro.Items.Add("Inactivo");
+                cboEstadoFiltro.Items.Add("Todos");
+                cboEstadoFiltro.Items.Add("Activo");
+                cboEstadoFiltro.Items.Add("Inactivo");
 
-            cboEstadoFiltro.SelectedIndex = 0;
+                cboEstadoFiltro.SelectedIndex = 0;
 
-            cboTipoFiltro.Items.Clear();
+                cboTipoFiltro.Items.Clear();
 
-            cboTipoFiltro.Items.Add("Todos");
-            cboTipoFiltro.Items.Add("Documento");
-            cboTipoFiltro.Items.Add("Sobre");
-            cboTipoFiltro.Items.Add("Caja");
-            cboTipoFiltro.Items.Add("Paquete");
-            cboTipoFiltro.Items.Add("Electrónica");
-            cboTipoFiltro.Items.Add("Ropa");
-            cboTipoFiltro.Items.Add("Otro");
+                cboTipoFiltro.Items.Add("Todos");
+                cboTipoFiltro.Items.Add("Documento");
+                cboTipoFiltro.Items.Add("Sobre");
+                cboTipoFiltro.Items.Add("Caja");
+                cboTipoFiltro.Items.Add("Paquete");
+                cboTipoFiltro.Items.Add("Electrónica");
+                cboTipoFiltro.Items.Add("Ropa");
+                cboTipoFiltro.Items.Add("Otro");
 
-            cboTipoFiltro.SelectedIndex = 0;
+                cboTipoFiltro.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el formulario: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+        //Permisos de botones según el rol del usuario
+        private void AplicarPermisosBotones()
+        {
+            btnGuardar.Enabled = misPermisos.PuedeInsertar;
+            btnActualizar.Enabled = misPermisos.PuedeEditar;
+            btnEliminar.Enabled = misPermisos.PuedeEliminar;
+            // Si tienes botón de imprimir/reportes en este form, lo controlas con PuedeImprimir
+        }
+        //Desabilita todos los controles del formulario, útil cuando el usuario no tiene permisos
+        private void DeshabilitarFormularioCompleto()
+        {
+            foreach (Control control in this.Controls)
+            {
+                DeshabilitarControlRecursivo(control);
+            }
+        }
+        //desabilita un control y todos sus controles hijos (si los tiene)
+        private void DeshabilitarControlRecursivo(Control control)
+        {
+            control.Enabled = false;
 
+            // Si el control tiene hijos (panels, group boxes, etc.), deshabilita también esos
+            foreach (Control hijo in control.Controls)
+            {
+                DeshabilitarControlRecursivo(hijo);
+            }
+        }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {

@@ -101,6 +101,7 @@
             cbo_Usu_Disponible.Name = "cbo_Usu_Disponible";
             cbo_Usu_Disponible.Size = new Size(160, 28);
             cbo_Usu_Disponible.TabIndex = 62;
+            cbo_Usu_Disponible.SelectedIndexChanged += cbo_Usu_Disponible_SelectedIndexChanged;
             // 
             // Cbo_Rol_Disponibles
             // 

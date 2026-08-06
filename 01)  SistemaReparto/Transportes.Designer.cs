@@ -532,6 +532,7 @@
             Pnl_Fondo_Transporte.Name = "Pnl_Fondo_Transporte";
             Pnl_Fondo_Transporte.Size = new Size(1348, 177);
             Pnl_Fondo_Transporte.TabIndex = 9;
+            Pnl_Fondo_Transporte.Paint += Pnl_Fondo_Transporte_Paint;
             // 
             // pictureBox1
             // 
