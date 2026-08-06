@@ -38,6 +38,7 @@
             pic_Bode_2 = new PictureBox();
             label6 = new Label();
             pnl_inicio = new Panel();
+            btnAyuda = new Button();
             pnl_Contend_PR = new Panel();
             pic_Paq_2 = new PictureBox();
             label4 = new Label();
@@ -45,6 +46,10 @@
             pic_Patroclo = new PictureBox();
             lbl_Mns_bienv = new Label();
             lbl_Bienvenido = new Label();
+            label_paquetes = new Label();
+            label_rutas = new Label();
+            label_bodegas = new Label();
+            label_repartidores = new Label();
             pnl_Contend_RA.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pic_Trans_2).BeginInit();
             pnl_Contend_RS.SuspendLayout();
@@ -60,6 +65,7 @@
             // pnl_Contend_RA
             // 
             pnl_Contend_RA.BackColor = SystemColors.HighlightText;
+            pnl_Contend_RA.Controls.Add(label_rutas);
             pnl_Contend_RA.Controls.Add(pic_Trans_2);
             pnl_Contend_RA.Controls.Add(label5);
             pnl_Contend_RA.Location = new Point(328, 624);
@@ -83,7 +89,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Navy;
-            label5.Location = new Point(144, 72);
+            label5.Location = new Point(112, 56);
             label5.Name = "label5";
             label5.Size = new Size(79, 54);
             label5.TabIndex = 18;
@@ -93,6 +99,7 @@
             // pnl_Contend_RS
             // 
             pnl_Contend_RS.BackColor = SystemColors.HighlightText;
+            pnl_Contend_RS.Controls.Add(label_repartidores);
             pnl_Contend_RS.Controls.Add(pic_Repa_2);
             pnl_Contend_RS.Controls.Add(label7);
             pnl_Contend_RS.Location = new Point(944, 624);
@@ -116,7 +123,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Navy;
-            label7.Location = new Point(120, 72);
+            label7.Location = new Point(121, 56);
             label7.Name = "label7";
             label7.Size = new Size(134, 54);
             label7.TabIndex = 18;
@@ -126,6 +133,7 @@
             // pnl_Contend_BO
             // 
             pnl_Contend_BO.BackColor = SystemColors.HighlightText;
+            pnl_Contend_BO.Controls.Add(label_bodegas);
             pnl_Contend_BO.Controls.Add(pic_Bode_2);
             pnl_Contend_BO.Controls.Add(label6);
             pnl_Contend_BO.Location = new Point(632, 624);
@@ -149,7 +157,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Navy;
-            label6.Location = new Point(128, 72);
+            label6.Location = new Point(131, 56);
             label6.Name = "label6";
             label6.Size = new Size(114, 54);
             label6.TabIndex = 17;
@@ -162,6 +170,7 @@
             pnl_inicio.AutoSize = true;
             pnl_inicio.BackColor = Color.Transparent;
             pnl_inicio.BackgroundImage = Properties.Resources.fondo_inicio;
+            pnl_inicio.Controls.Add(btnAyuda);
             pnl_inicio.Controls.Add(pnl_Contend_BO);
             pnl_inicio.Controls.Add(pnl_Contend_RS);
             pnl_inicio.Controls.Add(pnl_Contend_RA);
@@ -175,9 +184,22 @@
             pnl_inicio.Size = new Size(1744, 1400);
             pnl_inicio.TabIndex = 17;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.BackColor = Color.CornflowerBlue;
+            btnAyuda.ForeColor = Color.AliceBlue;
+            btnAyuda.Location = new Point(104, 345);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(39, 38);
+            btnAyuda.TabIndex = 25;
+            btnAyuda.Text = "❓";
+            btnAyuda.UseVisualStyleBackColor = false;
+            btnAyuda.Click += btnAyuda_Click_1;
+            // 
             // pnl_Contend_PR
             // 
             pnl_Contend_PR.BackColor = SystemColors.HighlightText;
+            pnl_Contend_PR.Controls.Add(label_paquetes);
             pnl_Contend_PR.Controls.Add(pic_Paq_2);
             pnl_Contend_PR.Controls.Add(label4);
             pnl_Contend_PR.Location = new Point(24, 624);
@@ -201,7 +223,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Microsoft YaHei UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Navy;
-            label4.Location = new Point(128, 72);
+            label4.Location = new Point(127, 56);
             label4.Name = "label4";
             label4.Size = new Size(124, 54);
             label4.TabIndex = 16;
@@ -256,6 +278,50 @@
             lbl_Bienvenido.TabIndex = 0;
             lbl_Bienvenido.Text = "¡Bienvenido!";
             // 
+            // label_paquetes
+            // 
+            label_paquetes.AutoSize = true;
+            label_paquetes.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_paquetes.ForeColor = Color.Navy;
+            label_paquetes.Location = new Point(158, 15);
+            label_paquetes.Name = "label_paquetes";
+            label_paquetes.Size = new Size(34, 41);
+            label_paquetes.TabIndex = 18;
+            label_paquetes.Text = "0";
+            // 
+            // label_rutas
+            // 
+            label_rutas.AutoSize = true;
+            label_rutas.Font = new Font("Segoe UI", 18F);
+            label_rutas.ForeColor = Color.Navy;
+            label_rutas.Location = new Point(136, 15);
+            label_rutas.Name = "label_rutas";
+            label_rutas.Size = new Size(34, 41);
+            label_rutas.TabIndex = 19;
+            label_rutas.Text = "0";
+            // 
+            // label_bodegas
+            // 
+            label_bodegas.AutoSize = true;
+            label_bodegas.Font = new Font("Segoe UI", 18F);
+            label_bodegas.ForeColor = Color.Navy;
+            label_bodegas.Location = new Point(154, 15);
+            label_bodegas.Name = "label_bodegas";
+            label_bodegas.Size = new Size(34, 41);
+            label_bodegas.TabIndex = 20;
+            label_bodegas.Text = "0";
+            // 
+            // label_repartidores
+            // 
+            label_repartidores.AutoSize = true;
+            label_repartidores.Font = new Font("Segoe UI", 18F);
+            label_repartidores.ForeColor = Color.Navy;
+            label_repartidores.Location = new Point(162, 15);
+            label_repartidores.Name = "label_repartidores";
+            label_repartidores.Size = new Size(34, 41);
+            label_repartidores.TabIndex = 21;
+            label_repartidores.Text = "0";
+            // 
             // Bienvenida
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -303,5 +369,10 @@
         private PictureBox pic_Patroclo;
         private Label lbl_Mns_bienv;
         private Label lbl_Bienvenido;
+        private Button btnAyuda;
+        private Label label_rutas;
+        private Label label_repartidores;
+        private Label label_bodegas;
+        private Label label_paquetes;
     }
 }

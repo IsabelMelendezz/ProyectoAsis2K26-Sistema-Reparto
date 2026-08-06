@@ -303,6 +303,16 @@ namespace SistemaReparto.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Ico_CerrarSesion {
+            get {
+                object obj = ResourceManager.GetObject("Ico_CerrarSesion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap Icon_Acciones {
             get {
                 object obj = ResourceManager.GetObject("Icon_Acciones", resourceCulture);

@@ -1,6 +1,8 @@
-﻿using System;
+using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using SistemaReparto.Clases;
 
 namespace SistemaReparto
 {
@@ -11,6 +13,24 @@ namespace SistemaReparto
         public Menu()
         {
             InitializeComponent();
+            this.Load += Menu_Load;
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            CMenu datos = new CMenu();
+            try
+            {
+                label_paquetes.Text = datos.ContarPaquetesRegistrados().ToString();
+                label_rutas.Text = datos.ContarRutasActivas().ToString();
+                label_bodegas.Text = datos.ContarBodegasOperativas().ToString();
+                label_repartidores.Text = datos.ContarRepartidoresEnServicio().ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar el resumen: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void OpenFormInPanel(Form childForm)
@@ -165,6 +185,37 @@ namespace SistemaReparto
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAyuda_Click_Click(object sender, EventArgs e)
+        {
+            string rutaPdf = Path.Combine(Application.StartupPath, "Manual", "Manual-Nortek.pdf");
+
+            if (File.Exists(rutaPdf))
+            {
+                Process.Start(new ProcessStartInfo(rutaPdf) { UseShellExecute = true });
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el manual de ayuda en: " + rutaPdf,
+                    "Archivo no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+                "¿Seguro que deseas cerrar sesión?",
+                "Cerrar sesión",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                Logs formLogin = new Logs();
+                formLogin.Show();
+                this.Hide();
+            }
         }
     }
 }
