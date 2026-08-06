@@ -1,4 +1,8 @@
-﻿using SistemaReparto.Clases;
+﻿//Carlos David Calderón Ramirez
+//9959-23-848
+
+
+using SistemaReparto.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -201,8 +205,8 @@ namespace SistemaReparto
 
             int pos = Txt_Placa_Transporte.SelectionStart;
 
-            bool esLetra = pos < 2 || pos >= 5;    // posiciones 0,1 y 5,6,7 letras
-            bool esNumero = pos >= 2 && pos < 5;   // posiciones 2,3,4 números
+            bool esLetra = pos < 1 || pos >= 4;    // posiciones 0,1 y 5,6,7 letras
+            bool esNumero = pos >= 1 && pos < 4;   // posiciones 2,3,4 números
 
             if (esLetra && !char.IsLetter(e.KeyChar))
                 e.Handled = true;

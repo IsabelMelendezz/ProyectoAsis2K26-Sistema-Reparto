@@ -29,25 +29,21 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label2 = new Label();
-            panel2 = new Panel();
+            Lbl_Enca_Repo = new Label();
+            pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            label2 = new Label();
             label3 = new Label();
-            label5 = new Label();
-            textBox1 = new TextBox();
-            label6 = new Label();
-            cbo_Periodo_Reportes = new ComboBox();
-            cbo_Repartidor_Reportes = new ComboBox();
+            cbo_Selecciona_Reportes = new ComboBox();
             dataGridView1 = new DataGridView();
-            ID_Pedido = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
+            Dt_Desde_Reporte = new DateTimePicker();
+            Dt_Hasta_Reporte = new DateTimePicker();
+            label1 = new Label();
+            label4 = new Label();
+            Btn_Generar_Reporte = new Button();
+            formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -58,14 +54,52 @@
             panel1.BackColor = Color.Indigo;
             panel1.BackgroundImage = Properties.Resources.barra_menu_horizontal;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            panel1.Controls.Add(Lbl_Enca_Repo);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1067, 176);
+            panel1.Size = new Size(1492, 176);
             panel1.TabIndex = 2;
+            // 
+            // Lbl_Enca_Repo
+            // 
+            Lbl_Enca_Repo.AutoSize = true;
+            Lbl_Enca_Repo.BackColor = Color.Transparent;
+            Lbl_Enca_Repo.Font = new Font("Segoe UI", 12F, FontStyle.Italic);
+            Lbl_Enca_Repo.ForeColor = SystemColors.ButtonHighlight;
+            Lbl_Enca_Repo.Location = new Point(172, 94);
+            Lbl_Enca_Repo.Name = "Lbl_Enca_Repo";
+            Lbl_Enca_Repo.Size = new Size(354, 28);
+            Lbl_Enca_Repo.TabIndex = 11;
+            Lbl_Enca_Repo.Text = "Consulta y Genera reportes del Sistema";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.patito1;
+            pictureBox2.Location = new Point(1306, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(130, 163);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = Properties.Resources.Repo_ico;
+            pictureBox1.Location = new Point(34, 23);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(116, 120);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -75,7 +109,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(34, 65);
+            label2.Location = new Point(172, 42);
             label2.Name = "label2";
             label2.Size = new Size(182, 52);
             label2.TabIndex = 6;
@@ -84,154 +118,111 @@
             label2.UseCompatibleTextRendering = true;
             label2.Click += label2_Click;
             // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            panel2.AutoSize = true;
-            panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(627, 39);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.MaximumSize = new Size(1500, 139);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(338, 134);
-            panel2.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.reportes;
-            pictureBox1.Location = new Point(207, 10);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(116, 120);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(34, 215);
+            label3.Location = new Point(32, 191);
             label3.Name = "label3";
-            label3.Size = new Size(120, 20);
+            label3.Size = new Size(140, 20);
             label3.TabIndex = 3;
-            label3.Text = "Tipo de Reporte:";
+            label3.Text = "Seleccione Reporte:";
             // 
-            // label5
+            // cbo_Selecciona_Reportes
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(314, 215);
-            label5.Name = "label5";
-            label5.Size = new Size(63, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Periodo:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(34, 250);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(161, 27);
-            textBox1.TabIndex = 5;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(564, 215);
-            label6.Name = "label6";
-            label6.Size = new Size(83, 20);
-            label6.TabIndex = 7;
-            label6.Text = "Repartidor:";
-            // 
-            // cbo_Periodo_Reportes
-            // 
-            cbo_Periodo_Reportes.FormattingEnabled = true;
-            cbo_Periodo_Reportes.Location = new Point(314, 249);
-            cbo_Periodo_Reportes.Name = "cbo_Periodo_Reportes";
-            cbo_Periodo_Reportes.Size = new Size(161, 28);
-            cbo_Periodo_Reportes.TabIndex = 9;
-            // 
-            // cbo_Repartidor_Reportes
-            // 
-            cbo_Repartidor_Reportes.FormattingEnabled = true;
-            cbo_Repartidor_Reportes.Location = new Point(564, 250);
-            cbo_Repartidor_Reportes.Name = "cbo_Repartidor_Reportes";
-            cbo_Repartidor_Reportes.Size = new Size(161, 28);
-            cbo_Repartidor_Reportes.TabIndex = 10;
+            cbo_Selecciona_Reportes.FormattingEnabled = true;
+            cbo_Selecciona_Reportes.Items.AddRange(new object[] { "Pedido", "Ruta", "Empleado", "Vehiculo" });
+            cbo_Selecciona_Reportes.Location = new Point(34, 225);
+            cbo_Selecciona_Reportes.Name = "cbo_Selecciona_Reportes";
+            cbo_Selecciona_Reportes.Size = new Size(170, 28);
+            cbo_Selecciona_Reportes.TabIndex = 9;
             // 
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID_Pedido, Column1, Column2, Column3, Column4, Column5, Column6 });
-            dataGridView1.Location = new Point(34, 382);
+            dataGridView1.Location = new Point(12, 309);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(929, 247);
+            dataGridView1.Size = new Size(1030, 496);
             dataGridView1.TabIndex = 11;
             // 
-            // ID_Pedido
+            // Dt_Desde_Reporte
             // 
-            ID_Pedido.HeaderText = "ID_Pedido";
-            ID_Pedido.MinimumWidth = 6;
-            ID_Pedido.Name = "ID_Pedido";
+            Dt_Desde_Reporte.Format = DateTimePickerFormat.Short;
+            Dt_Desde_Reporte.Location = new Point(259, 226);
+            Dt_Desde_Reporte.Name = "Dt_Desde_Reporte";
+            Dt_Desde_Reporte.Size = new Size(134, 27);
+            Dt_Desde_Reporte.TabIndex = 12;
             // 
-            // Column1
+            // Dt_Hasta_Reporte
             // 
-            Column1.HeaderText = "Repartidor";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
+            Dt_Hasta_Reporte.Format = DateTimePickerFormat.Short;
+            Dt_Hasta_Reporte.Location = new Point(435, 226);
+            Dt_Hasta_Reporte.Name = "Dt_Hasta_Reporte";
+            Dt_Hasta_Reporte.Size = new Size(133, 27);
+            Dt_Hasta_Reporte.TabIndex = 13;
             // 
-            // Column2
+            // label1
             // 
-            Column2.HeaderText = "Fecha";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
+            label1.AutoSize = true;
+            label1.Location = new Point(260, 193);
+            label1.Name = "label1";
+            label1.Size = new Size(123, 20);
+            label1.TabIndex = 14;
+            label1.Text = "Desde que fecha:";
             // 
-            // Column3
+            // label4
             // 
-            Column3.HeaderText = "Destino";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
+            label4.AutoSize = true;
+            label4.Location = new Point(435, 193);
+            label4.Name = "label4";
+            label4.Size = new Size(119, 20);
+            label4.TabIndex = 15;
+            label4.Text = "Hasta que fecha:";
             // 
-            // Column4
+            // Btn_Generar_Reporte
             // 
-            Column4.HeaderText = "ID_Paquete";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
+            Btn_Generar_Reporte.BackColor = Color.FromArgb(31, 145, 62);
+            Btn_Generar_Reporte.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            Btn_Generar_Reporte.ForeColor = Color.White;
+            Btn_Generar_Reporte.Location = new Point(605, 206);
+            Btn_Generar_Reporte.Name = "Btn_Generar_Reporte";
+            Btn_Generar_Reporte.Size = new Size(115, 32);
+            Btn_Generar_Reporte.TabIndex = 16;
+            Btn_Generar_Reporte.Text = "\U0001fa84 Generar";
+            Btn_Generar_Reporte.UseVisualStyleBackColor = false;
+            Btn_Generar_Reporte.Click += button1_Click;
             // 
-            // Column5
+            // formsPlot1
             // 
-            Column5.HeaderText = "Estado";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Feedback";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
+            formsPlot1.Location = new Point(1075, 309);
+            formsPlot1.Name = "formsPlot1";
+            formsPlot1.Size = new Size(405, 496);
+            formsPlot1.TabIndex = 17;
+            formsPlot1.Load += formsPlot1_Load;
             // 
             // Reportes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1067, 854);
+            ClientSize = new Size(1492, 854);
+            Controls.Add(formsPlot1);
+            Controls.Add(Btn_Generar_Reporte);
+            Controls.Add(label4);
+            Controls.Add(label1);
+            Controls.Add(Dt_Hasta_Reporte);
+            Controls.Add(Dt_Desde_Reporte);
             Controls.Add(dataGridView1);
-            Controls.Add(cbo_Repartidor_Reportes);
-            Controls.Add(cbo_Periodo_Reportes);
-            Controls.Add(label6);
-            Controls.Add(textBox1);
-            Controls.Add(label5);
+            Controls.Add(cbo_Selecciona_Reportes);
             Controls.Add(label3);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Reportes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
-            Load += Form2_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -242,13 +233,12 @@
         #endregion
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private Label label3;
         private Label label5;
         private TextBox textBox1;
         private Label label6;
-        private ComboBox cbo_Periodo_Reportes;
+        private ComboBox cbo_Selecciona_Reportes;
         private ComboBox cbo_Repartidor_Reportes;
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ID_Pedido;
@@ -258,5 +248,13 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private PictureBox pictureBox2;
+        private Label Lbl_Enca_Repo;
+        private DateTimePicker Dt_Desde_Reporte;
+        private DateTimePicker Dt_Hasta_Reporte;
+        private Label label1;
+        private Label label4;
+        private Button Btn_Generar_Reporte;
+        private ScottPlot.WinForms.FormsPlot formsPlot1;
     }
 }
