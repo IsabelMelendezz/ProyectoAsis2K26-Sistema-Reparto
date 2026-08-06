@@ -1,9 +1,11 @@
 namespace SistemaReparto
 {
+    using SistemaReparto.Clases;
     using System.Drawing.Drawing2D;
 
     public partial class Logs : Form
     {
+        CLogin controladorLogin = new CLogin();
         public Logs()
         {
             InitializeComponent();
@@ -11,9 +13,46 @@ namespace SistemaReparto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Hide();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txt_Usu_Log.Text) || string.IsNullOrWhiteSpace(txt_Contra_Log.Text))
+                {
+                    MessageBox.Show("Ingresa usuario y contrasena", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                bool acceso = controladorLogin.ValidarLogin(txt_Usu_Log.Text, txt_Contra_Log.Text);
+
+                if (acceso)
+                {
+                    MessageBox.Show($"Bienvenido, {Sesion.NombreEmpleado}\nRoles: {Sesion.RolesComoTexto()}",
+                        "Acceso concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    bool esAdmin = Sesion.Roles.Any(r => r.NombreRol == "Administrador");
+                    bool esRepartidor = Sesion.Roles.Any(r => r.NombreRol == "Repartidor");
+                    if (esAdmin)
+                    {
+                        Menu menuAdmin = new Menu();
+                        menuAdmin.Show();
+                        this.Hide();
+                    }
+                    else if (esRepartidor)
+                    {
+                        Menu_Repartidor menuRepartidor = new Menu_Repartidor();
+                        menuRepartidor.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tu rol no tiene un menu asignado. Contacta al administrador.",
+                            "Acceso limitado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al iniciar sesion: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
