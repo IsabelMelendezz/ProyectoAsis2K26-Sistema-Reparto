@@ -118,7 +118,7 @@ namespace SistemaReparto.Clases
 
                 if (!Regex.IsMatch(placa.Text, @"^[A-Za-z]{2}[0-9]{3}[A-Za-z]{3}$"))
                 {
-                    MessageBox.Show("La placa debe tener el formato: 2 letras, 3 números, 3 letras (Ej: PO159HRC)");
+                    MessageBox.Show("La placa debe tener el formato: 1 letras, 3 números, 3 letras (Ej: P159HRC)");
                     return -1;
                 }
 

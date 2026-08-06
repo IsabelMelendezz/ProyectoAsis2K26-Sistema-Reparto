@@ -143,12 +143,12 @@ INSERT INTO paquete (id_pedido, codigo_rastreo_paquete, peso_paquete, alto_paque
 (3, 'TRK-0003', 12.00, 40.00, 30.00, 25.00, 'Ropa y textiles', 'Ropa', 'No', 800.00);
 
 INSERT INTO entrega (id_pedido, id_estado_entrega, fecha_entrega, hora_entrega, persona_recibe_entrega, observaciones_entrega, firma_recibido_entrega) VALUES
-(1, 1, NULL, NULL, NULL, 'Pendiente de entrega', 'No'),
+(1, 1, '2026-08-13', '15:00:00', 'Jose Martinez', 'Pendiente de entrega', 'No'),
 (2, 2, '2026-08-02', '14:30:00', 'María González', 'Entregado en portería', 'Si'),
 (3, 3, '2026-07-30', '16:00:00', 'Luis Ramírez', 'Sin novedad', 'Si');
 
 -- NIVEL 7 - DEPENDE DE ENTREGA Y EMPLEADOS
-INSERT INTO queja (id_entrega, id_empleado, tipo_queja, comentario_queja, calificacion_queja, fecha_queja) VALUES
-(2, 2, 'Retraso', 'El pedido llegó una hora tarde', 3, '2026-08-02'),
-(3, 3, 'Servicio', 'Buen trato del repartidor', 5, '2026-07-30'),
-(2, 1, 'Empaque', 'El paquete llegó con la caja dañada', 2, '2026-08-02');
+INSERT INTO queja (id_entrega, id_cliente, tipo_queja, comentario_queja, calificacion_queja, fecha_queja) VALUES
+(2, 2, 'Reclamo', 'El pedido llegó una hora tarde', 3, '2026-08-02'),
+(3, 3, 'Elogio', 'Buen trato del repartidor', 5, '2026-07-30'),
+(2, 1, 'Reclamo', 'El paquete llegó con la caja dañada', 2, '2026-08-02');

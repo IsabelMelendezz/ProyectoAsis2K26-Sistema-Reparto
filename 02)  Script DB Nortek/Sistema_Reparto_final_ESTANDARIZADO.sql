@@ -382,7 +382,7 @@ CREATE TABLE entrega (
 CREATE TABLE queja (
     id_queja        INT             NOT NULL AUTO_INCREMENT,
     id_entrega      INT             NOT NULL,
-    id_empleado     INT             NOT NULL,
+    id_cliente     INT             NOT NULL,
     tipo_queja            VARCHAR(50)     NULL,
     comentario_queja      VARCHAR(500)    NULL,
     calificacion_queja    INT             NULL,
@@ -390,8 +390,8 @@ CREATE TABLE queja (
     PRIMARY KEY (id_queja),
     CONSTRAINT fk_queja_entrega FOREIGN KEY (id_entrega)
         REFERENCES entrega (id_entrega),
-    CONSTRAINT fk_queja_empleado FOREIGN KEY (id_empleado)
-        REFERENCES empleado (id_empleado),
+    CONSTRAINT fk_queja_cliente FOREIGN KEY (id_cliente)
+        REFERENCES cliente (id_cliente),
     CONSTRAINT ck_queja_calificacion CHECK (calificacion_queja BETWEEN 1 AND 5)
 ) ENGINE=InnoDB;
 
