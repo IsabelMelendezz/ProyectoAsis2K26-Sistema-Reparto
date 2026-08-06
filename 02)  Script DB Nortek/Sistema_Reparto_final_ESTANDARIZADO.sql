@@ -382,7 +382,7 @@ CREATE TABLE entrega (
 CREATE TABLE queja (
     id_queja        INT             NOT NULL AUTO_INCREMENT,
     id_entrega      INT             NOT NULL,
-    id_cliente     INT             NOT NULL,
+    id_empleado     INT             NOT NULL,
     tipo_queja            VARCHAR(50)     NULL,
     comentario_queja      VARCHAR(500)    NULL,
     calificacion_queja    INT             NULL,
@@ -390,10 +390,32 @@ CREATE TABLE queja (
     PRIMARY KEY (id_queja),
     CONSTRAINT fk_queja_entrega FOREIGN KEY (id_entrega)
         REFERENCES entrega (id_entrega),
-    CONSTRAINT fk_queja_cliente FOREIGN KEY (id_cliente)
-        REFERENCES cliente (id_cliente),
+    CONSTRAINT fk_queja_empleado FOREIGN KEY (id_empleado)
+        REFERENCES empleado (id_empleado),
     CONSTRAINT ck_queja_calificacion CHECK (calificacion_queja BETWEEN 1 AND 5)
 ) ENGINE=InnoDB;
+
+-- ============================================================
+-- Realizacion de nueva tabla para asignacion de pedidos a rutas
+-- ============================================================
+CREATE TABLE detalle_asignacion_transp (
+    id_detalle INT NOT NULL AUTO_INCREMENT,
+    id_asignacion INT NOT NULL,
+    id_pedido INT NOT NULL,
+    estado_pedido ENUM('Pendiente','En ruta','Entregado','No entregado')
+        DEFAULT 'En ruta',
+
+    PRIMARY KEY(id_detalle),
+
+    FOREIGN KEY(id_asignacion)
+        REFERENCES asignacion_transp(id_asignacion),
+
+    FOREIGN KEY(id_pedido)
+        REFERENCES pedido(id_pedido)
+) ENGINE=InnoDB;
+
+ALTER TABLE asignacion_transp
+ADD observaciones VARCHAR(255);
 
 -- ============================================================
 -- FIN DEL SCRIPT - 28 TABLAS CREADAS EN ORDEN DE DEPENDENCIA
