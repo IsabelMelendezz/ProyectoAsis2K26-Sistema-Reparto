@@ -181,7 +181,7 @@
             // 
             // pictureBox9
             // 
-            pictureBox9.Image = Properties.Resources.Asig_ico;
+            pictureBox9.Image = Properties.Resources.Ico_CerrarSesion;
             pictureBox9.Location = new Point(8, 1107);
             pictureBox9.Name = "pictureBox9";
             pictureBox9.Size = new Size(63, 60);
