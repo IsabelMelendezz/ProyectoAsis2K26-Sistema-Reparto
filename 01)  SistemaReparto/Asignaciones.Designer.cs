@@ -56,25 +56,11 @@
             txtBuscarPedido = new TextBox();
             btnBuscarPedido = new Button();
             dgvPedidosDisponibles = new DataGridView();
-            colDispCheck = new DataGridViewCheckBoxColumn();
-            colDispPedido = new DataGridViewTextBoxColumn();
-            colDispCliente = new DataGridViewTextBoxColumn();
-            colDispDireccion = new DataGridViewTextBoxColumn();
-            colDispArea = new DataGridViewTextBoxColumn();
-            colDispPeso = new DataGridViewTextBoxColumn();
             pnlBotonesAccion = new Panel();
             btnAgregar = new Button();
-            btnQuitar = new Button();
             btnLimpiar = new Button();
             grpPedidosAsignados = new GroupBox();
             dgvPedidosAsignados = new DataGridView();
-            colAsigOrden = new DataGridViewTextBoxColumn();
-            colAsigPedido = new DataGridViewTextBoxColumn();
-            colAsigCliente = new DataGridViewTextBoxColumn();
-            colAsigDireccion = new DataGridViewTextBoxColumn();
-            colAsigEstado = new DataGridViewTextBoxColumn();
-            colAsigPeso = new DataGridViewTextBoxColumn();
-            colAsigAcciones = new DataGridViewButtonColumn();
             lblTotalPedidosTitulo = new Label();
             lblTotalPedidosValor = new Label();
             lblPesoTotalTitulo = new Label();
@@ -87,7 +73,6 @@
             txtObservaciones = new TextBox();
             grpAcciones = new GroupBox();
             btnConfirmarAsignacion = new Button();
-            btnGuardarComoPlan = new Button();
             btnCancelar = new Button();
             panel1 = new Panel();
             picLogo = new PictureBox();
@@ -153,6 +138,7 @@
             cboRuta.Name = "cboRuta";
             cboRuta.Size = new Size(170, 28);
             cboRuta.TabIndex = 1;
+            cboRuta.SelectedIndexChanged += cboRuta_SelectedIndexChanged;
             // 
             // lblFecha
             // 
@@ -276,7 +262,7 @@
             // lblBodegaOrigenTitulo
             // 
             lblBodegaOrigenTitulo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            lblBodegaOrigenTitulo.Location = new Point(17, 46);
+            lblBodegaOrigenTitulo.Location = new Point(17, 39);
             lblBodegaOrigenTitulo.Name = "lblBodegaOrigenTitulo";
             lblBodegaOrigenTitulo.Size = new Size(194, 26);
             lblBodegaOrigenTitulo.TabIndex = 0;
@@ -286,11 +272,11 @@
             // 
             lblBodegaOrigenValor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblBodegaOrigenValor.Font = new Font("Segoe UI", 9F);
-            lblBodegaOrigenValor.Location = new Point(207, 46);
+            lblBodegaOrigenValor.Location = new Point(207, 39);
             lblBodegaOrigenValor.Name = "lblBodegaOrigenValor";
             lblBodegaOrigenValor.Size = new Size(174, 26);
             lblBodegaOrigenValor.TabIndex = 1;
-            lblBodegaOrigenValor.Text = "Bodega Central";
+            lblBodegaOrigenValor.Text = "...";
             lblBodegaOrigenValor.Click += lblBodegaOrigenValor_Click;
             // 
             // lblSucursalAreaTitulo
@@ -310,7 +296,7 @@
             lblSucursalAreaValor.Name = "lblSucursalAreaValor";
             lblSucursalAreaValor.Size = new Size(174, 26);
             lblSucursalAreaValor.TabIndex = 3;
-            lblSucursalAreaValor.Text = "Zona 1 Centro";
+            lblSucursalAreaValor.Text = "...";
             // 
             // lblTipoRutaTitulo
             // 
@@ -329,7 +315,8 @@
             lblTipoRutaValor.Name = "lblTipoRutaValor";
             lblTipoRutaValor.Size = new Size(174, 26);
             lblTipoRutaValor.TabIndex = 5;
-            lblTipoRutaValor.Text = "Urbana";
+            lblTipoRutaValor.Text = "...";
+            lblTipoRutaValor.Click += lblTipoRutaValor_Click;
             // 
             // lblDistanciaEstimadaTitulo
             // 
@@ -348,7 +335,7 @@
             lblDistanciaEstimadaValor.Name = "lblDistanciaEstimadaValor";
             lblDistanciaEstimadaValor.Size = new Size(174, 26);
             lblDistanciaEstimadaValor.TabIndex = 7;
-            lblDistanciaEstimadaValor.Text = "15.50 km";
+            lblDistanciaEstimadaValor.Text = "...";
             // 
             // grpResumenRuta
             // 
@@ -402,7 +389,7 @@
             lblPedidosAsignadosValor.Name = "lblPedidosAsignadosValor";
             lblPedidosAsignadosValor.Size = new Size(72, 34);
             lblPedidosAsignadosValor.TabIndex = 2;
-            lblPedidosAsignadosValor.Text = "4";
+            lblPedidosAsignadosValor.Text = "...";
             // 
             // lblIconParadas
             // 
@@ -430,7 +417,7 @@
             lblParadasValor.Name = "lblParadasValor";
             lblParadasValor.Size = new Size(92, 34);
             lblParadasValor.TabIndex = 5;
-            lblParadasValor.Text = "4";
+            lblParadasValor.Text = "...";
             // 
             // lblIconDistancia
             // 
@@ -458,7 +445,8 @@
             lblDistanciaTotalValor.Name = "lblDistanciaTotalValor";
             lblDistanciaTotalValor.Size = new Size(121, 34);
             lblDistanciaTotalValor.TabIndex = 8;
-            lblDistanciaTotalValor.Text = "15.50 km";
+            lblDistanciaTotalValor.Text = "...";
+            lblDistanciaTotalValor.Click += lblDistanciaTotalValor_Click;
             // 
             // lblIconTiempo
             // 
@@ -486,7 +474,7 @@
             lblTiempoEstimadoValor.Name = "lblTiempoEstimadoValor";
             lblTiempoEstimadoValor.Size = new Size(121, 34);
             lblTiempoEstimadoValor.TabIndex = 11;
-            lblTiempoEstimadoValor.Text = "3h 20m";
+            lblTiempoEstimadoValor.Text = "...";
             // 
             // grpPedidosDisponibles
             // 
@@ -536,7 +524,6 @@
             dgvPedidosDisponibles.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPedidosDisponibles.BackgroundColor = Color.White;
             dgvPedidosDisponibles.ColumnHeadersHeight = 34;
-            dgvPedidosDisponibles.Columns.AddRange(new DataGridViewColumn[] { colDispCheck, colDispPedido, colDispCliente, colDispDireccion, colDispArea, colDispPeso });
             dgvPedidosDisponibles.Location = new Point(13, 83);
             dgvPedidosDisponibles.Margin = new Padding(3, 4, 3, 4);
             dgvPedidosDisponibles.MultiSelect = false;
@@ -546,52 +533,11 @@
             dgvPedidosDisponibles.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPedidosDisponibles.Size = new Size(430, 147);
             dgvPedidosDisponibles.TabIndex = 2;
-            // 
-            // colDispCheck
-            // 
-            colDispCheck.HeaderText = "";
-            colDispCheck.MinimumWidth = 8;
-            colDispCheck.Name = "colDispCheck";
-            // 
-            // colDispPedido
-            // 
-            colDispPedido.HeaderText = "Pedido";
-            colDispPedido.MinimumWidth = 8;
-            colDispPedido.Name = "colDispPedido";
-            colDispPedido.ReadOnly = true;
-            // 
-            // colDispCliente
-            // 
-            colDispCliente.HeaderText = "Cliente";
-            colDispCliente.MinimumWidth = 8;
-            colDispCliente.Name = "colDispCliente";
-            colDispCliente.ReadOnly = true;
-            // 
-            // colDispDireccion
-            // 
-            colDispDireccion.HeaderText = "Dirección";
-            colDispDireccion.MinimumWidth = 8;
-            colDispDireccion.Name = "colDispDireccion";
-            colDispDireccion.ReadOnly = true;
-            // 
-            // colDispArea
-            // 
-            colDispArea.HeaderText = "Área";
-            colDispArea.MinimumWidth = 8;
-            colDispArea.Name = "colDispArea";
-            colDispArea.ReadOnly = true;
-            // 
-            // colDispPeso
-            // 
-            colDispPeso.HeaderText = "Peso (kg)";
-            colDispPeso.MinimumWidth = 8;
-            colDispPeso.Name = "colDispPeso";
-            colDispPeso.ReadOnly = true;
+            dgvPedidosDisponibles.CellContentClick += dgvPedidosDisponibles_CellContentClick;
             // 
             // pnlBotonesAccion
             // 
             pnlBotonesAccion.Controls.Add(btnAgregar);
-            pnlBotonesAccion.Controls.Add(btnQuitar);
             pnlBotonesAccion.Controls.Add(btnLimpiar);
             pnlBotonesAccion.Location = new Point(485, 386);
             pnlBotonesAccion.Margin = new Padding(3, 4, 3, 4);
@@ -607,35 +553,26 @@
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(0, 7);
+            btnAgregar.Location = new Point(0, 47);
             btnAgregar.Margin = new Padding(3, 4, 3, 4);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(103, 60);
             btnAgregar.TabIndex = 0;
             btnAgregar.Text = "»» Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // btnQuitar
-            // 
-            btnQuitar.Font = new Font("Segoe UI", 9F);
-            btnQuitar.Location = new Point(0, 70);
-            btnQuitar.Margin = new Padding(3, 4, 3, 4);
-            btnQuitar.Name = "btnQuitar";
-            btnQuitar.Size = new Size(103, 60);
-            btnQuitar.TabIndex = 1;
-            btnQuitar.Text = "«« Quitar";
-            btnQuitar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // btnLimpiar
             // 
             btnLimpiar.Font = new Font("Segoe UI", 9F);
-            btnLimpiar.Location = new Point(0, 134);
+            btnLimpiar.Location = new Point(0, 111);
             btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(103, 60);
             btnLimpiar.TabIndex = 2;
             btnLimpiar.Text = "🔄 Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // grpPedidosAsignados
             // 
@@ -669,7 +606,6 @@
             dgvPedidosAsignados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPedidosAsignados.BackgroundColor = Color.White;
             dgvPedidosAsignados.ColumnHeadersHeight = 34;
-            dgvPedidosAsignados.Columns.AddRange(new DataGridViewColumn[] { colAsigOrden, colAsigPedido, colAsigCliente, colAsigDireccion, colAsigEstado, colAsigPeso, colAsigAcciones });
             dgvPedidosAsignados.Location = new Point(10, 32);
             dgvPedidosAsignados.Margin = new Padding(3, 4, 3, 4);
             dgvPedidosAsignados.MultiSelect = false;
@@ -677,61 +613,9 @@
             dgvPedidosAsignados.RowHeadersVisible = false;
             dgvPedidosAsignados.RowHeadersWidth = 62;
             dgvPedidosAsignados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPedidosAsignados.Size = new Size(556, 164);
+            dgvPedidosAsignados.Size = new Size(556, 167);
             dgvPedidosAsignados.TabIndex = 0;
             dgvPedidosAsignados.CellContentClick += dgvPedidosAsignados_CellContentClick;
-            // 
-            // colAsigOrden
-            // 
-            colAsigOrden.FillWeight = 60F;
-            colAsigOrden.HeaderText = "Orden";
-            colAsigOrden.MinimumWidth = 8;
-            colAsigOrden.Name = "colAsigOrden";
-            colAsigOrden.ReadOnly = true;
-            // 
-            // colAsigPedido
-            // 
-            colAsigPedido.HeaderText = "Pedido";
-            colAsigPedido.MinimumWidth = 8;
-            colAsigPedido.Name = "colAsigPedido";
-            colAsigPedido.ReadOnly = true;
-            // 
-            // colAsigCliente
-            // 
-            colAsigCliente.HeaderText = "Cliente";
-            colAsigCliente.MinimumWidth = 8;
-            colAsigCliente.Name = "colAsigCliente";
-            colAsigCliente.ReadOnly = true;
-            // 
-            // colAsigDireccion
-            // 
-            colAsigDireccion.HeaderText = "Dirección";
-            colAsigDireccion.MinimumWidth = 8;
-            colAsigDireccion.Name = "colAsigDireccion";
-            colAsigDireccion.ReadOnly = true;
-            // 
-            // colAsigEstado
-            // 
-            colAsigEstado.HeaderText = "Estado";
-            colAsigEstado.MinimumWidth = 8;
-            colAsigEstado.Name = "colAsigEstado";
-            colAsigEstado.ReadOnly = true;
-            // 
-            // colAsigPeso
-            // 
-            colAsigPeso.HeaderText = "Peso (kg)";
-            colAsigPeso.MinimumWidth = 8;
-            colAsigPeso.Name = "colAsigPeso";
-            colAsigPeso.ReadOnly = true;
-            // 
-            // colAsigAcciones
-            // 
-            colAsigAcciones.FillWeight = 60F;
-            colAsigAcciones.HeaderText = "Acciones";
-            colAsigAcciones.MinimumWidth = 8;
-            colAsigAcciones.Name = "colAsigAcciones";
-            colAsigAcciones.Text = "🗑";
-            colAsigAcciones.UseColumnTextForButtonValue = true;
             // 
             // lblTotalPedidosTitulo
             // 
@@ -751,7 +635,7 @@
             lblTotalPedidosValor.Name = "lblTotalPedidosValor";
             lblTotalPedidosValor.Size = new Size(46, 26);
             lblTotalPedidosValor.TabIndex = 2;
-            lblTotalPedidosValor.Text = "4";
+            lblTotalPedidosValor.Text = "...";
             // 
             // lblPesoTotalTitulo
             // 
@@ -771,7 +655,7 @@
             lblPesoTotalValor.Name = "lblPesoTotalValor";
             lblPesoTotalValor.Size = new Size(91, 26);
             lblPesoTotalValor.TabIndex = 4;
-            lblPesoTotalValor.Text = "33.80 kg";
+            lblPesoTotalValor.Text = "...";
             // 
             // lblParadasBottomTitulo
             // 
@@ -791,7 +675,7 @@
             lblParadasBottomValor.Name = "lblParadasBottomValor";
             lblParadasBottomValor.Size = new Size(34, 26);
             lblParadasBottomValor.TabIndex = 6;
-            lblParadasBottomValor.Text = "4";
+            lblParadasBottomValor.Text = "...";
             // 
             // lblTiempoEstimadoBottomTitulo
             // 
@@ -811,7 +695,7 @@
             lblTiempoEstimadoBottomValor.Name = "lblTiempoEstimadoBottomValor";
             lblTiempoEstimadoBottomValor.Size = new Size(69, 26);
             lblTiempoEstimadoBottomValor.TabIndex = 8;
-            lblTiempoEstimadoBottomValor.Text = "3h 20m";
+            lblTiempoEstimadoBottomValor.Text = "...";
             lblTiempoEstimadoBottomValor.Click += lblTiempoEstimadoBottomValor_Click;
             // 
             // grpObservaciones
@@ -841,12 +725,12 @@
             txtObservaciones.ScrollBars = ScrollBars.Vertical;
             txtObservaciones.Size = new Size(630, 126);
             txtObservaciones.TabIndex = 0;
+            txtObservaciones.TextChanged += txtObservaciones_TextChanged;
             // 
             // grpAcciones
             // 
             grpAcciones.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grpAcciones.Controls.Add(btnConfirmarAsignacion);
-            grpAcciones.Controls.Add(btnGuardarComoPlan);
             grpAcciones.Controls.Add(btnCancelar);
             grpAcciones.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             grpAcciones.ForeColor = Color.FromArgb(30, 41, 59);
@@ -866,39 +750,26 @@
             btnConfirmarAsignacion.FlatStyle = FlatStyle.Flat;
             btnConfirmarAsignacion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnConfirmarAsignacion.ForeColor = Color.White;
-            btnConfirmarAsignacion.Location = new Point(24, 46);
+            btnConfirmarAsignacion.Location = new Point(24, 47);
             btnConfirmarAsignacion.Margin = new Padding(3, 4, 3, 4);
             btnConfirmarAsignacion.Name = "btnConfirmarAsignacion";
-            btnConfirmarAsignacion.Size = new Size(164, 60);
+            btnConfirmarAsignacion.Size = new Size(206, 90);
             btnConfirmarAsignacion.TabIndex = 0;
             btnConfirmarAsignacion.Text = "✔ Confirmar Asignación";
             btnConfirmarAsignacion.UseVisualStyleBackColor = false;
-            // 
-            // btnGuardarComoPlan
-            // 
-            btnGuardarComoPlan.BackColor = Color.FromArgb(22, 163, 74);
-            btnGuardarComoPlan.FlatAppearance.BorderSize = 0;
-            btnGuardarComoPlan.FlatStyle = FlatStyle.Flat;
-            btnGuardarComoPlan.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            btnGuardarComoPlan.ForeColor = Color.White;
-            btnGuardarComoPlan.Location = new Point(210, 46);
-            btnGuardarComoPlan.Margin = new Padding(3, 4, 3, 4);
-            btnGuardarComoPlan.Name = "btnGuardarComoPlan";
-            btnGuardarComoPlan.Size = new Size(149, 60);
-            btnGuardarComoPlan.TabIndex = 1;
-            btnGuardarComoPlan.Text = "💾 Guardar como Plan";
-            btnGuardarComoPlan.UseVisualStyleBackColor = false;
+            btnConfirmarAsignacion.Click += btnConfirmarAsignacion_Click;
             // 
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Segoe UI", 9F);
-            btnCancelar.Location = new Point(120, 114);
+            btnCancelar.Location = new Point(245, 47);
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(171, 60);
+            btnCancelar.Size = new Size(213, 90);
             btnCancelar.TabIndex = 2;
             btnCancelar.Text = "✕ Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click_1;
             // 
             // panel1
             // 
@@ -1066,27 +937,13 @@
         private System.Windows.Forms.TextBox txtBuscarPedido;
         private System.Windows.Forms.Button btnBuscarPedido;
         private System.Windows.Forms.DataGridView dgvPedidosDisponibles;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colDispCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDispPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDispCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDispDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDispArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDispPeso;
 
         // ===== Botones de transferencia =====
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnLimpiar;
 
         // ===== Pedidos Asignados a la Ruta =====
         private System.Windows.Forms.DataGridView dgvPedidosAsignados;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAsigOrden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAsigPedido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAsigCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAsigDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAsigEstado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAsigPeso;
-        private System.Windows.Forms.DataGridViewButtonColumn colAsigAcciones;
         private System.Windows.Forms.Label lblTotalPedidosTitulo;
         private System.Windows.Forms.Label lblTotalPedidosValor;
         private System.Windows.Forms.Label lblPesoTotalTitulo;
@@ -1101,7 +958,6 @@
 
         // ===== Acciones =====
         private System.Windows.Forms.Button btnConfirmarAsignacion;
-        private System.Windows.Forms.Button btnGuardarComoPlan;
         private System.Windows.Forms.Button btnCancelar;
         private Panel panel1;
         private Label label2;
