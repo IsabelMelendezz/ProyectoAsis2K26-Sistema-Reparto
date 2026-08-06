@@ -191,6 +191,7 @@ namespace SistemaReparto
 
         private void lnkRegresar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            this.Close();
         }
 
         private void lblEyeNueva_Click(object sender, EventArgs e)
