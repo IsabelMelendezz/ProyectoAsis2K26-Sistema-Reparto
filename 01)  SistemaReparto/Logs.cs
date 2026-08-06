@@ -1,9 +1,11 @@
 namespace SistemaReparto
 {
-using System.Drawing.Drawing2D;
+    using SistemaReparto.Clases;
+    using System.Drawing.Drawing2D;
 
     public partial class Logs : Form
     {
+        CLogin controladorLogin = new CLogin();
         public Logs()
         {
             InitializeComponent();
@@ -11,15 +13,36 @@ using System.Drawing.Drawing2D;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
-            this.Hide();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txt_Usu_Log.Text) || string.IsNullOrWhiteSpace(txt_Contra_Log.Text))
+                {
+                    MessageBox.Show("Ingresa usuario y contraseña", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                bool acceso = controladorLogin.ValidarLogin(txt_Usu_Log.Text, txt_Contra_Log.Text);
+
+                if (acceso)
+                {
+                    MessageBox.Show($"Bienvenido, {Sesion.NombreEmpleado}\nRoles: {Sesion.RolesComoTexto()}",
+                        "Acceso concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    Menu_Repartidor menuPrincipal = new Menu_Repartidor();
+                    menuPrincipal.Show();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al iniciar sesión: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Recuperacion formRecuperacion = new Recuperacion();
-            formRecuperacion.Show();
+            Registros formRegistros = new Registros();
+            formRegistros.Show();
             this.Hide();
         }
 
@@ -47,22 +70,6 @@ using System.Drawing.Drawing2D;
         private void pictureLog3_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void lbl_no_Cuenta_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lnkrecuperacion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Recuperacion formRecuperacion = new Recuperacion();
-
-            this.Hide();
-
-            formRecuperacion.ShowDialog();
-
-            this.Show();
         }
     }
 }
