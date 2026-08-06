@@ -32,7 +32,6 @@
             btn_Log = new Button();
             txt_Usu_Log = new TextBox();
             txt_Contra_Log = new TextBox();
-            btn_Registrar_Log = new Button();
             lbl_no_Cuenta = new Label();
             pictureLog1 = new PictureBox();
             lbl_Inicio = new Label();
@@ -40,6 +39,7 @@
             panel2 = new Panel();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
+            lnkrecuperacion = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureLog1).BeginInit();
             pnl_log.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -78,20 +78,6 @@
             txt_Contra_Log.Size = new Size(325, 31);
             txt_Contra_Log.TabIndex = 2;
             // 
-            // btn_Registrar_Log
-            // 
-            btn_Registrar_Log.BackColor = SystemColors.ButtonFace;
-            btn_Registrar_Log.FlatStyle = FlatStyle.Flat;
-            btn_Registrar_Log.ForeColor = Color.Black;
-            btn_Registrar_Log.Location = new Point(269, 432);
-            btn_Registrar_Log.Margin = new Padding(4);
-            btn_Registrar_Log.Name = "btn_Registrar_Log";
-            btn_Registrar_Log.Size = new Size(119, 38);
-            btn_Registrar_Log.TabIndex = 4;
-            btn_Registrar_Log.Text = "Registrate";
-            btn_Registrar_Log.UseVisualStyleBackColor = false;
-            btn_Registrar_Log.Click += button2_Click;
-            // 
             // lbl_no_Cuenta
             // 
             lbl_no_Cuenta.AutoSize = true;
@@ -99,9 +85,9 @@
             lbl_no_Cuenta.Location = new Point(30, 445);
             lbl_no_Cuenta.Margin = new Padding(4, 0, 4, 0);
             lbl_no_Cuenta.Name = "lbl_no_Cuenta";
-            lbl_no_Cuenta.Size = new Size(194, 25);
+            lbl_no_Cuenta.Size = new Size(0, 25);
             lbl_no_Cuenta.TabIndex = 6;
-            lbl_no_Cuenta.Text = "¿No tienes una cuenta?";
+            lbl_no_Cuenta.Click += lbl_no_Cuenta_Click;
             // 
             // pictureLog1
             // 
@@ -129,13 +115,13 @@
             // pnl_log
             // 
             pnl_log.BackColor = SystemColors.ButtonFace;
+            pnl_log.Controls.Add(lnkrecuperacion);
             pnl_log.Controls.Add(txt_Contra_Log);
             pnl_log.Controls.Add(txt_Usu_Log);
             pnl_log.Controls.Add(lbl_no_Cuenta);
             pnl_log.Controls.Add(btn_Log);
             pnl_log.Controls.Add(pictureLog1);
             pnl_log.Controls.Add(lbl_Inicio);
-            pnl_log.Controls.Add(btn_Registrar_Log);
             pnl_log.Controls.Add(panel2);
             pnl_log.Controls.Add(panel3);
             pnl_log.Location = new Point(656, 166);
@@ -175,6 +161,17 @@
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
+            // lnkrecuperacion
+            // 
+            lnkrecuperacion.AutoSize = true;
+            lnkrecuperacion.Location = new Point(49, 437);
+            lnkrecuperacion.Name = "lnkrecuperacion";
+            lnkrecuperacion.Size = new Size(214, 25);
+            lnkrecuperacion.TabIndex = 13;
+            lnkrecuperacion.TabStop = true;
+            lnkrecuperacion.Text = "¿Olvidaste tu contraseña?";
+            lnkrecuperacion.LinkClicked += lnkrecuperacion_LinkClicked;
+            // 
             // Logs
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -202,7 +199,6 @@
         private Button btn_Log;
         private TextBox txt_Usu_Log;
         private TextBox txt_Contra_Log;
-        private Button btn_Registrar_Log;
         private Label lbl_no_Cuenta;
         private PictureBox pictureLog1;
         private Label lbl_Inicio;
@@ -210,5 +206,6 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         private Panel panel3;
+        private LinkLabel lnkrecuperacion;
     }
 }
