@@ -15,9 +15,9 @@ namespace SistemaReparto.Clases
         {
             try
             {
-                string consulta = @"SELECT COUNT(*) 
-                            FROM usuarios
-                            WHERE usuario = @usuario;";
+                string consulta = @"SELECT COUNT(*)
+                            FROM usuario
+                            WHERE usuario_usuario = @usuario;";
 
                 MySqlCommand comando = new MySqlCommand(
                     consulta,
@@ -34,7 +34,6 @@ namespace SistemaReparto.Clases
             catch (Exception ex)
             {
                 MessageBox.Show("Error al verificar el usuario.\n" + ex.Message);
-
                 return false;
             }
         }
@@ -183,16 +182,16 @@ namespace SistemaReparto.Clases
             {
                 MessageBox.Show("Error al actualizar la contraseña.\n" + ex.Message);
             }
-        }   
+        }
 
         public void LimpiarTokenUsuario(string usuario)
         {
             try
             {
-                string consulta = @"UPDATE usuarios
-                            SET token_recuperacion = NULL,
-                                fecha_expiracion_token = NULL
-                            WHERE usuario = @usuario;";
+                string consulta = @"UPDATE usuario
+                            SET token_recuperacion_usuario = NULL,
+                                fecha_expiracion_token_usuario = NULL
+                            WHERE usuario_usuario = @usuario;";
 
                 MySqlCommand comando = new MySqlCommand(
                     consulta,
