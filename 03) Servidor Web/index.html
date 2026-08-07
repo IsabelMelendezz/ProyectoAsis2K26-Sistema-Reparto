@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nortek Solutions — Conectamos tu mundo</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950: #071433;
+    --navy-900: #0b1e45;
+    --navy-800: #12295c;
+    --navy-700: #1c3a78;
+    --orange: #ff7a1f;
+    --orange-light: #ffa552;
+    --blue: #2f6fed;
+    --blue-light: #5b8dff;
+    --green: #1fae66;
+    --red: #e5484d;
+    --bg: #eef2fa;
+    --bg-alt: #e4ebfa;
+    --card: #ffffff;
+    --card-alt: #eef4fd;
+    --ink: #16204a;
+    --muted: #6b7690;
+    --border: #dde4f4;
+    --radius: 14px;
+    --sidebar-w: 250px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+  }
+
+  h1, h2, h3, h4, .brand-text, .header-badge, .value-card h3 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  a { color: inherit; }
+
+  :focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  img, svg { display: block; }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: linear-gradient(180deg, var(--navy-950) 0%, var(--navy-900) 100%);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    padding: 1.6rem 1.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .brand-mark { width: 34px; height: 34px; flex-shrink: 0; }
+  .brand-text {
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.3;
+    letter-spacing: 0.04em;
+    color: #fff;
+  }
+  .brand-sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--orange-light);
+  }
+
+  .side-nav {
+    list-style: none;
+    padding: 1rem 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .side-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.6rem 0.7rem;
+    border-radius: 10px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .side-icon {
+    width: 32px; height: 32px;
+    border-radius: 9px;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .side-link:hover {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+  }
+  .side-link.active {
+    background: linear-gradient(90deg, var(--blue) 0%, var(--orange) 180%);
+    color: #fff;
+  }
+  .side-link.side-link-admin {
+    margin-top: 0.6rem;
+    border: 1px solid rgba(255,122,31,0.4);
+    color: var(--orange-light);
+  }
+  .sidebar-foot {
+    margin-top: auto;
+    padding: 1.2rem 1.4rem;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ---------- MAIN ---------- */
+  .main {
+    margin-left: var(--sidebar-w);
+    min-height: 100vh;
+  }
+
+  .page-header {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, var(--navy-900) 0%, var(--navy-700) 60%, var(--blue) 130%);
+    border-radius: 0 0 28px 28px;
+    padding: 3.4rem 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    color: #fff;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,.5) 0, transparent 100%),
+      radial-gradient(1px 1px at 80% 15%, rgba(255,255,255,.4) 0, transparent 100%),
+      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,.35) 0, transparent 100%),
+      radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,.3) 0, transparent 100%);
+    pointer-events: none;
+  }
+  .header-text { position: relative; max-width: 620px; }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 0.4rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange-light);
+    margin-bottom: 1.4rem;
+  }
+  .header-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange-light);
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 3.4vw, 2.9rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.1rem;
+  }
+  .page-header h1 .accent { color: var(--orange-light); }
+  .page-header p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 1.8rem;
+    max-width: 520px;
+  }
+  .hero-buttons { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.85rem 1.7rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(255,122,31,0.35);
+  }
+  .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.16); transform: translateY(-2px); }
+
+  .header-mascot {
+    position: relative;
+    flex-shrink: 0;
+    width: 190px; height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mascot-orbit {
+    position: absolute;
+    inset: 0;
+    border: 1.5px dashed rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: spin 18s linear infinite;
+  }
+  .mascot-orbit::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: 50%;
+    width: 8px; height: 8px;
+    background: var(--orange-light);
+    border-radius: 50%;
+    transform: translateX(-50%);
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .mascot-badge {
+    width: 108px; height: 108px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--blue-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  }
+
+  /* ---------- STATS ---------- */
+  .stats-bar {
+    max-width: 1180px;
+    margin: -2.2rem auto 0;
+    padding: 0 3rem;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.3rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    box-shadow: 0 12px 30px rgba(18,41,92,0.08);
+  }
+  .stat-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    background: var(--card-alt);
+  }
+  .stat-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    display: block;
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.74rem;
+    color: var(--muted);
+    margin-top: 0.15rem;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 5.5rem 3rem;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 0.9rem;
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px; height: 2px;
+    background: var(--orange);
+    border-radius: 2px;
+  }
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy-900);
+    margin-bottom: 1.2rem;
+  }
+  .section-desc {
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.8;
+    max-width: 620px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+    margin-top: 2.6rem;
+  }
+  .about-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.2rem;
+    box-shadow: 0 10px 26px rgba(18,41,92,0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .about-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(18,41,92,0.1); }
+  .about-card-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: var(--card-alt);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .about-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.8rem; }
+  .about-card p { color: var(--muted); line-height: 1.8; font-size: 0.92rem; }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+    margin-top: 2.6rem;
+  }
+  .service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.9rem;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    box-shadow: 0 8px 22px rgba(18,41,92,0.05);
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue-light);
+    box-shadow: 0 16px 32px rgba(47,111,237,0.14);
+  }
+  .service-icon {
+    width: 46px; height: 46px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem;
+    margin-bottom: 1.1rem;
+  }
+  .service-card h3 { font-size: 0.92rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.6rem; }
+  .service-card p { color: var(--muted); font-size: 0.87rem; line-height: 1.7; }
+
+  /* ---------- VALUES ---------- */
+  .values-section {
+    background: var(--card-alt);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5.5rem 3rem;
+  }
+  .values-inner { max-width: 1180px; margin: 0 auto; }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    margin-top: 2.6rem;
+  }
+  .value-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.9rem;
+    box-shadow: 0 10px 24px rgba(18,41,92,0.06);
+  }
+  .value-icon {
+    width: 44px; height: 44px;
+    border-radius: 11px;
+    background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    margin-bottom: 1.1rem;
+  }
+  .value-card h3 { font-size: 0.86rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--navy-900); margin-bottom: 0.7rem; }
+  .value-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+
+  /* ---------- TEAM ---------- */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.3rem;
+    margin-top: 2.6rem;
+  }
+  .team-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.7rem 1.3rem;
+    text-align: center;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(18,41,92,0.09); }
+  .team-avatar {
+    width: 62px; height: 62px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--navy-800), var(--blue-light));
+    margin: 0 auto 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #fff;
+  }
+  .team-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.3rem; }
+  .team-card .role { font-size: 0.74rem; color: var(--blue); font-weight: 600; }
+  .team-card .carnet { font-size: 0.7rem; color: var(--muted); margin-top: 0.5rem; }
+
+  /* ---------- ADMIN / RESTRICTED ---------- */
+  .admin-section {
+    background: #fff6ee;
+    border: 1px solid #ffd9b3;
+    border-radius: var(--radius);
+    padding: 2.2rem;
+    margin-top: 2rem;
+  }
+  .admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #ffe6cc;
+    border: 1px solid #ffc78a;
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #b5560a;
+    margin-bottom: 1.4rem;
+  }
+  .admin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .admin-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .admin-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+  .admin-card-icon { font-size: 1.8rem; margin-bottom: 0.7rem; display: block; }
+  .admin-card h4 { font-size: 0.8rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.3rem; }
+  .admin-card p { font-size: 0.74rem; color: var(--muted); }
+
+  /* ---------- EMPLEADOS TABLE ---------- */
+  .empleados-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: 0 10px 26px rgba(18,41,92,0.06);
+    overflow: hidden;
+  }
+  .empleados-box-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+    flex-wrap: wrap;
+  }
+  .emp-status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: empblink 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  @keyframes empblink { 0%,100%{opacity:1} 50%{opacity:.3} }
+  .emp-box-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    flex: 1;
+  }
+  #emp-refresh-btn {
+    background: var(--blue);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  #emp-refresh-btn:hover { background: var(--blue-light); }
+  .emp-table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  .emp-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .emp-table thead tr { background: var(--card-alt); }
+  .emp-table thead th {
+    padding: 0.85rem 1.2rem;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--navy-800);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .emp-table tbody tr { border-top: 1px solid var(--border); transition: background 0.15s; }
+  .emp-table tbody tr:hover { background: var(--card-alt); }
+  .emp-table tbody td { padding: 0.8rem 1.2rem; white-space: nowrap; }
+  .emp-table td.ec-id    { color: var(--muted); font-size: 0.78rem; }
+  .emp-table td.ec-num   { color: var(--ink); }
+  .emp-table td.ec-name  { color: var(--navy-900); font-weight: 600; }
+  .emp-table td.ec-email { color: var(--blue); }
+  .emp-table td.ec-date  { color: var(--orange); font-weight: 600; }
+  .emp-state { padding: 3rem; text-align: center; color: var(--muted); font-size: 0.85rem; }
+  .emp-spinner {
+    display: inline-block; width: 26px; height: 26px;
+    border: 3px solid var(--border);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: empspin 0.65s linear infinite;
+    margin-bottom: 0.85rem;
+  }
+  @keyframes empspin { to { transform: rotate(360deg); } }
+  .emp-error { color: var(--red); }
+
+  /* ---------- QUEJAS FORM ---------- */
+  .queja-form { display: flex; flex-direction: column; gap: 1.2rem; }
+  .queja-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+  }
+  .queja-field { display: flex; flex-direction: column; gap: 0.4rem; }
+  .queja-field-full { grid-column: 1 / -1; }
+  .queja-field label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: var(--navy-800);
+    letter-spacing: 0.03em;
+  }
+  .queja-field select,
+  .queja-field textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 0.7rem 0.9rem;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .queja-field select:focus,
+  .queja-field textarea:focus {
+    border-color: var(--blue-light);
+    background: var(--card);
+  }
+  .queja-field textarea { resize: vertical; font-family: 'Inter', sans-serif; }
+  .queja-form-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .queja-form-footer .btn-primary {
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 8px 20px rgba(255,122,31,0.3);
+  }
+  .queja-form-footer .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+  .queja-feedback { font-size: 0.85rem; font-weight: 600; }
+  .queja-feedback.ok { color: var(--green); }
+  .queja-feedback.err { color: var(--red); }
+
+  @media (max-width: 700px) {
+    .queja-grid { grid-template-columns: 1fr; }
+  }
+
+  #q-refresh-btn {
+    background: var(--blue);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  #q-refresh-btn:hover { background: var(--blue-light); }
+
+  .queja-list {
+    max-height: 420px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-right: 0.3rem;
+  }
+  .queja-list::-webkit-scrollbar { width: 8px; }
+  .queja-list::-webkit-scrollbar-track { background: var(--bg); border-radius: 8px; }
+  .queja-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
+  .queja-list::-webkit-scrollbar-thumb:hover { background: var(--blue-light); }
+
+  .queja-item {
+    background: var(--card-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+  }
+  .queja-item:first-child {
+    border-color: var(--blue-light);
+    box-shadow: 0 0 0 3px rgba(47,111,237,0.08);
+  }
+  .queja-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .queja-item-cliente { font-weight: 700; color: var(--navy-900); font-size: 0.88rem; }
+  .queja-item-meta { font-size: 0.72rem; color: var(--muted); display: flex; gap: 0.6rem; align-items: center; }
+  .queja-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+  }
+  .queja-tag.Reclamo    { background: #ffe1e1; color: var(--red); }
+  .queja-tag.Elogio     { background: #dcf7e7; color: var(--green); }
+  .queja-tag.Sugerencia { background: #dde8ff; color: var(--blue); }
+  .queja-item-stars { color: var(--orange); font-size: 0.85rem; letter-spacing: 1px; }
+  .queja-item-comment { font-size: 0.86rem; color: var(--ink); line-height: 1.6; }
+  .queja-item-pedido { font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.6rem; align-items: start; }
+  .contact-info p { color: var(--muted); line-height: 1.8; margin-bottom: 1.8rem; }
+  .contact-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem; background: var(--card);
+    border: 1px solid var(--border); border-radius: 10px;
+    margin-bottom: 0.9rem; transition: border-color 0.2s;
+  }
+  .contact-item:hover { border-color: var(--blue-light); }
+  .contact-item-icon {
+    width: 40px; height: 40px; border-radius: 9px;
+    background: var(--card-alt);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .contact-item-text { font-size: 0.88rem; color: var(--ink); font-weight: 500; }
+  .contact-item-label { font-size: 0.7rem; color: var(--blue); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.15rem; }
+  .contact-card {
+    background: linear-gradient(135deg, var(--navy-900), var(--navy-700));
+    border-radius: var(--radius);
+    padding: 2.2rem;
+    text-align: center;
+    color: #fff;
+  }
+  .contact-card .badge { font-size: 2.4rem; margin-bottom: 0.9rem; }
+  .contact-card .name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--orange-light); margin-bottom: 0.4rem; }
+  .contact-card .tag { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+  .contact-note { color: var(--muted); font-size: 0.88rem; margin-bottom: 1.4rem; }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--navy-950);
+    padding: 2.4rem 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer p { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+  footer .footer-logo { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1rem; color: #fff; }
+  footer .footer-logo span { color: var(--orange-light); }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px) {
+    .about-grid, .services-grid, .team-grid, .admin-grid, .contact-grid, .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .sidebar {
+      position: static;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      overflow-x: auto;
+    }
+    .brand { border-bottom: none; padding: 1rem 1.2rem; }
+    .side-nav { flex-direction: row; padding: 0.6rem; }
+    .sidebar-foot { display: none; }
+    .main { margin-left: 0; }
+    .page-header { flex-direction: column; text-align: center; border-radius: 0 0 20px 20px; }
+    .hero-buttons { justify-content: center; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 3.5rem 1.4rem; }
+    .page-header { padding: 2.4rem 1.4rem; }
+    .stats-bar, .about-grid, .services-grid, .team-grid, .admin-grid, .contact-grid { grid-template-columns: 1fr; padding: 0 1.4rem; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <a href="#top" class="brand">
+    <div class="brand-mark">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="nBg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#12295c"/>
+            <stop offset="1" stop-color="#2f6fed"/>
+          </linearGradient>
+        </defs>
+        <rect width="36" height="36" rx="9" fill="url(#nBg)"/>
+        <path d="M10 25 L10 11 L14.5 11 L23.5 22 L23.5 11" stroke="#ffffff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22.5 15.5 L27.5 9.5 M27.5 9.5 L27.5 13.5 M27.5 9.5 L23.5 9.5" stroke="#ff7a1f" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <span class="brand-text">NORTEK<br><span class="brand-sub">SOLUTIONS</span></span>
+  </a>
+  <ul class="side-nav" style="list-style:none;">
+    <li><a href="#about" class="side-link"><span class="side-icon">🏢</span> Nosotros</a></li>
+    <li><a href="#servicios" class="side-link"><span class="side-icon">🖥️</span> Servicios</a></li>
+    <li><a href="#valores" class="side-link"><span class="side-icon">⭐</span> Valores</a></li>
+    <li><a href="#equipo" class="side-link"><span class="side-icon">👥</span> Equipo</a></li>
+    <li><a href="#paquetes" class="side-link"><span class="side-icon">📦</span> Paquetes</a></li>
+    <li><a href="#quejas" class="side-link"><span class="side-icon">💬</span> Quejas</a></li>
+    <li><a href="#contacto" class="side-link"><span class="side-icon">✉️</span> Contacto</a></li>
+    <li><a href="#configuraciones" class="side-link side-link-admin"><span class="side-icon">🔒</span> Admin</a></li>
+  </ul>
+  <div class="sidebar-foot">© 2026 Nortek Solutions<br>UMG · FISC</div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HEADER / HERO -->
+  <header class="page-header" id="top">
+    <div class="header-text">
+      <div class="header-badge">Conectamos tu mundo</div>
+      <h1>Movemos tu negocio,<br><span class="accent">sin fronteras</span></h1>
+      <p>
+        Somos la plataforma logística que conecta bodegas, rutas y repartidores en
+        un solo sistema. Gestión de paquetes, seguimiento en tiempo real y
+        cobertura de sucursales para que cada entrega llegue a tiempo.
+      </p>
+      <div class="hero-buttons">
+        <a href="#servicios" class="btn-primary">Explorar servicios</a>
+        <a href="#about" class="btn-secondary">Conocer más →</a>
+      </div>
+    </div>
+    <div class="header-mascot">
+      <div class="mascot-orbit"></div>
+      <div class="mascot-badge">📦</div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-icon">📦</div>
+      <div>
+        <span class="stat-number" id="stat-paquetes">—</span>
+        <span class="stat-label">Paquetes registrados</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🗺️</div>
+      <div>
+        <span class="stat-number" id="stat-rutas">—</span>
+        <span class="stat-label">Rutas activas</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🏬</div>
+      <div>
+        <span class="stat-number" id="stat-bodegas">—</span>
+        <span class="stat-label">Bodegas operativas</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🛵</div>
+      <div>
+        <span class="stat-number" id="stat-repartidores">—</span>
+        <span class="stat-label">Repartidores en servicio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="reveal">
+      <div class="section-tag">Quiénes somos</div>
+      <h2 class="section-title">Logística inteligente<br>para tu negocio</h2>
+      <p class="section-desc">
+        Nortek Solutions nace con la visión de ser la empresa líder en logística de última milla,
+        conectando bodegas, rutas y repartidores en una sola plataforma confiable, escalable y
+        accesible para negocios de todos los tamaños.
+      </p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-card">
+        <span class="about-card-icon">🎯</span>
+        <h3>Misión</h3>
+        <p>Ofrecer un servicio de reparto ágil y confiable, garantizando la trazabilidad de cada paquete desde la bodega hasta su destino final, mediante tecnología de vanguardia y un equipo humano comprometido.</p>
+      </div>
+      <div class="about-card">
+        <span class="about-card-icon">🚀</span>
+        <h3>Visión</h3>
+        <p>Ser la empresa líder en soluciones de logística y reparto en América Latina, ofreciendo cobertura confiable y escalable para negocios de todos los tamaños, desde emprendimientos hasta grandes cadenas comerciales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicios">
+    <div class="reveal">
+      <div class="section-tag">Servicios</div>
+      <h2 class="section-title">Todo lo que tu operación<br>de reparto necesita</h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">🗺️</div>
+        <h3>Gestión de Rutas</h3>
+        <p>Optimiza cada entrega con rutas inteligentes que reducen tiempos y costos de transporte.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <h3>Seguimiento de Paquetes</h3>
+        <p>Monitorea cada paquete en tiempo real, desde que sale de bodega hasta que llega a su destino.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏬</div>
+        <h3>Bodegas & Inventario</h3>
+        <p>Control centralizado del inventario en cada bodega, con visibilidad total de existencias.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛵</div>
+        <h3>Red de Repartidores</h3>
+        <p>Gestiona a tu equipo de repartidores, asigna entregas y supervisa su desempeño en campo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏪</div>
+        <h3>Sucursales</h3>
+        <p>Administra múltiples sucursales conectadas bajo una sola plataforma centralizada.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Reportes en Tiempo Real</h3>
+        <p>Toma decisiones informadas con reportes y métricas de tu operación actualizados al instante.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <div class="values-section" id="valores">
+    <div class="values-inner">
+      <div class="reveal">
+        <div class="section-tag">Nuestros valores</div>
+        <h2 class="section-title">Lo que nos define</h2>
+      </div>
+      <div class="values-grid reveal">
+        <div class="value-card">
+          <div class="value-icon">🕐</div>
+          <h3>Puntualidad</h3>
+          <p>Nos comprometemos con tiempos de entrega precisos, asegurando que cada paquete llegue cuando se prometió, sin importar la distancia o la ruta.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3>Eficiencia</h3>
+          <p>El tiempo perdido es nuestro único enemigo. Optimizamos cada ruta y proceso de bodega para garantizar que la entrega sea lo más rápida posible.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🛡️</div>
+          <h3>Seguridad</h3>
+          <p>Protegemos el activo más valioso de nuestros clientes: sus paquetes. Implementamos trazabilidad y control en cada etapa del proceso de reparto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <section id="equipo">
+    <div class="reveal">
+      <div class="section-tag">Nuestro equipo</div>
+      <h2 class="section-title">El equipo detrás<br>de Nortek Solutions</h2>
+    </div>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-avatar">IM</div>
+        <h4>Isabel Melendez</h4>
+        <div class="role">Full Stack Dev</div>
+        <div class="carnet">9959-23-1379</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">CC</div>
+        <h4>Carlos Calderon</h4>
+        <div class="role">DevOps Engineer</div>
+        <div class="carnet">9959-23-848</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">VG</div>
+        <h4>Victor Gomez</h4>
+        <div class="role">Network Engineer</div>
+        <div class="carnet">9959-23-10733</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">CS</div>
+        <h4>Cristian Sipac</h4>
+        <div class="role">Security Analyst</div>
+        <div class="carnet">9959-23-1567</div>
+      </div>
+	<br>
+      <div class="team-card">
+        <div class="team-avatar">DJ</div>
+        <h4>Daniella Jurado</h4>
+        <div class="role">DevOps Engineer</div>
+        <div class="carnet">0901-23-3679</div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar">AC</div>
+        <h4>Alex Chiquito</h4>
+        <div class="role">DevOps Engineer</div>
+        <div class="carnet">0901-23-3747</div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ADMIN SECTION -->
+  <section id="configuraciones">
+    <div class="reveal">
+      <div class="section-tag">Administración</div>
+      <h2 class="section-title">Panel de configuraciones</h2>
+      <p class="section-desc">Esta sección está restringida a una red y administra la infraestructura que soporta el Sistema de Reparto Nortek. El acceso desde internet es bloqueado por Nginx.</p>
+    </div>
+    <div class="admin-section reveal">
+      <div class="admin-badge">🔒 Solo una Red </div>
+      <div class="admin-grid">
+        <div class="admin-card">
+          <span class="admin-card-icon">📧</span>
+          <h4>Servidor de Correo</h4>
+          <p>SquirrelMail · Apache2 · Puerto 8080</p>
+        </div>
+        <div class="admin-card">
+          <span class="admin-card-icon">🗄️</span>
+          <h4>Base de Datos Interna</h4>
+          <p>MySQL · Red Interna · Puerto 3306</p>
+        </div>
+        <div class="admin-card">
+          <span class="admin-card-icon">🗄️</span>
+          <h4>Base de Datos DMZ</h4>
+          <p>MySQL · DMZ · Puerto 3307</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAQUETES TABLE -->
+  <section id="paquetes">
+    <div class="reveal">
+      <div class="section-tag">Base de Datos</div>
+      <h2 class="section-title">Tabla de Paquetes</h2>
+      <p class="section-desc">Registros en tiempo real de <strong>sistema_reparto.paquete</strong></p>
+    </div>
+
+    <div class="empleados-box reveal">
+      <div class="empleados-box-header">
+        <span class="admin-badge" style="margin-bottom:0;">🔒 Solo una Red</span>
+        <div class="emp-status-dot"></div>
+        <span class="emp-box-title">MySQL · sistema_reparto · paquete</span>
+        <button id="emp-refresh-btn" onclick="loadPaquetes()">⟳ Actualizar</button>
+      </div>
+
+      <div id="emp-table-container">
+        <div class="emp-state">
+          <div class="emp-spinner"></div><br/>
+          Conectando con red 20.10.10.26
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUEJAS FORM -->
+  <section id="quejas">
+    <div class="reveal">
+      <div class="section-tag">Atención al cliente</div>
+      <h2 class="section-title">Registrar una queja</h2>
+      <p class="section-desc">Este formulario guarda directamente en <strong>sistema_reparto.queja</strong>. Selecciona el cliente, la entrega relacionada y el empleado a cargo para dejar constancia del caso.</p>
+    </div>
+
+    <div class="empleados-box reveal">
+      <form id="queja-form" class="queja-form">
+        <div class="queja-grid">
+          <div class="queja-field">
+            <label for="q-cliente">Cliente</label>
+            <select id="q-cliente" required><option value="">Cargando...</option></select>
+          </div>
+          <div class="queja-field">
+            <label for="q-entrega">Entrega relacionada</label>
+            <select id="q-entrega" required><option value="">Cargando...</option></select>
+          </div>
+          <div class="queja-field">
+            <label for="q-tipo">Tipo</label>
+            <select id="q-tipo" required>
+              <option value="">Selecciona...</option>
+              <option value="Reclamo">Reclamo</option>
+              <option value="Elogio">Elogio</option>
+              <option value="Sugerencia">Sugerencia</option>
+            </select>
+          </div>
+          <div class="queja-field">
+            <label for="q-calificacion">Calificación</label>
+            <select id="q-calificacion" required>
+              <option value="">Selecciona...</option>
+              <option value="1">⭐ 1 - Muy mala</option>
+              <option value="2">⭐⭐ 2 - Mala</option>
+              <option value="3">⭐⭐⭐ 3 - Regular</option>
+              <option value="4">⭐⭐⭐⭐ 4 - Buena</option>
+              <option value="5">⭐⭐⭐⭐⭐ 5 - Excelente</option>
+            </select>
+          </div>
+        </div>
+        <div class="queja-field queja-field-full">
+          <label for="q-comentario">Comentario</label>
+          <textarea id="q-comentario" rows="4" placeholder="Describe el caso..." required></textarea>
+        </div>
+        <div class="queja-form-footer">
+          <button type="submit" class="btn-primary" id="q-submit-btn">Enviar queja</button>
+          <span id="q-feedback" class="queja-feedback"></span>
+        </div>
+      </form>
+    </div>
+
+    <div class="empleados-box reveal" style="margin-top:1.4rem;">
+      <div class="empleados-box-header">
+        <div class="emp-status-dot"></div>
+        <span class="emp-box-title">Quejas registradas</span>
+        <button id="q-refresh-btn" onclick="loadQuejasListado()">⟳ Actualizar</button>
+      </div>
+      <div id="quejas-list-container" class="queja-list">
+        <div class="emp-state">
+          <div class="emp-spinner"></div><br/>
+          Cargando quejas...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto">
+    <div class="reveal">
+      <div class="section-tag">Contacto</div>
+      <h2 class="section-title">Conecta con nosotros</h2>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <p class="contact-note">¿Listo para llevar tu infraestructura al siguiente nivel? Nuestro equipo de expertos está disponible para asesorarte.</p>
+        <div class="contact-item">
+          <span class="contact-item-icon">🌐</span>
+          <div>
+            <div class="contact-item-label">Web</div>
+            <div class="contact-item-text">www.nortek.gt</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">📧</span>
+          <div>
+            <div class="contact-item-label">Correo</div>
+            <div class="contact-item-text">norteksolutions.gt@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-icon">🛡️</span>
+          <div>
+            <div class="contact-item-label">Soporte 24/7</div>
+            <div class="contact-item-text">soporte@nortek.gt</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="contact-note">Cobertura en Guatemala — conectamos tu negocio sin fronteras.</p>
+        <div class="contact-card">
+          <div class="badge">📦</div>
+          <div class="name">NORTEK SOLUTIONS</div>
+          <div class="tag">Conectamos tu mundo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">NORTEK<span>SOLUTIONS</span></div>
+      <p style="margin-top:0.4rem;">© 2026 Nortek Solutions — Universidad Mariano Gálvez · FISC</p>
+    </div>
+    <p>Analisis de Sistemas II — Etapa III · Nube Privada</p>
+  </footer>
+
+</main>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Highlight active sidebar link on scroll
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const sideLinks = document.querySelectorAll('.side-link');
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sideLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.side-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(s => navObserver.observe(s));
+
+  // Dashboard - estadísticas en tiempo real
+  async function loadDashboardStats() {
+    try {
+      const res  = await fetch('api_dashboard.php');
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+
+      document.getElementById('stat-paquetes').textContent     = json.data.paquetes;
+      document.getElementById('stat-rutas').textContent        = json.data.rutas;
+      document.getElementById('stat-bodegas').textContent      = json.data.bodegas;
+      document.getElementById('stat-repartidores').textContent = json.data.repartidores;
+    } catch (err) {
+      console.error('Error cargando estadísticas del dashboard:', err);
+    }
+  }
+
+  loadDashboardStats();
+  setInterval(loadDashboardStats, 30000);
+
+  // Tabla de Paquetes
+  const PKG_COLS = [
+    { key: 'Id_Paquete',      label: 'ID',        cls: 'ec-id'    },
+    { key: 'Codigo_Rastreo',  label: 'Rastreo',   cls: 'ec-num'   },
+    { key: 'Pedido',          label: 'Pedido',    cls: 'ec-num'   },
+    { key: 'Descripcion',     label: 'Descripción', cls: 'ec-name' },
+    { key: 'Peso',            label: 'Peso (kg)', cls: 'ec-num'   },
+    { key: 'Fragil',          label: 'Frágil',    cls: 'ec-num'   },
+    { key: 'Valor_Declarado', label: 'Valor Q',   cls: 'ec-date'  },
+    { key: 'Estado',          label: 'Estado',    cls: 'ec-email' },
+  ];
+
+  async function loadPaquetes() {
+    const box = document.getElementById('emp-table-container');
+    box.innerHTML = `<div class="emp-state"><div class="emp-spinner"></div><br/>Cargando registros...</div>`;
+    try {
+      const res  = await fetch('api_paquetes.php');
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+      const rows = json.data;
+      if (!rows.length) {
+        box.innerHTML = `<div class="emp-state">Sin registros en la tabla.</div>`;
+        return;
+      }
+      const thead = PKG_COLS.map(c => `<th>${c.label}</th>`).join('');
+      const tbody = rows.map(r =>
+        `<tr>${PKG_COLS.map(c => `<td class="${c.cls}">${r[c.key] ?? ''}</td>`).join('')}</tr>`
+      ).join('');
+      box.innerHTML = `
+        <div class="emp-table-wrap">
+          <table class="emp-table">
+            <thead><tr>${thead}</tr></thead>
+            <tbody>${tbody}</tbody>
+          </table>
+        </div>`;
+    } catch (err) {
+      box.innerHTML = `<div class="emp-state emp-error">Error de conexión<br/><small style="font-size:.75rem">${err.message}</small></div>`;
+    }
+  }
+
+  loadPaquetes();
+  setInterval(loadPaquetes, 30000);
+
+  // Formulario de Quejas - llenar selects
+  async function loadQuejaOpciones() {
+    try {
+      const res  = await fetch('api_quejas_datos.php');
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+
+      const selCliente  = document.getElementById('q-cliente');
+      const selEntrega  = document.getElementById('q-entrega');
+
+      selCliente.innerHTML = '<option value="">Selecciona un cliente...</option>' +
+        json.data.clientes.map(c => `<option value="${c.id_cliente}">${c.nombres_cliente} ${c.apellidos_cliente}</option>`).join('');
+
+      selEntrega.innerHTML = '<option value="">Selecciona una entrega...</option>' +
+        json.data.entregas.map(e => `<option value="${e.id_entrega}">${e.codigo_pedido} — ${e.fecha_entrega ?? 'sin fecha'}</option>`).join('');
+    } catch (err) {
+      const feedback = document.getElementById('q-feedback');
+      feedback.textContent = 'No se pudieron cargar las opciones del formulario.';
+      feedback.className = 'queja-feedback err';
+    }
+  }
+  loadQuejaOpciones();
+
+  // Formulario de Quejas - listado (scrolleable, más reciente primero)
+  async function loadQuejasListado() {
+    const box = document.getElementById('quejas-list-container');
+    box.innerHTML = `<div class="emp-state"><div class="emp-spinner"></div><br/>Cargando quejas...</div>`;
+    try {
+      const res  = await fetch('api_quejas_listado.php');
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+      const rows = json.data;
+      if (!rows.length) {
+        box.innerHTML = `<div class="emp-state">Aún no hay quejas registradas.</div>`;
+        return;
+      }
+      box.innerHTML = rows.map(r => `
+        <div class="queja-item">
+          <div class="queja-item-top">
+            <span class="queja-item-cliente">${r.cliente_nombres} ${r.cliente_apellidos}</span>
+            <div class="queja-item-meta">
+              <span class="queja-tag ${r.tipo_queja}">${r.tipo_queja}</span>
+              <span class="queja-item-stars">${'⭐'.repeat(r.calificacion_queja)}</span>
+              <span>${r.fecha_queja ?? ''}</span>
+            </div>
+          </div>
+          <div class="queja-item-comment">${r.comentario_queja}</div>
+          <div class="queja-item-pedido">Pedido: ${r.codigo_pedido}</div>
+        </div>
+      `).join('');
+    } catch (err) {
+      box.innerHTML = `<div class="emp-state emp-error">Error de conexión<br/><small style="font-size:.75rem">${err.message}</small></div>`;
+    }
+  }
+  loadQuejasListado();
+
+  // Formulario de Quejas - envío
+  document.getElementById('queja-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('q-submit-btn');
+    const feedback = document.getElementById('q-feedback');
+    feedback.textContent = '';
+    feedback.className = 'queja-feedback';
+
+    const payload = {
+      id_cliente:   document.getElementById('q-cliente').value,
+      id_entrega:   document.getElementById('q-entrega').value,
+      tipo:         document.getElementById('q-tipo').value,
+      calificacion: document.getElementById('q-calificacion').value,
+      comentario:   document.getElementById('q-comentario').value.trim(),
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    try {
+      const res  = await fetch('api_guardar_queja.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.error);
+
+      feedback.textContent = '✓ Queja registrada correctamente.';
+      feedback.className = 'queja-feedback ok';
+      document.getElementById('queja-form').reset();
+      loadQuejasListado();
+    } catch (err) {
+      feedback.textContent = 'Error: ' + err.message;
+      feedback.className = 'queja-feedback err';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Enviar queja';
+    }
+  });
+</script>
+</body>
+</html>
