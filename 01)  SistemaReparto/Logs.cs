@@ -28,24 +28,21 @@ namespace SistemaReparto
                     MessageBox.Show($"Bienvenido, {Sesion.NombreEmpleado}\nRoles: {Sesion.RolesComoTexto()}",
                         "Acceso concedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    bool esAdmin = Sesion.Roles.Any(r => r.NombreRol == "Administrador");
+                    
                     bool esRepartidor = Sesion.Roles.Any(r => r.NombreRol == "Repartidor");
-                    if (esAdmin)
-                    {
-                        Menu menuAdmin = new Menu();
-                        menuAdmin.Show();
-                        this.Hide();
-                    }
-                    else if (esRepartidor)
+
+                    if (esRepartidor)
                     {
                         Menu_Repartidor menuRepartidor = new Menu_Repartidor();
                         menuRepartidor.Show();
                         this.Hide();
+                        
                     }
-                    else
+                    else 
                     {
-                        MessageBox.Show("Tu rol no tiene un menu asignado. Contacta al administrador.",
-                            "Acceso limitado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        Menu menuAdmin = new Menu();
+                        menuAdmin.Show();
+                        this.Hide();
                     }
                 }
             }
