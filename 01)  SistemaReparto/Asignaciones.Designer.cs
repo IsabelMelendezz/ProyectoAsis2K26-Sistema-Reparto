@@ -503,6 +503,7 @@
             txtBuscarPedido.PlaceholderText = "Buscar pedido o cliente...";
             txtBuscarPedido.Size = new Size(385, 27);
             txtBuscarPedido.TabIndex = 0;
+            txtBuscarPedido.TextChanged += txtBuscarPedido_TextChanged;
             // 
             // btnBuscarPedido
             // 

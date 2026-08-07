@@ -124,51 +124,51 @@ namespace SistemaReparto
                 }
 
                 btnAgregar.Enabled = true;
-                btnLimpiar.Enabled = true;  
+                btnLimpiar.Enabled = true;
                 btnConfirmarAsignacion.Enabled = true;
-                btnCancelar.Enabled = true; 
+                btnCancelar.Enabled = true;
 
-               
+
                 // --- fin verificación ---
 
-             objAsignaciones.CargarRutas(cboRuta);
+                objAsignaciones.CargarRutas(cboRuta);
 
-            objAsignaciones.CargarRepartidores(cboRepartidor);
+                objAsignaciones.CargarRepartidores(cboRepartidor);
 
-            objAsignaciones.CargarVehiculos(cboVehiculo);
+                objAsignaciones.CargarVehiculos(cboVehiculo);
 
-            objAsignaciones.CargarEstados(cboEstado);
+                objAsignaciones.CargarEstados(cboEstado);
 
-            dgvPedidosDisponibles.AutoGenerateColumns = true;
-            dgvPedidosAsignados.AutoGenerateColumns = true;
+                dgvPedidosDisponibles.AutoGenerateColumns = true;
+                dgvPedidosAsignados.AutoGenerateColumns = true;
 
-            dgvPedidosAsignados.AllowUserToAddRows = false;
-            dgvPedidosDisponibles.AllowUserToAddRows = false;
+                dgvPedidosAsignados.AllowUserToAddRows = false;
+                dgvPedidosDisponibles.AllowUserToAddRows = false;
 
 
-            if (!dgvPedidosDisponibles.Columns.Contains("Seleccionar"))
-            {
-                DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
+                if (!dgvPedidosDisponibles.Columns.Contains("Seleccionar"))
+                {
+                    DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
 
-                chk.Name = "Seleccionar";
-                chk.HeaderText = "";
-                chk.Width = 30;
+                    chk.Name = "Seleccionar";
+                    chk.HeaderText = "";
+                    chk.Width = 30;
 
-                dgvPedidosDisponibles.Columns.Insert(0, chk);
-            }
+                    dgvPedidosDisponibles.Columns.Insert(0, chk);
+                }
 
-            if (!dgvPedidosAsignados.Columns.Contains("Eliminar"))
-            {
-                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                if (!dgvPedidosAsignados.Columns.Contains("Eliminar"))
+                {
+                    DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
 
-                btn.Name = "Eliminar";
-                btn.HeaderText = "";
-                btn.Text = "X";
-                btn.UseColumnTextForButtonValue = true;
-                btn.Width = 40;
+                    btn.Name = "Eliminar";
+                    btn.HeaderText = "";
+                    btn.Text = "X";
+                    btn.UseColumnTextForButtonValue = true;
+                    btn.Width = 40;
 
-                dgvPedidosAsignados.Columns.Add(btn);
-            }
+                    dgvPedidosAsignados.Columns.Add(btn);
+                }
             }
             catch (Exception ex)
             {
@@ -176,7 +176,7 @@ namespace SistemaReparto
             }
         }
         //Permisos de botones según el rol del usuario
-        
+
         //Desabilita todos los controles del formulario, útil cuando el usuario no tiene permisos
         private void DeshabilitarFormularioCompleto()
         {
@@ -363,6 +363,11 @@ namespace SistemaReparto
             lblTiempoEstimadoBottomValor.Text = "00:00";
 
             cboRuta.Focus();
+        }
+
+        private void txtBuscarPedido_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

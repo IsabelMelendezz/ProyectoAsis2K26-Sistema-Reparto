@@ -9,7 +9,7 @@ namespace SistemaReparto.Clases
 {
     internal class CConexion
     {
-        MySqlConnection conex = new MySqlConnection();
+        MySqlConnection conexion = new MySqlConnection();
         static string servidor = "localhost";
         static string bd = "sistema_reparto";
         static string usuario = "root";
@@ -23,17 +23,17 @@ namespace SistemaReparto.Clases
         {
             try
             {
-                conex.ConnectionString = cadenaConexion;
-                conex.Open();
+                conexion.ConnectionString = cadenaConexion;
+                conexion.Open();
                 //MessageBox.Show("Se conecto a la base de datos");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se conecto a la base de datos, error: " + ex.ToString());
             }
-            return conex;
+            return conexion;
         }
 
-        public void cerrarConexion() { conex.Close(); }
+        public void cerrarConexion() { conexion.Close(); }
     }
 }
